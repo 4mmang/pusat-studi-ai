@@ -17,39 +17,48 @@
                 </a>
 
                 <nav id="nav-menu"
-                    class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
-                    <ul class="block lg:flex space-x-4">
+                    class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none nav-menu">
+                    <ul class="block lg:flex">
                         <li class="group">
-                            <a href="#home"
+                            <a href="#beranda"
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
                         </li>
-                        <li class="group">
-                            <a href="#about"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Kami</a>
-                        </li>
-                        <li class="relative group">
-                            <a href="#workshops" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">
-                                Workshops
+                        
+                        {{-- <li class="group relative">
+                            <a href="#"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Publikasi
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </a>
                             <ul
-                                class="absolute left-0 hidden mt-2 bg-white border border-gray-300 rounded shadow-lg group-hover:block group-focus:block">
+                                class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg p-3 max-w-[250px]">
                                 <li>
-                                    <a href="#workshop1" class="block px-4 py-2 text-dark hover:bg-gray-100">Workshop
-                                        1</a>
+                                    <a href="#statistik"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Statistik</a>
                                 </li>
                                 <li>
-                                    <a href="#workshop2" class="block px-4 py-2 text-dark hover:bg-gray-100">Workshop
-                                        2</a>
-                                </li>
-                                <li>
-                                    <a href="#workshop3" class="block px-4 py-2 text-dark hover:bg-gray-100">Workshop
-                                        3</a>
+                                    <a href="#data-publikasi"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Data Publikasi</a>
                                 </li>
                             </ul>
+                        </li> --}}
+
+                        <li class="group">
+                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
                         </li>
                         <li class="group">
-                            <a href="#login"
-                                class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 flex group-hover:bg-blue-400">Login</a>
+                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data Publikasi</a>
+                        </li>
+                        <li class="group">
+                            <a href="#tentang-kami" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Kami</a>
+                        </li>
+                        <li class="group">
+                            <a href="#"
+                                class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 flex group-hover:bg-blue-400">Masuk</a>
                         </li>
                     </ul>
                 </nav>

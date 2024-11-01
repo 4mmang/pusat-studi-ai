@@ -15,21 +15,39 @@ hamburger.addEventListener('click', function () {
     navMenu.classList.toggle('hidden')
 })
 
+// slideshow
+
 let currentSlide = 0;
-const slides = document.getElementById('slides');
-const totalSlides = slides.children.length;
+const slides = document.getElementById("slides");
+const indicators = document.querySelectorAll("#indicators div");
 
-function updateSlide() {
-    const offset = -currentSlide * 100;
-    slides.style.transform = `translateX(${offset}%)`;
+function showSlide(index) {
+    const totalSlides = indicators.length;
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    // Update transform untuk menggeser slide
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // Update indikator
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === currentSlide);
+    });
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlide();
-}
+// Automatic Slide
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 3000); // Ganti slide setiap 3 detik
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlide();
-}
+// Show first slide
+showSlide(currentSlide);
+
+// dropdown menu
+// const publikasi = document.querySelector('.group.relative');
+// const dropdown = publikasi.querySelector('ul');

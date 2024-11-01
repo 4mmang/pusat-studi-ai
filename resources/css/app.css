@@ -27,3 +27,19 @@ body{
 .hamburger-active > span:nth-child(3) {
     @apply -rotate-45;
 }
+
+.nav-menu {
+    white-space: nowrap; /* Mencegah teks membungkus */
+}
+
+.nav-menu ul {
+    text-overflow: ellipsis; /* Menampilkan elipsis untuk teks yang panjang */
+}
+
+.group.relative {
+    position: relative; /* Agar dropdown dapat diposisikan dengan benar */
+}
+
+.active {
+    background-color: blue; /* Warna untuk indikator aktif */
+}

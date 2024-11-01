@@ -6,7 +6,7 @@
             <div class="flex flex-wrap lg:flex-nowrap">
                 <div class="w-full self-center px-4 lg:w-1/2">
                     <h1 class="text-base font-semibold text-primary md:text-xl lg:text-xl">
-                        Halo Semua 👋, Kami Adalah
+                        {{-- Halo Semua 👋, Kami Adalah --}}
                         <span class="block font-bold text-4xl mt-1 text-dark lg:text-5xl">Pusat Studi AI</span>
                     </h1>
                     <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">
@@ -20,7 +20,7 @@
                     </p>
                 </div>
 
-                <div class="w-full self-end px-4 lg:w-1/2 -mt-10">
+                {{-- <div class="w-full self-end px-4 lg:w-1/2 -mt-10">
                     <div class="relative w-full max-w-2xl mx-auto mt-10 overflow-hidden">
                         <div class="flex transition-transform duration-300" id="slides">
                             <div class="min-w-full">
@@ -39,27 +39,75 @@
                         <button onclick="nextSlide()"
                             class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Next</button>
                     </div>
+                </div> --}}
+
+                <div class="w-full self-end px-4 lg:w-1/2 -mt-10">
+                    <div class="relative w-full max-w-2xl mx-auto mt-10 overflow-hidden" id="slider-container">
+                        <div class="flex transition-transform duration-300" id="slides">
+                            <div class="min-w-full">
+                                <img src="https://picsum.photos/800/400?random=1" alt="Gambar 1"
+                                    class="w-full h-auto rounded-lg" />
+                            </div>
+                            <div class="min-w-full">
+                                <img src="https://picsum.photos/800/400?random=2" alt="Gambar 2"
+                                    class="w-full h-auto rounded-lg" />
+                            </div>
+                            <div class="min-w-full">
+                                <img src="https://picsum.photos/800/400?random=3" alt="Gambar 3"
+                                    class="w-full h-auto rounded-lg" />
+                            </div>
+                        </div>
+                        <!-- Indikator Bulat -->
+                        <div class="flex justify-center mt-4 space-x-2" id="indicators">
+                            <div class="h-2 w-2 bg-gray-800 rounded-full" data-slide="0"></div>
+                            <div class="h-2 w-2 bg-gray-800 rounded-full" data-slide="1"></div>
+                            <div class="h-2 w-2 bg-gray-800 rounded-full" data-slide="2"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
 
+    <!-- Our statistik Section Start -->
+    <section id="workshops" class="pt-32 pb-32 bg-slate-100">
+        <div class="container">
+            <div class="max-w-xl mx-auto text-center mb-16">
+                {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">Statistik</h4> --}}
+                <div class="max-w-xl">
+                    <h2 class="text-3xl font-bold sm:text-4xl">Total Penelitian, Pengabdian dan Publikasi</h2>
+
+                    <p class="mt-4 text-base text-slate-500">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
+                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
+                        quibusdam, quos fuga minima.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/2">
+                    <canvas id="myBarChart"></canvas>
+                </div>
+            </div>
+    </section>
+    <!-- Our statistik Section End -->
+
     <!-- About Section Start -->
-    <section id="about" class="pt-32 pb-32 bg-slate-100">
+    <section id="tentang-kami" class="pt-32 pb-32">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold uppercase text-primary text-lg mb-3">About Us</h4>
-                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Klinik Algoritma</h4>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">We are a community passionate about
-                        algorithms, dedicated to enhancing problem-solving skills and sharing knowledge. Our
-                        goal is to contribute to various projects with enthusiasm and commitment, while helping each other
-                        grow and develop.</p>
+                    <h4 class="font-bold uppercase text-primary text-lg mb-3">Tentang Kami</h4>
+                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi AI</h4>
+                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit. Vitae excepturi possimus, eum veniam voluptatem aperiam accusamus
+                        quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati vel veritatis
+                        sequi.</p>
                 </div>
 
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Join our community!</h3>
+                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Bergabung dengan kami!</h3>
                     <p class="font-medium text-base text-secondary mb-6">Connect with us through the social media links
                         below.</p>
                     <div class="flex items-center">
@@ -88,182 +136,80 @@
         </div>
     </section>
     <!-- About Section End -->
+@endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myBarChart').getContext('2d');
 
+        // bar
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
+                datasets: [{
+                    label: 'Total Data',
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)', 
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-    <!-- Our Services Section Start -->
-    <section id="services" class="pt-32 pb-32">
-        <div class="container">
-            <div class="max-w-screen-xl px-4">
-                <h4 class="font-bold uppercase text-primary text-lg mb-3">Our Services</h4>
-                <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">What makes us special</h2>
-
-                    <p class="mt-4 text-base text-slate-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
-                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
-                        quibusdam, quos fuga minima.
-                    </p>
-                </div>
-
-                <div class="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
-                    <div class="flex items-start gap-4">
-                        <span class="shrink-0 rounded-lg p-4">
-                            <svg class="size-10" role="img" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>The Algorithms</title>
-                                <path
-                                    d="M8.226,19.857H1.353l1.79-4.225h4.812L13.308,3.21H7.564l-4.226,9.82h2.587c.18.3.511.51.887.51a1.04,1.04,0,0,0,1.038-1.037c0-.572-.467-1.023-1.038-1.023-.421,0-.767.24-.932.602H4.647l3.503-7.94h3.76L7.383,14.684l-4.766.03L0,20.79h8.842L10,18.263h3.835l1.278,2.526H24L15.985,3.211Zm2.27-2.586,1.384-3.023,1.503,3.023zm5.218,2.691-.872-1.759h2.737c.18.33.526.556.917.556a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.42,0-.782.256-.947.617H14.42l-2.09-4.06,1.534-3.369,1.729,3.519h.812c.165.346.526.601.932.601a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.436,0-.812.271-.962.662h-.3l-1.79-3.64,1.699-3.728,6.677,14.751Z" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
-
-                            <p class="mt-1 text-sm text-slate-500">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, consectetur? Nesciunt,
-                                aperiam?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="shrink-0 rounded-lg p-4">
-                            <svg class="size-10" role="img" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>The Algorithms</title>
-                                <path
-                                    d="M8.226,19.857H1.353l1.79-4.225h4.812L13.308,3.21H7.564l-4.226,9.82h2.587c.18.3.511.51.887.51a1.04,1.04,0,0,0,1.038-1.037c0-.572-.467-1.023-1.038-1.023-.421,0-.767.24-.932.602H4.647l3.503-7.94h3.76L7.383,14.684l-4.766.03L0,20.79h8.842L10,18.263h3.835l1.278,2.526H24L15.985,3.211Zm2.27-2.586,1.384-3.023,1.503,3.023zm5.218,2.691-.872-1.759h2.737c.18.33.526.556.917.556a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.42,0-.782.256-.947.617H14.42l-2.09-4.06,1.534-3.369,1.729,3.519h.812c.165.346.526.601.932.601a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.436,0-.812.271-.962.662h-.3l-1.79-3.64,1.699-3.728,6.677,14.751Z" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h2 class="text-lg font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-
-                            <p class="mt-1 text-sm text-slate-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="shrink-0 rounded-lg p-4">
-                            <svg class="size-10" role="img" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>The Algorithms</title>
-                                <path
-                                    d="M8.226,19.857H1.353l1.79-4.225h4.812L13.308,3.21H7.564l-4.226,9.82h2.587c.18.3.511.51.887.51a1.04,1.04,0,0,0,1.038-1.037c0-.572-.467-1.023-1.038-1.023-.421,0-.767.24-.932.602H4.647l3.503-7.94h3.76L7.383,14.684l-4.766.03L0,20.79h8.842L10,18.263h3.835l1.278,2.526H24L15.985,3.211Zm2.27-2.586,1.384-3.023,1.503,3.023zm5.218,2.691-.872-1.759h2.737c.18.33.526.556.917.556a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.42,0-.782.256-.947.617H14.42l-2.09-4.06,1.534-3.369,1.729,3.519h.812c.165.346.526.601.932.601a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.436,0-.812.271-.962.662h-.3l-1.79-3.64,1.699-3.728,6.677,14.751Z" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
-
-                            <p class="mt-1 text-sm text-slate-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="shrink-0 rounded-lg p-4">
-                            <svg class="size-10" role="img" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>The Algorithms</title>
-                                <path
-                                    d="M8.226,19.857H1.353l1.79-4.225h4.812L13.308,3.21H7.564l-4.226,9.82h2.587c.18.3.511.51.887.51a1.04,1.04,0,0,0,1.038-1.037c0-.572-.467-1.023-1.038-1.023-.421,0-.767.24-.932.602H4.647l3.503-7.94h3.76L7.383,14.684l-4.766.03L0,20.79h8.842L10,18.263h3.835l1.278,2.526H24L15.985,3.211Zm2.27-2.586,1.384-3.023,1.503,3.023zm5.218,2.691-.872-1.759h2.737c.18.33.526.556.917.556a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.42,0-.782.256-.947.617H14.42l-2.09-4.06,1.534-3.369,1.729,3.519h.812c.165.346.526.601.932.601a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.436,0-.812.271-.962.662h-.3l-1.79-3.64,1.699-3.728,6.677,14.751Z" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h2 class="text-lg font-bold">Lorem ipsum, dolor sit amet consectetur adipisicing.</h2>
-
-                            <p class="mt-1 text-sm text-slate-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="shrink-0 rounded-lg p-4">
-                            <svg class="size-10" role="img" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>The Algorithms</title>
-                                <path
-                                    d="M8.226,19.857H1.353l1.79-4.225h4.812L13.308,3.21H7.564l-4.226,9.82h2.587c.18.3.511.51.887.51a1.04,1.04,0,0,0,1.038-1.037c0-.572-.467-1.023-1.038-1.023-.421,0-.767.24-.932.602H4.647l3.503-7.94h3.76L7.383,14.684l-4.766.03L0,20.79h8.842L10,18.263h3.835l1.278,2.526H24L15.985,3.211Zm2.27-2.586,1.384-3.023,1.503,3.023zm5.218,2.691-.872-1.759h2.737c.18.33.526.556.917.556a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.42,0-.782.256-.947.617H14.42l-2.09-4.06,1.534-3.369,1.729,3.519h.812c.165.346.526.601.932.601a1.04,1.04,0,0,0,1.038-1.037,1.04,1.04,0,0,0-1.038-1.038c-.436,0-.812.271-.962.662h-.3l-1.79-3.64,1.699-3.728,6.677,14.751Z" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
-
-                            <p class="mt-1 text-sm text-slate-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Our Services Section End -->
-
-    <section id="workshops" class="pt-32 pb-32">
-        <div class="container">
-            <div class="max-w-xl mx-auto text-center mb-16">
-                <h4 class="font-bold uppercase text-primary text-lg mb-3">Workshops</h4>
-                <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">Cooming Soon!</h2>
-
-                    <p class="mt-4 text-base text-slate-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
-                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
-                        quibusdam, quos fuga minima.
-                    </p>
-                </div>
-            </div>
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/2">
-                    <article class="flex bg-white transition hover:shadow-xl">
-                        <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                            <time datetime="2022-10-10"
-                                class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
-                                <span>2024</span>
-                                <span class="w-px flex-1 bg-gray-900/10"></span>
-                                <span>Oct 10</span>
-                            </time>
-                        </div>
-
-                        <div class="hidden sm:block sm:basis-56">
-                            <img alt="" src="{{ asset('img/fuzzy-logic.jpeg') }}"
-                                class="aspect-square h-full w-full object-cover" />
-                        </div>
-
-                        <div class="flex flex-1 flex-col justify-between">
-                            <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                                <a href="#">
-                                    <h3 class="font-bold uppercase text-gray-900">
-                                        Training Fuzzy Logic Algorithm
-                                    </h3>
-                                </a>
-
-                                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus
-                                    pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                                    quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius
-                                    atque dignissimos. Molestias explicabo corporis voluptatem?
-                                </p>
-                            </div>
-
-                            <div class="sm:flex sm:items-end sm:justify-end">
-                                <a href="#"
-                                    class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400">
-                                    Regist Now
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-    </section>
+        // line
+        // var myLineChart = new Chart(ctx, {
+        //     type: 'line', // Jenis chart adalah line
+        //     data: {
+        //         labels: ['2021', '2022', '2023'], // Tahun sebagai label
+        //         datasets: [{
+        //                 label: 'Penelitian',
+        //                 data: [10, 15, 40], // Data untuk Penelitian
+        //                 fill: false,
+        //                 borderColor: 'rgba(255, 99, 132, 1)',
+        //                 borderWidth: 2,
+        //                 tension: 0.1 // Kelengkungan garis
+        //             },
+        //             {
+        //                 label: 'Pengabdian',
+        //                 data: [10, 25, 35], // Data untuk Pengabdian
+        //                 fill: false,
+        //                 borderColor: 'rgba(54, 162, 235, 1)',
+        //                 borderWidth: 2,
+        //                 tension: 0.1
+        //             },
+        //             {
+        //                 label: 'Publikasi',
+        //                 data: [5, 25, 35], // Data untuk Publikasi
+        //                 fill: false,
+        //                 borderColor: 'rgba(255, 206, 86, 1)',
+        //                 borderWidth: 2,
+        //                 tension: 0.1
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
+    </script>
 @endsection
