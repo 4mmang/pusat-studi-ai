@@ -12,7 +12,8 @@
                     <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
                 </button>
 
-                <a href="#login" class="lg:hidden text-base rounded-full bg-primary text-white py-2 px-4 mx-12">
+                <a href="{{ url('login') }}"
+                    class="lg:hidden text-base rounded-full bg-primary text-white py-2 px-4 mx-12">
                     Masuk
                 </a>
 
@@ -23,7 +24,7 @@
                             <a href="#beranda"
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
                         </li>
-                        
+
                         {{-- <li class="group relative">
                             <a href="#"
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Publikasi
@@ -48,16 +49,19 @@
                         </li> --}}
 
                         <li class="group">
-                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
-                        </li>
-                        <li class="group">
-                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data Publikasi</a>
-                        </li>
-                        <li class="group">
-                            <a href="#tentang-kami" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Kami</a>
-                        </li>
-                        <li class="group">
                             <a href="#"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
+                        </li>
+                        <li class="group">
+                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data
+                                Publikasi</a>
+                        </li>
+                        <li class="group">
+                            <a href="#tentang-kami"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Kami</a>
+                        </li>
+                        <li class="group">
+                            <a href="{{ url('login') }}"
                                 class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 flex group-hover:bg-blue-400">Masuk</a>
                         </li>
                     </ul>

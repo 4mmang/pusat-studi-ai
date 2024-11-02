@@ -13,7 +13,7 @@
 <body class="bg-gray-100">
     <div class="container mx-auto h-screen flex justify-center items-center px-4">
         <div class="bg-white shadow-md rounded-lg max-w-sm w-full p-6">
-            <h1 class="text-3xl font-bold mb-4 text-center">Please Login</h1>
+            <h1 class="text-3xl font-bold mb-5 text-center">Selamat Datang di <span class="text-primary"><a href="{{ url('/') }}">Pusat Studi AI</a></span></h1>
             <form>
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
@@ -24,12 +24,12 @@
                         </p>
                 </div>
                 <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email"
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <button type="submit"
-                    class="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-600 w-full">Submit</button>
+                    class="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-600 w-full">Masuk</button>
             </form>
         </div>
     </div>
