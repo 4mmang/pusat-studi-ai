@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36 pb-12">
+    <section id="beranda" class="pt-36 pb-12">
         <div class="container">
             <div class="flex flex-wrap lg:flex-nowrap">
                 <div class="w-full self-center px-4 lg:w-1/2">
@@ -76,7 +76,7 @@
             <div class="max-w-xl mx-auto text-center mb-16">
                 {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">Statistik</h4> --}}
                 <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">Total Penelitian, Pengabdian dan Publikasi</h2>
+                    <h2 class="text-3xl font-bold sm:text-4xl">Total Data Penelitian, Pengabdian dan Publikasi</h2>
 
                     <p class="mt-4 text-base text-slate-500">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
