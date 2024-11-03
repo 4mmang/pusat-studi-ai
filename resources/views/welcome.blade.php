@@ -74,9 +74,9 @@
     <section id="workshops" class="pt-32 pb-32 bg-slate-100">
         <div class="container">
             <div class="max-w-xl mx-auto text-center mb-16">
-                {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">Statistik</h4> --}}
+                <h4 class="font-bold uppercase text-primary text-lg mb-2">Total Data</h4>
                 <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">Total Data Penelitian, Pengabdian dan Publikasi</h2>
+                    <h2 class="text-3xl font-bold sm:text-4xl">Penelitian, Pengabdian dan Publikasi</h2>
 
                     <p class="mt-4 text-base text-slate-500">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
@@ -151,14 +151,10 @@
                     label: 'Total Data',
                     data: [10, 20, 30],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)', 
+                        '#60A5FA',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
+                        '#60A5FA',
                     ],
                     borderWidth: 1
                 }]
