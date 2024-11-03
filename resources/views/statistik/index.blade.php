@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Our statistik Section Start -->
-    <section id="workshops" class="pt-32 pb-32 bg-slate-100">
+    <section id="workshops" class="pt-36 pb-32">
         <div class="container">
             <div class="max-w-xl mx-auto text-center mb-16">
                 <h4 class="font-bold uppercase text-primary text-lg mb-2">Statistik Data</h4>
@@ -21,7 +21,7 @@
                     <canvas id="myBarChart" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
-                    <h1 class="text-center mb-3">Grafik Persentase Partisipasi Dosen</h1>
+                    <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi Jurusan</h1>
                     <canvas id="myLineChart" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-full">

@@ -53,7 +53,7 @@
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
                         </li>
                         <li class="group">
-                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data
+                            <a href="{{ url('data/publikasi') }}" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data
                                 Publikasi</a>
                         </li>
                         <li class="group">
