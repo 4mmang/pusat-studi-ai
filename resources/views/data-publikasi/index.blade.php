@@ -39,7 +39,7 @@
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">MALCOM: Indonesian Journal of Machine Learning and Computer Science</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Jurnal Penelitian</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
-                                <td class="px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Link</td>
                             </tr> 
                             <tr class="odd:bg-gray-50">
@@ -54,7 +54,7 @@
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">MALCOM: Indonesian Journal of Machine Learning and Computer Science</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Jurnal Penelitian</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
-                                <td class="px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Link</td>
                             </tr> 
                             <tr class="odd:bg-gray-50">
@@ -68,7 +68,7 @@
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">MALCOM: Indonesian Journal of Machine Learning and Computer Science</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Jurnal Penelitian</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
-                                <td class="px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">2024-01-01</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">Link</td>
                             </tr> 
                         </tbody>
