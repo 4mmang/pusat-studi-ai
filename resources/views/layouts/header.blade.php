@@ -49,7 +49,7 @@
                         </li> --}}
 
                         <li class="group">
-                            <a href="#"
+                            <a href="{{ url('statistik') }}"
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
                         </li>
                         <li class="group">
