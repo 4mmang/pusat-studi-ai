@@ -7,7 +7,7 @@
                 <div class="w-full self-center px-4 lg:w-1/2">
                     <h1 class="text-base font-semibold text-primary md:text-xl lg:text-xl">
                         {{-- Halo Semua 👋, Kami Adalah --}}
-                        <span class="block font-bold text-4xl mt-1 text-dark lg:text-5xl">Pusat Studi AI</span>
+                        <span class="block font-bold text-4xl mt-1 text-primar lg:text-5xl">Selamat <span class="text-dark">Datang</span>
                     </h1>
                     <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">
                         {{-- <span class="text-dark">Artificial Intelligence</span> --}}
@@ -151,10 +151,22 @@
                     label: 'Total Data',
                     data: [10, 20, 30],
                     backgroundColor: [
-                        '#60A5FA',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
                     ],
                     borderColor: [
-                        '#60A5FA',
+                        'rgb(255, 99, 132)',
+                        'rgb(75, 192, 192)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
                     ],
                     borderWidth: 1
                 }]

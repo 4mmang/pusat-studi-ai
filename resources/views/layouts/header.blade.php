@@ -3,7 +3,7 @@
     <div class="container">
         <div class="flex items-center justify-between relative">
             <div class="px-4">
-                <a href="#home" class="font-bold text-3xl text-primary block py-6">Pusat Studi AI</a>
+                <a href="#home" class="font-bold text-3xl text-primary block py-6"><span class="text-dark">Pusat</span> Studi AI</a>
             </div>
             <div class="flex items-center px-4">
                 <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
