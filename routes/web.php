@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('tentang-kami', function () {
+    return view('tentang-kami');
+});
+
 Route::get('/statistik', function () {
     return view('statistik.index');
 });

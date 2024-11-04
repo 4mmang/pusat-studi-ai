@@ -12,7 +12,7 @@
             </div>
             <div class="px-4">
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y-2 divide-x-2 divide-gray-200 bg-white text-sm border border-gray-300">
+                    <table id="search-table" class="min-w-full divide-y-2 divide-x-2 divide-gray-200 bg-white text-sm border border-gray-300">
                         <thead class="ltr:text-left rtl:text-right">
                             <tr>
                                 <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">No</th>
@@ -78,4 +78,4 @@
         </div>
     </section>
     <!-- About Section End --> 
-@endsection
+@endsection 

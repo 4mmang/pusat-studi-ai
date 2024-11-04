@@ -22,7 +22,7 @@
                     <ul class="block lg:flex">
                         <li class="group">
                             <a href="{{ url('/') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('/') ? 'text-primary' : '' }}">Beranda</a>
                         </li>
 
                         {{-- <li class="group relative">
@@ -50,15 +50,15 @@
 
                         <li class="group">
                             <a href="{{ url('statistik') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Statistik</a>
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('statistik') ? 'text-primary' : '' }}">Statistik</a>
                         </li>
                         <li class="group">
-                            <a href="{{ url('data/publikasi') }}" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Data
+                            <a href="{{ url('data/publikasi') }}" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('data/publikasi') ? 'text-primary' : '' }}">Data
                                 Publikasi</a>
                         </li>
                         <li class="group">
-                            <a href="#tentang-kami"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Kami</a>
+                            <a href="{{ url('tentang-kami') }}"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('tentang-kami') ? 'text-primary' : '' }}">Tentang Kami</a>
                         </li>
                         <li class="group">
                             <a href="{{ url('login') }}"
