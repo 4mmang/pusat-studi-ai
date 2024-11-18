@@ -31,7 +31,7 @@
                                 Kami</a>
                         </li>
                         <li class="group relative">
-                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Pusat
+                            <a id="dropdownButtonPusatStudi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Pusat
                                 Studi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -40,8 +40,8 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <ul
-                                class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg p-3 max-w-[250px]">
+                            <ul id="dropdownMenuPusatStudi"
+                                class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
                                     <a href="{{ url('pusat-studi/artificial-intelligance') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Pusat Studi A</a>
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="group relative">
-                            <a href="#" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Akses
+                            <a id="dropdownButtonAksesCepat" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Akses
                                 Cepat
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -76,8 +76,8 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <ul
-                                class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg p-3 max-w-[250px]">
+                            <ul id="dropdownMenuAksesCepat"
+                                class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
                                     <a href="#statistik"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Pusdata

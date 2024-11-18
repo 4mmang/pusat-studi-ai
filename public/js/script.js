@@ -17,12 +17,24 @@ hamburger.addEventListener('click', function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButtonPusatStudi = document.getElementById("dropdownButtonPusatStudi");
+    const dropdownMenuPusatStudi = document.getElementById("dropdownMenuPusatStudi");
+    const dropdownButtonAksesCepat = document.getElementById("dropdownButtonAksesCepat");
+    const dropdownMenuAksesCepat = document.getElementById("dropdownMenuAksesCepat");
     const dropdownButtonData = document.getElementById("dropdownButtonData");
     const dropdownMenuData = document.getElementById("dropdownMenuData");
     const dropdownButtonInformasi = document.getElementById("dropdownButtonInformasi");
     const dropdownMenuInformasi = document.getElementById("dropdownMenuInformasi");
     const dropdownButtonSumberDaya = document.getElementById("dropdownButtonSumberDaya");
     const dropdownMenuSumberDaya = document.getElementById("dropdownMenuSumberDaya");
+
+    dropdownButtonPusatStudi.addEventListener("click", function () {
+        dropdownMenuPusatStudi.classList.toggle("hidden");
+    });
+    
+    dropdownButtonAksesCepat.addEventListener("click", function () {
+        dropdownMenuAksesCepat.classList.toggle("hidden");
+    });
 
     dropdownButtonData.addEventListener("click", function () {
         dropdownMenuData.classList.toggle("hidden");
