@@ -13,7 +13,7 @@
 <body class="bg-gray-100">
     <div class="container mx-auto h-screen flex justify-center items-center px-4">
         <div class="bg-white shadow-md rounded-lg max-w-sm w-full p-6">
-            <h1 class="text-3xl font-bold mb-5 text-center">Selamat Datang di <span class="text-primary"><a href="{{ url('/') }}">Pusat Studi AI</a></span></h1>
+            <h1 class="text-3xl font-bold mb-5 text-center">Selamat Datang di <span class="text-primary"><a href="{{ url('/') }}">LPPM</a></span></h1>
             <form>
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.pusat-studi.app')
 @section('content')
     <!-- About Section Start -->
     <section id="tentang-kami" class="pt-36 pb-32">

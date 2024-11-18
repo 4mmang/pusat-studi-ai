@@ -4,45 +4,8 @@
     <section id="beranda" class="pt-36 pb-12">
         <div class="container">
             <div class="flex flex-wrap lg:flex-nowrap">
-                <div class="w-full self-center px-4 lg:w-1/2">
-                    <h1 class="text-base font-semibold text-primary md:text-xl lg:text-xl">
-                        {{-- Halo Semua 👋, Kami Adalah --}}
-                        <span class="block font-bold text-4xl mt-1 text-primar lg:text-5xl">Selamat <span class="text-dark">Datang</span>
-                    </h1>
-                    <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">
-                        {{-- <span class="text-dark">Artificial Intelligence</span> --}}
-                    </h2>
-                    <p class="font-medium text-secondary mb-10 leading-relaxed">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum deserunt magni dicta
-                        aliquid minus nam aspernatur quia dolore a quasi perferendis maiores dolor assumenda dolores, libero
-                        voluptatem, nihil, aut placeat quisquam! Nulla et dolorem molestias velit deleniti quis aliquam enim
-                        cumque modi! Reiciendis similique laudantium aliquam architecto nostrum quod.
-                    </p>
-                </div>
-
-                {{-- <div class="w-full self-end px-4 lg:w-1/2 -mt-10">
-                    <div class="relative w-full max-w-2xl mx-auto mt-10 overflow-hidden">
-                        <div class="flex transition-transform duration-300" id="slides">
-                            <div class="min-w-full">
-                                <img src="https://picsum.photos/800/400?random=1" alt="Gambar 1"
-                                    class="w-full h-auto rounded-lg" />
-                            </div>
-                            <div class="min-w-full">
-                                <img src="https://picsum.photos/800/400?random=2" alt="Gambar 2" class="w-full h-auto" />
-                            </div>
-                            <div class="min-w-full">
-                                <img src="https://picsum.photos/800/400?random=3" alt="Gambar 3" class="w-full h-auto" />
-                            </div>
-                        </div>
-                        <button onclick="prevSlide()"
-                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Prev</button>
-                        <button onclick="nextSlide()"
-                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Next</button>
-                    </div>
-                </div> --}}
-
-                <div class="w-full self-end px-4 lg:w-1/2 -mt-10">
-                    <div class="relative w-full max-w-2xl mx-auto mt-10 overflow-hidden" id="slider-container">
+                <div class="w-full self-end px-4 -mt-10">
+                    <div class="relative w-full max-w-4xl mx-auto mt-10 overflow-hidden" id="slider-container">
                         <div class="flex transition-transform duration-300" id="slides">
                             <div class="min-w-full">
                                 <img src="https://picsum.photos/800/400?random=1" alt="Gambar 1"
@@ -70,8 +33,100 @@
     </section>
     <!-- Hero Section End -->
 
+    <!-- Hero Section Start -->
+    <section id="beranda" class="pt-0 pb-12">
+        <div class="container">
+            <div class="flex flex-wrap lg:flex-nowrap text-center">
+                <div class="w-full self-center px-4">
+                    {{-- <h1 class="text-base font-semibold text-primary md:text-xl lg:text-xl">
+                        Halo Semua 👋, Kami Adalah
+                        <span class="block font-bold text-4xl mt-1 text-primar lg:text-5xl">Selamat <span
+                                class="text-dark">Datang</span>
+                    </h1> --}}
+                    <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">
+                        {{-- <span class="text-dark">Artificial Intelligence</span> --}}
+                    </h2>
+                    <p class="font-medium text-secondary mb-10 leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum deserunt magni dicta
+                        aliquid minus nam aspernatur quia dolore a quasi perferendis maiores dolor assumenda dolores, libero
+                        voluptatem, nihil, aut placeat quisquam! Nulla et dolorem molestias velit deleniti quis aliquam enim
+                        cumque modi! Reiciendis similique laudantium aliquam architecto nostrum quod.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    
+    <!-- Berita Section Start -->
+    <section id="portofolio" class="pt-24 pb-16 bg-slate-100">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h4 class="font-semibold text-lg text-primary mb-2">Berita</h4>
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Terbaru</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/2">
+                    <div class="rounded-md shadow-md overflow-hidden">
+                        <img src="https://picsum.photos/800/400?random=8" alt="Platform DATAU" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Dataset Collection Platform</h3>
+                    <p class="font-medium text-base text-secondary">This project is a web-based platform designed for
+                        collecting and managing datasets. Built using Laravel as the back-end
+                        framework, the platform efficiently handles data management and user authentication. The
+                        front-end is developed using
+                        Bootstrap for responsive design and jQuery to enhance interactivity and handle dynamic content.
+                        The platform allows
+                        users to upload, manage, and download datasets, providing an intuitive and user-friendly
+                        interface.</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <div class="rounded-md shadow-md overflow-hidden">
+                        <img src="https://picsum.photos/800/400?random=7" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Musical Instrument Sales </h3>
+                    <p class="font-medium text-base text-secondary">This project is a web-based platform for selling
+                        musical instruments, built using Laravel for the back-end, Bootstrap
+                        for the front-end, and jQuery to enhance interactivity. The platform allows users to browse and
+                        purchase musical
+                        instruments with ease. It also features an integrated payment system using Midtrans, ensuring
+                        secure and seamless
+                        transactions.</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <div class="rounded-md shadow-md overflow-hidden">
+                        <img src="https://picsum.photos/800/400?random=6" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Realtime Chat </h3>
+                    <p class="font-medium text-base text-secondary">The Realtime Chat project is a Laravel-based web
+                        application that uses Pusher to send real-time messages without needing
+                        to refresh the page
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <div class="rounded-md shadow-md overflow-hidden">
+                        <img src="https://picsum.photos/800/400?random=5" alt=""
+                            width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Supplier Selection Decision Support System
+                        using the SAW Method</h3>
+                    <p class="font-medium text-base text-secondary">This project is a web-based Supplier Selection
+                        Decision Support System built with Laravel, utilizing the Simple Additive
+                        Weighting (SAW) method to assist in selecting the best supplier based on predefined criteria.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Berita Section End -->
+
     <!-- Our statistik Section Start -->
-    <section class="pt-32 pb-32 bg-slate-100">
+    {{-- <section class="pt-32 pb-32 bg-slate-100">
         <div class="container">
             <div class="max-w-xl mx-auto text-center mb-16">
                 <h4 class="font-bold uppercase text-primary text-lg mb-2">Total Data</h4>
@@ -90,11 +145,11 @@
                     <canvas id="myBarChart" style="height: 300px; width: 100%"></canvas>
                 </div>
             </div>
-    </section>
-    <!-- Our statistik Section End --> 
+    </section> --}}
+    <!-- Our statistik Section End -->
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var ctx = document.getElementById('myBarChart').getContext('2d');
 
@@ -137,5 +192,5 @@
                 }
             }
         });
-    </script>
+    </script> --}}
 @endsection

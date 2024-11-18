@@ -15,6 +15,47 @@ hamburger.addEventListener('click', function () {
     navMenu.classList.toggle('hidden')
 })
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButtonData = document.getElementById("dropdownButtonData");
+    const dropdownMenuData = document.getElementById("dropdownMenuData");
+    const dropdownButtonInformasi = document.getElementById("dropdownButtonInformasi");
+    const dropdownMenuInformasi = document.getElementById("dropdownMenuInformasi");
+    const dropdownButtonSumberDaya = document.getElementById("dropdownButtonSumberDaya");
+    const dropdownMenuSumberDaya = document.getElementById("dropdownMenuSumberDaya");
+
+    dropdownButtonData.addEventListener("click", function () {
+        dropdownMenuData.classList.toggle("hidden");
+    });
+
+    dropdownButtonInformasi.addEventListener("click", function () {
+        dropdownMenuInformasi.classList.toggle("hidden");
+    });
+
+    dropdownButtonSumberDaya.addEventListener("click", function () {
+        dropdownMenuSumberDaya.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!dropdownButtonData.contains(event.target) && !dropdownMenuData.contains(event.target)) {
+            dropdownMenuData.classList.add("hidden");
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!dropdownButtonInformasi.contains(event.target) && !dropdownMenuInformasi.contains(event.target)) {
+            dropdownMenuInformasi.classList.add("hidden");
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!dropdownButtonSumberDaya.contains(event.target) && !dropdownMenuSumberDaya.contains(event.target)) {
+            dropdownMenuSumberDaya.classList.add("hidden");
+        }
+    });
+});
+
+
 // slideshow
 
 let currentSlide = 0;
@@ -46,8 +87,4 @@ setInterval(() => {
 }, 3000); // Ganti slide setiap 3 detik
 
 // Show first slide
-showSlide(currentSlide);
-
-// dropdown menu
-// const publikasi = document.querySelector('.group.relative');
-// const dropdown = publikasi.querySelector('ul');
+showSlide(currentSlide); 
