@@ -93,10 +93,7 @@
                             <a href=""
                                 class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Kontak</a>
                         </li>
-                        {{-- <li class="group">
-                            <a href="{{ url('login') }}"
-                                class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 flex group-hover:bg-blue-400">Masuk</a>
-                        </li> --}}
+                        
                     </ul>
                 </nav>
             </div>

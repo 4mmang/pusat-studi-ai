@@ -18,12 +18,6 @@
                     <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
                 </button>
 
-                <!-- Login Button (Mobile) -->
-                <a href="{{ url('login') }}"
-                    class="lg:hidden text-base rounded-full bg-primary text-white py-2 px-4 mx-12">
-                    Masuk
-                </a>
-
                 <!-- Navigation Menu -->
                 <nav id="nav-menu"
                     class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none nav-menu">
@@ -152,9 +146,12 @@
                         <!-- Login Button (Desktop) -->
                         <li class="group">
                             <a href="{{ url('login') }}"
-                                class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 flex group-hover:bg-blue-400">
+                                class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 group-hover:bg-blue-400">
                                 Masuk
                             </a>
+                        </li>
+                        <li class="group">
+                            <a href="{{ url('login') }}" class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
                         </li>
                     </ul>
                 </nav>
