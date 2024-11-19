@@ -31,7 +31,7 @@
                                 Kami</a>
                         </li>
                         <li class="group relative">
-                            <a id="dropdownButtonPusatStudi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Pusat
+                            <button id="dropdownButtonPusatStudi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Pusat
                                 Studi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -39,7 +39,7 @@
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </a>
+                            </button>
                             <ul id="dropdownMenuPusatStudi"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="group relative">
-                            <a id="dropdownButtonAksesCepat" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Akses
+                            <button id="dropdownButtonAksesCepat" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Akses
                                 Cepat
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -75,7 +75,7 @@
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </a>
+                            </button>
                             <ul id="dropdownMenuAksesCepat"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>

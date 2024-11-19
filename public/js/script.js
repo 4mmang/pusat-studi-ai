@@ -28,43 +28,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownButtonSumberDaya = document.getElementById("dropdownButtonSumberDaya");
     const dropdownMenuSumberDaya = document.getElementById("dropdownMenuSumberDaya");
 
-    dropdownButtonPusatStudi.addEventListener("click", function () {
-        dropdownMenuPusatStudi.classList.toggle("hidden");
-    });
+    if (dropdownButtonPusatStudi) {
+        dropdownButtonPusatStudi.addEventListener("click", function () {
+            dropdownMenuPusatStudi.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonPusatStudi.contains(event.target) && !dropdownMenuPusatStudi.contains(event.target)) {
+                dropdownMenuPusatStudi.classList.add("hidden");
+            }
+        });
+    }
     
-    dropdownButtonAksesCepat.addEventListener("click", function () {
-        dropdownMenuAksesCepat.classList.toggle("hidden");
-    });
+    if (dropdownButtonAksesCepat) {
+        dropdownButtonAksesCepat.addEventListener("click", function () {
+            dropdownMenuAksesCepat.classList.toggle("hidden");
+        });
 
-    dropdownButtonData.addEventListener("click", function () {
-        dropdownMenuData.classList.toggle("hidden");
-    });
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonAksesCepat.contains(event.target) &&dropdownButtonAksesCepat.contains(event.target)) {
+                dropdownButtonAksesCepat.classList.add("hidden");
+            }
+        });
+    }
 
-    dropdownButtonInformasi.addEventListener("click", function () {
-        dropdownMenuInformasi.classList.toggle("hidden");
-    });
+    if (dropdownButtonData) {
+        dropdownButtonData.addEventListener("click", function () {
+            dropdownMenuData.classList.toggle("hidden");
+        });
 
-    dropdownButtonSumberDaya.addEventListener("click", function () {
-        dropdownMenuSumberDaya.classList.toggle("hidden");
-    });
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonData.contains(event.target) && !dropdownMenuData.contains(event.target)) {
+                dropdownMenuData.classList.add("hidden");
+            }
+        });
+    }
 
-    document.addEventListener("click", function (event) {
-        if (!dropdownButtonData.contains(event.target) && !dropdownMenuData.contains(event.target)) {
-            dropdownMenuData.classList.add("hidden");
-        }
-    });
+    if (dropdownButtonInformasi) {
+        dropdownButtonInformasi.addEventListener("click", function () {
+            dropdownMenuInformasi.classList.toggle("hidden");
+        });
 
-    document.addEventListener("click", function (event) {
-        if (!dropdownButtonInformasi.contains(event.target) && !dropdownMenuInformasi.contains(event.target)) {
-            dropdownMenuInformasi.classList.add("hidden");
-        }
-    });
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonInformasi.contains(event.target) && !dropdownMenuInformasi.contains(event.target)) {
+                dropdownMenuInformasi.classList.add("hidden");
+            }
+        });
+    }
 
-    document.addEventListener("click", function (event) {
-        if (!dropdownButtonSumberDaya.contains(event.target) && !dropdownMenuSumberDaya.contains(event.target)) {
-            dropdownMenuSumberDaya.classList.add("hidden");
-        }
-    });
+    if (dropdownButtonSumberDaya) {
+        dropdownButtonSumberDaya.addEventListener("click", function () {
+            dropdownMenuSumberDaya.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonSumberDaya.contains(event.target) && !dropdownMenuSumberDaya.contains(event.target)) {
+                dropdownMenuSumberDaya.classList.add("hidden");
+            }
+        });
+    } 
 });
 
 

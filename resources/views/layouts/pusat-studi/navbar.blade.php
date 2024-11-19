@@ -1,5 +1,5 @@
 <!-- Header Start -->
-<header class="bg-transparent relative lg:absolute top-0 left-0 w-full flex items-center z-10">
+<header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
     <div class="container">
         <div class="flex items-center justify-between relative">
             <!-- Logo -->
@@ -46,7 +46,7 @@
 
                         <!-- Sumber Daya Dropdown -->
                         <li class="group relative">
-                            <a id="dropdownButtonSumberDaya" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonSumberDaya" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
                                 aria-expanded="false">
                                 Sumber Daya
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -55,7 +55,7 @@
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </a>
+                            </button>
                             <ul id="dropdownMenuSumberDaya"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
@@ -82,7 +82,7 @@
 
                         <!-- Data Dropdown -->
                         <li class="group relative">
-                            <a id="dropdownButtonData" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonData" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
                                 aria-expanded="false">
                                 Data
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -91,7 +91,7 @@
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </a>
+                            </button>
                             <ul id="dropdownMenuData"
                                 class="relative lg:absolute lg:group-hover:block hidden bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
@@ -117,7 +117,7 @@
 
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
-                            <a id="dropdownButtonInformasi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonInformasi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
                                 aria-expanded="false">
                                 Informasi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -126,7 +126,7 @@
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </a>
+                            </button>
                             <ul id="dropdownMenuInformasi"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
