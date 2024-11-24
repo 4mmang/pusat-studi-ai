@@ -40,7 +40,8 @@
 
                         <!-- Sumber Daya Dropdown -->
                         <li class="group relative">
-                            <button id="dropdownButtonSumberDaya" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonSumberDaya" 
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Sumber Daya
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -53,7 +54,8 @@
                             <ul id="dropdownMenuSumberDaya"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
-                                    <a href="#statistik" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ url('pusat-studi/anggota') }}"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Anggota
                                     </a>
                                 </li>
@@ -76,7 +78,8 @@
 
                         <!-- Data Dropdown -->
                         <li class="group relative">
-                            <button id="dropdownButtonData" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonData"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Data
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -111,7 +114,8 @@
 
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
-                            <button id="dropdownButtonInformasi" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                            <button id="dropdownButtonInformasi"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Informasi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -151,7 +155,8 @@
                             </a>
                         </li>
                         <li class="group">
-                            <a href="{{ url('login') }}" class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
+                            <a href="{{ url('login') }}"
+                                class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
                         </li>
                     </ul>
                 </nav>

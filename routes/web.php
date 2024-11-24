@@ -18,6 +18,10 @@ Route::get('/berita', function () {
     return view('berita.index');
 });
 
+Route::get('/kontak', function () {
+    return view('kontak.index');
+});
+
 Route::get('/data/publikasi', function () {
     return view('data-publikasi.index');
 });
@@ -41,5 +45,8 @@ Route::prefix('pusat-studi')->group(function(){
     });
     Route::get('data/publikasi', function(){
         return view('pusat-studi.data.publikasi.index');
+    });
+    Route::get('anggota', function(){
+        return view('pusat-studi.anggota.index');
     });
 });

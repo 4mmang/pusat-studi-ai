@@ -90,8 +90,8 @@
                             </ul>
                         </li>
                         <li class="group">
-                            <a href=""
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Kontak</a>
+                            <a href="{{ url('kontak') }}"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('kontak') ? 'text-primary' : '' }}">Kontak</a>
                         </li>
                         
                     </ul>
