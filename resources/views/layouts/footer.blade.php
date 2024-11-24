@@ -5,7 +5,7 @@
             <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
                 <h2 class="font-bold text-4xl text-white mb-5">LPPM</h2>
                 <h3 class="font-bold text-2xl mb-2">Kontak Kami</h3>
-                <p>pusatstudiai@gmail.com</p>
+                <p>lppm@gmail.com</p>
                 <p>Phadang phadang</p>
                 <p>Fakultas Teknik</p>
             </div>
