@@ -79,12 +79,12 @@
                             <ul id="dropdownMenuAksesCepat"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
-                                    <a href="#statistik"
+                                    <a href="https://datau.suruhkoding.web.id/"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Pusdata
                                         Unsulbar</a>
                                 </li>
                                 <li>
-                                    <a href="#data-publikasi"
+                                    <a href="https://www.unsulbarnews.com/"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">Unsulbar News</a>
                                 </li>
                             </ul>

@@ -98,13 +98,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#data-publikasi"
+                                    <a href="{{ url('pusat-studi/data/penelitian') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Penelitian
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#data-publikasi"
+                                    <a href="{{ url('pusat-studi/data/pengabdian') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Pengabdian
                                     </a>

@@ -26,27 +26,33 @@ Route::get('/data/publikasi', function () {
     return view('data-publikasi.index');
 });
 
-Route::get('/login', function(){
+Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::prefix('pusat-studi')->group(function(){
-    Route::get('artificial-intelligance', function(){
+Route::prefix('pusat-studi')->group(function () {
+    Route::get('artificial-intelligance', function () {
         return view('pusat-studi.index');
     });
-    Route::get('artikel', function(){
+    Route::get('artikel', function () {
         return view('pusat-studi.artikel.index');
     });
-    Route::get('tentang-kami', function(){
+    Route::get('tentang-kami', function () {
         return view('pusat-studi.tentang-kami');
     });
-    Route::get('kinerja-anggota', function(){
+    Route::get('kinerja-anggota', function () {
         return view('pusat-studi.informasi.kinerja-anggota');
     });
-    Route::get('data/publikasi', function(){
+    Route::get('data/penelitian', function () {
+        return view('pusat-studi.data.penelitian.index');
+    });
+    Route::get('data/pengabdian', function () {
+        return view('pusat-studi.data.pengabdian.index');
+    });
+    Route::get('data/publikasi', function () {
         return view('pusat-studi.data.publikasi.index');
     });
-    Route::get('anggota', function(){
+    Route::get('anggota', function () {
         return view('pusat-studi.anggota.index');
     });
 });
