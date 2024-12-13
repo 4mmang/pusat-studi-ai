@@ -3,9 +3,9 @@
     <div class="container">
         <div class="flex flex-wrap">
             <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
-                <h2 class="font-bold text-4xl text-white mb-5">LPPM</h2>
+                <h2 class="font-bold text-4xl text-white mb-5">Pusat Studi AI</h2>
                 <h3 class="font-bold text-2xl mb-2">Kontak Kami</h3>
-                <p>lppm@gmail.com</p>
+                <p>pusatstudiai@gmail.com</p>
                 <p>Phadang phadang</p>
                 <p>Fakultas Teknik</p>
             </div>
@@ -30,11 +30,12 @@
                         <a href="#statistik" class="inline-block text-base first:hover:text-primary mb-3">Statistik</a>
                     </li>
                     <li>
-                        <a href="#services"
-                            class="inline-block text-base first:hover:text-primary mb-3">Data Publikasi</a>
+                        <a href="#services" class="inline-block text-base first:hover:text-primary mb-3">Data
+                            Publikasi</a>
                     </li>
                     <li>
-                        <a href="#workshops" class="inline-block text-base first:hover:text-primary mb-3">Tentang Kami</a>
+                        <a href="#workshops" class="inline-block text-base first:hover:text-primary mb-3">Tentang
+                            Kami</a>
                     </li>
                 </ul>
             </div>

@@ -1,58 +1,68 @@
 <?php
 
+use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
+use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('beranda');
 
-Route::get('tentang-kami', function () {
+Route::get('tentan/g-kami', function () {
     return view('tentang-kami');
-});
+})->name('tentang-kami');
 
 Route::get('/statistik', function () {
     return view('statistik.index');
-});
+})->name('statistik');
 
-Route::get('/berita', function () {
-    return view('berita.index');
-});
+Route::get('/artikel', function () {
+    return view('artikel.index');
+})->name('artikel');
 
 Route::get('/kontak', function () {
     return view('kontak.index');
-});
+})->name('kontak');
 
 Route::get('/data/publikasi', function () {
     return view('data-publikasi.index');
 });
 
+Route::get('/anggota', function () {
+    return view('anggota.index');
+})->name('anggota');
+
 Route::get('/login', function () {
     return view('auth.login');
+})->name('login');
+
+Route::get('/penelitian', function () {
+    return view('data.penelitian.index');
+})->name('penelitian');
+
+Route::get('/pengabdian', function () {
+    return view('data.pengabdian.index');
+})->name('pengabdian');
+
+Route::get('/publikasi', function () {
+    return view('data.publikasi.index');
+})->name('publikasi');
+
+Route::get('/kinerja-anggota', function () {
+    return view('informasi.kinerja-anggota');
+})->name('kinerja-anggota');
+
+Route::prefix('/admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    Route::prefix('/sumber-daya')->group(function () {
+        Route::resource('/anggota', AnggotaController::class);
+        Route::resource('/sarana-pra', SaranaPraController::class);
+    });
+
+    Route::resource('/artikel', ArtikelController::class);
 });
 
-Route::prefix('pusat-studi')->group(function () {
-    Route::get('artificial-intelligance', function () {
-        return view('pusat-studi.index');
-    });
-    Route::get('artikel', function () {
-        return view('pusat-studi.artikel.index');
-    });
-    Route::get('tentang-kami', function () {
-        return view('pusat-studi.tentang-kami');
-    });
-    Route::get('kinerja-anggota', function () {
-        return view('pusat-studi.informasi.kinerja-anggota');
-    });
-    Route::get('data/penelitian', function () {
-        return view('pusat-studi.data.penelitian.index');
-    });
-    Route::get('data/pengabdian', function () {
-        return view('pusat-studi.data.pengabdian.index');
-    });
-    Route::get('data/publikasi', function () {
-        return view('pusat-studi.data.publikasi.index');
-    });
-    Route::get('anggota', function () {
-        return view('pusat-studi.anggota.index');
-    });
-});

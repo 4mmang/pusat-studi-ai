@@ -63,14 +63,13 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Berita</h4>
+                    <h4 class="font-semibold text-lg text-primary mb-2">Artikel</h4>
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Terbaru</h2>
                     <p class="font-medium text-md text-secondary md:text-lg">
                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
                     </p>
                 </div>
             </div>
-    
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 <div class="mb-12 p-4 md:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden">
@@ -120,6 +119,7 @@
                         Weighting (SAW) method to assist in selecting the best supplier based on predefined criteria.
                     </p>
                 </div>
+                <a href="{{ route('artikel') }}" class="text-center bg-primary px-4 py-3 text-white rounded-full">Lihat lebih banyak artikel <i class="fa fa-arrow-right"></i></a>
             </div>
         </div>
     </section>

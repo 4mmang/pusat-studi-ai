@@ -11,6 +11,9 @@ export default {
       padding: '16px'
     },
     extend: {
+      width: {
+        '13': '4.5rem',
+      },
       animation: {
         border: 'background ease infinite',
       },
