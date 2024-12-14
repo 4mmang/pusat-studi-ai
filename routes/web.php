@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
+use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,12 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/anggota', AnggotaController::class);
         Route::resource('/sarana-pra', SaranaPraController::class);
     });
+
+    Route::prefix('/jenis')
+        ->as('jenis.')
+        ->group(function () {
+            Route::resource('/publikasi', JenisPublikasiController::class);
+        });
 
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);

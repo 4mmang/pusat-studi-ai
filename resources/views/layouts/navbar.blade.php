@@ -7,8 +7,11 @@
                 {{-- <a href="{{ route('beranda') }}" class="font-bold text-3xl text-primary block py-6">
                     Pusat<span class="text-primary">Studi AI</span>
                 </a> --}}
-                <a href="{{ route('beranda') }}" class="font-bold text-3xl text-primary block py-6">
-                    <img src="{{ asset('img/Logo.jpg') }}" class="w-13" alt="">
+                <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-6">
+                    <center>
+                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12" alt="">
+                    </center>
+                    Pusat Studi AI
                 </a>
             </div>
 
@@ -176,17 +179,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Profil
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Keluar
                                     </a>
-                                </li> 
+                                </li>
                             </ul>
                         </li>
 
