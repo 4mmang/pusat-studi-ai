@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,9 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/sarana-pra', SaranaPraController::class);
     });
 
+    Route::prefix('/data')->group(function () {
+        Route::resource('/publikasi', PublikasiController::class);
+    });
+
     Route::resource('/artikel', ArtikelController::class);
 });
-

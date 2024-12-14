@@ -30,7 +30,7 @@
     <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sumber-daya"
             aria-expanded="true" aria-controls="sumber-daya">
-            <i class="fas fa-fw fa-tree"></i>
+            <i class="fas fa-fw fa-handshake"></i>
             <span>Sumber Daya</span>
         </a>
         <div id="sumber-daya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -39,6 +39,23 @@
                     href="{{ route('anggota.index') }}">Anggota</a>
                 <a class="collapse-item {{ Request::is('admin/sumber-daya/sarana-pra*') ? 'active' : '' }}"
                     href="{{ route('sarana-pra.index') }}">Sarana & Prasarana</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
+        <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#data"
+            aria-expanded="true" aria-controls="sumber-daya">
+            <i class="fas fa-fw fa-database"></i>
+            <span>Data</span>
+        </a>
+        <div id="data" class="collapse {{ Request::is('admin/data*') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item {{ Request::is('admin/data/publikasi*') ? 'active' : '' }}"
+                    href="{{ route('publikasi.index') }}">Publikasi</a>
+                <a class="collapse-item {{ Request::is('admin/data/penelitian*') ? 'active' : '' }}"
+                    href="">Penelitian</a>
+                <a class="collapse-item {{ Request::is('admin/data/pengabdian*') ? 'active' : '' }}"
+                    href="">Pengabdian</a>
             </div>
         </div>
     </li>

@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownMenuData = document.getElementById("dropdownMenuData");
     const dropdownButtonInformasi = document.getElementById("dropdownButtonInformasi");
     const dropdownMenuInformasi = document.getElementById("dropdownMenuInformasi");
+    const dropdownButtonProfil = document.getElementById("dropdownButtonProfil");
+    const dropdownMenuProfil = document.getElementById("dropdownMenuProfil");
     const dropdownButtonSumberDaya = document.getElementById("dropdownButtonSumberDaya");
     const dropdownMenuSumberDaya = document.getElementById("dropdownMenuSumberDaya");
 
@@ -72,6 +74,18 @@ document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener("click", function (event) {
             if (!dropdownButtonInformasi.contains(event.target) && !dropdownMenuInformasi.contains(event.target)) {
                 dropdownMenuInformasi.classList.add("hidden");
+            }
+        });
+    }
+
+    if (dropdownButtonProfil) {
+        dropdownButtonProfil.addEventListener("click", function () {
+            dropdownMenuProfil.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!dropdownButtonProfil.contains(event.target) && !dropdownMenuProfil.contains(event.target)) {
+                dropdownMenuProfil.classList.add("hidden");
             }
         });
     }
