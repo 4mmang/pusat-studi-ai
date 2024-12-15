@@ -59,6 +59,52 @@ class PublikasiController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $publikasi = Publikasi::findOrFail($id);
+        return view('admin.data.publikasi.edit', compact('publikasi'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'authors' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $publikasi = Publikasi::findOrFail($id);
+            $publikasi->judul = $request->judul;
+            $publikasi->penyelenggara = $request->penyelenggara;
+            $publikasi->tanggal_publikasi = $request->tanggal_publikasi;
+            $publikasi->level = $request->level;
+            $publikasi->link_akses = $request->link_akses;
+            $publikasi->update();
+
+            foreach ($publikasi->authors as $author) {
+                $author->delete();
+            }
+
+            $authors = json_decode($request->authors, true);
+            foreach ($authors as $author) {
+                $newAuthor = new AuthorPublikasi();
+                $newAuthor->publikasi_id = $publikasi->id;
+                $newAuthor->nama = $author;
+                $newAuthor->save();
+            }
+            DB::commit();
+            return back()->with([
+                'message' => 'Data publikasi berhasil diupdate',
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->withErrors([
+                'error' => 'Terjadi kesalahan',
+            ]);
+        }
+        dd($request->all());
+    }
+
     public function destroy($id)
     {
         DB::beginTransaction();
