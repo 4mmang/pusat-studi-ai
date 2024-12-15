@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- About Section Start -->
-    <section id="tentang-kami" class="pt-36 pb-24">
+    <section id="tentang-kami" class="pt-36 pb-24 bg-slate-100">
         <div class="container pt-10">
             <div class="flex flex-col-reverse lg:flex-row lg:items-center">
                 <!-- Teks -->
