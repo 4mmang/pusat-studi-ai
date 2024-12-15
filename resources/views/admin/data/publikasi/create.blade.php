@@ -9,67 +9,80 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card p-3">
-                    <form id="publikasi-baru" action="{{ route('publikasi.store') }}" method="post"
-                        enctype="multipart/form-data">
+                    <form id="publikasi-baru" action="{{ route('publikasi.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="judul">Judul <sup class="text-danger">*</sup></label>
-                                <input type="text" autofocus
+                                <input type="text" value="{{ old('judul') }}" autofocus
                                     class="form-control @error('judul')
                                     is-invalid
                                 @enderror"
                                     name="judul" id="judul" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="sampul" class="">Nama Conf/Jurnal <sup
+                                <label for="conference" class="">Nama Conf/Jurnal <sup
                                         class="text-danger">*</sup></label>
-                                <input type="text"
-                                    class="form-control @error('sampul')
+                                <input type="text" value="{{ old('conference') }}"
+                                    class="form-control @error('conference')
                                     is-invalid
                                 @enderror"
-                                    name="sampul" id="sampul" required>
+                                    name="conference" id="conference" required>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="sampul" class="">Jenis Publikasi <sup class="text-danger">*</sup></label>
-                                <select name="" class="form-control" id="">
-                                    <option value="">Laporan Penelitian</option>
-                                    <option value="">Artikel Ilmiah</option>
-                                    <option value="">Buku</option>
+                            <div class="col-md-6 mb-3">
+                                <label for="jenis_publikasi" class="">Jenis Publikasi <sup
+                                        class="text-danger">*</sup></label>
+                                <select name="jenis_publikasi" value="{{ old('jenis_publikasi') }}" class="form-control"
+                                    id="jenis_publikasi" required>
+                                    @foreach ($jenisPublikasi as $jenis)
+                                        <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="sampul" class="">Tanggal Publikasi <sup class="text-danger">*</sup></label>
-                                <input type="date"
-                                    class="form-control @error('sampul')
+                            <div class="col-md-6 mb-3">
+                                <label for="tanggal_publikasi" class="">Tanggal Publikasi <sup
+                                        class="text-danger">*</sup></label>
+                                <input type="date" value="{{ old('tanggal_publikasi') }}"
+                                    class="form-control @error('tanggal_publikasi')
                                     is-invalid
                                 @enderror"
-                                    name="sampul" id="sampul" required>
+                                    name="tanggal_publikasi" id="tanggal_publikasi" required>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="sampul" class="">Level <sup class="text-danger">*</sup></label>
-                                <select name="" class="form-control" id="">
-                                    <option value="">Nasional</option>
-                                    <option value="">Internasional</option>
+                            <div class="col-md-6 mb-3">
+                                <label for="level" class="">Level <sup class="text-danger">*</sup></label>
+                                <select name="level" class="form-control" value="{{ old('level') }}" id="level"
+                                    required>
+                                    <option value="Nasional">Nasional</option>
+                                    <option value="Internasional">Internasional</option>
                                 </select>
                             </div>
-                            <div class="col-md-3 mb-12 mt-2">
-                                Authors:
-                                <p class="text-sm">
-                                    <span class="bg-success px-2 rounded-4 text-white">1. Wawan Firgiawan
-                                    </span><a href=""><i class="fas fa-times-circle ms-2 text-danger"></i> </a>
-                                    <br>
-                                    <span class="bg-secondary px-2 rounded-4 text-white">2. Arman Umar
-                                    </span><a href=""><i class="fas fa-times-circle ms-2 text-danger"></i> </a>
-                                    <br>
-                                    <span class="bg-secondary px-2 rounded-4 text-white">3. Muh. Parif
-                                    </span><a href=""><i class="fas fa-times-circle ms-2 text-danger"></i> </a>
-                                </p>
-                                <a href="" class="btn text-white btn-primary"><i
-                                        class="fas fa-plus"></i> Tambah Author</a>
+                            <div class="col-md-6 mb-3">
+                                <label for="link_akses" class="">Link Akses Publikasi <sup
+                                        class="text-danger">*</sup></label>
+                                <input type="url" value="{{ old('link_akses') }}"
+                                    class="form-control @error('link_akses')
+                                    is-invalid
+                                @enderror"
+                                    name="link_akses" id="link_akses" required>
+                            </div>
+                            <div class="col-md-5 mb-12 mt-2">
+                                Authors <sup class="text-danger">*</sup>
+                                <div class="input-group mt-2">
+                                    <input type="text" class="form-control" name="nama" id="nama">
+                                    <button type="button" onclick="tambahAuthor()" class="btn text-white btn-primary"><i
+                                            class="fas fa-plus"></i> Tambah</button>
+                                </div>
+                                @error('authors')
+                                    <p id="author-error" class="mb-4">
+                                        <span class="text-danger">Harap masukkan author</span>
+                                    </p>
+                                @enderror
+                                <div id="authorList" class="mt-4">
+                                    <!-- Daftar nama author akan ditampilkan di sini -->
+                                </div>
                             </div>
                         </div>
-
+                        <input type="hidden" name="authors" id="authors">
                         <a href="{{ route('publikasi.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>
                         <button id="simpan" type="submit" class="btn text-white mt-3 btn-success float-end px-3"><i
                                 class="fas fa-save mr-1"></i>
@@ -82,11 +95,61 @@
 @endsection
 @push('scripts')
     <script>
-        let form = document.getElementById('publikasi-baru')
+        // Disable tombol simpan saat form dikirim
+        let form = document.getElementById('publikasi-baru');
         form.addEventListener('submit', function() {
-            let btnSave = document.getElementById('simpan')
-            btnSave.disabled = true
+            let btnSave = document.getElementById('simpan');
+            btnSave.disabled = true;
             btnSave.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
-        })
+        });
+
+        // Array untuk menyimpan daftar author
+        let author = [];
+
+        // Fungsi untuk menambahkan author baru
+        function tambahAuthor() {
+            let nama = document.getElementById('nama');
+            if (nama.value.trim() !== "") { // Pastikan input tidak kosong
+                author.push(nama.value.trim()); // Tambahkan nama ke array
+                nama.value = ""; // Reset input
+
+                // Perbarui nilai input hidden dengan daftar author dalam JSON
+                document.getElementById('authors').value = JSON.stringify(author);
+
+                // Render ulang daftar author
+                renderAuthors();
+
+                if (author.length > 0) {
+                    let errorElement = document.getElementById('author-error');
+                    if (errorElement) {
+                        errorElement.remove();
+                    }
+                }
+            } else {
+                alert("Nama author tidak boleh kosong!");
+            }
+        }
+
+        // Fungsi untuk merender daftar author
+        function renderAuthors() {
+            let authorList = document.getElementById('authorList');
+            authorList.innerHTML = author.map((a, index) => `
+            ${index + 1}.
+                    <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
+                        ${a}
+                    </span>
+                    <a href="#" onclick="hapusAuthor(${index})">
+                        <i class="fas fa-times-circle ms-2 text-danger"></i>
+                    </a>
+                    <br>
+            `).join("");
+        }
+
+        // Fungsi untuk menghapus author
+        function hapusAuthor(index) {
+            author.splice(index, 1); // Hapus author dari array
+            document.getElementById('authors').value = JSON.stringify(author); // Perbarui input hidden
+            renderAuthors(); // Render ulang daftar author
+        }
     </script>
 @endpush

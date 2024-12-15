@@ -3,15 +3,60 @@
 namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
+use App\Models\AuthorPublikasi;
+use App\Models\JenisPublikasi;
+use App\Models\Publikasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublikasiController extends Controller
 {
-    public function index(){
-        return view('admin.data.publikasi.index');
+    public function index()
+    {
+        $publikasi = Publikasi::all();
+        return view('admin.data.publikasi.index', compact('publikasi'));
     }
-    
-    public function create(){
-        return view('admin.data.publikasi.create');
+
+    public function create()
+    {
+        $jenisPublikasi = JenisPublikasi::all();
+        return view('admin.data.publikasi.create', compact('jenisPublikasi'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'authors' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $publikasi = new Publikasi();
+            $publikasi->judul = $request->judul;
+            $publikasi->conference = $request->conference;
+            $publikasi->jenis_publikasi_id = $request->jenis_publikasi;
+            $publikasi->tanggal_publikasi = $request->tanggal_publikasi;
+            $publikasi->level = $request->level;
+            $publikasi->link_akses = $request->link_akses;
+            $publikasi->save();
+
+            $authors = json_decode($request->authors, true);
+            foreach ($authors as $author) {
+                $newAuthor = new AuthorPublikasi();
+                $newAuthor->publikasi_id = $publikasi->id;
+                $newAuthor->nama = $author;
+                $newAuthor->save();
+            }
+            DB::commit();
+            return back()->with([
+                'message' => 'Data publikasi berhasil ditambahkan',
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            echo $th->getMessage();
+            // return back()->with([
+            //     'error' => 'Terjadi kesalahan',
+            // ]);
+        }
     }
 }

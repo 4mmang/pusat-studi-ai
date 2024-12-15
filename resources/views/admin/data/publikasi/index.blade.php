@@ -24,27 +24,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($publikasi as $art)
+                            @foreach ($publikasi as $pub)
                             <tr>
                                 <td class="align-middle">{{ $loop->iteration }}</td>
+                                <td class="align-middle">{{ $pub->judul }}</td>
+                                <td class="align-middle">{{ $pub->tanggal_publikasi }}</td>
                                 <td class="align-middle">
-                                    <img src="{{ asset('storage/'.$art->sampul) }}" style="width: 100px" alt="">
-                                </td>
-                                <td class="align-middle">{{ $art->judul }}</td>
-                                <td class="align-middle">
-                                    <form id="delete-article-{{ $art->id }}"
-                                        action="{{ route('publikasi.destroy', $art->id) }}" method="post">
+                                    <form id="delete-article-{{ $pub->id }}"
+                                        action="{{ route('publikasi.destroy', $pub->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <a href="{{ route('publikasi.edit', $art->id) }}"
+                                        <a href="{{ route('publikasi.edit', $pub->id) }}"
                                             class="btn btn-warning btn-sm mb-1"><i class="fas fa-pen"></i></a>
-                                        <button type="submit" onclick="disableDeleteButton({{ $art->id }})"
+                                        <button type="submit" onclick="disableDeleteButton({{ $pub->id }})"
                                             class="ml-1 btn btn-sm btn-danger mb-1 text-center"><i
                                                 class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
