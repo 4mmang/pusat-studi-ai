@@ -53,10 +53,30 @@ class PublikasiController extends Controller
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
-            echo $th->getMessage();
-            // return back()->with([
-            //     'error' => 'Terjadi kesalahan',
-            // ]);
+            return back()->withErrors([
+                'error' => 'Terjadi kesalahan',
+            ]);
+        }
+    }
+
+    public function destroy($id)
+    {
+        DB::beginTransaction();
+        try {
+            $publikasi = Publikasi::with('authors')->findOrFail($id);
+            foreach ($publikasi->authors as $author) {
+                $author->delete();
+            }
+            $publikasi->delete();
+            DB::commit();
+            return back()->with([
+                'message' => 'Data publikasi berhasil dihapus',
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->withErrors([
+                'error' => 'Terjadi kesalahan',
+            ]);
         }
     }
 }

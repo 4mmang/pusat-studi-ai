@@ -27,7 +27,7 @@ class JenisPublikasiController extends Controller
                 'message' => 'Jenis publikasi berhasil ditambahkan',
             ]);
         } catch (\Throwable $th) {
-            return back()->with([
+            return back()->withErrors([
                 'error' => 'Terjadi kesalahan',
             ]);
         }
@@ -46,7 +46,7 @@ class JenisPublikasiController extends Controller
                 'message' => 'Jenis publikasi berhasil diupdate',
             ]);
         } catch (\Throwable $th) {
-            return back()->with([
+            return back()->withErrors([
                 'error' => 'Terjadi kesalahan',
             ]);
         }
@@ -61,7 +61,7 @@ class JenisPublikasiController extends Controller
                 'message' => 'Jenis publikasi berhasil dihapus',
             ]);
         } catch (\Throwable $th) {
-            return back()->with([
+            return back()->withErrors([
                 'error' => 'Terjadi kesalahan',
             ]);
         }

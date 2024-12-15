@@ -5,8 +5,8 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <p class="fs-2 mb-0" style="color: #38527E">Kelola Jenis Publikasi</p>
-            <a href="#" data-toggle="modal" data-target="#tambah-jenis" style="background-color: #38527E"
-                class="btn mt-3 text-white">Tambah
+            <a href="#" data-toggle="modal" data-target="#tambah-jenis"
+                class="btn mt-3 text-white btn-primary"><i class="fas fa-plus"></i> Tambah
                 Jenis</a>
         </div>
 

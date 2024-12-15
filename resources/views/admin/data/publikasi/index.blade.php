@@ -5,7 +5,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <p class="fs-2 mb-0" style="color: #38527E">Publikasi Saya</p>
-        <a href="{{ route('publikasi.create') }}" style="background-color: #38527E" class="btn mt-3 text-white">Tambah
+        <a href="{{ route('publikasi.create') }}" class="btn mt-3 btn-primary text-white"><i class="fas fa-plus"></i> Tambah
             Publikasi</a>
     </div>
 
