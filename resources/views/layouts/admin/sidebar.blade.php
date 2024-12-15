@@ -68,7 +68,12 @@
     <li class="nav-item {{ Request::is('admin/artikel*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('artikel.index') }}">
             <i class="fas fa-fw fa-newspaper"></i>
-            <span>Kelola Artikel</span></a>
+            <span>Artikel</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('admin/event*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('event.index') }}">
+            <i class="fas fa-fw fa-calendar-check"></i>
+            <span>Event</span></a>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->

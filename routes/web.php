@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
@@ -78,4 +79,5 @@ Route::prefix('/admin')->group(function () {
     });
 
     Route::resource('/artikel', ArtikelController::class);
+    Route::resource('/event', EventController::class);
 });
