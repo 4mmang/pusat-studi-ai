@@ -135,4 +135,4 @@ setInterval(() => {
 }, 3000); // Ganti slide setiap 3 detik
 
 // Show first slide
-showSlide(currentSlide); 
+showSlide(currentSlide);

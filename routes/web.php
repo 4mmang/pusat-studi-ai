@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Models\Publikasi;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -48,7 +49,8 @@ Route::get('/pengabdian', function () {
 })->name('pengabdian');
 
 Route::get('/publikasi', function () {
-    return view('data.publikasi.index');
+    $publikasi = Publikasi::all();
+    return view('data.publikasi.index', compact('publikasi'));
 })->name('publikasi');
 
 Route::get('/kinerja-anggota', function () {
