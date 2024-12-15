@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="px-4">
-                <table id="example" class="stripe hover text-xs" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
+                <table id="example" class="stripe hover text-xs" style="width:100%; padding-top:1em; padding-bottom: 1em;">
                     <thead class="text-sm">
                         <tr>
                             <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">No</th>
@@ -30,12 +30,12 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="text-xs">
+                    <tbody class="text-xs text-center">
                         @foreach ($publikasi as $item)
                             <tr class="odd:bg-gray-50">
                                 <td class="px-4 py-2 font-medium text-gray-900 border border-gray-300">1</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">{{$item->judul}}</td>
-                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                <td class="px-4 py-2 text-gray-700 text-start border border-gray-300">
                                     @foreach ($item->authors as $author)
                                     <p class="whitespace-nowrap"><span
                                             class="border text-white rounded-full bg-green-500 px-3">Author {{ $loop->iteration }}</span>

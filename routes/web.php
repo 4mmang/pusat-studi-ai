@@ -6,11 +6,13 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Models\Event;
 use App\Models\Publikasi;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $events = Event::all();
+    return view('welcome', compact('events'));
 })->name('beranda');
 
 Route::get('tentan/g-kami', function () {

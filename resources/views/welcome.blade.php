@@ -61,31 +61,19 @@
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                @forelse ($events as $event)
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md overflow-hidden flex justify-center">
-                        <img src="https://picsum.photos/300/400?random=8" class="h-auto rounded-xl" alt="Platform DATAU" width="w-full">
+                        <img src="{{ asset('storage/'.$event->poster) }}" class="h-auto rounded-xl" alt="Platform DATAU" width="w-full">
                     </div>
                     {{-- <p class="p-3 text-center">dsadasdb</p> --}}
                     <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
                         <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
                     </h3>
-                </div>
-                <div class="mb-12 p-4 md:w-1/3">
-                    <div class="rounded-md overflow-hidden flex justify-center">
-                        <img src="https://picsum.photos/300/400?random=7" class="h-auto rounded-xl" alt="Platform DATAU" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
-                        <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
-                    </h3>
-                </div>
-                <div class="mb-12 p-4 md:w-1/3">
-                    <div class="rounded-md overflow-hidden flex justify-center">
-                        <img src="https://picsum.photos/300/400?random=9" class="h-auto rounded-xl" alt="Platform DATAU" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
-                        <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
-                    </h3>
-                </div>
+                </div> 
+                @empty
+                <p>Saat ini belum ada event.</p>
+                @endforelse
             </div>
         </div>
     </section>
