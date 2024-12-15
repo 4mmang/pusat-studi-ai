@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('publikasi', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('conference');
-            $table->foreignId('jenis_publikasi_id')->constrained('jenis_publikasi');
+            $table->string('penyelenggara');
+            // $table->foreignId('jenis_publikasi_id')->constrained('jenis_publikasi');
             $table->date('tanggal_publikasi');
             $table->enum('level', ['nasional', 'internasional']);
             $table->text('link_akses');

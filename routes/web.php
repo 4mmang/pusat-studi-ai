@@ -65,11 +65,11 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/sarana-pra', SaranaPraController::class);
     });
 
-    Route::prefix('/jenis')
-        ->as('jenis.')
-        ->group(function () {
-            Route::resource('/publikasi', JenisPublikasiController::class);
-        });
+    // Route::prefix('/jenis')
+    //     ->as('jenis.')
+    //     ->group(function () {
+    //         Route::resource('/publikasi', JenisPublikasiController::class);
+    //     });
 
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);

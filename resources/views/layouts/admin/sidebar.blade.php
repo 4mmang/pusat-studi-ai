@@ -42,11 +42,11 @@
             </div>
         </div>
     </li>
-    <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('jenis.publikasi.index') }}">
             <i class="fas fa-fw fa-th-large"></i>
             <span>Jenis Publikasi</span></a>
-    </li>
+    </li> --}}
     <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
         <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#"
             data-toggle="collapse" data-target="#data" aria-expanded="true" aria-controls="sumber-daya">

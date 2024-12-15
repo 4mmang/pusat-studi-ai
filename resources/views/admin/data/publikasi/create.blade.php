@@ -21,15 +21,15 @@
                                     name="judul" id="judul" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="conference" class="">Nama Conf/Jurnal <sup
+                                <label for="penyelenggara" class="">Nama Penyelenggara <sup
                                         class="text-danger">*</sup></label>
-                                <input type="text" value="{{ old('conference') }}"
-                                    class="form-control @error('conference')
+                                <input type="text" value="{{ old('penyelenggara') }}"
+                                    class="form-control @error('penyelenggara')
                                     is-invalid
                                 @enderror"
-                                    name="conference" id="conference" required>
+                                    name="penyelenggara" id="penyelenggara" required>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            {{-- <div class="col-md-6 mb-3">
                                 <label for="jenis_publikasi" class="">Jenis Publikasi <sup
                                         class="text-danger">*</sup></label>
                                 <select name="jenis_publikasi" value="{{ old('jenis_publikasi') }}" class="form-control"
@@ -38,7 +38,7 @@
                                         <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6 mb-3">
                                 <label for="tanggal_publikasi" class="">Tanggal Publikasi <sup
                                         class="text-danger">*</sup></label>
@@ -56,7 +56,7 @@
                                     <option value="Internasional">Internasional</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label for="link_akses" class="">Link Akses Publikasi <sup
                                         class="text-danger">*</sup></label>
                                 <input type="url" value="{{ old('link_akses') }}"
@@ -65,7 +65,7 @@
                                 @enderror"
                                     name="link_akses" id="link_akses" required>
                             </div>
-                            <div class="col-md-5 mb-12 mt-2">
+                            <div class="col-md-5 mb-12">
                                 Authors <sup class="text-danger">*</sup>
                                 <div class="input-group mt-2">
                                     <input type="text" class="form-control" name="nama" id="nama">

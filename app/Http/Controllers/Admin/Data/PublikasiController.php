@@ -33,8 +33,8 @@ class PublikasiController extends Controller
         try {
             $publikasi = new Publikasi();
             $publikasi->judul = $request->judul;
-            $publikasi->conference = $request->conference;
-            $publikasi->jenis_publikasi_id = $request->jenis_publikasi;
+            $publikasi->penyelenggara = $request->penyelenggara;
+            // $publikasi->jenis_publikasi_id = $request->jenis_publikasi;
             $publikasi->tanggal_publikasi = $request->tanggal_publikasi;
             $publikasi->level = $request->level;
             $publikasi->link_akses = $request->link_akses;
