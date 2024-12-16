@@ -124,6 +124,7 @@
                 .responsive.recalc();
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@latest/dist/core.js"></script>
     @yield('scripts')
 </body>
 

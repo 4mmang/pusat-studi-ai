@@ -33,7 +33,7 @@
         <div class="container">
             <div class="flex flex-wrap pt-16">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi Artificial Intelligance
+                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi <span id="typewriter" class="text-blue-600"></span>
                     </h4>
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor, sit amet
                         consectetur adipisicing elit. Vitae excepturi possimus, eum veniam voluptatem aperiam accusamus
@@ -214,4 +214,16 @@
             }
         });
     </script> --}}
+    <script>
+        const typewriter = new Typewriter('#typewriter', {
+                loop: true,
+                delay: 75,
+            });
+    
+            typewriter
+                .typeString('Artificial Intelligence')
+                .pauseFor(1000)
+                .deleteAll()
+                .start();
+    </script>
 @endsection

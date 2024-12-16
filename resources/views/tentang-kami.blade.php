@@ -10,7 +10,7 @@
                         Apa itu Pusat Studi Artificial intelligence?
                     </h4>
                     <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
-                        Pusat Studi Artificial Intelligance
+                        Pusat Studi <span id="typewriter" class="text-blue-600"></span>
                     </h4>
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
@@ -37,7 +37,7 @@
                 <div class="w-full px-4 lg:w-1/2 flex justify-center mb-8 lg:mb-0">
                     <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" />
                 </div>
-    
+
                 <!-- Teks -->
                 <div class="w-full px-4 lg:w-1/2">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">
@@ -46,15 +46,50 @@
                     <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
                         Pusat Studi Artificial Intelligance
                     </h4>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                    <h4 class="font-bold uppercase text-primary text-lg">
+                        Visi
+                    </h4>
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
                         voluptatem
                         aperiam accusamus quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati
                         vel
                         veritatis sequi.
-                    </p>
+                    </li>
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                        voluptatem.
+                    </li>
+                    <h4 class="font-bold uppercase text-primary text-lg mt-3">
+                        Misi
+                    </h4>
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                        voluptatem
+                        aperiam accusamus quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati
+                        vel
+                        veritatis sequi.
+                    </li>
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                        voluptatem.
+                    </li>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+@section('scripts')
+    <script>
+        const typewriter = new Typewriter('#typewriter', {
+            loop: true,
+            delay: 75,
+        });
+
+        typewriter
+            .typeString('Artificial Intelligence')
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
+    </script>
 @endsection
