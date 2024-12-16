@@ -177,12 +177,7 @@
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Dashboard
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                        Profil
-                                    </a>
-                                </li>
+                                </li> 
                                 <li>
                                     <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Keluar

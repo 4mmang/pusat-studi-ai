@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome', compact('events'));
 })->name('beranda');
 
-Route::get('tentan/g-kami', function () {
+Route::get('tentang-kami', function () {
     return view('tentang-kami');
 })->name('tentang-kami');
 

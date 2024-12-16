@@ -24,6 +24,10 @@
                     <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                     Beranda
                 </a>
+                <a class="dropdown-item" href="{{ route('beranda') }}">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profil
+                </a>
                 <a class="dropdown-item" href="{{ url('logout') }}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
