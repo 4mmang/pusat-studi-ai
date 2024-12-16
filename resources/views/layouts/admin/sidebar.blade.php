@@ -59,7 +59,7 @@
                 <a class="collapse-item {{ Request::is('admin/data/publikasi*') ? 'active' : '' }}"
                     href="{{ route('publikasi.index') }}">Publikasi</a>
                 <a class="collapse-item {{ Request::is('admin/data/penelitian*') ? 'active' : '' }}"
-                    href="">Penelitian</a>
+                    href="{{ route('penelitian.index') }}">Penelitian</a>
                 <a class="collapse-item {{ Request::is('admin/data/pengabdian*') ? 'active' : '' }}"
                     href="">Pengabdian</a>
             </div>

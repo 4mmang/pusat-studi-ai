@@ -104,7 +104,7 @@
         });
 
         // Array untuk menyimpan daftar author
-        let author = [];
+        let author = ['Arman Umar S.Kom'];
 
         // Fungsi untuk menambahkan author baru
         function tambahAuthor() {
@@ -144,6 +144,7 @@
                     <br>
             `).join("");
         }
+        renderAuthors()
 
         // Fungsi untuk menghapus author
         function hapusAuthor(index) {

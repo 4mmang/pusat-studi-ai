@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('publikasi', function (Blueprint $table) {
+        Schema::create('penelitian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('judul');
             $table->string('penyelenggara');
-            // $table->foreignId('jenis_publikasi_id')->constrained('jenis_publikasi');
-            $table->date('tanggal_publikasi');
+            $table->date('tanggal_penelitian');
             $table->enum('level', ['nasional', 'internasional']);
             $table->text('link_akses');
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('publikasi');
+        Schema::dropIfExists('penelitian');
     }
 };

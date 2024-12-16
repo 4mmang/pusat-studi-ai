@@ -33,9 +33,11 @@
         <div class="container">
             <div class="flex flex-wrap pt-16">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi <span id="typewriter"
-                            class="text-blue-600"></span>
+                    <h4 class="font-bold text-dark text-3xl mb-1 max-w-md lg:text-4xl">Pusat Studi 
                     </h4>
+                    <h5 class="text-3xl lg:text-4xl font-bold mb-5">
+                        <span id="typewriter" class="text-blue-600"></span>
+                    </h5>
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor, sit amet
                         consectetur adipisicing elit. Vitae excepturi possimus, eum veniam voluptatem aperiam accusamus
                         quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati vel veritatis
@@ -43,7 +45,8 @@
                 </div>
 
                 <div class="w-full px-4 lg:w-1/2 flex justify-center">
-                    <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" />
+                    {{-- <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" /> --}}
+                    <img src="{{asset('img/Logo.jpg')}}" alt="Gambar 1" class="h-auto rounded-lg" />
                 </div>
             </div>
         </div>

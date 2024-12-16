@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\Data\PenelitianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Models\Event;
+use App\Models\Penelitian;
 use App\Models\Publikasi;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -46,7 +48,8 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/penelitian', function () {
-    return view('data.penelitian.index');
+    $penelitian = Penelitian::all();
+    return view('data.penelitian.index', compact('penelitian'));
 })->name('penelitian');
 
 Route::get('/pengabdian', function () {
@@ -80,6 +83,7 @@ Route::prefix('/admin')->group(function () {
 
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);
+        Route::resource('/penelitian', PenelitianController::class);
     });
 
     Route::resource('/artikel', ArtikelController::class);

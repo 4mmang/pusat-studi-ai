@@ -3,24 +3,23 @@
 namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
-use App\Models\AuthorPublikasi;
-use App\Models\JenisPublikasi;
-use App\Models\Publikasi;
+use App\Models\AuthorPenelitian;
+use App\Models\Penelitian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class PublikasiController extends Controller
+class PenelitianController extends Controller
 {
     public function index()
     {
-        $publikasi = Publikasi::all();
-        return view('admin.data.publikasi.index', compact('publikasi'));
+        $penelitian = Penelitian::all();
+        return view('admin.data.penelitian.index', compact('penelitian'));
     }
 
     public function create()
     {
-        return view('admin.data.publikasi.create');
+        return view('admin.data.penelitian.create');
     }
 
     public function store(Request $request)
@@ -31,27 +30,26 @@ class PublikasiController extends Controller
 
         DB::beginTransaction();
         try {
-            $publikasi = new Publikasi();
-            // $publikasi->user_id = Auth::user()->id;
-            $publikasi->user_id = 1;
-            $publikasi->judul = $request->judul;
-            $publikasi->penyelenggara = $request->penyelenggara;
-            // $publikasi->jenis_publikasi_id = $request->jenis_publikasi;
-            $publikasi->tanggal_publikasi = $request->tanggal_publikasi;
-            $publikasi->level = $request->level;
-            $publikasi->link_akses = $request->link_akses;
-            $publikasi->save();
+            $penelitian = new Penelitian();
+            // $penelitian->user_id = Auth::user()->id;
+            $penelitian->user_id = 1;
+            $penelitian->judul = $request->judul;
+            $penelitian->penyelenggara = $request->penyelenggara;
+            $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
+            $penelitian->level = $request->level;
+            $penelitian->link_akses = $request->link_akses;
+            $penelitian->save();
 
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
-                $newAuthor = new AuthorPublikasi();
-                $newAuthor->publikasi_id = $publikasi->id;
+                $newAuthor = new AuthorPenelitian();
+                $newAuthor->penelitian_id = $penelitian->id;
                 $newAuthor->nama = $author;
                 $newAuthor->save();
             }
             DB::commit();
             return back()->with([
-                'message' => 'Data publikasi berhasil ditambahkan',
+                'message' => 'Data penelitian berhasil ditambahkan',
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -63,8 +61,8 @@ class PublikasiController extends Controller
 
     public function edit($id)
     {
-        $publikasi = Publikasi::findOrFail($id);
-        return view('admin.data.publikasi.edit', compact('publikasi'));
+        $penelitian = Penelitian::findOrFail($id);
+        return view('admin.data.penelitian.edit', compact('penelitian'));
     }
 
     public function update(Request $request, $id)
@@ -75,28 +73,28 @@ class PublikasiController extends Controller
 
         DB::beginTransaction();
         try {
-            $publikasi = Publikasi::findOrFail($id);
-            $publikasi->judul = $request->judul;
-            $publikasi->penyelenggara = $request->penyelenggara;
-            $publikasi->tanggal_publikasi = $request->tanggal_publikasi;
-            $publikasi->level = $request->level;
-            $publikasi->link_akses = $request->link_akses;
-            $publikasi->update();
+            $penelitian = Penelitian::findOrFail($id);
+            $penelitian->judul = $request->judul;
+            $penelitian->penyelenggara = $request->penyelenggara;
+            $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
+            $penelitian->level = $request->level;
+            $penelitian->link_akses = $request->link_akses;
+            $penelitian->update();
 
-            foreach ($publikasi->authors as $author) {
+            foreach ($penelitian->authors as $author) {
                 $author->delete();
             }
 
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
-                $newAuthor = new AuthorPublikasi();
-                $newAuthor->publikasi_id = $publikasi->id;
+                $newAuthor = new AuthorPenelitian();
+                $newAuthor->penelitian_id = $penelitian->id;
                 $newAuthor->nama = $author;
                 $newAuthor->save();
             }
             DB::commit();
             return back()->with([
-                'message' => 'Data publikasi berhasil diupdate',
+                'message' => 'Data penelitian berhasil diupdate',
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -110,14 +108,14 @@ class PublikasiController extends Controller
     {
         DB::beginTransaction();
         try {
-            $publikasi = Publikasi::with('authors')->findOrFail($id);
-            foreach ($publikasi->authors as $author) {
+            $penelitian = Penelitian::with('authors')->findOrFail($id);
+            foreach ($penelitian->authors as $author) {
                 $author->delete();
             }
-            $publikasi->delete();
+            $penelitian->delete();
             DB::commit();
             return back()->with([
-                'message' => 'Data publikasi berhasil dihapus',
+                'message' => 'Data penelitian berhasil dihapus',
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
