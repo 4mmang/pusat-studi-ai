@@ -33,7 +33,8 @@
         <div class="container">
             <div class="flex flex-wrap pt-16">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi <span id="typewriter" class="text-blue-600"></span>
+                    <h4 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Pusat Studi <span id="typewriter"
+                            class="text-blue-600"></span>
                     </h4>
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor, sit amet
                         consectetur adipisicing elit. Vitae excepturi possimus, eum veniam voluptatem aperiam accusamus
@@ -50,7 +51,7 @@
     <!-- Hero Section End -->
 
     <!-- Hero Section Start -->
-    <section id="beranda" class="pt-36 pb-12">
+    <section id="beranda" class="pt-36 pb-32">
         <div class="container">
             <div class="flex flex-wrap lg:flex-nowrap text-center">
                 <div class="w-full self-center px-4">
@@ -62,25 +63,307 @@
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @forelse ($events as $event)
-                <div class="mb-12 p-4 md:w-1/3">
-                    <div class="rounded-md overflow-hidden flex justify-center">
-                        <img src="{{ asset('storage/'.$event->poster) }}" class="h-auto rounded-xl" alt="Platform DATAU" width="w-full">
+                    <div class="mb-12 p-4 md:w-1/3">
+                        <div class="rounded-md overflow-hidden flex justify-center">
+                            <img src="{{ asset('storage/' . $event->poster) }}" class="h-auto rounded-xl" alt="Platform DATAU"
+                                width="w-full">
+                        </div>
+                        <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
+                            <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
+                        </h3>
                     </div>
-                    {{-- <p class="p-3 text-center">dsadasdb</p> --}}
-                    <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
-                        <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
-                    </h3>
-                </div> 
                 @empty
-                <p>Saat ini belum ada event.</p>
+                    <p>Saat ini belum ada event.</p>
                 @endforelse
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
 
+    <!-- Keunggulan Section Start -->
+    <section id="keunggulan" class="pt-24 pb-16 bg-slate-100">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h4 class="font-semibold text-lg text-primary mb-2">Kenapa Pusat Studi Artificial Intelligence?</h4>
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Sekali-Bayar.png') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Materi didesain untuk Awam</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quis quasi sit nihil. Necessitatibus deleniti omnis debitis ab.</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Mentoring.png') }}" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Metode Mentoring</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Odit, sapiente?</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Awam-IT.png') }}" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Hands On Praktikum</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Keunggulan Section End -->
+    
+    <!-- Reviews Section Start -->
+    <section class="bg-slate-100">
+        <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Apa Kata Alumni Kami?
+            </h2>
+    
+            <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+                <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                    <div class="flex items-center gap-4">
+                        <img alt=""
+                            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                            class="size-14 rounded-full object-cover" />
+    
+                        <div>
+                            <div class="flex justify-center gap-0.5 text-green-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+    
+                            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+                        </div>
+                    </div>
+    
+                    <p class="mt-4 text-gray-700">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+                        consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+                        error officiis atque voluptates magnam!
+                    </p>
+                </blockquote>
+    
+                <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                    <div class="flex items-center gap-4">
+                        <img alt=""
+                            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                            class="size-14 rounded-full object-cover" />
+    
+                        <div>
+                            <div class="flex justify-center gap-0.5 text-green-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+    
+                            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+                        </div>
+                    </div>
+    
+                    <p class="mt-4 text-gray-700">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+                        consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+                        error officiis atque voluptates magnam!
+                    </p>
+                </blockquote>
+    
+                <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                    <div class="flex items-center gap-4">
+                        <img alt=""
+                            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                            class="size-14 rounded-full object-cover" />
+    
+                        <div>
+                            <div class="flex justify-center gap-0.5 text-green-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+    
+                            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+                        </div>
+                    </div>
+    
+                    <p class="mt-4 text-gray-700">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+                        consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+                        error officiis atque voluptates magnam!
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews Section End -->
+
+    <!-- Kampus partnert Section Start -->
+    <section id="kampus-partnert" class="pt-24 pb-16">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h4 class="font-semibold text-lg text-primary mb-2">Kampus</h4>
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Partnert</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Kampus partnert Section End -->
+
+    <!-- Kepercayaan Section Start -->
+    <section id="kepercayaan" class="pt-24 pb-16">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h4 class="font-semibold text-lg text-primary mb-2">Dipercaya Oleh</h4>
+                    {{-- <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Dipercaya Oleh</h2> --}}
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/6">
+                    <div class="rounded-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Kepercayaan Section End -->
+
     <!-- Berita Section Start -->
-    <section id="portofolio" class="pt-24 pb-16 bg-slate-100">
+    <section id="artikel" class="pt-24 pb-16 bg-slate-100">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
@@ -216,14 +499,14 @@
     </script> --}}
     <script>
         const typewriter = new Typewriter('#typewriter', {
-                loop: true,
-                delay: 75,
-            });
-    
-            typewriter
-                .typeString('Artificial Intelligence')
-                .pauseFor(1000)
-                .deleteAll()
-                .start();
+            loop: true,
+            delay: 75,
+        });
+
+        typewriter
+            .typeString('Artificial Intelligence')
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
     </script>
 @endsection

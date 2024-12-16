@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Models\Event;
 use App\Models\Publikasi;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,7 +37,8 @@ Route::get('/data/publikasi', function () {
 });
 
 Route::get('/anggota', function () {
-    return view('anggota.index');
+    $anggota = User::all();
+    return view('anggota.index', compact('anggota'));
 })->name('anggota');
 
 Route::get('/login', function () {
