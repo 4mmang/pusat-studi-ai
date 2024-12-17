@@ -27,7 +27,7 @@
                         <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3>
                     </div>
                 @empty
-                    <p>Belum ada anggota yang terdaftar</p>
+                    <p>Belum ada anggota yang terdaftar.</p>
                 @endforelse
             </div>
         </div>

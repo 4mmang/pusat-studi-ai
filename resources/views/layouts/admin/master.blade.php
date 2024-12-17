@@ -62,7 +62,7 @@
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: "Terjadi kesalahan",
+                text: "{{ $errors->first('error') }}",
             });
         </script>
     @endif

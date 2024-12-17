@@ -131,7 +131,7 @@
                 // Perbarui nilai input hidden dengan daftar author dalam JSON
                 document.getElementById('authors').value = JSON.stringify(authors);
                 console.log(document.getElementById('authors').value);
-                
+
                 // Render ulang daftar author
                 renderAuthors();
 
@@ -166,6 +166,10 @@
             authors.splice(index, 1); // Hapus author dari array
             document.getElementById('authors').value = JSON.stringify(authors); // Perbarui input hidden
             renderAuthors(); // Render ulang daftar author
+            // if (authors.length > 1) {
+            // } else {
+            //     alert("Authot tidak boleh kosong")
+            // }
         }
     </script>
 @endpush

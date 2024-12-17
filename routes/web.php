@@ -2,20 +2,24 @@
 
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\Data\PenelitianController;
+use App\Http\Controllers\Admin\Data\PengabdianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Models\Artikel;
 use App\Models\Event;
 use App\Models\Penelitian;
+use App\Models\Pengabdian;
 use App\Models\Publikasi;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $events = Event::all();
-    return view('welcome', compact('events'));
+    $artikel = Artikel::take(3)->get();
+    return view('welcome', compact('events', 'artikel'));
 })->name('beranda');
 
 Route::get('tentang-kami', function () {
@@ -27,7 +31,8 @@ Route::get('/statistik', function () {
 })->name('statistik');
 
 Route::get('/artikel', function () {
-    return view('artikel.index');
+    $artikel = Artikel::all();
+    return view('artikel.index', compact('artikel'));
 })->name('artikel');
 
 Route::get('/kontak', function () {
@@ -53,7 +58,8 @@ Route::get('/penelitian', function () {
 })->name('penelitian');
 
 Route::get('/pengabdian', function () {
-    return view('data.pengabdian.index');
+    $pengabdian = Pengabdian::all();
+    return view('data.pengabdian.index', compact('pengabdian'));
 })->name('pengabdian');
 
 Route::get('/publikasi', function () {
@@ -84,6 +90,7 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);
         Route::resource('/penelitian', PenelitianController::class);
+        Route::resource('/pengabdian', PengabdianController::class);
     });
 
     Route::resource('/artikel', ArtikelController::class);

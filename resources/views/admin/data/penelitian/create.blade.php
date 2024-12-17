@@ -45,6 +45,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                             <select name="level" class="form-control" value="{{ old('level') }}" id="level" required>
+                                <option value="Universitas">Universitas</option>
                                 <option value="Nasional">Nasional</option>
                                 <option value="Internasional">Internasional</option>
                             </select>
@@ -96,6 +97,7 @@
 
         // Array untuk menyimpan daftar author
         let author = ['Arman Umar S.Kom'];
+        document.getElementById('authors').value = JSON.stringify(author);
         // Fungsi untuk menambahkan author baru
         function tambahAuthor() {
             let nama = document.getElementById('nama');

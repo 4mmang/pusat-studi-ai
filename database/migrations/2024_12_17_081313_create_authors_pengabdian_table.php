@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('penelitian', function (Blueprint $table) {
+        Schema::create('authors_pengabdian', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('judul');
-            $table->string('penyelenggara');
-            $table->date('tanggal_penelitian');
-            $table->enum('level', ['universitas', 'nasional', 'internasional']);
-            $table->text('link_akses');
+            $table->foreignId('pengabdian_id')->constrained('pengabdian');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penelitian');
+        Schema::dropIfExists('authors_pengabdian');
     }
 };
