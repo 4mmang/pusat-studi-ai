@@ -32,8 +32,8 @@ class PublikasiController extends Controller
         DB::beginTransaction();
         try {
             $publikasi = new Publikasi();
-            // $publikasi->user_id = Auth::user()->id;
-            $publikasi->user_id = 1;
+            $publikasi->user_id = Auth::user()->id;
+            // $publikasi->user_id = 1;
             $publikasi->judul = $request->judul;
             $publikasi->penyelenggara = $request->penyelenggara;
             // $publikasi->jenis_publikasi_id = $request->jenis_publikasi;

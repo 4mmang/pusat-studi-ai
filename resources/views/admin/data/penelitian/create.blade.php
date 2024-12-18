@@ -96,7 +96,7 @@
         });
 
         // Array untuk menyimpan daftar author
-        let author = ['Arman Umar S.Kom'];
+        let author = ['{{ Auth::user()->nama }}'];
         document.getElementById('authors').value = JSON.stringify(author);
         // Fungsi untuk menambahkan author baru
         function tambahAuthor() {

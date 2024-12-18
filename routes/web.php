@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Middleware\RoleMiddleware;
 use App\Models\Artikel;
 use App\Models\Event;
 use App\Models\Penelitian;
@@ -52,6 +54,8 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::post('/validation', [LoginController::class, 'validation'])->name('validation');
+
 Route::get('/penelitian', function () {
     $penelitian = Penelitian::all();
     return view('data.penelitian.index', compact('penelitian'));
@@ -71,15 +75,22 @@ Route::get('/kinerja-anggota', function () {
     return view('informasi.kinerja-anggota');
 })->name('kinerja-anggota');
 
+Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
+    Route::prefix('/admin')->group(function () {
+        Route::prefix('/sumber-daya')->group(function () {
+            Route::resource('/anggota', AnggotaController::class);
+            Route::resource('/sarana-pra', SaranaPraController::class);
+        });
+
+        Route::resource('/artikel', ArtikelController::class);
+        Route::resource('/event', EventController::class);
+    });
+});
+
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
-
-    Route::prefix('/sumber-daya')->group(function () {
-        Route::resource('/anggota', AnggotaController::class);
-        Route::resource('/sarana-pra', SaranaPraController::class);
-    });
 
     // Route::prefix('/jenis')
     //     ->as('jenis.')
@@ -92,7 +103,4 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/penelitian', PenelitianController::class);
         Route::resource('/pengabdian', PengabdianController::class);
     });
-
-    Route::resource('/artikel', ArtikelController::class);
-    Route::resource('/event', EventController::class);
 });

@@ -13,24 +13,30 @@
 <body class="bg-gray-100">
     <div class="container mx-auto h-screen flex justify-center items-center px-4">
         <div class="bg-white shadow-md rounded-lg max-w-sm w-full p-6">
-            <h1 class="text-3xl font-bold mb-5 text-center"><span class="text-primary"><a href="{{ url('/') }}">Pusat Studi Artificial Intelligence</a></span></h1>
-            <form>
+            <h1 class="text-3xl font-bold mb-5 text-center"><span class="text-primary"><a href="{{ url('/') }}">Pusat
+                        Studi Artificial Intelligence</a></span></h1>
+            @if (session('message'))
+                <p class="bg-red-400 p-3 mb-5 text-white">{{ session('message') }}</p>
+            @endif
+            <form method="POST" id="form-login" action="{{ route('validation') }}">
+                @csrf
                 <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your username"
-                        class="shadow valid:border-green-500 peer invalid:border-pink-600 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                        <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-                            Please provide a valid email address.
-                        </p>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email"
+                        class="shadow valid:border-green-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        required>
+                    {{-- <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+                            Please provide a valid email address. peer invalid:border-pink-600
+                        </p> --}}
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password"
+                    <input type="password" id="password" name="password" placeholder="Masukkan password password"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <button type="submit"
+                <button type="submit" id="masuk"
                     class="bg-blue-500 rounded-full text-white px-4 py-2 mt-2 hover:bg-blue-600 w-full">Masuk</button>
-                    <div class="flex items-center mt-4">
+                {{-- <div class="flex items-center mt-4">
                         <hr class="flex-grow border-t border-gray-300">
                         <span class="mx-4 text-gray-500">Atau masuk dengan</span>
                         <hr class="flex-grow border-t border-gray-300">
@@ -42,10 +48,19 @@
                                 <path
                                     d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
                             </svg>oogle
-                        </a>
+                        </a> --}}
             </form>
         </div>
     </div>
+
+    <script>
+        let form = document.getElementById('form-login')
+        form.addEventListener('submit', function() {
+            let btnMasuk = document.getElementById('masuk')
+            btnMasuk.disabled = true
+            btnMasuk.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
+        })
+    </script>
 </body>
 
 </html>

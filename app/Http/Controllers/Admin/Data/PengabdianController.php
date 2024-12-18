@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AuthorPengabdian;
 use App\Models\Pengabdian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PengabdianController extends Controller
@@ -30,8 +31,8 @@ class PengabdianController extends Controller
         DB::beginTransaction();
         try {
             $pengabdian = new Pengabdian();
-            // $pengabdian->user_id = Auth::user()->id;
-            $pengabdian->user_id = 1;
+            $pengabdian->user_id = Auth::user()->id;
+            // $pengabdian->user_id = 1;
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;

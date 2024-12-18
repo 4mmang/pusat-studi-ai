@@ -158,35 +158,37 @@
                             </ul>
                         </li>
 
-                        <li class="group relative">
-                            <button id="dropdownButtonProfil"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
-                                aria-expanded="false">
-                                Arman
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                            <ul id="dropdownMenuProfil"
-                                class="relative lg:absolute hidden lg:group-hover:block bg-slate-100 rounded-lg p-3 max-w-[250px]">
-                                <li>
-                                    <a href="{{ route('dashboard') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                        Dashboard
-                                    </a>
-                                </li> 
-                                <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                        Keluar
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @auth
+                            <li class="group relative">
+                                <button id="dropdownButtonProfil"
+                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                    aria-expanded="false">
+                                    Arman
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <ul id="dropdownMenuProfil"
+                                    class="relative lg:absolute hidden lg:group-hover:block bg-slate-100 rounded-lg p-3 max-w-[250px]">
+                                    <li>
+                                        <a href="{{ route('dashboard') }}"
+                                            class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                            Keluar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endauth
 
-                        {{-- @guest
+                        @guest
                             <!-- Login Button (Desktop) -->
                             <li class="group">
                                 <a href="{{ url('login') }}"
@@ -199,7 +201,7 @@
                                 <a href="{{ url('login') }}"
                                     class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
                             </li>
-                        @endguest --}}
+                        @endguest
                     </ul>
                 </nav>
             </div>

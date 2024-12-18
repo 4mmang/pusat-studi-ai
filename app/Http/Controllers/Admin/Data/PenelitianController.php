@@ -14,6 +14,10 @@ class PenelitianController extends Controller
     public function index()
     {
         $penelitian = Penelitian::all();
+        $user = Auth::user();
+        if ($user->role === 'anggota') {
+            $penelitian = Penelitian::where('user_id', $user->id)->get();
+        }
         return view('admin.data.penelitian.index', compact('penelitian'));
     }
 
@@ -31,8 +35,8 @@ class PenelitianController extends Controller
         DB::beginTransaction();
         try {
             $penelitian = new Penelitian();
-            // $penelitian->user_id = Auth::user()->id;
-            $penelitian->user_id = 1;
+            $penelitian->user_id = Auth::user()->id;
+            // $penelitian->user_id = 1;
             $penelitian->judul = $request->judul;
             $penelitian->penyelenggara = $request->penyelenggara;
             $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
@@ -62,8 +66,16 @@ class PenelitianController extends Controller
 
     public function edit($id)
     {
-        $penelitian = Penelitian::findOrFail($id);
-        return view('admin.data.penelitian.edit', compact('penelitian'));
+        $user = Auth::user();
+        
+        $penelitian = Penelitian::where('id', $id)->where('user_id', $user->id)->first();
+        if ($user->role === 'admin') {
+            $penelitian = Penelitian::findOrFail($id);
+        }
+        if ($penelitian) {
+            return view('admin.data.penelitian.edit', compact('penelitian'));
+        }
+        abort(404);
     }
 
     public function update(Request $request, $id)

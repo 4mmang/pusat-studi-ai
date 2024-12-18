@@ -27,21 +27,23 @@
     <div class="sidebar-heading">
         menu
     </div>
-    <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sumber-daya"
-            aria-expanded="true" aria-controls="sumber-daya">
-            <i class="fas fa-fw fa-handshake"></i>
-            <span>Sumber Daya</span>
-        </a>
-        <div id="sumber-daya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ Request::is('admin/sumber-daya/anggota*') ? 'active' : '' }}"
-                    href="{{ route('anggota.index') }}">Anggota</a>
-                <a class="collapse-item {{ Request::is('admin/sumber-daya/sarana-pra*') ? 'active' : '' }}"
-                    href="{{ route('sarana-pra.index') }}">Sarana & Prasarana</a>
+    @if (Auth::user()->role === 'admin')
+        <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sumber-daya"
+                aria-expanded="true" aria-controls="sumber-daya">
+                <i class="fas fa-fw fa-handshake"></i>
+                <span>Sumber Daya</span>
+            </a>
+            <div id="sumber-daya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item {{ Request::is('admin/sumber-daya/anggota*') ? 'active' : '' }}"
+                        href="{{ route('anggota.index') }}">Anggota</a>
+                    <a class="collapse-item {{ Request::is('admin/sumber-daya/sarana-pra*') ? 'active' : '' }}"
+                        href="{{ route('sarana-pra.index') }}">Sarana & Prasarana</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    @endif
     {{-- <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('jenis.publikasi.index') }}">
             <i class="fas fa-fw fa-th-large"></i>
@@ -65,16 +67,18 @@
             </div>
         </div>
     </li>
-    <li class="nav-item {{ Request::is('admin/artikel*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('artikel.index') }}">
-            <i class="fas fa-fw fa-newspaper"></i>
-            <span>Artikel</span></a>
-    </li>
-    <li class="nav-item {{ Request::is('admin/event*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('event.index') }}">
-            <i class="fas fa-fw fa-calendar-check"></i>
-            <span>Event</span></a>
-    </li>
+    @if (Auth::user()->role === 'admin')
+        <li class="nav-item {{ Request::is('admin/artikel*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('artikel.index') }}">
+                <i class="fas fa-fw fa-newspaper"></i>
+                <span>Artikel</span></a>
+        </li>
+        <li class="nav-item {{ Request::is('admin/event*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('event.index') }}">
+                <i class="fas fa-fw fa-calendar-check"></i>
+                <span>Event</span></a>
+        </li>
+    @endif
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
