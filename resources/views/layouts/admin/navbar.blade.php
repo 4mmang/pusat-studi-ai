@@ -28,10 +28,16 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profil
                 </a>
-                <a class="dropdown-item" href="{{ url('logout') }}">
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout</button>
+                </form>
+                {{-- <a class="dropdown-item" href="{{ url('logout') }}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
-                </a>
+                </a> --}}
             </div>
         </li>
     </ul>

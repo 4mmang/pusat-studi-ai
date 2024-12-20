@@ -139,7 +139,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('kinerja-anggota') }}"
+                                    <a href="{{ route('kinerja-anggota.index') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Kinerja Anggota
                                     </a>
@@ -180,9 +180,11 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                            Keluar
-                                        </a>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit"
+                                                class="text-base text-dark py-1 px-4 block hover:bg-gray-100">Logout</button>
+                                        </form>
                                     </li>
                                 </ul>
                             </li>

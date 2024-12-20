@@ -16,11 +16,14 @@
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @forelse ($artikel as $item)
                     <div class="mb-12 p-4 md:w-1/3">
-                        <div class="rounded-md shadow-md overflow-hidden">
-                            <img src="https://picsum.photos/800/400?random=8" alt="Platform DATAU" width="w-full">
-                        </div>
-                        <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
-                        <p class="font-medium text-base text-secondary">{{ $item->deskripsi }}</p>
+                        <a href="">
+                            <div class="rounded-md shadow-md overflow-hidden">
+                                <img src="{{ asset('storage/' . $item->sampul) }}" alt="Platform DATAU" width="w-full">
+                            </div>
+                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
+                            <p class="font-medium text-base text-secondary">{{ Str::limit($item->deskripsi, 150, '...') }}
+                            </p>
+                        </a>
                     </div>
                 @empty
                     <p>Belum ada artikel yang ditambahkan.</p>

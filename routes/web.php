@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Informasi\KinerjaAnggotaController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\Artikel;
 use App\Models\Event;
@@ -16,6 +17,7 @@ use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Publikasi;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -46,7 +48,7 @@ Route::get('/data/publikasi', function () {
 });
 
 Route::get('/anggota', function () {
-    $anggota = User::all();
+    $anggota = User::where('role', 'anggota')->get();
     return view('anggota.index', compact('anggota'));
 })->name('anggota');
 
@@ -55,6 +57,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('/validation', [LoginController::class, 'validation'])->name('validation');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/penelitian', function () {
     $penelitian = Penelitian::all();
@@ -71,9 +74,7 @@ Route::get('/publikasi', function () {
     return view('data.publikasi.index', compact('publikasi'));
 })->name('publikasi');
 
-Route::get('/kinerja-anggota', function () {
-    return view('informasi.kinerja-anggota');
-})->name('kinerja-anggota');
+Route::resource('/kinerja-anggota', KinerjaAnggotaController::class);
 
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {

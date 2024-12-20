@@ -16,29 +16,26 @@
                         <div class="mb-2">
                             <label for="password1" class="block text-gray-700 text-sm font-bold mb-2">Anggota:</label>
                             <form class="max-w-sm mx-auto">
-                                {{-- <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> --}}
-                                <select id="countries"
+                                <select id="user_id"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option value="US">Wawan Firgiawan S.T.,M.Kom</option>
-                                    <option value="CA">Amirul Asnan Cirua S.T., M.Kom</option>
-                                    <option value="FR">Arman Umar</option>
+                                    @foreach ($anggota as $ang)
+                                        <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
+                                    @endforeach
                                 </select>
                             </form>
-                            {{-- <input type="text" id="password1" name="password" placeholder="Cari nama anggota"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
                         </div>
                     </div>
                     <div class="w-full md:w-1/4 px-4 mb-4">
                         <div class="mb-2">
-                            <label for="password2" class="block text-gray-700 text-sm font-bold mb-2">Mulai:</label>
-                            <input type="date" id="password2" name="password" placeholder="Enter your password"
+                            <label for="mulai" class="block text-gray-700 text-sm font-bold mb-2">Mulai:</label>
+                            <input type="date" id="mulai" name="mulai" placeholder="Enter your mulai"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                     </div>
                     <div class="w-full md:w-1/4 px-4 mb-4">
                         <div class="mb-2">
-                            <label for="password3" class="block text-gray-700 text-sm font-bold mb-2">Akhir:</label>
-                            <input type="date" id="password3" name="password" placeholder="Enter your password"
+                            <label for="akhir" class="block text-gray-700 text-sm font-bold mb-2">Akhir:</label>
+                            <input type="date" id="akhir" name="akhir" placeholder="Enter your akhir"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                     </div>
@@ -66,19 +63,19 @@
                             <table class="table min-w-full bg-white text-sm table-striped">
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Nama</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">Arman Umar</td>
-                                </tr>
-                                <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Inisial</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">AU</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="nama"></td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">NIP</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">1234567</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="nip"></td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Email</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">arman@gmail.com</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="email"></td>
+                                </tr>
+                                <tr>
+                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Jenis Kelamin</th>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jenis_kelamin"></td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Program Studi</th>
@@ -92,30 +89,21 @@
                         <div class="overflow-x-auto">
                             <table class="table min-w-full bg-white text-sm table-striped">
                                 <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Penelitian</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">10</td>
+                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Publikasi</th>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPublikasi">0</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Penelitian</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">9</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPenelitian">0</td>
                                 </tr>
                                 <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Publikasi Jurnal Penelitian
+                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Pengabdian
                                     </th>
-                                    <td class="px-4 py-2 text-start text-gray-900">18</td>
-                                </tr>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPengabdian">0</td>
+                                </tr> 
                                 <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Publikasi Jurnal Pengabdian
-                                    </th>
-                                    <td class="px-4 py-2 text-start text-gray-900">7</td>
-                                </tr>
-                                <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Publikasi Lain</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">2</td>
-                                </tr>
-                                <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Total Publikasi</th>
-                                    <td class="px-4 py-2 text-start text-gray-900">30</td>
+                                    <th class="px-4 py-2 font-medium text-start text-gray-700">Total Keseluruhan</th>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="totalKeseluruhan">0</td>
                                 </tr>
                             </table>
                         </div>
@@ -337,15 +325,74 @@
 @endsection
 @section('scripts')
     <script>
+        function setDefaultDates() {
+            const today = new Date();
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+            // Format tanggal menjadi yyyy-mm-dd
+            const formatDate = (date) => date.toISOString().split('T')[0];
+
+            // Tetapkan nilai default untuk input tanggal
+            document.getElementById('mulai').value = formatDate(oneYearAgo);
+            document.getElementById('akhir').value = formatDate(today);
+        }
+
+        // Panggil fungsi saat halaman selesai dimuat
+        window.onload = setDefaultDates;
+
         function proses() {
+            let userId = document.getElementById('user_id')
+            let mulai = document.getElementById('mulai')
+            let akhir = document.getElementById('akhir')
             let btnProses = document.getElementById('proses')
-            btnProses.disabled = true
-            btnProses.textContent = 'Memproses...'
-            setTimeout(() => {
-                btnProses.disabled = false
-                btnProses.textContent = 'Proses'
-                document.getElementById('cetak').classList.remove('hidden')
-            }, 2000);
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            if (mulai.value != '' && mulai.value != null && akhir.value != '' && akhir.value != null) {
+                const kinerja = {
+                    userId: userId.value,
+                    mulai: mulai.value,
+                    akhir: akhir.value,
+                }
+                btnProses.disabled = true
+                btnProses.textContent = 'Memproses...'
+                fetch("{{ route('kinerja-anggota.store') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'apllication/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify(kinerja)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Terjadi kesalahan')
+                        }
+                        return response.json()
+                    })
+                    .then(res => {
+                        console.log(res);
+                        btnProses.disabled = false
+                        btnProses.textContent = 'Proses'
+                        document.getElementById('cetak').classList.remove('hidden')
+                        document.getElementById('nama').innerHTML = res.data.anggota.nama
+                        document.getElementById('nip').innerHTML = res.data.anggota.nip ?? '-'
+                        document.getElementById('email').innerHTML = res.data.anggota.email
+                        document.getElementById('jenis_kelamin').innerHTML = (res.data.anggota.jenis_kelamin == 'lk') ? 'Laki - laki' : 'Perempuan'
+
+                        document.getElementById('jumlahPublikasi').innerHTML = res.data.jumlahPublikasi
+                        document.getElementById('jumlahPenelitian').innerHTML = res.data.jumlahPenelitian
+                        document.getElementById('jumlahPengabdian').innerHTML = res.data.jumlahPengabdian
+                        document.getElementById('totalKeseluruhan').innerHTML = (res.data.jumlahPublikasi + res.data.jumlahPenelitian + res.data.jumlahPengabdian )
+                    })
+                    .catch(e => {
+                        btnProses.disabled = false
+                        console.log(e);
+                        btnProses.textContent = 'Proses'
+                    })
+            } else {
+                alert("Pastikan tangal mulai dan akhir di isi!")
+            }
         }
     </script>
 @endsection

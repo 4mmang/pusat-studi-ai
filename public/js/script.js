@@ -130,9 +130,9 @@ function showSlide(index) {
 }
 
 // Automatic Slide
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 3000); // Ganti slide setiap 3 detik
+// setInterval(() => {
+//     showSlide(currentSlide + 1);
+// }, 3000); // Ganti slide setiap 3 detik
 
 // Show first slide
-showSlide(currentSlide);
+// showSlide(currentSlide);

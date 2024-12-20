@@ -28,4 +28,15 @@ class LoginController extends Controller
             'message' => 'Email atau password salah',
         ]);
     }
+
+    public function logout(Request $request)
+    {
+        // memanggil fungsi logout dari class Auth
+        Auth::logout();
+        // method ini juga akan memanggil 2 fungsi dibawah
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        // dan mengembalikan kehalaman login
+        return redirect('login');
+    }
 }
