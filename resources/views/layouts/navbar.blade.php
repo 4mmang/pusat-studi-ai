@@ -163,7 +163,7 @@
                                 <button id="dropdownButtonProfil"
                                     class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                     aria-expanded="false">
-                                    Arman
+                                    {{ Auth::user()->nama }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                         fill="currentColor">
                                         <path fill-rule="evenodd"
