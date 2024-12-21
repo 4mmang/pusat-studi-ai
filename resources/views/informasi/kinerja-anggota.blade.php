@@ -100,7 +100,7 @@
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Pengabdian
                                     </th>
                                     <td class="px-4 py-2 text-start text-gray-900" id="jumlahPengabdian">0</td>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Total Keseluruhan</th>
                                     <td class="px-4 py-2 text-start text-gray-900" id="totalKeseluruhan">0</td>
@@ -111,7 +111,7 @@
                     <div class="w-full lg:w-1/2 p-5">
                         <p class="mb-2 font-bold text-secondary">Data Pengabdian</p>
                         <div class="overflow-x-auto">
-                            <table class="table min-w-full bg-white text-sm table-striped">
+                            <table able class="table min-w-full bg-white text-sm table-striped">
                                 <thead class="bg-slate-300 text-xs">
                                     <tr>
                                         <th
@@ -134,29 +134,8 @@
                                     </tr>
                                 </thead>
 
-                                <tbody class="divide-y divide-gray-200 text-xs">
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Comparative Study of SAW,
-                                            MAUT and SMART Methods in Selecting Smartphones for Online Learning</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                            <p class="whitespace-nowrap">Ketua
-                                            </p>
-                                        </td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
-                                    </tr>
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Lorem ipsum dolor, sit
-                                            amet consectetur adipisicing.</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                            <p class="whitespace-nowrap">Anggota
-                                            </p>
-                                        </td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Belum</td>
-                                    </tr>
+                                <tbody class="divide-y divide-gray-200 text-xs" id="data-pengabdian">
+
                                 </tbody>
                             </table>
                         </div>
@@ -187,30 +166,8 @@
                                     </tr>
                                 </thead>
 
-                                <tbody class="divide-y divide-gray-200 text-xs">
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Comparative Study of
-                                            SAW,
-                                            MAUT and SMART Methods in Selecting Smartphones for Online Learning</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                            <p class="whitespace-nowrap">Ketua
-                                            </p>
-                                        </td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
-                                    </tr>
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Lorem ipsum dolor, sit
-                                            amet consectetur adipisicing.</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                            <p class="whitespace-nowrap">Anggota
-                                            </p>
-                                        </td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Belum</td>
-                                    </tr>
+                                <tbody class="divide-y divide-gray-200 text-xs" id="data-penelitian">
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -223,51 +180,35 @@
                                     <tr>
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            No
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Tanggal
                                         </th>
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Level
                                         </th>
-                                        <th
+                                        {{-- <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             jenis
-                                        </th>
+                                        </th> --}}
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Judul
                                         </th>
-                                        <th
+                                        {{-- <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Nama Publikasi
-                                        </th>
+                                        </th> --}}
                                     </tr>
                                 </thead>
 
-                                <tbody class="divide-y divide-gray-200 text-xs">
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">1</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">12/12/2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">HKI (Hak Cipta)</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Comparative Study of
-                                            SAW,
-                                            MAUT and SMART Methods in Selecting Smartphones for Online Learning</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                            <p class="whitespace-nowrap">e-Hak cipta
-                                            </p>
-                                        </td>
-                                    </tr>
+                                <tbody class="divide-y divide-gray-200 text-xs" id="data-publikasi">
+                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <div class="w-full p-5">
+                    {{-- <div class="w-full p-5">
                         <p class="mb-2 font-bold text-secondary">Kegiatan Penunjang</p>
                         <div class="overflow-x-auto">
                             <table class="table min-w-full bg-white text-sm table-striped">
@@ -301,7 +242,7 @@
                                 </thead>
 
                                 <tbody class="divide-y divide-gray-200 text-xs">
-                                    {{-- <tr class="odd:bg-gray-50 text-center">
+                                    <tr class="odd:bg-gray-50 text-center">
                                         <td class="px-4 py-2 text-gray-700 border border-gray-300">1</td>
                                         <td class="px-4 py-2 text-gray-700 border border-gray-300">12/12/2023</td>
                                         <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
@@ -312,11 +253,11 @@
                                                 <p class="whitespace-nowrap">e-Hak cipta
                                                 </p>
                                         </td>
-                                    </tr>  --}}
+                                    </tr> 
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -371,19 +312,105 @@
                         return response.json()
                     })
                     .then(res => {
-                        console.log(res);
+
+                        // console.log(res);
                         btnProses.disabled = false
                         btnProses.textContent = 'Proses'
                         document.getElementById('cetak').classList.remove('hidden')
                         document.getElementById('nama').innerHTML = res.data.anggota.nama
                         document.getElementById('nip').innerHTML = res.data.anggota.nip ?? '-'
                         document.getElementById('email').innerHTML = res.data.anggota.email
-                        document.getElementById('jenis_kelamin').innerHTML = (res.data.anggota.jenis_kelamin == 'lk') ? 'Laki - laki' : 'Perempuan'
+                        document.getElementById('jenis_kelamin').innerHTML = (res.data.anggota.jenis_kelamin == 'lk') ?
+                            'Laki - laki' : 'Perempuan'
 
                         document.getElementById('jumlahPublikasi').innerHTML = res.data.jumlahPublikasi
                         document.getElementById('jumlahPenelitian').innerHTML = res.data.jumlahPenelitian
                         document.getElementById('jumlahPengabdian').innerHTML = res.data.jumlahPengabdian
-                        document.getElementById('totalKeseluruhan').innerHTML = (res.data.jumlahPublikasi + res.data.jumlahPenelitian + res.data.jumlahPengabdian )
+                        document.getElementById('totalKeseluruhan').innerHTML = (res.data.jumlahPublikasi + res.data
+                            .jumlahPenelitian + res.data.jumlahPengabdian)
+
+
+                        let tablePengabdian = '';
+                        if (res.data.pengabdian.length > 0) {
+                            res.data.pengabdian.forEach(element => {
+                                tablePengabdian += ` <tr class="odd:bg-gray-50 text-center">
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_pengabdian.split('-')[0]}</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                ${element.judul}
+                            </td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                <p class="whitespace-nowrap">Ketua</p>
+                            </td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
+                            </tr>
+                            `;
+                            })
+                        } else {
+                            tablePengabdian += `
+                            <tr class="odd:bg-gray-50 text-center">
+                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                    Kosong
+                                </td>
+                            </tr>
+                            `;
+                        }
+
+                        // Menetapkan hasil loop ke elemen dengan ID 'data-pengabdian'
+                        document.getElementById('data-pengabdian').innerHTML = tablePengabdian;
+
+                        let tablePenelitian = '';
+                        if (res.data.penelitian.length > 0) {
+                            res.data.penelitian.forEach(element => {
+                                tablePenelitian += ` <tr class="odd:bg-gray-50 text-center">
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_penelitian.split('-')[0]}</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                ${element.judul}
+                            </td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                <p class="whitespace-nowrap">Ketua</p>
+                            </td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
+                            </tr>
+                            `;
+                            })
+                        } else {
+                            tablePenelitian += `
+                            <tr class="odd:bg-gray-50 text-center">
+                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                    Kosong
+                                </td>
+                            </tr>
+                            `;
+                        }
+
+                        // Menetapkan hasil loop ke elemen dengan ID 'data-penelitian'
+                        document.getElementById('data-penelitian').innerHTML = tablePenelitian;
+
+                        let tablePublikasi = '';
+                        if (res.data.publikasi.length > 0) {
+                            res.data.publikasi.forEach(element => {
+                                tablePublikasi += ` <tr class="odd:bg-gray-50 text-center">
+                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_publikasi}</td>
+                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.level}</td>
+                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.judul}</td>
+                                </tr>
+                            `;
+                            })
+                        } else {
+                            tablePublikasi += `
+                            <tr class="odd:bg-gray-50 text-center">
+                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                    Kosong
+                                </td>
+                            </tr>
+                            `;
+                        }
+
+                        // Menetapkan hasil loop ke elemen dengan ID 'data-publikasi'
+                        document.getElementById('data-publikasi').innerHTML = tablePublikasi;
+
                     })
                     .catch(e => {
                         btnProses.disabled = false
