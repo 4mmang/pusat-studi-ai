@@ -21,11 +21,11 @@
                     <canvas id="myBarChart" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
-                    <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi Jurusan</h1>
+                    <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi</h1>
                     <canvas id="myLineChart" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-full">
-                    <canvas id="myLineChart1" style="height: 300px; width: 100%"></canvas>
+                    <canvas id="doughnut-canvas8"></canvas>
                 </div>
             </div>
     </section>
@@ -36,7 +36,6 @@
     <script>
         var bar = document.getElementById('myBarChart').getContext('2d');
         var line = document.getElementById('myLineChart').getContext('2d');
-        var line1 = document.getElementById('myLineChart1').getContext('2d');
 
         // bar
         var myBarChart = new Chart(bar, {
@@ -47,22 +46,14 @@
                     label: 'Total Data',
                     data: ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
                     ],
                     borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(75, 192, 192)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
                     ],
                     borderWidth: 1
                 }]
@@ -83,65 +74,17 @@
                 }
             }
         });
-
         // line
+        const totalPenelitianPerTahun = @json($totalPenelitianPerTahun);
+        const totalPengabdianPerTahun = @json($totalPengabdianPerTahun);
+        const totalPublikasiPerTahun = @json($totalPublikasiPerTahun);
         var myLineChart = new Chart(line, {
-            type: 'line', // Jenis chart adalah line
-            data: {
-                labels: ['2021', '2022', '2023', '2024'], // Tahun sebagai label
-                datasets: [{
-                        label: 'Penelitian',
-                        data: [10, 15, 40, 0], // Data untuk Penelitian
-                        fill: false,
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2,
-                        tension: 0.1 // Kelengkungan garis
-                    },
-                    {
-                        label: 'Pengabdian',
-                        data: [10, 25, 35, 5], // Data untuk Pengabdian
-                        fill: false,
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 2,
-                        tension: 0.1
-                    },
-                    {
-                        label: 'Publikasi',
-                        data: [5, 25, 35, 10], // Data untuk Publikasi
-                        fill: false,
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 2,
-                        tension: 0.1
-                    }
-                ]
-            },
-            options: {
-                animations: {
-                    tension: {
-                        duration: 2000,
-                        easing: 'linear',
-                        from: 1,
-                        to: 0,
-                        loop: true
-                    }
-                },
-                scales: {
-                    y: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        var myLineChart1 = new Chart(line1, {
             type: 'line',
             data: {
-                labels: ['2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029'],
+                labels: Object.keys(totalPenelitianPerTahun), // Gunakan label dinamis
                 datasets: [{
                         label: 'Penelitian',
-                        data: [10, 15, 40, 0, 10, 11, 20, 5, 0],
+                        data: Object.values(totalPenelitianPerTahun),
                         fill: false,
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 2,
@@ -149,7 +92,7 @@
                     },
                     {
                         label: 'Pengabdian',
-                        data: [10, 25, 35, 5, 0, 0, 0, 0, 0],
+                        data: Object.values(totalPengabdianPerTahun) ?? [0, 0, 0, 0, 0],
                         fill: false,
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
@@ -157,7 +100,7 @@
                     },
                     {
                         label: 'Publikasi',
-                        data: [5, 25, 100, 10, 10, 20, 18, 20, 20],
+                        data: Object.values(totalPublikasiPerTahun) ?? [0, 0, 0, 0, 0],
                         fill: false,
                         borderColor: 'rgba(255, 206, 86, 1)',
                         borderWidth: 2,
@@ -169,7 +112,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Grafik Persentase Partisipasi Dosen'
+                        text: 'Grafik Total Data 5 Tahun Terakhir'
                     },
                 },
                 animations: {
@@ -186,9 +129,55 @@
                         responsive: true,
                         maintainAspectRatio: false, // Menjaga tinggi chart
                         beginAtZero: true,
+                        ticks: {
+                            stepSize: 1, // Kenaikan 1 per langkah
+                            callback: function(value) {
+                                return Number.isInteger(value) ? value : null; // Hanya tampilkan bilangan bulat
+                            }
+                        }
                     }
                 }
             }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+    <script>
+        function createChart(id, type, options) {
+            var data = {
+                labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
+                datasets: [{
+                    label: 'My First dataset',
+                    data: ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ]
+                }]
+            };
+
+            new Chart(document.getElementById(id), {
+                type: type,
+                data: data,
+                options: options
+            });
+        }
+        ['doughnut'].forEach(function(type) {
+            createChart(type + '-canvas8', type, {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    labels: [{
+                            render: 'label',
+                            position: 'outside'
+                        },
+                        {
+                            render: 'percentage'
+                        }
+                    ]
+                }
+            });
         });
     </script>
 @endsection
