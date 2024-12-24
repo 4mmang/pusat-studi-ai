@@ -33,7 +33,7 @@
                 <tbody class="text-xs text-center">
                     @foreach ($penelitian as $item)
                     <tr class="odd:bg-gray-50">
-                        <td class="px-4 py-2 font-medium text-gray-900 border border-gray-300">1</td>
+                        <td class="px-4 py-2 font-medium text-gray-900 border border-gray-300">{{ $loop->iteration }}</td>
                         <td class="px-4 py-2 text-gray-700 border border-gray-300">{{$item->judul}}</td>
                         <td class="px-4 py-2 text-gray-700 text-start border border-gray-300">
                             @foreach ($item->authors as $author)
