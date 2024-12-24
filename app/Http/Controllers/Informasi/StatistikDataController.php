@@ -28,11 +28,11 @@ class StatistikDataController extends Controller
         // Loop untuk 5 tahun terakhir
         for ($i = 4; $i >= 0; $i--) {
             $year = $currentYear - $i;
-            $totalPenelitianPerTahun[$year] = Penelitian::whereYear('created_at', $year)->count();
-            $totalPengabdianPerTahun[$year] = Pengabdian::whereYear('created_at', $year)->count();
-            $totalPublikasiPerTahun[$year] = Publikasi::whereYear('created_at', $year)->count();
+            $totalPenelitianPerTahun[$year] = Penelitian::whereYear('tanggal_penelitian', $year)->count();
+            $totalPengabdianPerTahun[$year] = Pengabdian::whereYear('tanggal_pengabdian', $year)->count();
+            $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)->count();
         }
-        // dd($totalPenelitianPerTahun);
+
         return view('statistik.index', compact('totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun'));
     }
 }
