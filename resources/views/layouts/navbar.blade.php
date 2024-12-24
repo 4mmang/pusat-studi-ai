@@ -9,7 +9,7 @@
                 </a> --}}
                 <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-6">
                     <center>
-                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12 mb-3" alt="">
+                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12 mb-2" alt="">
                     </center>
                         Pusat Studi AI
                 </a>
@@ -150,7 +150,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#data-publikasi"
+                                    <a href="{{ route('kontak') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Kontak
                                     </a>
@@ -195,7 +195,7 @@
                             <li class="group">
                                 <a href="{{ url('login') }}"
                                     class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-5 group-hover:bg-blue-400">
-                                    Masuk
+                                    <i class="far fa-sign-in mr-1"></i>Masuk
                                 </a>
                             </li>
                             <!-- Login Button (Mobile) -->

@@ -8,6 +8,7 @@
     <title>
         @yield('title')
     </title>
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
 </head>
 
 <body class="bg-gray-100">
@@ -35,7 +36,7 @@
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <button type="submit" id="masuk"
-                    class="bg-blue-500 rounded-full text-white px-4 py-2 mt-2 hover:bg-blue-600 w-full">Masuk</button>
+                    class="bg-blue-500 rounded-full text-white px-4 py-3 mt-2 hover:bg-blue-600 w-full"><i class="far fa-sign-in mr-1"></i>Masuk</button>
                 {{-- <div class="flex items-center mt-4">
                         <hr class="flex-grow border-t border-gray-300">
                         <span class="mx-4 text-gray-500">Atau masuk dengan</span>

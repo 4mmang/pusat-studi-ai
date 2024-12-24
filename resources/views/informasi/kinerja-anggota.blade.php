@@ -42,7 +42,7 @@
                     <div class="w-full md:w-1/6 px-4 mb-4">
                         <div class="mb-2">
                             <button type="button" id="proses" onclick="proses()"
-                                class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full">Proses</button>
+                                class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full"><i class="fal fa-share-all"></i> Proses</button>
                         </div>
                     </div>
                 </div>
@@ -315,7 +315,7 @@
 
                         // console.log(res);
                         btnProses.disabled = false
-                        btnProses.textContent = 'Proses'
+                        btnProses.innerHTML = '<i class="fal fa-share-all"></i> Proses';
                         document.getElementById('cetak').classList.remove('hidden')
                         document.getElementById('nama').innerHTML = res.data.anggota.nama
                         document.getElementById('nip').innerHTML = res.data.anggota.nip ?? '-'
@@ -414,8 +414,7 @@
                     })
                     .catch(e => {
                         btnProses.disabled = false
-                        console.log(e);
-                        btnProses.textContent = 'Proses'
+                        btnProses.innerHTML = '<i class="fal fa-share-all"></i> Proses';
                     })
             } else {
                 alert("Pastikan tangal mulai dan akhir di isi!")

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <!-- Kontak Section Start -->
-<section id="kontak" class="pt-32 pb-16 bg-slate-100">
+<section id="kontak" class="pt-32 pb-16">
     <div class="container">
         <div class="w-full px-4">
             <div class="max-w-xl mx-auto text-center mb-5">
@@ -14,8 +14,8 @@
                 <div class="border p-6 shadow-lg bg-white flex items-center space-x-4">
                     <i class="fas fa-envelope text-xl border p-5 rounded-full bg-primary text-white"></i>
                     <div>
-                        <p>Email Us</p>
-                        <p>lppm@gmail.com</p>
+                        <p>Alamat Email</p>
+                        <p>pusatstudiai@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="border p-6 shadow-lg bg-white flex items-center space-x-4">
                     <i class="fas fa-phone text-xl border p-5 rounded-full bg-primary text-white"></i>
                     <div>
-                        <p>Telephone</p>
+                        <p>Telepon</p>
                         <p>+6264236462346</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                             <textarea rows="6" required id="message" name="message" placeholder="Masukkan pesan"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                         </div>
-                        <button type="submit" class="border p-3 bg-primary text-white px-7 rounded-full">Kirim</button>
+                        <button type="submit" class="border p-3 bg-primary text-white px-7 rounded-full"><i class="fal fa-paper-plane mr-1"></i>Kirim</button>
                     </form>
                 </div>
             </div>

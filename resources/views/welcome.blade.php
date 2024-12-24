@@ -333,7 +333,7 @@
     <!-- Kampus partnert Section End -->
 
     <!-- Kepercayaan Section Start -->
-    <section id="kepercayaan" class="pt-24 pb-16">
+    <section id="kepercayaan" class="pt-24 pb-16 bg-slate-100">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
@@ -366,7 +366,7 @@
     <!-- Kepercayaan Section End -->
 
     <!-- Berita Section Start -->
-    <section id="artikel" class="pt-24 pb-16 bg-slate-100">
+    <section id="artikel" class="pt-24 pb-16 bg-slate-50">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">

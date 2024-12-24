@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Our statistik Section Start -->
-    <section id="workshops" class="pt-36 pb-32">
+    <section id="workshops" class="pt-36 pb-16">
         <div class="container">
             <div class="max-w-xl mx-auto text-center mb-16">
                 <h4 class="font-bold uppercase text-primary text-lg mb-2">Statistik Data</h4>
@@ -88,7 +88,7 @@
                         fill: false,
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 2,
-                        tension: 0.1
+                        tension: 0.1 // Default tension
                     },
                     {
                         label: 'Pengabdian',
@@ -96,7 +96,7 @@
                         fill: false,
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
-                        tension: 0.1
+                        tension: 0.2 // Tension negatif untuk arah berlawanan
                     },
                     {
                         label: 'Publikasi',
@@ -104,7 +104,7 @@
                         fill: false,
                         borderColor: 'rgba(255, 206, 86, 1)',
                         borderWidth: 2,
-                        tension: 0.1
+                        tension: 0 // Tension besar untuk efek lengkung lebih tajam
                     }
                 ]
             },
@@ -118,8 +118,11 @@
                 animations: {
                     tension: {
                         duration: 2000,
-                        easing: 'linear',
-                        from: 1,
+                        easing: 'easeInOutQuad',
+                        from: function(context) {
+                            return context.datasetIndex === 0 ? 1 : context.datasetIndex === 1 ? 0.5 :
+                            1; // Sesuaikan arah berdasarkan dataset
+                        },
                         to: 0,
                         loop: true
                     }
