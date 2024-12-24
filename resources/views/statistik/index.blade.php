@@ -45,7 +45,7 @@
                 labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
                 datasets: [{
                     label: 'Total Data',
-                    data: [10, 20, 30],
+                    data: ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
@@ -72,7 +72,13 @@
                     y: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1, // Kenaikan 1 per langkah
+                            callback: function(value) {
+                                return Number.isInteger(value) ? value : null; // Hanya tampilkan bilangan bulat
+                            }
+                        }
                     }
                 }
             }

@@ -24,10 +24,10 @@
                     <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                     Beranda
                 </a>
-                <a class="dropdown-item" href="{{ route('beranda') }}">
+                <a class="dropdown-item" href="{{ route('profil.index') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profil
-                </a>
+                </a> 
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button type="submit" class="dropdown-item">

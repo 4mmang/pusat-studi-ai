@@ -6,10 +6,12 @@ use App\Http\Controllers\Admin\Data\PengabdianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
+use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Informasi\KinerjaAnggotaController;
+use App\Http\Controllers\Informasi\StatistikDataController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\Artikel;
 use App\Models\Event;
@@ -30,9 +32,7 @@ Route::get('tentang-kami', function () {
     return view('tentang-kami');
 })->name('tentang-kami');
 
-Route::get('/statistik', function () {
-    return view('statistik.index');
-})->name('statistik');
+Route::get('/statistik', [StatistikDataController::class, 'index'])->name('statistik');
 
 Route::get('/artikel', function () {
     $artikel = Artikel::all();
@@ -92,6 +92,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
+    Route::resource('/profil', ProfilController::class);
 
     // Route::prefix('/jenis')
     //     ->as('jenis.')
