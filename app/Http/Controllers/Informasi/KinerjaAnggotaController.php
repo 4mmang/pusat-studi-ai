@@ -20,11 +20,17 @@ class KinerjaAnggotaController extends Controller
     public function store(Request $request)
     {
         $anggota = User::findOrFail($request->userId);
-        $publikasi = Publikasi::where('user_id', $request->userId)->get();
+        $publikasi = Publikasi::where('user_id', $request->userId)
+            ->whereBetween('tanggal_publikasi', [$request->mulai, $request->akhir])
+            ->get();
         $jumlahPublikasi = $publikasi->count() ?? 0;
-        $penelitian = Penelitian::where('user_id', $request->userId)->get();
+        $penelitian = Penelitian::where('user_id', $request->userId)
+            ->whereBetween('tanggal_penelitian', [$request->mulai, $request->akhir])
+            ->get();
         $jumlahPenelitian = $penelitian->count() ?? 0;
-        $pengabdian = Pengabdian::where('user_id', $request->userId)->get();
+        $pengabdian = Pengabdian::where('user_id', $request->userId)
+            ->whereBetween('tanggal_pengabdian', [$request->mulai, $request->akhir])
+            ->get();
         $jumlahPengabdian = $pengabdian->count() ?? 0;
         return response()->json([
             'data' => [
