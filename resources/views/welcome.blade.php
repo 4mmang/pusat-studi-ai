@@ -400,77 +400,9 @@
                 @endif
             </div>
         </div>
-    </section>
-    <!-- Berita Section End -->
-
-    <!-- Our statistik Section Start -->
-    {{-- <section class="pt-32 pb-32 bg-slate-100">
-        <div class="container">
-            <div class="max-w-xl mx-auto text-center mb-16">
-                <h4 class="font-bold uppercase text-primary text-lg mb-2">Total Data</h4>
-                <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">Penelitian, Pengabdian dan Publikasi</h2>
-
-                    <p class="mt-4 text-base text-slate-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
-                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
-                        quibusdam, quos fuga minima.
-                    </p>
-                </div>
-            </div>
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/2">
-                    <canvas id="myBarChart" style="height: 300px; width: 100%"></canvas>
-                </div>
-            </div>
-    </section> --}}
-    <!-- Our statistik Section End -->
+    </section> 
 @endsection
 @section('scripts')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('myBarChart').getContext('2d');
-
-        // bar
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
-                datasets: [{
-                    label: 'Total Data',
-                    data: [10, 20, 30],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(75, 192, 192)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script> --}}
     <script>
         const typewriter = new Typewriter('#typewriter', {
             loop: true,

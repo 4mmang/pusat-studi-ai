@@ -9,9 +9,9 @@
                 </a> --}}
                 <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-6">
                     <center>
-                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12" alt="">
+                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12 mb-3" alt="">
                     </center>
-                    Pusat Studi AI
+                        Pusat Studi AI
                 </a>
             </div>
 
@@ -31,7 +31,7 @@
                         <!-- Beranda -->
                         <li class="group">
                             <a href="{{ route('beranda') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artificial-intelligance') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artificial-intelligance') ? 'text-primary' : '' }}">
                                 Beranda
                             </a>
                         </li>
@@ -39,7 +39,7 @@
                         <!-- Tentang Kami -->
                         <li class="group">
                             <a href="{{ route('tentang-kami') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/tentang-kami') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/tentang-kami') ? 'text-primary' : '' }}">
                                 Tentang Kami
                             </a>
                         </li>
@@ -47,7 +47,7 @@
                         <!-- Sumber Daya Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonSumberDaya"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Sumber Daya
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -76,7 +76,7 @@
                         <!-- Artikel -->
                         <li class="group">
                             <a href="{{ route('artikel') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
                                 Artikel
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                         <!-- Data Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonData"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Data
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -120,7 +120,7 @@
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonInformasi"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Informasi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -161,7 +161,7 @@
                         @auth
                             <li class="group relative">
                                 <button id="dropdownButtonProfil"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                     aria-expanded="false">
                                     {{ Auth::user()->nama }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -194,14 +194,14 @@
                             <!-- Login Button (Desktop) -->
                             <li class="group">
                                 <a href="{{ url('login') }}"
-                                    class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 group-hover:bg-blue-400">
+                                    class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-5 group-hover:bg-blue-400">
                                     Masuk
                                 </a>
                             </li>
                             <!-- Login Button (Mobile) -->
                             <li class="group">
                                 <a href="{{ url('login') }}"
-                                    class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
+                                    class="lg:hidden block text-base text-dark py-2 mx-5 group-hover:text-primary">Masuk</a>
                             </li>
                         @endguest
                     </ul>

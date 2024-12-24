@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Data\PenelitianController;
 use App\Http\Controllers\Admin\Data\PengabdianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
@@ -89,9 +90,7 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
 });
 
 Route::prefix('/admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/profil', ProfilController::class);
 
