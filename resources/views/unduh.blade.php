@@ -10,7 +10,7 @@
             </div>
 
             <div class="w-full flex flex-wrap justify-center xl:mx-auto">
-                <div class="w-full border p-6 shadow-lg bg-white">
+                <div class="w-full mt-3">
                     @foreach ($unduh as $pdf)
                     <div class=" flex items-center space-x-4 mb-3">
                         <i class="fas fa-file-pdf text-xl border p-4 rounded-xl bg-red-500 text-white"></i>
