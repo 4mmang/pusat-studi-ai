@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('tanggal_penelitian');
             $table->enum('level', ['universitas', 'nasional', 'internasional']);
             $table->text('link_akses');
+            $table->integer('progres');
+            $table->enum('laporan', ['sudah', 'belum']);
             $table->timestamps();
         });
     }

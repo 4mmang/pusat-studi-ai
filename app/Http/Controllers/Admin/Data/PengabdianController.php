@@ -32,11 +32,12 @@ class PengabdianController extends Controller
         try {
             $pengabdian = new Pengabdian();
             $pengabdian->user_id = Auth::user()->id;
-            // $pengabdian->user_id = 1;
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
             $pengabdian->level = $request->level;
+            $pengabdian->progres = $request->progres;
+            $pengabdian->laporan = $request->laporan;
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->save();
 
@@ -79,6 +80,8 @@ class PengabdianController extends Controller
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
             $pengabdian->level = $request->level;
+            $pengabdian->progres = $request->progres;
+            $pengabdian->laporan = $request->laporan;
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->update();
 

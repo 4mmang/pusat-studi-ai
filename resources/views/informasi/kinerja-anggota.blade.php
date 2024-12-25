@@ -341,8 +341,8 @@
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                 <p class="whitespace-nowrap">Ketua</p>
                             </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.progres}%</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.laporan}</td>
                             </tr>
                             `;
                             })
@@ -370,8 +370,8 @@
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                 <p class="whitespace-nowrap">Ketua</p>
                             </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">100%</td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">Sudah</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.progres}%</td>
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.laporan}</td>
                             </tr>
                             `;
                             })
