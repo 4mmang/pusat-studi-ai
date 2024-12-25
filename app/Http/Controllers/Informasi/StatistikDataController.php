@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Publikasi;
-use Illuminate\Http\Request;
 
 class StatistikDataController extends Controller
 {
@@ -33,6 +32,6 @@ class StatistikDataController extends Controller
             $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)->count();
         }
 
-        return view('statistik.index', compact('totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun'));
+        return view('informasi.statistik-data', compact('totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun'));
     }
 }

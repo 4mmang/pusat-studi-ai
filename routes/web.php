@@ -33,25 +33,35 @@ Route::get('tentang-kami', function () {
     return view('tentang-kami');
 })->name('tentang-kami');
 
-Route::get('/statistik', [StatistikDataController::class, 'index'])->name('statistik');
 
 Route::get('/artikel', function () {
     $artikel = Artikel::all();
     return view('artikel.index', compact('artikel'));
 })->name('artikel');
 
-Route::get('/kontak', function () {
-    return view('kontak.index');
-})->name('kontak');
+Route::prefix('/informasi')->group(function(){
+    Route::get('/statistik', [StatistikDataController::class, 'index'])->name('statistik');
+    Route::resource('/kinerja-anggota', KinerjaAnggotaController::class);
+    
+    Route::get('/kontak', function () {
+        return view('informasi.kontak');
+    })->name('kontak');
+});
 
 Route::get('/data/publikasi', function () {
     return view('data-publikasi.index');
 });
 
-Route::get('/anggota', function () {
-    $anggota = User::where('role', 'anggota')->get();
-    return view('anggota.index', compact('anggota'));
-})->name('anggota');
+Route::prefix('/sumber-daya')->group(function(){
+    Route::get('/anggota', function () {
+        $anggota = User::where('role', 'anggota')->get();
+        return view('anggota.index', compact('anggota'));
+    })->name('anggota');
+
+    Route::get('/sarana-prasarana', function(){
+        return view('sumber-daya.sarana-pra');
+    })->name('sarana-pra');
+});
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -75,7 +85,6 @@ Route::get('/publikasi', function () {
     return view('data.publikasi.index', compact('publikasi'));
 })->name('publikasi');
 
-Route::resource('/kinerja-anggota', KinerjaAnggotaController::class);
 
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {

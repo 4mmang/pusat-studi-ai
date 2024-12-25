@@ -66,7 +66,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('sarana-pra') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Sarana & Prasarana
                                     </a>
                                 </li>
