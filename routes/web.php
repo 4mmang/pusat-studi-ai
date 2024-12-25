@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Informasi\KinerjaAnggotaController;
 use App\Http\Controllers\Informasi\StatistikDataController;
+use App\Http\Controllers\TentangKamiController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\Artikel;
 use App\Models\Event;
@@ -29,9 +30,7 @@ Route::get('/', function () {
     return view('welcome', compact('events', 'artikel'));
 })->name('beranda');
 
-Route::get('tentang-kami', function () {
-    return view('tentang-kami');
-})->name('tentang-kami');
+Route::get('tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
 
 
 Route::get('/artikel', function () {
@@ -52,16 +51,16 @@ Route::get('/data/publikasi', function () {
     return view('data-publikasi.index');
 });
 
-Route::prefix('/sumber-daya')->group(function(){
-    Route::get('/anggota', function () {
-        $anggota = User::where('role', 'anggota')->get();
-        return view('anggota.index', compact('anggota'));
-    })->name('anggota');
+// Route::prefix('/sumber-daya')->group(function(){
+    // Route::get('/anggota', function () {
+    //     $anggota = User::where('role', 'anggota')->get();
+    //     return view('anggota.index', compact('anggota'));
+    // })->name('anggota');
 
-    Route::get('/sarana-prasarana', function(){
-        return view('sumber-daya.sarana-pra');
-    })->name('sarana-pra');
-});
+    // Route::get('/sarana-prasarana', function(){
+    //     return view('sumber-daya.sarana-pra');
+    // })->name('sarana-pra');
+// });
 
 Route::get('/login', function () {
     return view('auth.login');
