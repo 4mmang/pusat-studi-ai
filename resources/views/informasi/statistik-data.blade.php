@@ -21,11 +21,34 @@
                     <canvas id="myBarChart" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
-                    <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi</h1>
-                    <canvas id="myLineChart" style="height: 250px; width: 100%"></canvas>
+                    <h1 class="text-center mb-3">Persentase Total Penelitian, Pengabdian dan Publikasi</h1>
+                    <div>
+                        <canvas id="doughnut-totaldata" style="height: 250px; width: 100%"></canvas>
+                    </div>
                 </div>
-                <div class="mb-12 p-4 md:w-full">
-                    <canvas id="doughnut-canvas8"></canvas>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi</h1>
+                    <div>
+                        <canvas id="myLineChart" style="height: 250px; width: 100%"></canvas>
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <h1 class="text-center mb-3">Persentase Berdasarkan Level Penelitian</h1>
+                    <div>
+                        <canvas id="doughnut-levelpenelitian" style="height: 250px; width: 100%"></canvas>
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <h1 class="text-center mb-3">Persentase Berdasarkan Level Pengabdian</h1>
+                    <div>
+                        <canvas id="doughnut-levelpengabdian" style="height: 250px; width: 100%"></canvas>
+                    </div>
+                </div>
+                <div class="mb-12 p-4 md:w-1/2">
+                    <h1 class="text-center mb-3">Persentase Berdasarkan Level Publikasi</h1>
+                    <div>
+                        <canvas id="doughnut-levelpublikasi" style="height: 250px; width: 100%"></canvas>
+                    </div>
                 </div>
             </div>
     </section>
@@ -146,12 +169,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <script>
-        function createChart(id, type, options) {
+        function createChart(dataChart, labels ,id, type, options) {
             var data = {
-                labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
+                labels: labels,
                 datasets: [{
                     label: 'My First dataset',
-                    data: ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],
+                    data: dataChart,
                     backgroundColor: [
                         '#FF6384',
                         '#36A2EB',
@@ -167,7 +190,55 @@
             });
         }
         ['doughnut'].forEach(function(type) {
-            createChart(type + '-canvas8', type, {
+            createChart(["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],['Penelitian', 'Pengabdian', 'Publikasi'],  type + '-totaldata', type, {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    labels: [{
+                            render: 'label',
+                            position: 'outside'
+                        },
+                        {
+                            render: 'percentage'
+                        }
+                    ]
+                }
+            });
+        });
+        ['doughnut'].forEach(function(type) {
+            createChart(["{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}", "{{ $internasionalPenelitian }}"], ['Universitas', 'Nasional', 'Internasional'], type + '-levelpenelitian', type, {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    labels: [{
+                            render: 'label',
+                            position: 'outside'
+                        },
+                        {
+                            render: 'percentage'
+                        }
+                    ]
+                }
+            });
+        });
+        ['doughnut'].forEach(function(type) {
+            createChart(["{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}", "{{ $internasionalPengabdian }}"], ['Universitas', 'Nasional', 'Internasional'], type + '-levelpengabdian', type, {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    labels: [{
+                            render: 'label',
+                            position: 'outside'
+                        },
+                        {
+                            render: 'percentage'
+                        }
+                    ]
+                }
+            });
+        });
+        ['doughnut'].forEach(function(type) {
+            createChart(["{{ $nasionalPublikasi }}", "{{ $internasionalPublikasi }}"], ['Nasional', 'Internasional'], type + '-levelpublikasi', type, {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {

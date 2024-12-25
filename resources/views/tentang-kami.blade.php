@@ -257,16 +257,8 @@
                 </div>
 
                 <!-- Navigation Buttons -->
-                <button
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
-                    id="prev">
-                    &lt;
-                </button>
-                <button
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
-                    id="next">
-                    &gt;
-                </button>
+                <i class="far fa-angle-left absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3" id="prev"></i>
+                <i class="far fa-angle-right absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3" id="next"></i>
             </div>
         </div>
     </section>
