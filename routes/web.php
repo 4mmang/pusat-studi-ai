@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Http\Controllers\Admin\UploadPdfController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Informasi\KinerjaAnggotaController;
 use App\Http\Controllers\Informasi\StatistikDataController;
@@ -20,6 +21,7 @@ use App\Models\Event;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Publikasi;
+use App\Models\Unduh;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -84,6 +86,11 @@ Route::get('/publikasi', function () {
     return view('data.publikasi.index', compact('publikasi'));
 })->name('publikasi');
 
+Route::get('/unduh', function(){
+    $unduh = Unduh::all();
+    return view('unduh', compact('unduh'));
+})->name('unduh');
+
 
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {
@@ -92,6 +99,7 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
             Route::resource('/sarana-pra', SaranaPraController::class);
         });
 
+        Route::resource('upload-pdf', UploadPdfController::class);
         Route::resource('/artikel', ArtikelController::class);
         Route::resource('/event', EventController::class);
     });

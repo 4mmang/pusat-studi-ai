@@ -157,6 +157,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="group">
+                            <a href="{{ route('unduh') }}"
+                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                Unduh
+                            </a>
+                        </li>
 
                         @auth
                             <li class="group relative">

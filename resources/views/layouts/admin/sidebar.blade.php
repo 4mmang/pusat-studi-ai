@@ -78,6 +78,11 @@
                 <i class="fas fa-fw fa-calendar-check"></i>
                 <span>Event</span></a>
         </li>
+        <li class="nav-item {{ Request::is('admin/upload-pdf*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('upload-pdf.index') }}">
+                <i class="fas fa-fw fa-file-pdf"></i>
+                <span>Upload PDF</span></a>
+        </li>
     @endif
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->
