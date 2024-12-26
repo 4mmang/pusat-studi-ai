@@ -95,15 +95,17 @@
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @forelse ($anggota as $ang)
                     <div class="mb-12 p-4 md:w-1/3 border border-slate-300">
-                        <div class="rounded-md shadow-md overflow-hidden">
-                            @if ($ang->foto)
-                                <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full">
-                            @else
-                                <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" alt=""
-                                    width="w-full">
-                            @endif
-                        </div>
-                        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3>
+                        <a href="{{ route('kinerja-anggota.show', $ang->id) }}">
+                            <div class="rounded-md shadow-md overflow-hidden">
+                                @if ($ang->foto)
+                                    <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full">
+                                @else
+                                    <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" alt=""
+                                        width="w-full">
+                                @endif
+                            </div>
+                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3>
+                        </a>
                     </div>
                 @empty
                     <p>Belum ada anggota yang terdaftar.</p>
@@ -257,8 +259,10 @@
                 </div>
 
                 <!-- Navigation Buttons -->
-                <i class="far fa-angle-left absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3" id="prev"></i>
-                <i class="far fa-angle-right absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3" id="next"></i>
+                <i class="far fa-angle-left absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3"
+                    id="prev"></i>
+                <i class="far fa-angle-right absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-white p-2 py-3"
+                    id="next"></i>
             </div>
         </div>
     </section>
@@ -299,7 +303,7 @@
 
         prev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + totalSlides) %
-            totalSlides; // Geser ke kiri, kembali ke akhir jika mentok
+                totalSlides; // Geser ke kiri, kembali ke akhir jika mentok
             updateCarousel();
         });
     </script>

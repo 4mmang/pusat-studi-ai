@@ -42,12 +42,14 @@
                     <div class="w-full md:w-1/6 px-4 mb-4">
                         <div class="mb-2">
                             <button type="button" id="proses" onclick="proses()"
-                                class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full"><i class="fal fa-share-all"></i> Proses</button>
+                                class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full"><i
+                                    class="fal fa-share-all"></i> Proses</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="cetak" class="bg-white hidden shadow-sm ml-4 mr-4 rounded-lg p-12 mt-4 border border-gray-200">
+            <div id="cetak"
+                class="bg-white @if (!$kinerja) hidden @endif  shadow-sm ml-4 mr-4 rounded-lg p-12 mt-4 border border-gray-200">
                 <a href="#" class="p-2 text-white px-5 rounded-lg py-3 bg-primary">Download</a>
                 <div class="flex flex-row flex-wrap border border-gray-400 mt-10">
                     <div class="w-full text-center p-10">
@@ -63,19 +65,25 @@
                             <table class="table min-w-full bg-white text-sm table-striped">
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Nama</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="nama"></td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="nama">
+                                        {{ $kinerja['anggota']->nama ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">NIP</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="nip"></td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="nip">
+                                        {{ $kinerja['anggota']->nip ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Email</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="email"></td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="email">
+                                        {{ $kinerja['anggota']->email ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Jenis Kelamin</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="jenis_kelamin"></td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jenis_kelamin">
+                                        @if ($kinerja)
+                                        {{ ($kinerja['anggota']->jenis_kelamin === 'lk' ? 'Laki - laki' : 'Perempuan')}}</td>
+                                        @endif
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Program Studi</th>
@@ -90,20 +98,24 @@
                             <table class="table min-w-full bg-white text-sm table-striped">
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Publikasi</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPublikasi">0</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPublikasi">
+                                        {{ $kinerja['jumlahPublikasi'] ?? '0' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Penelitian</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPenelitian">0</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPenelitian">
+                                        {{ $kinerja['jumlahPenelitian'] ?? '0' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Pengabdian
                                     </th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPengabdian">0</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="jumlahPengabdian">
+                                        {{ $kinerja['jumlahPengabdian'] ?? '0' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Total Keseluruhan</th>
-                                    <td class="px-4 py-2 text-start text-gray-900" id="totalKeseluruhan">0</td>
+                                    <td class="px-4 py-2 text-start text-gray-900" id="totalKeseluruhan">
+                                        {{ $kinerja['totalKeseluruhan'] ?? '0' }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -135,7 +147,28 @@
                                 </thead>
 
                                 <tbody class="divide-y divide-gray-200 text-xs" id="data-pengabdian">
-
+                                    @if ($kinerja)
+                                        @forelse ($kinerja['pengabdian'] as $pengabdian)
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ date('Y', strtotime($pengabdian->tanggal_pengabdian)) }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $pengabdian->judul }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $pengabdian->status }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $pengabdian->progres }}%</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $pengabdian->laporan }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                                    Kosong
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -167,7 +200,28 @@
                                 </thead>
 
                                 <tbody class="divide-y divide-gray-200 text-xs" id="data-penelitian">
-                                   
+                                    @if ($kinerja)
+                                        @forelse ($kinerja['penelitian'] as $penelitian)
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ date('Y', strtotime($penelitian->tanggal_penelitian)) }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $penelitian->judul }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $penelitian->status }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $penelitian->progres }}%</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $penelitian->laporan }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                                    Kosong
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -202,64 +256,31 @@
                                 </thead>
 
                                 <tbody class="divide-y divide-gray-200 text-xs" id="data-publikasi">
-                                    
+                                    @if ($kinerja)
+                                        @forelse ($kinerja['publikasi'] as $publikasi)
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $publikasi->tanggal_publikasi }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $publikasi->level }}</td>
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $publikasi->judul }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr class="odd:bg-gray-50 text-center">
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300" colspan="5">
+                                                    Kosong
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
-                    {{-- <div class="w-full p-5">
-                        <p class="mb-2 font-bold text-secondary">Kegiatan Penunjang</p>
-                        <div class="overflow-x-auto">
-                            <table class="table min-w-full bg-white text-sm table-striped">
-                                <thead class="bg-slate-300 text-xs">
-                                    <tr>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            No
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            jenis
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Peran
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Nama Kegiatan
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Tanggal
-                                        </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Nomor SK/ST
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody class="divide-y divide-gray-200 text-xs">
-                                    <tr class="odd:bg-gray-50 text-center">
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">1</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">12/12/2023</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Nasional</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">HKI (Hak Cipta)</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">Comparative Study of SAW,
-                                            MAUT and SMART Methods in Selecting Smartphones for Online Learning</td>
-                                        <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                <p class="whitespace-nowrap">e-Hak cipta
-                                                </p>
-                                        </td>
-                                    </tr> 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
+
         </div>
     </section>
     <!-- About Section End -->
