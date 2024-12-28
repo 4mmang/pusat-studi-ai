@@ -17,6 +17,22 @@
                         dan diklat untuk
                         meningkatkan skill SDM di era Revolusi Industri 4.0 guna memajukan teknologi digital masa kini.
                     </p>
+                    <h4 class="font-bold uppercase text-lg mb-3 mt-5">
+                        Apa saja produk kami?
+                    </h4> 
+                    <div class="px-5">
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                        voluptatem
+                        aperiam accusamus quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati
+                        vel
+                        veritatis sequi.
+                    </li>
+                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                        voluptatem.
+                    </li>
+                    </div>
                 </div>
 
                 <!-- Gambar -->

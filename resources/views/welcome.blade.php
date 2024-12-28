@@ -380,7 +380,7 @@
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @forelse ($artikel as $item)
                     <div class="mb-12 p-4 md:w-1/3">
-                        <a href="">
+                        <a href="{{ route('artikel.view', $item->id) }}">
                         <div class="rounded-md shadow-md overflow-hidden">
                             <img src="{{ asset('storage/'.$item->sampul) }}" alt="" width="w-full">
                         </div>

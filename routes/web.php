@@ -40,6 +40,11 @@ Route::get('/artikel', function () {
     return view('artikel.index', compact('artikel'));
 })->name('artikel');
 
+Route::get('/artikel/{id}', function ($id) {
+    $artikel = Artikel::findOrFail($id);
+    return view('artikel.show', compact('artikel'));
+})->name('artikel.view');
+
 Route::prefix('/informasi')->group(function(){
     Route::get('/statistik', [StatistikDataController::class, 'index'])->name('statistik');
     Route::resource('/kinerja-anggota', KinerjaAnggotaController::class);
