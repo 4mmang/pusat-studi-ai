@@ -14,10 +14,18 @@ export default {
       width: {
         '13': '4.5rem',
       },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
       animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
         border: 'background ease infinite',
       },
       keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
         background: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
