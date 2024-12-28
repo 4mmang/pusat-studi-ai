@@ -28,7 +28,12 @@
         menu
     </div>
     @if (Auth::user()->role === 'admin')
-        <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('anggota.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Anggota</span></a>
+        </li>
+        {{-- <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sumber-daya"
                 aria-expanded="true" aria-controls="sumber-daya">
                 <i class="fas fa-fw fa-handshake"></i>
@@ -42,7 +47,7 @@
                         href="{{ route('sarana-pra.index') }}">Sarana & Prasarana</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
     @endif
     {{-- <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('jenis.publikasi.index') }}">

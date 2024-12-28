@@ -13,12 +13,12 @@ class AnggotaController extends Controller
     public function index()
     {
         $anggota = User::all();
-        return view('admin.sumber-daya.anggota.index', compact('anggota'));
+        return view('admin.anggota.index', compact('anggota'));
     }
 
     public function create()
     {
-        return view('admin.sumber-daya.anggota.create');
+        return view('admin.anggota.create');
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class AnggotaController extends Controller
     public function edit($id)
     {
         $anggota = User::findOrFail($id);
-        return view('admin.sumber-daya.anggota.edit', compact('anggota'));
+        return view('admin.anggota.edit', compact('anggota'));
     }
 
     public function update(Request $request, $id)

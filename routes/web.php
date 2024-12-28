@@ -93,8 +93,8 @@ Route::get('/unduh', function(){
 
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {
+        Route::resource('/anggota', AnggotaController::class);
         Route::prefix('/sumber-daya')->group(function () {
-            Route::resource('/anggota', AnggotaController::class);
             Route::resource('/sarana-pra', SaranaPraController::class);
         });
 
