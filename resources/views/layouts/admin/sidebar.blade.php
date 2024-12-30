@@ -27,7 +27,7 @@
     <div class="sidebar-heading">
         menu
     </div>
-    @if (Auth::user()->role === 'admin')
+    @if (Auth::check() && Auth::user()->role === 'admin')
         <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('anggota.index') }}">
                 <i class="fas fa-fw fa-users"></i>

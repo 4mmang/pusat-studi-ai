@@ -124,5 +124,5 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);
         Route::resource('/penelitian', PenelitianController::class);
         Route::resource('/pengabdian', PengabdianController::class);
-    });
-});
+    })->middleware('auth');
+})->middleware('auth');

@@ -14,6 +14,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "chartjs-plugin-labels": "^1.1.0"
+        "chartjs-plugin-labels": "^1.1.0",
+        "tailwind-scrollbar": "^3.1.0"
     }
 }

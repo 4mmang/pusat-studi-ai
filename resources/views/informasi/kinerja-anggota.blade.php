@@ -208,7 +208,7 @@
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                                     {{ $penelitian->judul }}</td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $penelitian->status }}</td>
+                                                    Ketua</td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                                     {{ $penelitian->progres }}%</td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">

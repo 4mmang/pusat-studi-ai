@@ -19,19 +19,20 @@
                     </p>
                     <h4 class="font-bold uppercase text-lg mb-3 mt-5">
                         Apa saja produk kami?
-                    </h4> 
+                    </h4>
                     <div class="px-5">
-                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
-                        voluptatem
-                        aperiam accusamus quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati
-                        vel
-                        veritatis sequi.
-                    </li>
-                    <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
-                        voluptatem.
-                    </li>
+                        <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                            voluptatem
+                            aperiam accusamus quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore
+                            obcaecati
+                            vel
+                            veritatis sequi.
+                        </li>
+                        <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae excepturi possimus, eum veniam
+                            voluptatem.
+                        </li>
                     </div>
                 </div>
 
@@ -132,7 +133,7 @@
     <!-- Anggota Section End -->
 
     <!-- Portofolio Kerja Sama Section Start -->
-    <section id="portofolio-kerja-sama" class="pt-24 pb-16">
+    {{-- <section id="portofolio-kerja-sama" class="pt-24 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
@@ -226,17 +227,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Portofolio Kerja Sama Section End -->
 
     <section class="relative font-inter antialiased ">
-        
+
         <main class="relative min-h-screen flex flex-col justify-center bg-slate-100 overflow-hidden">
             <div class="container -mb-18">
                 <div class="w-full px-4">
                     <div class="max-w-xl mx-auto text-center">
                         {{-- <h4 class="font-semibold text-lg text-primary mb-2">Portofolio Kerja Sama & Training</h4> --}}
-                        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Sarana & Pra-Sarana</h2>
+                        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Kerja Sama Mitra</h2>
                         <p class="font-medium text-md text-secondary md:text-lg">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
                         </p>
@@ -256,22 +257,28 @@
                         <ul x-ref="logos"
                             class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
                             <li>
-                                <img src="https://picsum.photos/300/200?random=1" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=1" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                             <li>
-                                <img src="https://picsum.photos/300/200?random=2" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=2" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                             <li>
-                                <img src="https://picsum.photos/300/200?random=3" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=3" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                             <li>
-                                <img src="https://picsum.photos/300/200?random=4" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=4" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                             <li>
-                                <img src="https://picsum.photos/300/200?random=5" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=5" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                             <li>
-                                <img src="https://picsum.photos/300/200?random=6" alt="Random Image from Lorem Picsum" width="w-full">
+                                <img src="https://picsum.photos/300/200?random=6" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
                             </li>
                         </ul>
                     </div>
@@ -281,7 +288,80 @@
 
             </div>
         </main>
-    </section> 
+    </section>
+
+    <section class="pt-32 pb-16">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-10">
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Sarana & Pra-Sarana</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+            <div class="overflow-x-auto p-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                <div class="flex">
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=1" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=2" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=3" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=4" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=5" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=6" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=7" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full md:w-1/3 p-2">
+                        <div class="bg-slate-100 p-5">
+                            <img src="https://picsum.photos/300/200?random=8" alt="Random Image from Lorem Picsum"
+                                class="w-full">
+                            <p class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 @section('scripts')
     <script>
@@ -295,5 +375,5 @@
             .pauseFor(1000)
             .deleteAll()
             .start();
-    </script> 
+    </script>
 @endsection
