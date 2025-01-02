@@ -24,10 +24,10 @@
                             Penyelenggara</th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Level
                         </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Tanggal
+                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Tahun
                         </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Link
-                        </th>
+                        {{-- <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Link
+                        </th> --}}
                     </tr>
                 </thead>
                 <tbody class="text-xs text-center">
@@ -48,9 +48,9 @@
                         <td class="px-4 py-2 text-gray-700 border border-gray-300">{{ $item->penyelenggara }}</td>
                         <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">{{ $item->level }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">{{
-                            $item->tanggal_pengabdian }}</td>
-                        <td class="px-4 py-2 text-gray-700 border border-gray-300"><a
-                                href="{{ $item->link_akses }}">Link</a></td>
+                            \Carbon\Carbon::parse($item->tanggal_pengabdian)->format('Y') }}</td>
+                        {{-- <td class="px-4 py-2 text-gray-700 border border-gray-300"><a
+                                href="{{ $item->link_akses }}">Link</a></td> --}}
                     </tr>
                     @endforeach
                 </tbody>
