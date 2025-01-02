@@ -1,24 +1,17 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Artikel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container mt-5">
-        <a href="{{ route('artikel') }}" class="btn btn-primary btn-sm mb-3">Kembali</a>
-        <h2>{{ $artikel->judul }}</h2>
-        <p>{{ $artikel->deskripsi }}</p>
-        {!! $artikel->konten !!}
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('content')
+    <section class="pt-36 pb-16">
+        <div class="container">
+            <div class="w-full px-4">
+                <div>
+                    <h2 class="font-bold text-3xl">{{ $artikel->judul }}</h2>
+                    <p class="font-medium text-base text-secondary mb-4 mt-2">{{ $artikel->deskripsi }}</p>
+                    <img src="{{ asset('storage/' . $artikel->sampul) }}" class="md:w-1/2 w-full" alt="">
+                </div>
+                <div class="mt-5">
+                    {!! $artikel->konten !!}
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

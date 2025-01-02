@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Berita Section Start -->
-    <section id="portofolio" class="pt-32 pb-16">
+    <section class="pt-32 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
