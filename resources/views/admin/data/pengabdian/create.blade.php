@@ -52,28 +52,13 @@
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
                                     required>
+                                    <option value="Mandiri">Mandiri</option>
                                     <option value="Universitas">Universitas</option>
                                     <option value="Nasional">Nasional</option>
                                     <option value="Internasional">Internasional</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="progres" class="">Progres (1-100%) <sup
-                                        class="text-danger">*</sup></label>
-                                <input type="number" value="{{ old('progres') }}"
-                                    class="form-control @error('progres')
-                                                                                    is-invalid
-                                                                                @enderror"
-                                    name="progres" id="progres" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="laporan" class="">Laporan <sup class="text-danger">*</sup></label>
-                                <select name="laporan" class="form-control" value="{{ old('laporan') }}" id="laporan"
-                                    required>
-                                    <option value="Sudah">Sudah</option>
-                                    <option value="Belum">Belum</option>
-                                </select>
-                            </div>
+                            </div> 
                             <div class="col-md-12 mb-3">
                                 <label for="link_akses" class="">Link Akses Pengabdian <sup
                                         class="text-danger">*</sup></label>

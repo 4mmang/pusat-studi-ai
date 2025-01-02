@@ -35,9 +35,7 @@ class PengabdianController extends Controller
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
-            $pengabdian->level = $request->level;
-            $pengabdian->progres = $request->progres;
-            $pengabdian->laporan = $request->laporan;
+            $pengabdian->level = $request->level; 
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->save();
 
@@ -79,9 +77,7 @@ class PengabdianController extends Controller
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
-            $pengabdian->level = $request->level;
-            $pengabdian->progres = $request->progres;
-            $pengabdian->laporan = $request->laporan;
+            $pengabdian->level = $request->level; 
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->update();
 

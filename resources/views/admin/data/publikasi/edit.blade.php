@@ -57,6 +57,10 @@
                                     </option>
                                     <option @if ($publikasi->level == 'internasional') selected @endif value="Internasional">
                                         Internasional</option>
+                                        <option @if ($publikasi->level == 'nasional bereputasi') selected @endif value="Nasional Bereputasi">Nasional Bereputasi
+                                        </option>
+                                    <option @if ($publikasi->level == 'internasional bereputasi') selected @endif value="Internasional Bereputasi">
+                                        Internasional Bereputasi</option>
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3">

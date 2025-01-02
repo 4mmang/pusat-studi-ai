@@ -4,7 +4,7 @@
 <div class="container">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <p class="fs-2 mb-0" style="color: #38527E">Pengabdian Saya</p>
+        <p class="fs-2 mb-0" style="color: #38527E">Pengabdian</p>
         <a href="{{ route('pengabdian.create') }}" class="btn mt-3 btn-primary text-white"><i class="fas fa-plus"></i>
             Tambah
             Pengabdian</a>
@@ -20,7 +20,7 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Judul</th>
-                                <th class="text-center">Taggal</th>
+                                <th class="text-center">Tahun</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -29,7 +29,7 @@
                             <tr>
                                 <td class="align-middle">{{ $loop->iteration }}</td>
                                 <td class="align-middle">{{ $pengab->judul }}</td>
-                                <td class="align-middle">{{ $pengab->tanggal_pengabdian }}</td>
+                                <td class="align-middle">{{ \Carbon\Carbon::parse($pengab->tanggal_pengabdian)->format('Y') }}</td>
                                 <td class="align-middle">
                                     <form id="delete-pengabdian-{{ $pengab->id }}"
                                         action="{{ route('pengabdian.destroy', $pengab->id) }}" method="post">

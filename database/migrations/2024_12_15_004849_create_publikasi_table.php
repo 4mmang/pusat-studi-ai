@@ -15,9 +15,8 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained('users');
             $table->string('judul');
             $table->string('penyelenggara');
-            // $table->foreignId('jenis_publikasi_id')->constrained('jenis_publikasi');
             $table->date('tanggal_publikasi');
-            $table->enum('level', ['nasional', 'internasional']);
+            $table->enum('level', ['nasional', 'internasional', 'nasional bereputasi', 'internasional bereputasi']);
             $table->text('link_akses');
             $table->timestamps();
         });

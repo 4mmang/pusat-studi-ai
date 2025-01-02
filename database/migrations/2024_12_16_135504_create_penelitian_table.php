@@ -17,10 +17,8 @@ return new class extends Migration
             $table->string('judul');
             $table->string('penyelenggara');
             $table->date('tanggal_penelitian');
-            $table->enum('level', ['universitas', 'nasional', 'internasional']);
-            $table->text('link_akses');
-            $table->integer('progres');
-            $table->enum('laporan', ['sudah', 'belum']);
+            $table->enum('level', ['mandiri','universitas', 'nasional', 'internasional', 'lainnya']);
+            $table->text('link_akses'); 
             $table->timestamps();
         });
     }

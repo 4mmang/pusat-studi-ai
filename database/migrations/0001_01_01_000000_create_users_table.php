@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'anggota']);
             $table->enum('jenis_kelamin', ['lk', 'pr']);
+            $table->string('kartu_anggota')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

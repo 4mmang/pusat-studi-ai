@@ -40,8 +40,6 @@ class PenelitianController extends Controller
             $penelitian->penyelenggara = $request->penyelenggara;
             $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
             $penelitian->level = $request->level;
-            $penelitian->progres = $request->progres;
-            $penelitian->laporan = $request->laporan;
             $penelitian->link_akses = $request->link_akses;
             $penelitian->save();
 
@@ -92,8 +90,6 @@ class PenelitianController extends Controller
             $penelitian->penyelenggara = $request->penyelenggara;
             $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
             $penelitian->level = $request->level;
-            $penelitian->progres = $request->progres;
-            $penelitian->laporan = $request->laporan;
             $penelitian->link_akses = $request->link_akses;
             $penelitian->update();
 

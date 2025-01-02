@@ -53,6 +53,9 @@
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
                                     required>
+                                    <option @if ($pengabdian->level == 'mandiri') selected @endif value="Mandiri">
+                                        Mandiri
+                                    </option>
                                     <option @if ($pengabdian->level == 'universitas') selected @endif value="Universitas">
                                         Universitas
                                     </option>
@@ -60,20 +63,9 @@
                                     </option>
                                     <option @if ($pengabdian->level == 'internasional') selected @endif value="Internasional">
                                         Internasional</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="progres" class="">Progres (1-100%) <sup class="text-danger">*</sup></label>
-                                <input type="number" value="{{ $pengabdian->progres }}" class="form-control @error('progres')
-                                                                                                                    is-invalid
-                                                                                                                @enderror" name="progres"
-                                    id="progres" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="laporan" class="">Laporan <sup class="text-danger">*</sup></label>
-                                <select name="laporan" class="form-control" value="{{ old('laporan') }}" id="laporan" required>
-                                    <option value="Sudah" @if ($pengabdian->laporan == 'sudah') selected @endif>Sudah</option>
-                                    <option value="Belum" @if ($pengabdian->laporan == 'belum') selected @endif>Belum</option>
+                                    <option @if ($pengabdian->level == 'lainnya') selected @endif value="Lainnya">
+                                        Lainnya
+                                    </option>
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3">

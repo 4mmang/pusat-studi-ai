@@ -54,6 +54,8 @@
                                     required>
                                     <option value="Nasional">Nasional</option>
                                     <option value="Internasional">Internasional</option>
+                                    <option value="Nasional Bereputasi">Nasional Bereputasi</option>
+                                    <option value="Internasional Bereputasi">Internasional Bereputasi</option>
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3">
