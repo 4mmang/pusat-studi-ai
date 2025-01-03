@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Data\PenelitianController;
 use App\Http\Controllers\Admin\Data\PengabdianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
+use App\Http\Controllers\Admin\DipercayaController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
 use App\Http\Controllers\Admin\ParnertKampusController;
@@ -105,6 +106,7 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
         });
 
         Route::resource('/parnert', ParnertKampusController::class);
+        Route::resource('/dipercaya', DipercayaController::class);
 
         Route::resource('upload-pdf', UploadPdfController::class);
         Route::resource('/artikel', ArtikelController::class);

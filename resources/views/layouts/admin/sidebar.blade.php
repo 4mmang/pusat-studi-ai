@@ -73,8 +73,8 @@
                 <i class="fas fa-fw fa-handshake"></i>
                 <span>Parnert Kampus</span></a>
         </li>
-        <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ Request::is('admin/dipercaya*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('dipercaya.index') }}">
                 <i class="fas fa-fw fa-shield-alt"></i>
                 <span>Dipercaya</span></a>
         </li>
