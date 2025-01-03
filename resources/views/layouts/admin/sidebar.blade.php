@@ -49,19 +49,14 @@
             </div>
         </li> --}}
     @endif
-    {{-- <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('jenis.publikasi.index') }}">
-            <i class="fas fa-fw fa-th-large"></i>
-            <span>Jenis Publikasi</span></a>
-    </li> --}}
     <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
         <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#"
             data-toggle="collapse" data-target="#data" aria-expanded="true" aria-controls="sumber-daya">
             <i class="fas fa-fw fa-database"></i>
             <span>Data</span>
         </a>
-        <div id="data" class="collapse {{ Request::is('admin/data*') ? 'show' : '' }}"
-            aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="data" class="collapse {{ Request::is('admin/data*') ? 'show' : '' }}" aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ Request::is('admin/data/publikasi*') ? 'active' : '' }}"
                     href="{{ route('publikasi.index') }}">Publikasi</a>
@@ -73,6 +68,16 @@
         </div>
     </li>
     @if (Auth::user()->role === 'admin')
+        <li class="nav-item {{ Request::is('admin/parnert*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('parnert.index') }}">
+                <i class="fas fa-fw fa-handshake"></i>
+                <span>Parnert Kampus</span></a>
+        </li>
+        <li class="nav-item {{ Request::is('admin/jenis/publikasi*') ? 'active' : '' }}">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-shield-alt"></i>
+                <span>Dipercaya</span></a>
+        </li>
         <li class="nav-item {{ Request::is('admin/artikel*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('artikel.index') }}">
                 <i class="fas fa-fw fa-newspaper"></i>

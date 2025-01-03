@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Data\PengabdianController;
 use App\Http\Controllers\Admin\Data\PublikasiController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\JenisPublikasiController;
+use App\Http\Controllers\Admin\ParnertKampusController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
@@ -103,6 +104,8 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
             Route::resource('/sarana-pra', SaranaPraController::class);
         });
 
+        Route::resource('/parnert', ParnertKampusController::class);
+
         Route::resource('upload-pdf', UploadPdfController::class);
         Route::resource('/artikel', ArtikelController::class);
         Route::resource('/event', EventController::class);
@@ -113,12 +116,6 @@ Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/profil', ProfilController::class);
-
-    // Route::prefix('/jenis')
-    //     ->as('jenis.')
-    //     ->group(function () {
-    //         Route::resource('/publikasi', JenisPublikasiController::class);
-    //     });
 
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class);
