@@ -21,6 +21,7 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Foto</th>
                                     <th class="text-center">Nama</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -38,6 +39,7 @@
                                             @endif
                                         </td>
                                         <td class="align-middle">{{ $ang->nama }}</td>
+                                        <td class="align-middle text-capitalize">{{ $ang->role }}</td>
                                         <td class="align-middle">
                                             <form id="delete-anggota-{{ $ang->id }}"
                                                 action="{{ route('anggota.destroy', $ang->id) }}" method="post">

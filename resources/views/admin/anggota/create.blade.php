@@ -35,6 +35,11 @@
                                                                 is-invalid
                                                             @enderror"
                                     name="email" id="email" required>
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="jenis_kelamin">Jenis Kelamin <sup class="text-danger">*</sup></label>
@@ -43,10 +48,15 @@
                                     <option value="pr">Perempuan</option>
                                 </select>
                             </div>
-                            <div class="col-md-12 mt-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="password">Password <sup class="text-danger">*</sup></label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password" id="password" required>
+                            </div>
+                            {{-- <div class="col-md-12 mt-3">
                                 <p><input type="checkbox"> Saya paham bahwa password default yang diberikan adalah <span
                                         class="fw-bold">pusatstudiai</span></p>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <a href="{{ route('anggota.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>

@@ -27,28 +27,21 @@
     <div class="sidebar-heading">
         menu
     </div>
+    @if (Auth::check() && Auth::user()->role === 'superadmin')
+        <li class="nav-item {{ Request::is('admin/user*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Kelola Admin</span></a>
+        </li>
+    @endif
     @if (Auth::check() && Auth::user()->role === 'admin')
         <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('anggota.index') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Anggota</span></a>
         </li>
-        {{-- <li class="nav-item {{ Request::is('admin/sumber-daya*') ? 'active' : '' }}">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sumber-daya"
-                aria-expanded="true" aria-controls="sumber-daya">
-                <i class="fas fa-fw fa-handshake"></i>
-                <span>Sumber Daya</span>
-            </a>
-            <div id="sumber-daya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item {{ Request::is('admin/sumber-daya/anggota*') ? 'active' : '' }}"
-                        href="{{ route('anggota.index') }}">Anggota</a>
-                    <a class="collapse-item {{ Request::is('admin/sumber-daya/sarana-pra*') ? 'active' : '' }}"
-                        href="{{ route('sarana-pra.index') }}">Sarana & Prasarana</a>
-                </div>
-            </div>
-        </li> --}}
     @endif
+    @if (Auth::check() && Auth::user()->role === 'admin' || Auth::user()->role === 'anggota')
     <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
         <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#"
             data-toggle="collapse" data-target="#data" aria-expanded="true" aria-controls="sumber-daya">
@@ -67,6 +60,7 @@
             </div>
         </div>
     </li>
+    @endif
     @if (Auth::user()->role === 'admin')
         <li class="nav-item {{ Request::is('admin/parnert*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('parnert.index') }}">

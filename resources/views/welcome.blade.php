@@ -287,46 +287,15 @@
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                @forelse ($parnerts as $parnert)
+                    <div class="mb-12 p-4 md:w-1/6">
+                        <div class="rounded-md overflow-hidden flex justify-center items-center">
+                            <img src="{{ asset('storage/' . $parnert->logo) }}" alt="" class="w-full">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
+                @empty
+                    <p>Belum ada parnert kampus.</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -345,21 +314,15 @@
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
+                @forelse ($dipercaya as $percaya)
+                    <div class="mb-12 p-4 md:w-1/6">
+                        <div class="rounded-md overflow-hidden flex justify-center items-center">
+                            <img src="{{ asset('storage/' . $percaya->logo) }}" alt="" width="w-full">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-12 p-4 md:w-1/6">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
+                @empty
+                    <p>Belum ada yang percaya.</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -381,11 +344,12 @@
                 @forelse ($artikel as $item)
                     <div class="mb-12 p-4 md:w-1/3">
                         <a href="{{ route('artikel.view', $item->id) }}">
-                        <div class="rounded-md shadow-md overflow-hidden">
-                            <img src="{{ asset('storage/'.$item->sampul) }}" alt="" width="w-full">
-                        </div>
-                        <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
-                        <p class="font-medium text-base text-secondary">{{ Str::limit($item->deskripsi, 150, '...') }}</p>
+                            <div class="rounded-md shadow-md overflow-hidden">
+                                <img src="{{ asset('storage/' . $item->sampul) }}" alt="" width="w-full">
+                            </div>
+                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
+                            <p class="font-medium text-base text-secondary">{{ Str::limit($item->deskripsi, 150, '...') }}
+                            </p>
                         </a>
                     </div>
                 @empty
@@ -394,13 +358,12 @@
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @if (optional($artikel)->count() > 0)
-                    <a href="{{ route('artikel') }}"
-                        class="bg-primary px-4 py-3 text-white rounded-full">Lihat
+                    <a href="{{ route('artikel') }}" class="bg-primary px-4 py-3 text-white rounded-full">Lihat
                         lebih banyak artikel <i class="fa fa-arrow-right"></i></a>
                 @endif
             </div>
         </div>
-    </section> 
+    </section>
 @endsection
 @section('scripts')
     <script>

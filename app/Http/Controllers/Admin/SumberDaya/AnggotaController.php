@@ -12,7 +12,7 @@ class AnggotaController extends Controller
 {
     public function index()
     {
-        $anggota = User::all();
+        $anggota = User::where('role', 'anggota')->get();
         return view('admin.anggota.index', compact('anggota'));
     }
 
@@ -25,7 +25,9 @@ class AnggotaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => 'required',
+            'role' => 'required',
             'jenis_kelamin' => 'required',
         ]);
 
@@ -35,12 +37,14 @@ class AnggotaController extends Controller
             $anggota->email = $request->email;
             $anggota->nip = $request->nip;
             $anggota->jenis_kelamin = $request->jenis_kelamin;
-            $anggota->role = 'anggota';
-            $anggota->password = Hash::make('pusatstudiai');
+            $anggota->role = $request->role;
+            $anggota->password = Hash::make($request->password);
             $anggota->save();
-            return back()->with([
-                'message' => 'Berhasil manambahkan anggota baru',
-            ]);
+            return redirect()
+                ->route('anggota.index')
+                ->with([
+                    'message' => 'Berhasil manambahkan anggota baru',
+                ]);
         } catch (\Throwable $th) {
             return back()->withErrors([
                 'error' => 'Terjadi kesalahan',
@@ -58,7 +62,7 @@ class AnggotaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email,' . $id],
             'jenis_kelamin' => 'required',
         ]);
 
@@ -68,6 +72,8 @@ class AnggotaController extends Controller
             $anggota->email = $request->email;
             $anggota->nip = $request->nip;
             $anggota->jenis_kelamin = $request->jenis_kelamin;
+            $anggota->role = $request->role;
+            $anggota->password = Hash::make($request->password);
             $anggota->update();
             return back()->with([
                 'message' => 'Berhasil mengupdate data anggota',

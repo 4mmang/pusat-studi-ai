@@ -34,8 +34,9 @@
                                         action="{{ route('publikasi.destroy', $pub->id) }}" method="post">
                                         @csrf
                                         @method('delete')
+                                        <a href="{{ $pub->link_akses }}" class="btn btn-primary btn-sm mb-1"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('publikasi.edit', $pub->id) }}"
-                                            class="btn btn-warning btn-sm mb-1"><i class="fas fa-pen"></i></a>
+                                            class="btn btn-warning btn-sm mb-1 ml-1"><i class="fas fa-pen"></i></a>
                                         <button type="submit" onclick="disableDeleteButton({{ $pub->id }})"
                                             class="ml-1 btn btn-sm btn-danger mb-1 text-center"><i
                                                 class="fas fa-trash"></i></button>

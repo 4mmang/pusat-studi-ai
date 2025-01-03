@@ -51,7 +51,7 @@
     @if (session('message'))
         <script>
             Swal.fire({
-                title: "Good job!",
+                title: "Bagus!",
                 text: "{{ session('message') }}",
                 icon: "success"
             });

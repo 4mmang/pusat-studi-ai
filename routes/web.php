@@ -13,25 +13,28 @@ use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
 use App\Http\Controllers\Admin\UploadPdfController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Informasi\KinerjaAnggotaController;
 use App\Http\Controllers\Informasi\StatistikDataController;
 use App\Http\Controllers\TentangKamiController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\Artikel;
+use App\Models\Dipercaya;
 use App\Models\Event;
+use App\Models\ParnertKampus;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Publikasi;
-use App\Models\Unduh;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Unduh; 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $events = Event::all();
     $artikel = Artikel::take(3)->get();
-    return view('welcome', compact('events', 'artikel'));
+    $parnerts = ParnertKampus::all();
+    $dipercaya = Dipercaya::all();
+    return view('welcome', compact('events', 'artikel', 'parnerts', 'dipercaya'));
 })->name('beranda');
 
 Route::get('tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
@@ -97,6 +100,9 @@ Route::get('/unduh', function(){
     return view('unduh', compact('unduh'));
 })->name('unduh');
 
+Route::middleware([RoleMiddleware::class. ':superadmin'])->group(function(){
+    Route::resource('admin/user', UserController::class);
+});
 
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {

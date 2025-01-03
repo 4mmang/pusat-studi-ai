@@ -11,7 +11,7 @@
                     <center>
                         <img src="{{ asset('img/Logo.jpg') }}" class="w-12 mb-2" alt="">
                     </center>
-                        Pusat Studi AI
+                    Pusat Studi AI
                 </a>
             </div>
 
@@ -31,7 +31,7 @@
                         <!-- Beranda -->
                         <li class="group">
                             <a href="{{ route('beranda') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artificial-intelligance') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artificial-intelligance') ? 'text-primary' : '' }}">
                                 Beranda
                             </a>
                         </li>
@@ -39,7 +39,7 @@
                         <!-- Tentang Kami -->
                         <li class="group">
                             <a href="{{ route('tentang-kami') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/tentang-kami') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/tentang-kami') ? 'text-primary' : '' }}">
                                 Tentang Kami
                             </a>
                         </li>
@@ -47,7 +47,7 @@
                         <!-- Sumber Daya Dropdown -->
                         {{-- <li class="group relative">
                             <button id="dropdownButtonSumberDaya"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Sumber Daya
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -76,7 +76,7 @@
                         <!-- Artikel -->
                         <li class="group">
                             <a href="{{ route('artikel') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
                                 Artikel
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                         <!-- Data Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonData"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Data
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -120,7 +120,7 @@
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonInformasi"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Informasi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -144,11 +144,6 @@
                                         Kinerja Anggota
                                     </a>
                                 </li>
-                                {{-- <li>
-                                    <a href="#statistik" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                        Upload PDF
-                                    </a>
-                                </li> --}}
                                 <li>
                                     <a href="{{ route('kontak') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
@@ -159,15 +154,43 @@
                         </li>
                         <li class="group">
                             <a href="{{ route('unduh') }}"
-                                class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
                                 Unduh
                             </a>
                         </li>
 
+                        <li class="group relative">
+                            <button id="dropdownButtonAksesCepat"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary"
+                                aria-expanded="false">
+                                Akses Cepat
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <ul id="dropdownMenuAksesCepat"
+                                class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
+                                <li>
+                                    <a href="https://unsulbar.ac.id/" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Kampus Unsulbar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pusdata.pusatstudiaiunsulbar.com/"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Pusat Data
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </li>
                         @auth
                             <li class="group relative">
                                 <button id="dropdownButtonProfil"
-                                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                     aria-expanded="false">
                                     {{ Auth::user()->nama }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -200,14 +223,14 @@
                             <!-- Login Button (Desktop) -->
                             <li class="group">
                                 <a href="{{ url('login') }}"
-                                    class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-8 group-hover:bg-blue-400">
+                                    class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-5 group-hover:bg-blue-400">
                                     <i class="far fa-sign-in mr-1"></i>Masuk
                                 </a>
                             </li>
                             <!-- Login Button (Mobile) -->
                             <li class="group">
                                 <a href="{{ url('login') }}"
-                                    class="lg:hidden block text-base text-dark py-2 mx-8 group-hover:text-primary">Masuk</a>
+                                    class="lg:hidden block text-base text-dark py-2 mx-5 group-hover:text-primary">Masuk</a>
                             </li>
                         @endguest
                     </ul>

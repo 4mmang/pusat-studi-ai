@@ -35,8 +35,10 @@
                                         action="{{ route('penelitian.destroy', $pen->id) }}" method="post">
                                         @csrf
                                         @method('delete')
+                                        <a href="{{ $pen->link_akses }}"
+                                            class="btn btn-primary btn-sm mb-1"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('penelitian.edit', $pen->id) }}"
-                                            class="btn btn-warning btn-sm mb-1"><i class="fas fa-pen"></i></a>
+                                            class="btn btn-warning btn-sm mb-1 ml-1"><i class="fas fa-pen"></i></a>
                                         <button type="submit" onclick="disableDeleteButton({{ $pen->id }})"
                                             class="ml-1 btn btn-sm btn-danger mb-1 text-center"><i
                                                 class="fas fa-trash"></i></button>
