@@ -20,6 +20,7 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Judul</th>
+                                <th class="text-center">Authors</th>
                                 <th class="text-center">Tahun</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -29,6 +30,13 @@
                             <tr>
                                 <td class="align-middle">{{ $loop->iteration }}</td>
                                 <td class="align-middle">{{ $pengab->judul }}</td>
+                                <td class="align-middle">
+                                    @foreach ($pengab->authors as $author)
+                                    {{ $loop->iteration }}. {{ $author->nama }}@if (!$loop->last)
+                                    ,
+                                    @endif
+                                    @endforeach
+                                </td>
                                 <td class="align-middle">{{ \Carbon\Carbon::parse($pengab->tanggal_pengabdian)->format('Y') }}</td>
                                 <td class="align-middle">
                                     <form id="delete-pengabdian-{{ $pengab->id }}"

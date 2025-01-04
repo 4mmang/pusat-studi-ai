@@ -61,13 +61,11 @@
                             <div class="col-md-5 mb-12">
                                 <label for="anggota">Authors <sup class="text-danger">*</sup></label>
                                 <!-- Dropdown multi-select -->
-                                <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple
-                                    size="5">
+                                <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple>
                                     @foreach ($anggota as $ang)
                                         <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
                                     @endforeach
                                 </select>
-
                                 <!-- Input untuk menambah author manual -->
                                 <div class="input-group mt-2">
                                     <input type="text" class="form-control" name="nama" id="nama"
@@ -165,15 +163,15 @@
         function renderAuthors() {
             let authorList = document.getElementById('authorList');
             authorList.innerHTML = author.map((a, index) => `
-        ${index + 1}.
-        <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
-            ${a.nama}
-        </span>
-        <a href="#" onclick="hapusAuthor(${index})">
-            <i class="fas fa-times-circle ms-2 text-danger"></i>
-        </a>
-        <br>
-        `).join("");
+    ${index + 1}.
+    <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
+        ${a.nama}
+    </span>
+    <a href="#" onclick="hapusAuthor(${index})">
+        <i class="fas fa-times-circle ms-2 text-danger"></i>
+    </a>
+    <br>
+    `).join("");
         }
     </script>
 @endpush
