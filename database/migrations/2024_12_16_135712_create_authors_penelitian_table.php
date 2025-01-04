@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('authors_penelitian', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->foreignId('penelitian_id')->constrained('penelitian');
             $table->string('nama');
             $table->timestamps();

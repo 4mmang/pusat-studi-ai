@@ -13,7 +13,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Dashboard --> 
     <li class="nav-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -34,13 +34,7 @@
                 <span>Kelola Admin</span></a>
         </li>
     @endif
-    @if (Auth::check() && Auth::user()->role === 'admin')
-        <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('anggota.index') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Anggota</span></a>
-        </li>
-    @endif
+    
     @if (Auth::check() && Auth::user()->role === 'admin' || Auth::user()->role === 'anggota')
     <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
         <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#"
@@ -61,7 +55,19 @@
         </div>
     </li>
     @endif
-    @if (Auth::user()->role === 'admin')
+    @if (Auth::check() && Auth::user()->role === 'admin')
+    <li class="nav-item {{ Request::is('admin/unduh-data*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('unduh-data.index') }}">
+            <i class="fas fa-fw fa-download"></i>
+            <span>Unduh Data</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('anggota.index') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Anggota</span></a>
+    </li>
+    @endif
+    @if (Auth::check() && Auth::user()->role === 'admin')
         <li class="nav-item {{ Request::is('admin/parnert*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('parnert.index') }}">
                 <i class="fas fa-fw fa-handshake"></i>

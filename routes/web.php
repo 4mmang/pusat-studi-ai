@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ParnertKampusController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\SumberDaya\AnggotaController;
 use App\Http\Controllers\Admin\SumberDaya\SaranaPraController;
+use App\Http\Controllers\Admin\UnduhDataController;
 use App\Http\Controllers\Admin\UploadPdfController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -107,10 +108,7 @@ Route::middleware([RoleMiddleware::class. ':superadmin'])->group(function(){
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::resource('/anggota', AnggotaController::class);
-        Route::prefix('/sumber-daya')->group(function () {
-            Route::resource('/sarana-pra', SaranaPraController::class);
-        });
-
+        Route::resource('/unduh-data', UnduhDataController::class);
         Route::resource('/parnert', ParnertKampusController::class);
         Route::resource('/dipercaya', DipercayaController::class);
 
@@ -121,13 +119,13 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
 });
 
 Route::prefix('/admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-    Route::resource('/profil', ProfilController::class);
+    Route::resource('/profil', ProfilController::class)->middleware('auth');
 
     Route::prefix('/data')->group(function () {
-        Route::resource('/publikasi', PublikasiController::class);
-        Route::resource('/penelitian', PenelitianController::class);
-        Route::resource('/pengabdian', PengabdianController::class);
-    })->middleware('auth');
-})->middleware('auth');
+        Route::resource('/publikasi', PublikasiController::class)->middleware('auth');
+        Route::resource('/penelitian', PenelitianController::class)->middleware('auth');
+        Route::resource('/pengabdian', PengabdianController::class)->middleware('auth');
+    });
+});

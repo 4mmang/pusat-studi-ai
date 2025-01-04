@@ -53,6 +53,9 @@
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
                                     required>
+                                    <option @if ($penelitian->level == 'mandiri') selected @endif value="Mandiri">
+                                        Mandiri
+                                    </option>
                                     <option @if ($penelitian->level == 'universitas') selected @endif value="Universitas">
                                         Universitas
                                     </option>
@@ -60,8 +63,10 @@
                                     </option>
                                     <option @if ($penelitian->level == 'internasional') selected @endif value="Internasional">
                                         Internasional</option>
+                                    <option @if ($penelitian->level == 'lainnya') selected @endif value="Lainnya">
+                                        Lainnya</option>
                                 </select>
-                            </div> 
+                            </div>
                             <div class="col-md-12 mb-3">
                                 <label for="link_akses" class="">Link Akses Penelitian <sup
                                         class="text-danger">*</sup></label>
@@ -73,10 +78,20 @@
                             </div>
                             <div class="col-md-5 mb-12">
                                 Authors <sup class="text-danger">*</sup>
+                                <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple
+                                    size="5">
+                                    @foreach ($anggota as $ang)
+                                        <option value="{{ $ang->id }}"
+                                            @if (in_array($ang->id, $penelitian->authors->pluck('id')->toArray())) selected @endif>
+                                            {{ $ang->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 <div class="input-group mt-2">
                                     <input type="text" class="form-control" name="nama" id="nama">
-                                    <button type="button" onclick="tambahAuthor()" class="btn text-white btn-primary"><i
-                                            class="fas fa-plus"></i> Tambah</button>
+                                    <button type="button" onclick="tambahAuthor()" class="btn text-white btn-primary">
+                                        <i class="fas fa-plus"></i> Tambah
+                                    </button>
                                 </div>
                                 @error('authors')
                                     <p id="author-error" class="mb-4">
@@ -84,10 +99,12 @@
                                     </p>
                                 @enderror
                                 <div id="authorList" class="mt-4">
+                                    <!-- Daftar authors akan dirender di sini -->
                                 </div>
                             </div>
+                            <input type="hidden" name="authors" id="authors">
                         </div>
-                        <input type="hidden" name="authors" id="authors">
+                        {{-- <input type="hidden" name="authors" id="authors"> --}}
                         <a href="{{ route('penelitian.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>
                         <button id="simpan" type="submit" class="btn text-white mt-3 btn-success float-end px-3"><i
                                 class="fas fa-save mr-1"></i>
@@ -108,73 +125,75 @@
             btnSave.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
         });
 
-        let authors = []
-        let author = ["{{ $penelitian->authors }}"];
-        let rawString = author[0];
-        let jsonString = rawString.replace(/&quot;/g, '"');
-        try {
-            let authorArray = JSON.parse(jsonString);
-            authorArray.forEach(element => {
-                authors.push(element.nama)
+
+        let author = @json($penelitian->authors); // Inisialisasi dengan data penulis yang sudah ada
+        // Menambahkan nama dari select
+        let select = document.getElementById('anggota-select');
+        select.addEventListener('change', function() {
+            Array.from(select.selectedOptions).forEach(option => {
+                let user_id = parseInt(option.value, 10); // 10 adalah basis desimal
+                let nama = option.text;
+
+                // Periksa apakah sudah ada di daftar author
+                if (!author.some(a => a.user_id === user_id)) {
+                    author.push({
+                        user_id,
+                        nama
+                    }); // Tambahkan data dengan ID
+                }
             });
-            renderAuthors()
-        } catch (error) {
-            console.error("Error parsing JSON:", error);
-        }
 
-        document.getElementById('authors').value = JSON.stringify(authors);
+            // Perbarui input hidden dan render ulang daftar
+            document.getElementById('authors').value = JSON.stringify(author);
+            renderAuthors();
+        });
 
-        // Fungsi untuk menambahkan author baru
+        // Menambahkan nama secara manual
         function tambahAuthor() {
             let nama = document.getElementById('nama');
-            if (nama.value.trim() !== "") {
-                authors.push(nama.value.trim());
-                nama.value = "";
+            if (nama.value.trim() !== "") { // Pastikan input tidak kosong
+                author.push({
+                    user_id: null,
+                    nama: nama.value.trim()
+                }); // Tambahkan nama dengan id null
+                nama.value = ""; // Reset input
 
-                // Perbarui nilai input hidden dengan daftar author dalam JSON
-                document.getElementById('authors').value = JSON.stringify(authors);
-                console.log(document.getElementById('authors').value);
+                // Perbarui nilai input hidden
+                document.getElementById('authors').value = JSON.stringify(author);
 
                 // Render ulang daftar author
                 renderAuthors();
-
-                if (authors.length > 0) {
-                    let errorElement = document.getElementById('author-error');
-                    if (errorElement) {
-                        errorElement.remove();
-                    }
-                }
             } else {
                 alert("Nama author tidak boleh kosong!");
             }
         }
 
-        // Fungsi untuk merender daftar author
-        function renderAuthors() {
-            let authorList = document.getElementById('authorList');
-            authorList.innerHTML = authors.map((a, index) => `
-            ${index + 1}.
-                    <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
-                        ${a}
-                    </span>
-                    <a href="#" onclick="hapusAuthor(${index})">
-                        <i class="fas fa-times-circle ms-2 text-danger"></i>
-                    </a>
-                    <br>
-            `).join("");
-        }
-
-        // Fungsi untuk menghapus author
+        // Menghapus author dari daftar
         function hapusAuthor(index) {
-            authors.splice(index, 1); // Hapus author dari array
-            document.getElementById('authors').value = JSON.stringify(authors); // Perbarui input hidden
-            renderAuthors(); // Render ulang daftar author
-            // if (authors.length > 1) {
-            // }else{
-            //     alert("Authot tidak boleh kosong")
-            // }
+            author.splice(index, 1); // Hapus author berdasarkan index
+            document.getElementById('authors').value = JSON.stringify(author);
+            renderAuthors();
         }
 
-        
+        // Merender daftar author
+        function renderAuthors() {
+            document.getElementById('authors').value = JSON.stringify(author);
+            let authorList = document.getElementById('authorList');
+            authorList.innerHTML = author.map((a, index) => `
+        ${index + 1}.
+        <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
+            ${a.nama}
+        </span>
+        <a href="#" onclick="hapusAuthor(${index})">
+            <i class="fas fa-times-circle ms-2 text-danger"></i>
+        </a>
+        <br>
+        `).join("");
+        }
+
+        // Menyimpan data authors ke input hidden ketika halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAuthors();
+        });
     </script>
 @endpush

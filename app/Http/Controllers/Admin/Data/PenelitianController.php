@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Data;
 use App\Http\Controllers\Controller;
 use App\Models\AuthorPenelitian;
 use App\Models\Penelitian;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,14 +17,19 @@ class PenelitianController extends Controller
         $penelitian = Penelitian::all();
         $user = Auth::user();
         if ($user->role === 'anggota') {
-            $penelitian = Penelitian::where('user_id', $user->id)->get();
+            $penelitian = Penelitian::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->get();
         }
         return view('admin.data.penelitian.index', compact('penelitian'));
     }
 
     public function create()
     {
-        return view('admin.data.penelitian.create');
+        $anggota = User::where('role', 'anggota')->get();
+        return view('admin.data.penelitian.create', compact('anggota'));
     }
 
     public function store(Request $request)
@@ -46,8 +52,11 @@ class PenelitianController extends Controller
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPenelitian();
+                if ($author['id']) {
+                    $newAuthor->user_id = $author['id'];
+                }
                 $newAuthor->penelitian_id = $penelitian->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();
@@ -66,13 +75,16 @@ class PenelitianController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        
-        $penelitian = Penelitian::where('id', $id)->where('user_id', $user->id)->first();
+
+        $penelitian = Penelitian::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
         if ($user->role === 'admin') {
             $penelitian = Penelitian::findOrFail($id);
         }
         if ($penelitian) {
-            return view('admin.data.penelitian.edit', compact('penelitian'));
+            $anggota = User::where('role', 'anggota')->get();
+            return view('admin.data.penelitian.edit', compact('penelitian', 'anggota'));
         }
         abort(404);
     }
@@ -100,8 +112,11 @@ class PenelitianController extends Controller
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPenelitian();
+                if ($author['user_id']) {
+                    $newAuthor->user_id = $author['user_id'];
+                }
                 $newAuthor->penelitian_id = $penelitian->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();
