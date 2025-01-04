@@ -18,13 +18,17 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 25s linear infinite',
-        border: 'background ease infinite',
+        'infinite-scroll-left': 'scroll-left 25s linear infinite',
+        'infinite-scroll-right': 'scroll-right 25s linear infinite',
       },
       keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
+        'scroll-left': {
+          from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(-100%)' },
+        },
+        'scroll-right': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0%)' },
         },
         background: {
           '0%, 100%': { backgroundPosition: '0% 50%' },

@@ -114,14 +114,15 @@
                     <div class="mb-12 p-4 md:w-1/3 border border-slate-300">
                         <a href="{{ route('kinerja-anggota.show', $ang->id) }}">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                @if ($ang->foto)
+                                <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full">
+                                {{-- @if ($ang->foto)
                                     <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full">
                                 @else
                                     <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" alt=""
                                         width="w-full">
-                                @endif
+                                @endif --}}
                             </div>
-                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3>
+                            {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3> --}}
                         </a>
                     </div>
                 @empty
@@ -130,109 +131,11 @@
             </div>
         </div>
     </section>
-    <!-- Anggota Section End -->
-
-    <!-- Portofolio Kerja Sama Section Start -->
-    {{-- <section id="portofolio-kerja-sama" class="pt-24 pb-16">
-        <div class="container">
-            <div class="w-full px-4">
-                <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Portofolio Kerja Sama & Training</h4>
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4"></h2>
-                    <p class="font-medium text-md text-secondary md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
-                    </p>
-                </div>
-            </div>
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-                <div class="mb-2 p-4 md:w-1/12">
-                    <div class="rounded-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Logo.jpg') }}" alt="Platform DATAU" width="w-full">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- Portofolio Kerja Sama Section End -->
+    <!-- Anggota Section End --> 
 
     <section class="relative font-inter antialiased ">
 
-        <main class="relative min-h-screen flex flex-col justify-center bg-slate-100 overflow-hidden">
+        <main class="relative min-h-screen flex flex-col justify-center overflow-hidden">
             <div class="container -mb-18">
                 <div class="w-full px-4">
                     <div class="max-w-xl mx-auto text-center">
@@ -255,7 +158,7 @@
                     })"
                         class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
                         <ul x-ref="logos"
-                            class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+                            class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll-right">
                             <li>
                                 <img src="https://picsum.photos/300/200?random=1" alt="Random Image from Lorem Picsum"
                                     width="w-full">
@@ -290,7 +193,107 @@
         </main>
     </section>
 
-    <section class="pt-32 pb-16">
+    <section class="relative font-inter antialiased ">
+    
+        <main class="relative min-h-screen flex flex-col justify-center bg-slate-100 overflow-hidden">
+            <div class="container -mb-18">
+                <div class="w-full px-4">
+                    <div class="max-w-xl mx-auto text-center">
+                        {{-- <h4 class="font-semibold text-lg text-primary mb-2">Portofolio Kerja Sama & Training</h4> --}}
+                        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Sarana & Pra-Sarana</h2>
+                        <p class="font-medium text-md text-secondary md:text-lg">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
+                <div class="text-center">
+    
+                    <!-- Logo Carousel animation -->
+                    <div x-data="{}" x-init="$nextTick(() => {
+                            let ul = $refs.logos;
+                            ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                            ul.nextSibling.setAttribute('aria-hidden', 'true');
+                        })"
+                        class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                        <ul x-ref="logos"
+                            class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll-left">
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=1" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=2" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=3" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=4" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=5" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                            <li>
+                                <img src="https://picsum.photos/300/200?random=6" alt="Random Image from Lorem Picsum"
+                                    width="w-full">
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End: Logo Carousel animation -->
+    
+                </div>
+    
+            </div>
+        </main>
+    </section>
+
+    <!-- Keunggulan Section Start -->
+    <section id="riset-unggulan" class="pt-24 pb-16">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Riset Unggulan</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Sekali-Bayar.png') }}" alt="Platform DATAU" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Bagaimana intervensi dalam penanganan Stunting?</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quis quasi sit nihil. Necessitatibus deleniti omnis debitis ab.</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Mentoring.png') }}" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Metode Mentoring</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Odit, sapiente?</p>
+                </div>
+                <div class="mb-12 p-4 md:w-1/3">
+                    <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
+                        <img src="{{ asset('img/Awam-IT.png') }}" alt="" width="w-full">
+                    </div>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Hands On Praktikum</h3>
+                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Keunggulan Section End -->
+    {{-- <section class="pt-32 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-10">
@@ -361,7 +364,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
 @section('scripts')
     <script>

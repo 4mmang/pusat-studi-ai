@@ -57,6 +57,11 @@
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     name="password" id="password">
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="kartu_angggota">Kartu Angggota <sup class="text-danger"></sup></label>
+                                <input type="file" class="form-control @error('kartu_angggota') is-invalid @enderror" name="kartu_angggota"
+                                    id="kartu_angggota">
+                            </div>
                         </div>
 
                         <a href="{{ route('anggota.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>

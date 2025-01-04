@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nama">Nama Lengkap <sup class="text-danger">*</sup></label>
-                                <input type="text"
+                                <input type="text" value="{{ old('nama') }}"
                                     class="form-control @error('nama')
                                     is-invalid
                                 @enderror"
@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="nip">NIP/NIDN <sup class="text-danger"></sup></label>
-                                <input type="number"
+                                <input type="number" value="{{ old('nip') }}"
                                     class="form-control @error('nip')
                                                             is-invalid
                                                         @enderror"
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="email">Alamat Email <sup class="text-danger">*</sup></label>
-                                <input type="email"
+                                <input type="email" value="{{ old('email') }}"
                                     class="form-control @error('email')
                                                                 is-invalid
                                                             @enderror"
@@ -52,6 +52,11 @@
                                 <label for="password">Password <sup class="text-danger">*</sup></label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     name="password" id="password" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="kartu_anggota">Kartu Angggota <sup class="text-danger">*</sup></label>
+                                <input type="file" class="form-control @error('kartu_anggota') is-invalid @enderror"
+                                    name="kartu_anggota" id="kartu_anggota" required>
                             </div>
                             {{-- <div class="col-md-12 mt-3">
                                 <p><input type="checkbox"> Saya paham bahwa password default yang diberikan adalah <span

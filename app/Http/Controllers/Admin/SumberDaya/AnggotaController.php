@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AnggotaController extends Controller
 {
@@ -27,8 +28,8 @@ class AnggotaController extends Controller
             'nama' => 'required',
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => 'required',
-            'role' => 'required',
             'jenis_kelamin' => 'required',
+            'kartu_anggota' => 'required',
         ]);
 
         try {
@@ -37,8 +38,9 @@ class AnggotaController extends Controller
             $anggota->email = $request->email;
             $anggota->nip = $request->nip;
             $anggota->jenis_kelamin = $request->jenis_kelamin;
-            $anggota->role = $request->role;
+            $anggota->role = 'anggota';
             $anggota->password = Hash::make($request->password);
+            $anggota->kartu_anggota = $request->file('kartu_anggota')->store('kartu-anggota', 'public');
             $anggota->save();
             return redirect()
                 ->route('anggota.index')
@@ -72,8 +74,11 @@ class AnggotaController extends Controller
             $anggota->email = $request->email;
             $anggota->nip = $request->nip;
             $anggota->jenis_kelamin = $request->jenis_kelamin;
-            $anggota->role = $request->role;
             $anggota->password = Hash::make($request->password);
+            if ($request->file('kartu_anggota')) {
+                Storage::delete('public/' . $anggota->kartu_anggota);
+                $anggota->kartu_anggota = $request->file('kartu_anggota')->store('kartu-anggota', 'public');
+            }
             $anggota->update();
             return back()->with([
                 'message' => 'Berhasil mengupdate data anggota',
