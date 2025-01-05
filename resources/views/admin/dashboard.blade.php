@@ -164,7 +164,9 @@
                     backgroundColor: [
                         '#FF6384',
                         '#36A2EB',
-                        '#FFCE56'
+                        '#FFCE56',
+                        '#00FF00',
+                        '#9966FF',
                     ]
                 }]
             };
@@ -195,10 +197,13 @@
             });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}",
-                    "{{ $internasionalPenelitian }}"
+            createChart(["{{ $nasionalPublikasi }}",
+                    "{{ $internasionalPublikasi }}", "{{ $nasionalBereputasi }}",
+                    "{{ $internasionalBereputasi }}"
                 ],
-                ['Universitas', 'Nasional', 'Internasional'], type + '-levelpenelitian', type, {
+                ['Nasional', 'Internasional', 'Nasional Bereputasi', 'Internasional Bereputasi'], type +
+                '-levelpublikasi',
+                type, {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
@@ -214,10 +219,11 @@
                 });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}",
-                    "{{ $internasionalPengabdian }}"
+            createChart(["{{ $mandiriPengabdian }}", "{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}",
+                    "{{ $internasionalPengabdian }}", "{{ $pengabdianLainnya }}"
                 ],
-                ['Universitas', 'Nasional', 'Internasional'], type + '-levelpengabdian', type, {
+                ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpengabdian',
+                type, {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
@@ -233,10 +239,11 @@
                 });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $nasionalPublikasi }}", "{{ $internasionalPublikasi }}"], ['Nasional',
-                    'Internasional'
-                ], type +
-                '-levelpublikasi', type, {
+            createChart(["{{ $mandiriPenelitian }}", "{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}",
+                    "{{ $internasionalPenelitian }}", "{{ $penelitianLainnya }}"
+                ],
+                ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpenelitian',
+                type, {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
@@ -250,6 +257,7 @@
                         ]
                     }
                 });
+
         });
     </script>
 @endpush

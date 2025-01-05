@@ -20,37 +20,65 @@
                             @endif
                         </div>
                         <div class="col-md-9 mt-2">
-                            <table class="table table-borderless table-sm">
-                                <tr>
-                                    <th>Nama</th>
-                                    <td>: {{ $user->nama }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td>: {{ $user->email }}</td>
-                                </tr>
-                                <tr>
-                                    <th>NIP</th>
-                                    <td>: {{ $user->nip ?? '-' }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Nomor Telepon</th>
-                                    <td>: {{ $user->nomor_hp ?? '-' }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Jenis kelamin</th>
-                                    <td>: {{ $user->jenis_kelamin == 'lk' ? 'Laki - laki' : 'Perempuan' }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Alamat</th>
-                                    <td>: {{ $user->alamat ?? '-' }}</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="" class="btn btn-primary mt-3">Lengkapi Profil</a>
-                                    </td>
-                                </tr>
-                            </table>
+                            <form id="update-profil" action="{{ route('profil.update', Auth::user()->id) }}" method="post">
+                                @csrf
+                                @method('put')
+                                <table class="table table-borderless table-sm">
+                                    <tr>
+                                        <th>Nama</th>
+                                        <td>
+                                            <input value="{{ $user->nama }}" name="nama" type="text"
+                                                class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <input value="{{ $user->email }}" name="email" type="email"
+                                                class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>NIP</th>
+                                        <td>
+                                            <input value="{{ $user->nip }}" name="nip" type="text"
+                                                class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nomor Telepon</th>
+                                        <td>
+                                            <input value="{{ $user->nomor_hp }}" name="nomor_hp" type="number"
+                                                class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Jenis kelamin</th>
+                                        <td>
+                                            <select name="jenis_kelamin" class="form-control" id="">
+                                                <option value="lk" @if ($user->jenis_kelamin === 'lk') selected @endif>
+                                                    Laki - laki</option>
+                                                <option value="pr" @if ($user->jenis_kelamin === 'pr') selected @endif>
+                                                    Perempuan</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Alamat</th>
+
+                                        <td>
+                                            <textarea name="alamat" class="form-control" id="" cols="30" rows="3">{{ $user->alamat }}</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end">
+                                            <button type="submit" id="simpan" class="btn btn-primary mt-4"><i
+                                                    class="fas fa-save"></i>
+                                                Simpan</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -58,3 +86,13 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        let form = document.getElementById('update-profil')
+        form.addEventListener('submit', function() {
+            let btnSave = document.getElementById('simpan')
+            btnSave.disabled = true
+            btnSave.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
+        })
+    </script>
+@endpush

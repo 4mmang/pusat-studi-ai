@@ -17,16 +17,22 @@ class StatistikDataController extends Controller
         $totalPublikasi = Publikasi::count();
 
         // level
-        $universitasPenelitian = Penelitian::where('level', 'universitas')->count();
-        $nasionalPenelitian = Penelitian::where('level', 'nasional')->count();
-        $internasionalPenelitian = Penelitian::where('level', 'internasional')->count();
+        $nasionalPublikasi = Publikasi::where('level', 'nasional')->count();
+        $internasionalPublikasi = Publikasi::where('level', 'internasional')->count();
+        $nasionalBereputasi = Publikasi::where('level', 'nasional bereputasi')->count();
+        $internasionalBereputasi = Publikasi::where('level', 'internasional bereputasi')->count();
 
+        $mandiriPengabdian = Pengabdian::where('level', 'mandiri')->count();
         $universitasPengabdian = Pengabdian::where('level', 'universitas')->count();
         $nasionalPengabdian = Pengabdian::where('level', 'nasional')->count();
         $internasionalPengabdian = Pengabdian::where('level', 'internasional')->count();
+        $pengabdianLainnya = Pengabdian::where('level', 'lainnya')->count();
 
-        $nasionalPublikasi = Publikasi::where('level', 'nasional')->count();
-        $internasionalPublikasi = Publikasi::where('level', 'internasional')->count();
+        $mandiriPenelitian = Penelitian::where('level', 'mandiri')->count();
+        $universitasPenelitian = Penelitian::where('level', 'universitas')->count();
+        $nasionalPenelitian = Penelitian::where('level', 'nasional')->count();
+        $internasionalPenelitian = Penelitian::where('level', 'internasional')->count();
+        $penelitianLainnya = Penelitian::where('level', 'lainnya')->count();
 
         // line chart
         $currentYear = now()->year;
@@ -44,6 +50,6 @@ class StatistikDataController extends Controller
             $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)->count();
         }
 
-        return view('informasi.statistik-data', compact('totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'nasionalPenelitian', 'internasionalPenelitian', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi'));
+        return view('informasi.statistik-data', compact(['totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'mandiriPenelitian', 'penelitianLainnya', 'mandiriPengabdian', 'pengabdianLainnya', 'nasionalPenelitian', 'internasionalPenelitian', 'internasionalBereputasi', 'nasionalBereputasi', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi']));
     }
 }

@@ -50,7 +50,7 @@
             </div>
             <div id="cetak"
                 class="bg-white @if (!$kinerja) hidden @endif  shadow-sm ml-4 mr-4 rounded-lg p-12 mt-4 border border-gray-200">
-                <a href="#" class="p-2 text-white px-5 rounded-lg py-3 bg-primary">Download</a>
+                {{-- <a href="#" class="p-2 text-white px-5 rounded-lg py-3 bg-primary">Download</a> --}}
                 <div class="flex flex-row flex-wrap border border-gray-400 mt-10">
                     <div class="w-full text-center p-10">
                         <p class="text-3xl lg:text-6xl font-bold">Pusat Studi Artificial Intelligance</p>
@@ -82,8 +82,9 @@
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Jenis Kelamin</th>
                                     <td class="px-4 py-2 text-start text-gray-900" id="jenis_kelamin">
                                         @if ($kinerja)
-                                        {{ ($kinerja['anggota']->jenis_kelamin === 'lk' ? 'Laki - laki' : 'Perempuan')}}</td>
-                                        @endif
+                                            {{ $kinerja['anggota']->jenis_kelamin === 'lk' ? 'Laki - laki' : 'Perempuan' }}
+                                    </td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <th class="px-4 py-2 font-medium text-start text-gray-700">Program Studi</th>
@@ -134,15 +135,12 @@
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Judul
                                         </th>
+                                        {{-- <th
+                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
+                                            Status</th> --}}
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Status</th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Progres</th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Laporan</th>
+                                            Level</th>
                                     </tr>
                                 </thead>
 
@@ -154,12 +152,10 @@
                                                     {{ date('Y', strtotime($pengabdian->tanggal_pengabdian)) }}</td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                                     {{ $pengabdian->judul }}</td>
+                                                {{-- <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $pengabdian->status }}</td> --}}
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $pengabdian->status }}</td>
-                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $pengabdian->progres }}%</td>
-                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $pengabdian->laporan }}</td>
+                                                    {{ $pengabdian->level }}</td>
                                             </tr>
                                         @empty
                                             <tr class="odd:bg-gray-50 text-center">
@@ -187,15 +183,12 @@
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Judul
                                         </th>
+                                        {{-- <th
+                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
+                                            Status</th> --}}
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Status</th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Progres</th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Laporan</th>
+                                            Level</th>
                                     </tr>
                                 </thead>
 
@@ -207,12 +200,10 @@
                                                     {{ date('Y', strtotime($penelitian->tanggal_penelitian)) }}</td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                                     {{ $penelitian->judul }}</td>
+                                                {{-- <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    Ketua</td> --}}
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    Ketua</td>
-                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $penelitian->progres }}%</td>
-                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $penelitian->laporan }}</td>
+                                                    {{ $penelitian->level }}</td>
                                             </tr>
                                         @empty
                                             <tr class="odd:bg-gray-50 text-center">
@@ -234,24 +225,20 @@
                                     <tr>
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Tanggal
+                                            Tahun
                                         </th>
-                                        <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Level
-                                        </th>
-                                        {{-- <th
-                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            jenis
-                                        </th> --}}
                                         <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
                                             Judul
                                         </th>
                                         {{-- <th
                                             class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
-                                            Nama Publikasi
+                                            Status
                                         </th> --}}
+                                        <th
+                                            class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">
+                                            Level
+                                        </th>
                                     </tr>
                                 </thead>
 
@@ -260,11 +247,14 @@
                                         @forelse ($kinerja['publikasi'] as $publikasi)
                                             <tr class="odd:bg-gray-50 text-center">
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $publikasi->tanggal_publikasi }}</td>
-                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                                    {{ $publikasi->level }}</td>
+                                                    {{ \Carbon\Carbon::parse($publikasi->tanggal_publikasi)->format('Y') }}
+                                                </td>
                                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                                     {{ $publikasi->judul }}</td>
+                                                {{-- <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    Ketua</td> --}}
+                                                <td class="px-4 py-2 text-gray-700 border border-gray-300">
+                                                    {{ $publikasi->level }}</td>
                                             </tr>
                                         @empty
                                             <tr class="odd:bg-gray-50 text-center">
@@ -358,13 +348,8 @@
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_pengabdian.split('-')[0]}</td>
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                 ${element.judul}
-                            </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                <p class="whitespace-nowrap">Ketua</p>
-                            </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.progres}%</td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.laporan}</td>
-                            </tr>
+                            </td> 
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">${element.level}</td> 
                             `;
                             })
                         } else {
@@ -387,12 +372,8 @@
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_penelitian.split('-')[0]}</td>
                             <td class="px-4 py-2 text-gray-700 border border-gray-300">
                                 ${element.judul}
-                            </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">
-                                <p class="whitespace-nowrap">Ketua</p>
-                            </td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.progres}%</td>
-                            <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.laporan}</td>
+                            </td> 
+                            <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">${element.level}</td> 
                             </tr>
                             `;
                             })
@@ -413,9 +394,9 @@
                         if (res.data.publikasi.length > 0) {
                             res.data.publikasi.forEach(element => {
                                 tablePublikasi += ` <tr class="odd:bg-gray-50 text-center">
-                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_publikasi}</td>
-                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.level}</td>
+                                    <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.tanggal_publikasi.split('-')[0]}</td>
                                     <td class="px-4 py-2 text-gray-700 border border-gray-300">${element.judul}</td>
+                                    <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">${element.level}</td>
                                 </tr>
                             `;
                             })

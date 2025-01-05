@@ -18,16 +18,22 @@ class DashboardController extends Controller
         $totalPublikasi = Publikasi::count();
 
         // level
-        $universitasPenelitian = Penelitian::where('level', 'universitas')->count();
-        $nasionalPenelitian = Penelitian::where('level', 'nasional')->count();
-        $internasionalPenelitian = Penelitian::where('level', 'internasional')->count();
+        $nasionalPublikasi = Publikasi::where('level', 'nasional')->count();
+        $internasionalPublikasi = Publikasi::where('level', 'internasional')->count();
+        $nasionalBereputasi = Publikasi::where('level', 'nasional bereputasi')->count();
+        $internasionalBereputasi = Publikasi::where('level', 'internasional bereputasi')->count();
 
+        $mandiriPengabdian = Pengabdian::where('level', 'mandiri')->count();
         $universitasPengabdian = Pengabdian::where('level', 'universitas')->count();
         $nasionalPengabdian = Pengabdian::where('level', 'nasional')->count();
         $internasionalPengabdian = Pengabdian::where('level', 'internasional')->count();
+        $pengabdianLainnya = Pengabdian::where('level', 'lainnya')->count();
 
-        $nasionalPublikasi = Publikasi::where('level', 'nasional')->count();
-        $internasionalPublikasi = Publikasi::where('level', 'internasional')->count();
+        $mandiriPenelitian = Penelitian::where('level', 'mandiri')->count();
+        $universitasPenelitian = Penelitian::where('level', 'universitas')->count();
+        $nasionalPenelitian = Penelitian::where('level', 'nasional')->count();
+        $internasionalPenelitian = Penelitian::where('level', 'internasional')->count();
+        $penelitianLainnya = Penelitian::where('level', 'lainnya')->count();
 
         // line chart
         $currentYear = now()->year;
@@ -48,21 +54,123 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         if ($user->role === 'anggota') {
-            $totalPenelitian = Penelitian::where('user_id', $user->id)->count();
-            $totalPengabdian = Pengabdian::where('user_id', $user->id)->count();
-            $totalPublikasi = Publikasi::where('user_id', $user->id)->count();
+            $totalPenelitian = Penelitian::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->count();
+            $totalPengabdian = Pengabdian::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->count();
+            $totalPublikasi = Publikasi::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->count();
 
             // level
-            $universitasPenelitian = Penelitian::where('user_id', $user->id)->where('level', 'universitas')->count();
-            $nasionalPenelitian = Penelitian::where('user_id', $user->id)->where('level', 'nasional')->count();
-            $internasionalPenelitian = Penelitian::where('user_id', $user->id)->where('level', 'internasional')->count();
+            $nasionalPublikasi = Publikasi::where('level', 'nasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'nasional')
+                ->count();
+            $internasionalPublikasi = Publikasi::where('level', 'internasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'internasional')
+                ->count();
+            $nasionalBereputasi = Publikasi::where('level', 'nasional bereputasi')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'nasional bereputasi')
+                ->count();
+            $internasionalBereputasi = Publikasi::where('level', 'internasional bereputasi')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'internasional bereputasi')
+                ->count();
 
-            $universitasPengabdian = Pengabdian::where('user_id', $user->id)->where('level', 'universitas')->count();
-            $nasionalPengabdian = Pengabdian::where('user_id', $user->id)->where('level', 'nasional')->count();
-            $internasionalPengabdian = Pengabdian::where('user_id', $user->id)->where('level', 'internasional')->count();
+            $mandiriPengabdian = Pengabdian::where('level', 'mandiri')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'mandiri')
+                ->count();
+            $universitasPengabdian = Pengabdian::where('level', 'universitas')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'universitas')
+                ->count();
+            $nasionalPengabdian = Pengabdian::where('level', 'nasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'nasional')
+                ->count();
+            $internasionalPengabdian = Pengabdian::where('level', 'internasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'internasional')
+                ->count();
+            $pengabdianLainnya = Pengabdian::where('level', 'lainnya')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'lainnya')
+                ->count();
 
-            $nasionalPublikasi = Publikasi::where('user_id', $user->id)->where('level', 'nasional')->count();
-            $internasionalPublikasi = Publikasi::where('user_id', $user->id)->where('level', 'internasional')->count();
+            $mandiriPenelitian = Penelitian::where('level', 'mandiri')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'mandiri')
+                ->count();
+            $universitasPenelitian = Penelitian::where('level', 'universitas')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'universitas')
+                ->count();
+            $nasionalPenelitian = Penelitian::where('level', 'nasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'nasional')
+                ->count();
+            $internasionalPenelitian = Penelitian::where('level', 'internasional')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'internasional')
+                ->count();
+            $penelitianLainnya = Penelitian::where('level', 'lainnya')
+                ->where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->where('level', 'lainnya')
+                ->count();
 
             $totalPenelitianPerTahun = [];
             $totalPengabdianPerTahun = [];
@@ -82,6 +190,6 @@ class DashboardController extends Controller
                     ->count();
             }
         }
-        return view('admin.dashboard', compact('totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'nasionalPenelitian', 'internasionalPenelitian', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi'));
+        return view('admin.dashboard', compact(['totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'mandiriPenelitian', 'penelitianLainnya', 'mandiriPengabdian', 'pengabdianLainnya', 'nasionalPenelitian', 'internasionalPenelitian', 'internasionalBereputasi', 'nasionalBereputasi', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi']));
     }
 }

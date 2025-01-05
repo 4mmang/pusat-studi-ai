@@ -144,7 +144,7 @@
                         easing: 'easeInOutQuad',
                         from: function(context) {
                             return context.datasetIndex === 0 ? 1 : context.datasetIndex === 1 ? 0.5 :
-                            1; // Sesuaikan arah berdasarkan dataset
+                                1; // Sesuaikan arah berdasarkan dataset
                         },
                         to: 0,
                         loop: true
@@ -169,7 +169,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <script>
-        function createChart(dataChart, labels ,id, type, options) {
+        function createChart(dataChart, labels, id, type, options) {
             var data = {
                 labels: labels,
                 datasets: [{
@@ -178,7 +178,9 @@
                     backgroundColor: [
                         '#FF6384',
                         '#36A2EB',
-                        '#FFCE56'
+                        '#FFCE56',
+                        '#00FF00',
+                        '#9966FF',
                     ]
                 }]
             };
@@ -190,7 +192,9 @@
             });
         }
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],['Penelitian', 'Pengabdian', 'Publikasi'],  type + '-totaldata', type, {
+            createChart(["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"], [
+                'Penelitian', 'Pengabdian', 'Publikasi'
+            ], type + '-totaldata', type, {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
@@ -206,52 +210,67 @@
             });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}", "{{ $internasionalPenelitian }}"], ['Universitas', 'Nasional', 'Internasional'], type + '-levelpenelitian', type, {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    labels: [{
-                            render: 'label',
-                            position: 'outside'
-                        },
-                        {
-                            render: 'percentage'
-                        }
-                    ]
-                }
-            });
+            createChart(["{{ $nasionalPublikasi }}",
+                    "{{ $internasionalPublikasi }}", "{{ $nasionalBereputasi }}",
+                    "{{ $internasionalBereputasi }}"
+                ],
+                ['Nasional', 'Internasional', 'Nasional Bereputasi', 'Internasional Bereputasi'], type +
+                '-levelpublikasi',
+                type, {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        labels: [{
+                                render: 'label',
+                                position: 'outside'
+                            },
+                            {
+                                render: 'percentage'
+                            }
+                        ]
+                    }
+                });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}", "{{ $internasionalPengabdian }}"], ['Universitas', 'Nasional', 'Internasional'], type + '-levelpengabdian', type, {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    labels: [{
-                            render: 'label',
-                            position: 'outside'
-                        },
-                        {
-                            render: 'percentage'
-                        }
-                    ]
-                }
-            });
+            createChart(["{{ $mandiriPengabdian }}", "{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}",
+                    "{{ $internasionalPengabdian }}", "{{ $pengabdianLainnya }}"
+                ],
+                ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpengabdian',
+                type, {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        labels: [{
+                                render: 'label',
+                                position: 'outside'
+                            },
+                            {
+                                render: 'percentage'
+                            }
+                        ]
+                    }
+                });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $nasionalPublikasi }}", "{{ $internasionalPublikasi }}"], ['Nasional', 'Internasional'], type + '-levelpublikasi', type, {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    labels: [{
-                            render: 'label',
-                            position: 'outside'
-                        },
-                        {
-                            render: 'percentage'
-                        }
-                    ]
-                }
-            });
+            createChart(["{{ $mandiriPenelitian }}", "{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}",
+                    "{{ $internasionalPenelitian }}", "{{ $penelitianLainnya }}"
+                ],
+                ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpenelitian',
+                type, {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        labels: [{
+                                render: 'label',
+                                position: 'outside'
+                            },
+                            {
+                                render: 'percentage'
+                            }
+                        ]
+                    }
+                });
+
         });
     </script>
 @endsection

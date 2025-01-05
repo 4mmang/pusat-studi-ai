@@ -58,9 +58,9 @@
                                     name="password" id="password">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="kartu_angggota">Kartu Angggota <sup class="text-danger"></sup></label>
-                                <input type="file" class="form-control @error('kartu_angggota') is-invalid @enderror" name="kartu_angggota"
-                                    id="kartu_angggota">
+                                <label for="kartu_anggota">Kartu Angggota <sup class="text-danger"></sup></label>
+                                <input type="file" class="form-control @error('kartu_anggota') is-invalid @enderror" name="kartu_anggota"
+                                    id="kartu_anggota">
                             </div>
                         </div>
 
