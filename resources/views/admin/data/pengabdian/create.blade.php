@@ -58,7 +58,7 @@
                                     <option value="Internasional">Internasional</option>
                                     <option value="Lainnya">Lainnya</option>
                                 </select>
-                            </div> 
+                            </div>
                             <div class="col-md-12 mb-3">
                                 <label for="link_akses" class="">Link Akses Pengabdian <sup
                                         class="text-danger">*</sup></label>
@@ -69,20 +69,30 @@
                                     name="link_akses" id="link_akses" required>
                             </div>
                             <div class="col-md-5 mb-12">
-                                Authors <sup class="text-danger">*</sup>
+                                <label for="anggota">Authors <sup class="text-danger">*</sup></label>
+                                <!-- Dropdown multi-select -->
+                                <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple>
+                                    @foreach ($anggota as $ang)
+                                    <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
+                                    @endforeach
+                                </select>
+                                <!-- Input untuk menambah author manual -->
                                 <div class="input-group mt-2">
-                                    <input type="text" class="form-control" name="nama" id="nama">
-                                    <button type="button" onclick="tambahAuthor()" class="btn text-white btn-primary"><i
-                                            class="fas fa-plus"></i> Tambah</button>
+                                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Tambah author manual">
+                                    <button type="button" onclick="tambahAuthor()" class="btn text-white btn-primary">
+                                        <i class="fas fa-plus"></i> Tambah
+                                    </button>
                                 </div>
+                            
+                                <!-- Error message -->
                                 @error('authors')
-                                    <p id="author-error" class="mb-4">
-                                        <span class="text-danger">Harap masukkan author</span>
-                                    </p>
+                                <p id="author-error" class="mb-4">
+                                    <span class="text-danger">Harap masukkan author</span>
+                                </p>
                                 @enderror
-                                <div id="authorList" class="mt-4">
-                                    <!-- Daftar nama author akan ditampilkan di sini -->
-                                </div>
+                            
+                                <!-- Daftar author -->
+                                <div id="authorList" class="mt-4"></div>
                             </div>
                         </div>
                         <input type="hidden" name="authors" id="authors">
@@ -106,55 +116,69 @@
             btnSave.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
         });
 
-        // Array untuk menyimpan daftar author
-        let author = ['{{ Auth::user()->nama }}'];
-        document.getElementById('authors').value = JSON.stringify(author);
+        let author = []; // Array untuk menyimpan daftar author
 
-        // Fungsi untuk menambahkan author baru
+        // Menambahkan nama dari select
+        let select = document.getElementById('anggota-select');
+        select.addEventListener('change', function() {
+            Array.from(select.selectedOptions).forEach(option => {
+                let id = option.value;
+                let nama = option.text;
+
+                // Periksa apakah sudah ada di daftar author
+                if (!author.some(a => a.id === id)) {
+                    author.push({
+                        id,
+                        nama
+                    }); // Tambahkan data dengan ID
+                }
+            });
+
+            // Perbarui input hidden dan render ulang daftar
+            document.getElementById('authors').value = JSON.stringify(author);
+            renderAuthors();
+        });
+
+        // Menambahkan nama secara manual
         function tambahAuthor() {
             let nama = document.getElementById('nama');
             if (nama.value.trim() !== "") { // Pastikan input tidak kosong
-                author.push(nama.value.trim()); // Tambahkan nama ke array
+                author.push({
+                    id: null,
+                    nama: nama.value.trim()
+                }); // Tambahkan nama dengan id null
                 nama.value = ""; // Reset input
 
-                // Perbarui nilai input hidden dengan daftar author dalam JSON
+                // Perbarui nilai input hidden
                 document.getElementById('authors').value = JSON.stringify(author);
 
                 // Render ulang daftar author
                 renderAuthors();
-
-                if (author.length > 0) {
-                    let errorElement = document.getElementById('author-error');
-                    if (errorElement) {
-                        errorElement.remove();
-                    }
-                }
             } else {
                 alert("Nama author tidak boleh kosong!");
             }
         }
 
-        // Fungsi untuk merender daftar author
+        // Menghapus author dari daftar
+        function hapusAuthor(index) {
+            author.splice(index, 1); // Hapus author berdasarkan index
+            document.getElementById('authors').value = JSON.stringify(author);
+            renderAuthors();
+        }
+
+        // Merender daftar author
         function renderAuthors() {
             let authorList = document.getElementById('authorList');
             authorList.innerHTML = author.map((a, index) => `
-            ${index + 1}.
-                    <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
-                        ${a}
-                    </span>
-                    <a href="#" onclick="hapusAuthor(${index})">
-                        <i class="fas fa-times-circle ms-2 text-danger"></i>
-                    </a>
-                    <br>
-            `).join("");
-        }
-        renderAuthors()
-
-        // Fungsi untuk menghapus author
-        function hapusAuthor(index) {
-            author.splice(index, 1); // Hapus author dari array
-            document.getElementById('authors').value = JSON.stringify(author); // Perbarui input hidden
-            renderAuthors(); // Render ulang daftar author
+        ${index + 1}.
+        <span class="px-2 ms-1 rounded-4 text-white ${index === 0 ? 'bg-success' : 'bg-secondary'}">
+            ${a.nama}
+        </span>
+        <a href="#" onclick="hapusAuthor(${index})">
+            <i class="fas fa-times-circle ms-2 text-danger"></i>
+        </a>
+        <br>
+        `).join("");
         }
     </script>
 @endpush

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('authors_publikasi', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->foreignId('publikasi_id')->constrained('publikasi');
             $table->string('nama');
             $table->timestamps();

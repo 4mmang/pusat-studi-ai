@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('authors_pengabdian', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->foreignId('pengabdian_id')->constrained('pengabdian');
             $table->string('nama');
             $table->timestamps();

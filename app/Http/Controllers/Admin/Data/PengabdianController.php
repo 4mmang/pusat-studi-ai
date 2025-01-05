@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Data;
 use App\Http\Controllers\Controller;
 use App\Models\AuthorPengabdian;
 use App\Models\Pengabdian;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,12 +15,21 @@ class PengabdianController extends Controller
     public function index()
     {
         $pengabdian = Pengabdian::all();
+        $user = Auth::user();
+        if ($user->role === 'anggota') {
+            $pengabdian = Pengabdian::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->get();
+        }
         return view('admin.data.pengabdian.index', compact('pengabdian'));
     }
 
     public function create()
     {
-        return view('admin.data.pengabdian.create');
+        $anggota = User::where('role', 'anggota')->get();
+        return view('admin.data.pengabdian.create', compact('anggota'));
     }
 
     public function store(Request $request)
@@ -35,15 +45,18 @@ class PengabdianController extends Controller
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
-            $pengabdian->level = $request->level; 
+            $pengabdian->level = $request->level;
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->save();
 
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPengabdian();
+                if ($author['id']) {
+                    $newAuthor->user_id = $author['id'];
+                }
                 $newAuthor->pengabdian_id = $pengabdian->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();
@@ -61,8 +74,19 @@ class PengabdianController extends Controller
 
     public function edit($id)
     {
-        $pengabdian = Pengabdian::findOrFail($id);
-        return view('admin.data.pengabdian.edit', compact('pengabdian'));
+        $user = Auth::user();
+
+        $pengabdian = Pengabdian::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+        if ($user->role === 'admin') {
+            $pengabdian = Pengabdian::findOrFail($id);
+        }
+        if ($pengabdian) {
+            $anggota = User::where('role', 'anggota')->get();
+            return view('admin.data.pengabdian.edit', compact('pengabdian', 'anggota'));
+        }
+        abort(404);
     }
 
     public function update(Request $request, $id)
@@ -77,7 +101,7 @@ class PengabdianController extends Controller
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
-            $pengabdian->level = $request->level; 
+            $pengabdian->level = $request->level;
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->update();
 
@@ -88,8 +112,11 @@ class PengabdianController extends Controller
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPengabdian();
+                if ($author['user_id']) {
+                    $newAuthor->user_id = $author['user_id'];
+                }
                 $newAuthor->pengabdian_id = $pengabdian->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();

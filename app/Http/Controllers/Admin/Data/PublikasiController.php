@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AuthorPublikasi;
 use App\Models\JenisPublikasi;
 use App\Models\Publikasi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,12 +16,21 @@ class PublikasiController extends Controller
     public function index()
     {
         $publikasi = Publikasi::all();
+        $user = Auth::user();
+        if ($user->role === 'anggota') {
+            $publikasi = Publikasi::where('user_id', $user->id)
+                ->orWhereHas('authors', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->get();
+        }
         return view('admin.data.publikasi.index', compact('publikasi'));
     }
 
     public function create()
     {
-        return view('admin.data.publikasi.create');
+        $anggota = User::where('role', 'anggota')->get();
+        return view('admin.data.publikasi.create', compact('anggota'));
     }
 
     public function store(Request $request)
@@ -43,8 +53,11 @@ class PublikasiController extends Controller
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPublikasi();
+                if ($author['id']) {
+                    $newAuthor->user_id = $author['id'];
+                }
                 $newAuthor->publikasi_id = $publikasi->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();
@@ -61,8 +74,19 @@ class PublikasiController extends Controller
 
     public function edit($id)
     {
-        $publikasi = Publikasi::findOrFail($id);
-        return view('admin.data.publikasi.edit', compact('publikasi'));
+        $user = Auth::user();
+
+        $publikasi = Publikasi::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+        if ($user->role === 'admin') {
+            $publikasi = Publikasi::findOrFail($id);
+        }
+        if ($publikasi) {
+            $anggota = User::where('role', 'anggota')->get();
+            return view('admin.data.publikasi.edit', compact('publikasi', 'anggota'));
+        }
+        abort(404);
     }
 
     public function update(Request $request, $id)
@@ -88,8 +112,11 @@ class PublikasiController extends Controller
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
                 $newAuthor = new AuthorPublikasi();
+                if ($author['user_id']) {
+                    $newAuthor->user_id = $author['user_id'];
+                }
                 $newAuthor->publikasi_id = $publikasi->id;
-                $newAuthor->nama = $author;
+                $newAuthor->nama = $author['nama'];
                 $newAuthor->save();
             }
             DB::commit();

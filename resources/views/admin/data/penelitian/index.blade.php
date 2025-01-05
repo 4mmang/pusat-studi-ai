@@ -32,7 +32,7 @@
                                         <td class="align-middle">{{ $pen->judul }}</td>
                                         <td class="align-middle">
                                             @foreach ($pen->authors as $author)
-                                            {{ $loop->iteration }}. {{ $author->nama }}@if (!$loop->last)
+                                             {{ $author->nama }}<sup>{{ $loop->iteration }}</sup> @if (!$loop->last)
                                                 ,
                                             @endif
                                             @endforeach
@@ -46,7 +46,7 @@
                                                 @method('delete')
                                                 <a href="{{ $pen->link_akses }}" class="btn btn-primary btn-sm mb-1"><i
                                                         class="fas fa-eye"></i></a>
-                                                @if ($pen->user_id === Auth::user()->id)
+                                                @if ($pen->user_id === Auth::user()->id || Auth::user()->role === 'admin')
                                                     <a href="{{ route('penelitian.edit', $pen->id) }}"
                                                         class="btn btn-warning btn-sm mb-1 ml-1"><i
                                                             class="fas fa-pen"></i></a>

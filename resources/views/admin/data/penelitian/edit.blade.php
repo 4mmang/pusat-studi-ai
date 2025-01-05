@@ -29,17 +29,7 @@
                                     is-invalid
                                 @enderror"
                                     name="penyelenggara" id="penyelenggara" required>
-                            </div>
-                            {{-- <div class="col-md-6 mb-3">
-                            <label for="jenis_penelitian" class="">Jenis penelitian <sup
-                                    class="text-danger">*</sup></label>
-                            <select name="jenis_penelitian" value="{{ old('jenis_penelitian') }}" class="form-control"
-                                id="jenis_penelitian" required>
-                                @foreach ($jenispenelitian as $jenis)
-                                <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div> --}}
+                            </div> 
                             <div class="col-md-6 mb-3">
                                 <label for="tanggal_penelitian" class="">Tanggal Penelitian <sup
                                         class="text-danger">*</sup></label>
