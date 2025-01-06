@@ -169,6 +169,109 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <script>
+        // new Chart(document.getElementById('myBarChart'), {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
+        //         datasets: [{
+        //             label: 'Total Data',
+        //             data: [40, 20, 30],
+        //             backgroundColor: [
+        //                 '#FF6384',
+        //                 '#36A2EB',
+        //                 '#FFCE56'
+        //             ]
+        //         }]
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         maintainAspectRatio: false,
+        //         plugins: {
+        //             labels: {
+        //                 render: 'value'
+        //             }, 
+        //         },
+        //     }
+        // });
+
+        // new Chart(document.getElementById('myBarChart'), {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['January'],
+        //         datasets: [{
+        //                 label: 'Penelitian',
+        //                 data: [20],
+        //                 backgroundColor: [
+        //                     '#FF6384', 
+        //                 ]
+        //             },
+        //             {
+        //                 label: 'Pengabdian',
+        //                 data: [30],
+        //                 backgroundColor: [
+        //                     '#36A2EB', 
+        //                 ]
+        //             },
+        //             {
+        //                 label: 'Publikasi',
+        //                 data: [40],
+        //                 backgroundColor: [
+        //                     '#FFCE56' 
+        //                 ]
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         maintainAspectRatio: false,
+        //         plugins: {
+        //             labels: {
+        //                 render: 'percentage'
+        //             }
+        //         }
+        //     }
+        // });
+
+        // new Chart(document.getElementById('myBarChart'), {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['January'],
+        //         datasets: [{
+        //                 label: 'Penelitian',
+        //                 data: [20],
+        //                 backgroundColor: ['#FF6384']
+        //             },
+        //             {
+        //                 label: 'Pengabdian',
+        //                 data: [30],
+        //                 backgroundColor: ['#36A2EB']
+        //             },
+        //             {
+        //                 label: 'Publikasi',
+        //                 data: [40],
+        //                 backgroundColor: ['#FFCE56']
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         maintainAspectRatio: false,
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true, // Menambahkan pengaturan agar nilai mulai dari 0
+        //                 ticks: {
+        //                 stepSize: 10 // Menambahkan interval tetap (opsional)
+        //                 }
+        //             }
+        //         },
+        //         plugins: {
+        //             labels: {
+        //                 render: 'percentage'
+        //             }
+        //         }
+        //     }
+        // });
+
         function createChart(dataChart, labels, id, type, options) {
             var data = {
                 labels: labels,
