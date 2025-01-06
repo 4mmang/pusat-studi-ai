@@ -16,10 +16,9 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
     <link href="{{ asset('admin/master/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
     <!-- css custom -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}">
-
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
