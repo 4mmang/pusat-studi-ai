@@ -53,6 +53,7 @@ Route::get('/artikel/{id}', function ($id) {
 
 Route::prefix('/informasi')->group(function(){
     Route::get('/statistik', [StatistikDataController::class, 'index'])->name('statistik');
+    Route::get('/statistik/filter/{tahun}', [StatistikDataController::class, 'filter'])->name('statistik.filter');
     Route::resource('/kinerja-anggota', KinerjaAnggotaController::class);
     Route::get('/kontak', function () {
         return view('informasi.kontak');

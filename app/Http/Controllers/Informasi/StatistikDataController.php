@@ -52,4 +52,16 @@ class StatistikDataController extends Controller
 
         return view('informasi.statistik-data', compact(['totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'mandiriPenelitian', 'penelitianLainnya', 'mandiriPengabdian', 'pengabdianLainnya', 'nasionalPenelitian', 'internasionalPenelitian', 'internasionalBereputasi', 'nasionalBereputasi', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi']));
     }
+
+    public function filter($tahun)
+    {
+        $totalPenelitian = Penelitian::whereYear('tanggal_penelitian', $tahun)->count();
+        $totalPengabdian = Pengabdian::whereYear('tanggal_pengabdian', $tahun)->count();
+        $totalPublikasi = Publikasi::whereYear('tanggal_publikasi', $tahun)->count();
+        return response()->json([
+            'totalPenelitian' => $totalPenelitian,
+            'totalPengabdian' => $totalPengabdian,
+            'totalPublikasi' => $totalPublikasi,
+        ]);
+    }
 }

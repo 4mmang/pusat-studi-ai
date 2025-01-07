@@ -18,7 +18,12 @@
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Total Penelitian, Pengabdian dan Publikasi</h1>
-                    <canvas id="myBarChart" style="height: 250px; width: 100%"></canvas>
+                    <div class="text-center">
+                        <input type="number" id="tahun" name="tahun" placeholder="Masukkan tahun"
+                            class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <button onclick="filter()" class="bg-primary p-2 text-white rounded-xl px-5">Filter</button>
+                    </div>
+                    <canvas id="myBarChart" class="mt-3" style="height: 250px; width: 100%"></canvas>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Persentase Total Penelitian, Pengabdian dan Publikasi</h1>
@@ -61,23 +66,17 @@
         var line = document.getElementById('myLineChart').getContext('2d');
 
         // bar
-        var myBarChart = new Chart(bar, {
+        let data = ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"]
+
+        let myBarChart = new Chart(bar, {
             type: 'bar',
             data: {
                 labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
                 datasets: [{
                     label: 'Total Data',
-                    data: ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"],
-                    backgroundColor: [
-                        '#FF6384',
-                        '#36A2EB',
-                        '#FFCE56'
-                    ],
-                    borderColor: [
-                        '#FF6384',
-                        '#36A2EB',
-                        '#FFCE56'
-                    ],
+                    data: data,
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                     borderWidth: 1
                 }]
             },
@@ -97,6 +96,26 @@
                 }
             }
         });
+
+        async function filter() {
+            let tahun = document.getElementById('tahun').value;
+            try {
+                const response = await fetch('statistik/filter/' + tahun);
+                const res = await response.json();
+
+                // Perbarui data
+                data = [res.totalPenelitian, res.totalPengabdian, res
+                    .totalPublikasi
+                ]; // Pastikan res.tahun adalah array dengan data baru
+
+                // Update chart
+                myBarChart.data.datasets[0].data = data;
+                myBarChart.data.datasets[0].label = 'Total Data Tahun ' + tahun;
+                myBarChart.update(); // Update chart dengan data baru
+            } catch (e) {
+                console.error('Error:', e);
+            }
+        }
         // line
         const totalPenelitianPerTahun = @json($totalPenelitianPerTahun);
         const totalPengabdianPerTahun = @json($totalPengabdianPerTahun);
@@ -169,109 +188,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <script>
-        // new Chart(document.getElementById('myBarChart'), {
-        //     type: 'bar',
-        //     data: {
-        //         labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
-        //         datasets: [{
-        //             label: 'Total Data',
-        //             data: [40, 20, 30],
-        //             backgroundColor: [
-        //                 '#FF6384',
-        //                 '#36A2EB',
-        //                 '#FFCE56'
-        //             ]
-        //         }]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             labels: {
-        //                 render: 'value'
-        //             }, 
-        //         },
-        //     }
-        // });
-
-        // new Chart(document.getElementById('myBarChart'), {
-        //     type: 'bar',
-        //     data: {
-        //         labels: ['January'],
-        //         datasets: [{
-        //                 label: 'Penelitian',
-        //                 data: [20],
-        //                 backgroundColor: [
-        //                     '#FF6384', 
-        //                 ]
-        //             },
-        //             {
-        //                 label: 'Pengabdian',
-        //                 data: [30],
-        //                 backgroundColor: [
-        //                     '#36A2EB', 
-        //                 ]
-        //             },
-        //             {
-        //                 label: 'Publikasi',
-        //                 data: [40],
-        //                 backgroundColor: [
-        //                     '#FFCE56' 
-        //                 ]
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             labels: {
-        //                 render: 'percentage'
-        //             }
-        //         }
-        //     }
-        // });
-
-        // new Chart(document.getElementById('myBarChart'), {
-        //     type: 'bar',
-        //     data: {
-        //         labels: ['January'],
-        //         datasets: [{
-        //                 label: 'Penelitian',
-        //                 data: [20],
-        //                 backgroundColor: ['#FF6384']
-        //             },
-        //             {
-        //                 label: 'Pengabdian',
-        //                 data: [30],
-        //                 backgroundColor: ['#36A2EB']
-        //             },
-        //             {
-        //                 label: 'Publikasi',
-        //                 data: [40],
-        //                 backgroundColor: ['#FFCE56']
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true, // Menambahkan pengaturan agar nilai mulai dari 0
-        //                 ticks: {
-        //                 stepSize: 10 // Menambahkan interval tetap (opsional)
-        //                 }
-        //             }
-        //         },
-        //         plugins: {
-        //             labels: {
-        //                 render: 'percentage'
-        //             }
-        //         }
-        //     }
-        // });
-
         function createChart(dataChart, labels, id, type, options) {
             var data = {
                 labels: labels,
@@ -373,7 +289,6 @@
                         ]
                     }
                 });
-
         });
     </script>
 @endsection
