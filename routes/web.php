@@ -48,7 +48,8 @@ Route::get('/artikel', function () {
 
 Route::get('/artikel/{id}', function ($id) {
     $artikel = Artikel::findOrFail($id);
-    return view('artikel.show', compact('artikel'));
+    $artikelTerbaru = Artikel::take(3)->latest()->get();
+    return view('artikel.show', compact('artikel', 'artikelTerbaru'));
 })->name('artikel.view');
 
 Route::prefix('/informasi')->group(function(){
