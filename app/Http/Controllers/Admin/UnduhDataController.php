@@ -28,7 +28,7 @@ class UnduhDataController extends Controller
                 'isRemoteEnabled' => true,
             ]);
 
-        return $pdf->stream('data-pusat-studi-ai.pdf');
-        // return $pdf->download('data-penjualan.pdf');
+        // return $pdf->stream('data-pusat-studi-ai.pdf');
+        return $pdf->download('data-penjualan.pdf');
     }
 }
