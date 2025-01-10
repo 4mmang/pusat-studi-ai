@@ -34,16 +34,4 @@
         </div>
     </div>
 </div>
-@endsection
-@push('scripts')
-<script>
-    let form = document.getElementById('unduh')
-        form.addEventListener('submit', function() {
-            let btnSave = document.getElementById('simpan')
-            setTimeout(() => {
-                btnSave.disabled = true
-                btnSave.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Processing...';
-            }, 3000);
-        })
-</script>
-@endpush
+@endsection 
