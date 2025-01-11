@@ -76,13 +76,20 @@ class PenelitianController extends Controller
     {
         $user = Auth::user();
 
-        $penelitian = Penelitian::where('id', $id)
-            ->where('user_id', $user->id)
+        $penelitian = Penelitian::where('id', $id) 
             ->first();
+        $authors = json_decode($penelitian->authors, true); // Decode JSON menjadi array
+        $userIdToFind = $user->id;
+
+        // Cek apakah user_id ada di dalam array
+        $isUserIdExists = collect($authors)->contains(
+            'user_id',
+            $userIdToFind,
+        );
         if ($user->role === 'admin') {
             $penelitian = Penelitian::findOrFail($id);
         }
-        if ($penelitian) {
+        if ($isUserIdExists || $penelitian) {
             $anggota = User::where('role', 'anggota')->get();
             return view('admin.data.penelitian.edit', compact('penelitian', 'anggota'));
         }

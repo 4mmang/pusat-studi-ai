@@ -76,13 +76,20 @@ class PengabdianController extends Controller
     {
         $user = Auth::user();
 
-        $pengabdian = Pengabdian::where('id', $id)
-            ->where('user_id', $user->id)
+        $pengabdian = Pengabdian::where('id', $id) 
             ->first();
+        $authors = json_decode($pengabdian->authors, true); // Decode JSON menjadi array
+        $userIdToFind = $user->id;
+
+        // Cek apakah user_id ada di dalam array
+        $isUserIdExists = collect($authors)->contains(
+            'user_id',
+            $userIdToFind,
+        );
         if ($user->role === 'admin') {
             $pengabdian = Pengabdian::findOrFail($id);
         }
-        if ($pengabdian) {
+        if ($isUserIdExists || $pengabdian) {
             $anggota = User::where('role', 'anggota')->get();
             return view('admin.data.pengabdian.edit', compact('pengabdian', 'anggota'));
         }

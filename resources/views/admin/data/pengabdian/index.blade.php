@@ -47,7 +47,17 @@
                                                 @method('delete')
                                                 <a href="{{ $pengab->link_akses }}" class="btn btn-primary btn-sm mb-1"><i
                                                         class="fas fa-eye"></i></a>
-                                                @if ($pengab->user_id === Auth::user()->id || Auth::user()->role === 'admin')
+                                                @php
+                                                    $authors = json_decode($pengab->authors, true); // Decode JSON menjadi array
+                                                    $userIdToFind = Auth::user()->id;
+
+                                                    // Cek apakah user_id ada di dalam array
+                                                    $isUserIdExists = collect($authors)->contains(
+                                                        'user_id',
+                                                        $userIdToFind,
+                                                    );
+                                                @endphp
+                                                @if ($isUserIdExists || Auth::user()->role === 'admin')
                                                     <a href="{{ route('pengabdian.edit', $pengab->id) }}"
                                                         class="btn btn-warning btn-sm mb-1 ml-1"><i
                                                             class="fas fa-pen"></i></a>

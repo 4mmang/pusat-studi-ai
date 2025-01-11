@@ -77,12 +77,19 @@ class PublikasiController extends Controller
         $user = Auth::user();
 
         $publikasi = Publikasi::where('id', $id)
-            ->where('user_id', $user->id)
             ->first();
+        $authors = json_decode($publikasi->authors, true); // Decode JSON menjadi array
+        $userIdToFind = $user->id;
+
+        // Cek apakah user_id ada di dalam array
+        $isUserIdExists = collect($authors)->contains(
+            'user_id',
+            $userIdToFind,
+        );
         if ($user->role === 'admin') {
             $publikasi = Publikasi::findOrFail($id);
         }
-        if ($publikasi) {
+        if ($isUserIdExists || $publikasi) {
             $anggota = User::where('role', 'anggota')->get();
             return view('admin.data.publikasi.edit', compact('publikasi', 'anggota'));
         }
