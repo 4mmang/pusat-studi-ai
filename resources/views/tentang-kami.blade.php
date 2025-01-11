@@ -109,9 +109,9 @@
                 </div>
             </div>
 
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+            <div class="w-full px-4 flex flex-wrap justify-center space-x-2 xl:w-10/12 xl:mx-auto">
                 @forelse ($anggota as $ang)
-                    <div class="mb-12 p-4 md:w-1/3 border border-slate-300">
+                    <div class="mb-12 md:w-1/5 border border-slate-300">
                         <a href="{{ route('kinerja-anggota.show', $ang->id) }}">
                             <div class="rounded-md shadow-md overflow-hidden">
                                 <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full">
