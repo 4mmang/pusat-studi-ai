@@ -133,6 +133,62 @@
     </section>
     <!-- Anggota Section End --> 
 
+    <section id="rekam-jejak" class="pt-32 pb-24 bg-slate-700">
+        <div class="max-w-6xl mx-auto p-6 text-white">
+            <h1 class="text-3xl text-white font-bold mb-10 text-center">
+                Rekam Jejak Pengembangan Produk AI di Pusat Studi Artificial Intelligence
+            </h1>
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-500 h-full"></div>
+        
+                <!-- Timeline Start -->
+                <div class="relative z-10 flex items-center mb-8">
+                    <div class="w-1/2 text-right pr-8">
+                        <p class="font-bold text-3xl mt-3">2010</p>
+                        <p class="text-lg">
+                            Sistem pengenal tulisan tangan manusia atau Digital Mark Reader (DMR).
+                        </p>
+                    </div>
+                    <div class="w-16 h-16 -mt-12 bg-green-500 rounded-full border-2 border-white mx-auto"></div>
+                    <div class="w-1/2"></div>
+                </div> 
+        
+                <!-- Timeline Item 2 -->
+                <div class="relative z-10 flex items-center mb-8">
+                    <div class="w-1/2"></div>
+                    <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white mx-auto"></div>
+                    <div class="w-1/2 pl-8 mt-6">
+                        <p class="font-bold text-3xl">2013</p>
+                        <p class="text-lg">Indonesian Natural Language Processor (INANLP)</p>
+                    </div>
+                </div>
+        
+                <!-- Timeline Item 3 -->
+                <div class="relative z-10 flex items-center mb-8">
+                    <div class="w-1/2 text-right pr-8">
+                        <p class="font-bold text-3xl mt-8">2014</p>
+                        <p class="text-lg">
+                            Chatbot untuk domain perhotelan, Aplikasi Knowledge  
+                        </p>
+                    </div>
+                    <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white mx-auto"></div>
+                    <div class="w-1/2"></div>
+                </div>
+        
+                <!-- Timeline Item 4 -->
+                <div class="relative z-10 flex items-center mb-8">
+                    <div class="w-1/2"></div>
+                    <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white mx-auto"></div>
+                    <div class="w-1/2 pl-8">
+                        <p class="font-bold text-3xl mt-7">2015</p>
+                        <p class="text-lg">Model pendeteksi fraud transaksi kartu kredit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="relative font-inter antialiased ">
 
         <main class="relative min-h-screen flex flex-col justify-center overflow-hidden">
