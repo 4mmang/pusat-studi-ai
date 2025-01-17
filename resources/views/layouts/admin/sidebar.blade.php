@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
         <div class="sidebar-brand-icon rotate-n-0">
-            <img src="{{ asset('img/Logo.jpg') }}" style="width: 50px; height: 50px;" class="rounded-circle img-thumbnail"
+            <img src="{{ asset('img/Logo.png') }}" style="width: 50px; height: 50px;" class="rounded-circle img-thumbnail"
                 alt="">
         </div>
         <div class="sidebar-brand-text mx-2"> Pusat<sup class="text-warning">Studi AI</sup></div>

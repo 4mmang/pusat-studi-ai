@@ -9,7 +9,7 @@
                 </a> --}}
                 <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-6">
                     <center>
-                        <img src="{{ asset('img/Logo.jpg') }}" class="w-12 mb-2" alt="">
+                        <img src="{{ asset('img/Logo.png') }}" class="w-12 mb-2" alt="">
                     </center>
                     Pusat Studi AI
                 </a>
