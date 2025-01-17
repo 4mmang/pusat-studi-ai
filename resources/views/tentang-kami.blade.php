@@ -37,9 +37,9 @@
                 </div>
 
                 <!-- Gambar -->
-                <div class="w-full px-4 lg:w-1/2 flex justify-center mb-8 lg:mb-0">
+                <div class="w-full px-4 lg:w-1/2 flex justify-center mb-10 lg:mb-0">
                     {{-- <img src="https://picsum.photos/350/400?random=2" alt="Gambar 1" class="h-auto rounded-lg" /> --}}
-                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto rounded-lg" />
+                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto w-1/2 rounded-lg" />
                 </div>
             </div>
         </div>
@@ -50,9 +50,9 @@
         <div class="container pt-10">
             <div class="flex flex-col lg:flex-row lg:items-center">
                 <!-- Gambar -->
-                <div class="w-full px-4 lg:w-1/2 flex justify-center mb-8 lg:mb-0">
+                <div class="w-full px-4 lg:w-1/2 flex justify-center mb-10 lg:mb-0">
                     {{-- <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" /> --}}
-                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto rounded-lg" />
+                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto w-1/2 rounded-lg" />
                 </div>
 
                 <!-- Teks -->

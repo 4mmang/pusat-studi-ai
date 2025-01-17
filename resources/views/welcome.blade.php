@@ -46,7 +46,7 @@
 
                 <div class="w-full px-4 lg:w-1/2 flex justify-center">
                     {{-- <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" /> --}}
-                    <img src="{{ asset('img/Logo.jpg') }}" alt="Gambar 1" class="h-auto rounded-lg" />
+                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto w-1/2 rounded-lg" />
                 </div>
             </div>
         </div>
