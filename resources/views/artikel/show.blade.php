@@ -2,13 +2,18 @@
 @section('content')
     <section class="pt-36 pb-24">
         <div class="container md:flex">
-            <div class="w-full md:w-3/4 px-4 pb-32">
+            <div class="w-full md:w-3/4 px-4 pb-16">
                 <div>
-                    <h2 class="font-bold text-3xl">{{ $artikel->judul }}</h2>
-                    <p class="font-medium text-base text-secondary mb-4 mt-2">{{ $artikel->deskripsi }}</p>
-                    <img src="{{ asset('storage/' . $artikel->sampul) }}" class="md:w-1/2 w-full" alt="">
+                    <h2 class="font-bold text-3xl mb-4">{{ $artikel->judul }}</h2>
+                    <p class="font-medium text-base text-secondary mb-4 mt-2">by. <span class="font-bold">{{ $artikel->penulis->nama }}</span> | {{ $artikel->created_at->format('d F Y') }}
+                        <a href="#" onclick="copyLink('{{ url('artikel/' . $artikel->id) }}')"
+                            class="font-base font-bold text-sm bg-primary px-4 p-1 py-2 text-white">
+                            <i class="fas fa-link"></i> Salin Link
+                        </a>
+                    </p>
+                    {{-- <img src="{{ asset('storage/' . $artikel->sampul) }}" class="md:w-1/2 w-full" alt=""> --}}
                 </div>
-                <div class="mt-7 flex gap-4 items-center align-middle">
+                {{-- <div class="mt-7 flex gap-4 items-center align-middle">
                     <div class="text-center">
                         <p class="font-base font-bold text-3xl">21.K</p>
                         <p>VIEWS</p>
@@ -19,7 +24,7 @@
                             <i class="fas fa-link"></i> Salin Link
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="mt-5">
                     {!! $artikel->konten !!}
                 </div>
@@ -32,7 +37,7 @@
                             <div class="rounded-md shadow-md overflow-hidden">
                                 <img src="{{ asset('storage/' . $item->sampul) }}" alt="Platform DATAU" width="w-full">
                             </div>
-                            <h3 class="font-semibold text-1xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
+                            <h3 class="text-1xl text-secondary mt-3 mb-5">{{ $item->judul }}</h3>
                         </a>
                     </div>
                 @endforeach

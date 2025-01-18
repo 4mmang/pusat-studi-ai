@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $events = Event::all();
-    $artikel = Artikel::take(3)->get();
+    $artikel = Artikel::with('penulis')->take(3)->get();
     $parnerts = ParnertKampus::all();
     $dipercaya = Dipercaya::all();
     return view('welcome', compact('events', 'artikel', 'parnerts', 'dipercaya'));
@@ -42,7 +42,7 @@ Route::get('tentang-kami', [TentangKamiController::class, 'index'])->name('tenta
 
 
 Route::get('/artikel', function () {
-    $artikel = Artikel::all();
+    $artikel = Artikel::with('penulis')->get();
     return view('artikel.index', compact('artikel'));
 })->name('artikel');
 
@@ -115,16 +115,14 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
         Route::resource('/dipercaya', DipercayaController::class);
 
         Route::resource('upload-pdf', UploadPdfController::class);
-        Route::resource('/artikel', ArtikelController::class);
         Route::resource('/event', EventController::class);
     });
 });
 
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-
+    Route::resource('/artikel', ArtikelController::class);
     Route::resource('/profil', ProfilController::class)->middleware('auth');
-
     Route::prefix('/data')->group(function () {
         Route::resource('/publikasi', PublikasiController::class)->middleware('auth');
         Route::resource('/penelitian', PenelitianController::class)->middleware('auth');

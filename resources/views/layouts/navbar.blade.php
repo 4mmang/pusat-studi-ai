@@ -152,6 +152,64 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="group relative">
+                            <button id="dropdownButtonRekamJejak"
+                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                aria-expanded="false">
+                                Rekam Jejak
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <ul id="dropdownMenuRekamJejak"
+                                class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[280px]">
+                                <li>
+                                    <a href="{{ route('kinerja-anggota.index') }}"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Kebencanaan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('kinerja-anggota.index') }}"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Kesehatan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Pertanian Berkelanjutan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Transportasi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Antropolinguistik & Kebudayaan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Smart Sistem
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Algoritma & Komputasi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Software Development
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="group">
                             <a href="{{ route('unduh') }}"
                                 class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
@@ -174,28 +232,29 @@
                             <ul id="dropdownMenuAksesCepat"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
-                                    <a href="https://unsulbar.ac.id/" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="https://unsulbar.ac.id/"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Kampus Unsulbar
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://pusdata.pusatstudiaiunsulbar.com/"
-                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                    Pusat Data
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://bima.kemdikbud.go.id"
-                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                    BIMA
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://brin.go.id/"
-                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                    BRIN
-                                </a>
-                            </li>
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        Pusat Data
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://bima.kemdikbud.go.id"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        BIMA
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://brin.go.id/"
+                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        BRIN
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         @auth

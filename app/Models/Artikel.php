@@ -8,4 +8,8 @@ class Artikel extends Model
 {
     protected $table = 'artikel';
     protected $guarded = [];
+
+    public function penulis(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

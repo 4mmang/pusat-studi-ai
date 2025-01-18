@@ -32,9 +32,6 @@
                             </div>
                         </div>
 
-                        <label for="deskripsi" class="mt-3">Deskripsi Singkat</label>
-                        <textarea name="deskripsi" id="deskripsi" class="form-control" cols="30" rows="6">{{ $artikel->deskripsi }}</textarea>
-
                         <label for="konten" class="mt-3">Isi Artikel <sup class="text-danger">*</sup></label>
                         <textarea name="konten" class="form-control" id="konten" cols="30" rows="10" required>{{ $artikel->konten }}</textarea>
                         <a href="{{ route('artikel.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>

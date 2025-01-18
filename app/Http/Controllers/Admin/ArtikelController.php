@@ -7,6 +7,7 @@ use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DOMDocument;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
@@ -14,6 +15,9 @@ class ArtikelController extends Controller
     public function index()
     {
         $artikel = Artikel::all();
+        if (Auth::check() && Auth::user()->role != 'admin') {
+            $artikel = Artikel::where('user_id', Auth::user()->id)->get();
+        }
         return view('admin.artikel.index', compact('artikel'));
     }
 
@@ -51,9 +55,9 @@ class ArtikelController extends Controller
             $konten = $dom->saveHTML();
             $sampul = $request->file('sampul')->store('artikel/sampul', 'public');
             $artikel = new Artikel();
+            $artikel->user_id = Auth::user()->id;
             $artikel->judul = $request->judul;
             $artikel->sampul = $sampul;
-            $artikel->deskripsi = $request->deskripsi;
             $artikel->konten = $konten;
             $artikel->save();
             return back()->with([
@@ -68,13 +72,17 @@ class ArtikelController extends Controller
 
     public function edit($id)
     {
-        $artikel = Artikel::findOrFail($id);
+        $artikel = Artikel::where('id', $id)
+            ->where('user_id', Auth::user()->id)
+            ->first();
         return view('admin.artikel.edit', compact('artikel'));
     }
 
     public function update(Request $request, $id)
     {
-        $artikel = Artikel::findOrFail($id);
+        $artikel = Artikel::where('id', $id)
+            ->where('user_id', Auth::user()->id)
+            ->first();
         // $konten = $artikel->konten;
         $dom = new DOMDocument();
         // $dom->loadHTML($konten, 9);
@@ -103,7 +111,6 @@ class ArtikelController extends Controller
         $konten = $dom->saveHTML();
 
         $artikel->judul = $request->judul;
-        $artikel->deskripsi = $request->deskripsi;
         $artikel->konten = $konten;
 
         if ($request->file('sampul')) {
