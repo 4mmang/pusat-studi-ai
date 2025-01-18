@@ -18,26 +18,34 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'nama' => 'Admin Super',
-            'email' => 'superadmin@example.com',
+            'email' => 'superadmin@airc.ac.id',
             'role' => 'superadmin',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('Aircsuperadmin2024@'),
             'jenis_kelamin' => 'lk'
         ]);
 
         User::create([
             'nama' => 'Admin',
-            'email' => 'admin@example.com',
+            'email' => 'admin@airc.ac.id',
             'role' => 'admin',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('Aircadmin2024@'),
             'jenis_kelamin' => 'lk'
         ]);
 
         User::create([
-            'nama' => 'Arman Umar S.Kom',
-            'email' => 'arman@example.com',
+            'nama' => 'Wawan Firgiawan S.T., M.Kom.',
+            'email' => 'wawanfirgiawan@unsulbar.ac.id',
             'role' => 'anggota',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('Wawanairc2024@'),
             'jenis_kelamin' => 'lk'
         ]);
+
+        // User::create([
+        //     'nama' => 'Arman Umar S.Kom',
+        //     'email' => 'arman@example.com',
+        //     'role' => 'anggota',
+        //     'password' => Hash::make('1234'),
+        //     'jenis_kelamin' => 'lk'
+        // ]);
     }
 }
