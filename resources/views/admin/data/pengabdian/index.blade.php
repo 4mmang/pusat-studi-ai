@@ -45,7 +45,7 @@
                                                 action="{{ route('pengabdian.destroy', $pengab->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <a href="{{ $pengab->link_akses }}" class="btn btn-primary btn-sm mb-1"><i
+                                                <a href="{{ $pengab->link_akses }}" target="_blank" class="btn btn-primary btn-sm mb-1"><i
                                                         class="fas fa-eye"></i></a>
                                                 @php
                                                     $authors = json_decode($pengab->authors, true); // Decode JSON menjadi array

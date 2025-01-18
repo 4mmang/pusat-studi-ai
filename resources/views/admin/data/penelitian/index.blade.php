@@ -45,7 +45,7 @@
                                                 action="{{ route('penelitian.destroy', $pen->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <a href="{{ $pen->link_akses }}" class="btn btn-primary btn-sm mb-1"><i
+                                                <a href="{{ $pen->link_akses }}" target="_blank" class="btn btn-primary btn-sm mb-1"><i
                                                         class="fas fa-eye"></i></a>
                                                 @php
                                                     $authors = json_decode($pen->authors, true); // Decode JSON menjadi array

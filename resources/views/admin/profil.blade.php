@@ -39,7 +39,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>NIP</th>
+                                        <th>NIP/NIDN</th>
                                         <td>
                                             <input value="{{ $user->nip }}" name="nip" type="text"
                                                 class="form-control">

@@ -33,15 +33,18 @@
         <div class="container">
             <div class="flex flex-wrap pt-16">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold text-dark text-3xl mb-1 max-w-md lg:text-4xl">Artificial Intelligence 
+                    <h4 class="font-bold text-dark text-3xl mb-1 max-w-md lg:text-4xl">Artificial Intelligence
                     </h4>
                     <h5 class="text-3xl lg:text-4xl font-bold mb-5">
                         <span id="typewriter" class="text-primary"></span>
                     </h5>
-                    
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Artificial Intelligence Research Center Universitas Sulawesi Barat (AIRC Unsulbar) resmi didirikan pada tanggal 7 Juni
-                    2024 berdasarkan Surat Keputusan Rektor Universitas Sulawesi Barat Nomor Surat: <span class="font-bold">1959/UN55/HK.03/2024 </span>. Kehadirannya menjadi
-                    langkah strategis dalam memajukan penelitian dan pengembangan teknologi kecerdasan buatan (AI) di Sulawesi Barat.</p>
+
+                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Artificial Intelligence Research
+                        Center Universitas Sulawesi Barat (AIRC Unsulbar) resmi didirikan pada tanggal 7 Juni
+                        2024 berdasarkan Surat Keputusan Rektor Universitas Sulawesi Barat Nomor Surat: <span
+                            class="font-bold">1959/UN55/HK.03/2024 </span>. Kehadirannya menjadi
+                        langkah strategis dalam memajukan penelitian dan pengembangan teknologi kecerdasan buatan (AI) di
+                        Sulawesi Barat.</p>
                 </div>
 
                 <div class="w-full px-4 lg:w-1/2 flex justify-center">
@@ -72,7 +75,7 @@
                                 alt="Platform DATAU" width="w-full">
                         </div>
                         <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
-                            <a href="" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
+                            <a href="{{ $event->link_pendaftaran }}" target="_blank" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
                         </h3>
                     </div>
                 @empty
@@ -100,27 +103,33 @@
                         <img src="{{ asset('img/5.png') }}" alt="Platform DATAU" class="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Riset Berorientasi Solusi Lokal</h3>
-                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar fokus pada penelitian yang memberikan dampak nyata, terutama untuk solusi yang relevan dengan
-                    kebutuhan masyarakat lokal. Contohnya termasuk optimasi jalur evakuasi bencana, deteksi cacat biji kopi, dan pemetaan
-                    hasil pertanian berbasis AI.</p>
+                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar fokus pada penelitian yang
+                        memberikan dampak nyata, terutama untuk solusi yang relevan dengan
+                        kebutuhan masyarakat lokal. Contohnya termasuk optimasi jalur evakuasi bencana, deteksi cacat biji
+                        kopi, dan pemetaan
+                        hasil pertanian berbasis AI.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/4.png') }}" alt="" class="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Kolaborasi dengan Industri dan Pemerintah</h3>
-                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar aktif menjalin kemitraan dengan berbagai sektor industri dan pemerintah untuk menciptakan solusi
-                    berbasis AI yang inovatif. Kolaborasi ini bertujuan untuk menjawab tantangan nyata di masyarakat, seperti pengelolaan
-                    sumber daya, transportasi, dan edukasi.</p>
+                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar aktif menjalin kemitraan dengan
+                        berbagai sektor industri dan pemerintah untuk menciptakan solusi
+                        berbasis AI yang inovatif. Kolaborasi ini bertujuan untuk menjawab tantangan nyata di masyarakat,
+                        seperti pengelolaan
+                        sumber daya, transportasi, dan edukasi.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/6.png') }}" alt="" class="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Akses ke Teknologi Terkini</h3>
-                    <p class="font-medium text-base text-secondary">Peserta memiliki kesempatan untuk menggunakan perangkat keras dan perangkat lunak AI terbaru, termasuk GPU canggih,
-                    framework deep learning mutakhir, dan alat visualisasi data, yang semuanya mendukung eksperimen dan inovasi berbasis
-                    kecerdasan buatan.
+                    <p class="font-medium text-base text-secondary">Peserta memiliki kesempatan untuk menggunakan perangkat
+                        keras dan perangkat lunak AI terbaru, termasuk GPU canggih,
+                        framework deep learning mutakhir, dan alat visualisasi data, yang semuanya mendukung eksperimen dan
+                        inovasi berbasis
+                        kecerdasan buatan.
                     </p>
                 </div>
             </div>
@@ -279,14 +288,14 @@
     <!-- Reviews Section End -->
 
     <!-- Kampus partnert Section Start -->
-    <section id="kampus-partnert" class="pt-24 pb-16">
+    {{-- <section id="kampus-partnert" class="pt-24 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    {{-- <h4 class="font-semibold text-lg text-primary mb-2">Kampus</h4> --}}
+                    <h4 class="font-semibold text-lg text-primary mb-2">Kampus</h4>
                     <h4 class="font-semibold text-primary text-3xl mb-4">Partnert</h4>
                     <p class="font-medium text-md text-secondary md:text-lg">
-Kami telah bekerja sama dengan 
+                        Kami telah bekerja sama dengan
                     </p>
                 </div>
             </div>
@@ -302,11 +311,11 @@ Kami telah bekerja sama dengan
                 @endforelse
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Kampus partnert Section End -->
 
     <!-- Kepercayaan Section Start -->
-    <section id="kepercayaan" class="pt-24 pb-16 bg-slate-100">
+    <section id="kepercayaan" class="pt-24 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
