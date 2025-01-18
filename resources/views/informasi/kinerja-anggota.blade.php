@@ -4,10 +4,9 @@
     <section id="tentang-kami" class="pt-36 pb-32">
         <div class="container">
             <div class="flex flex-wrap">
-                <div class="w-full px-4 mb-10 lg:w-1/2">
+                <div class="w-full px-4 mb-10 ">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Kinerja Anggota</h4>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem, ipsum dolor sit amet
-                        consectetur adipisicing.</p>
+                    <p class="font-medium text-base text-secondary lg:text-lg">Silahkan pilih nama anggota pusat studi pada form dibawah untuk melihat kinerja.</p>
                 </div>
             </div>
             <div class="bg-white shadow-lg ml-4 mr-4 rounded-lg p-7 border border-gray-200">
@@ -57,7 +56,7 @@
                         <p class="font-medium text-secondary mt-3">Data Laporan Penelitian, Pengabdian kepada Masyarakat dan
                             Publikasi Ilmiah
                             Pusat Studi Artificial Intelligance Universitas Sulawesi Barat</p>
-                        <p class="text-secondary">Tanggal Cetak: 24 November 2024</p>
+                        <p class="text-secondary">Tanggal: 24 November 2024</p>
                     </div>
                     <div class="w-full lg:w-1/2 p-5">
                         <p class="mb-2 font-bold text-secondary">Data Diri</p>
@@ -69,7 +68,7 @@
                                         {{ $kinerja['anggota']->nama ?? '' }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="px-4 py-2 font-medium text-start text-gray-700">NIP</th>
+                                    <th class="px-4 py-2 font-medium text-start text-gray-700">NIP/NIDN</th>
                                     <td class="px-4 py-2 text-start text-gray-900" id="nip">
                                         {{ $kinerja['anggota']->nip ?? '' }}</td>
                                 </tr>

@@ -4,20 +4,18 @@
     <section id="workshops" class="pt-36 pb-16">
         <div class="container">
             <div class="max-w-xl mx-auto text-center mb-16">
-                <h4 class="font-bold uppercase text-primary text-lg mb-2">Statistik Data</h4>
+                <h4 class="font-bold uppercase text-primary text-3xl mb-2">Data Statistik</h4>
                 <div class="max-w-xl">
-                    <h2 class="text-3xl font-bold sm:text-4xl">Penelitian, Pengabdian dan Publikasi</h2>
+                    {{-- <h2 class="text-3xl font-bold sm:text-4xl">Penelitian, Pengabdian dan Publikasi</h2> --}}
 
                     <p class="mt-4 text-base text-slate-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
-                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
-                        quibusdam, quos fuga minima.
+                    Pusat Studi Artificial Intelligence Universitas Sulawesi Barat melakukan berbagai kegiatan termasuk pada bidang Penelitian, Pengabdian dan juga Publikasi sebagai kontribusi pada berbagai aspek, khususnya pada kajian artificial intelligence (AI) pada berbagai bidang. Adapun statistik data dari pusat studi ini dapat dilihat dibawah.
                     </p>
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 <div class="mb-12 p-4 md:w-1/2">
-                    <h1 class="text-center mb-3">Total Penelitian, Pengabdian dan Publikasi</h1>
+                    <h1 class="text-center mb-3">Lakukan pencarian berdasarkan tahun</h1>
                     <div class="text-center">
                         <input type="number" id="tahun" name="tahun" placeholder="Masukkan tahun"
                             class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">

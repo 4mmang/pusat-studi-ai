@@ -33,20 +33,20 @@
         <div class="container">
             <div class="flex flex-wrap pt-16">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold text-dark text-3xl mb-1 max-w-md lg:text-4xl">Pusat Studi
+                    <h4 class="font-bold text-dark text-3xl mb-1 max-w-md lg:text-4xl">Artificial Intelligence 
                     </h4>
                     <h5 class="text-3xl lg:text-4xl font-bold mb-5">
-                        <span id="typewriter" class="text-blue-600"></span>
+                        <span id="typewriter" class="text-primary"></span>
                     </h5>
-                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Vitae excepturi possimus, eum veniam voluptatem aperiam accusamus
-                        quasi! Vero ipsum, minus incidunt facilis impedit, corrupti odit tempore obcaecati vel veritatis
-                        sequi.</p>
+                    
+                    <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Artificial Intelligence Research Center Universitas Sulawesi Barat (AIRC Unsulbar) resmi didirikan pada tanggal 7 Juni
+                    2024 berdasarkan Surat Keputusan Rektor Universitas Sulawesi Barat Nomor Surat: <span class="font-bold">1959/UN55/HK.03/2024 </span>. Kehadirannya menjadi
+                    langkah strategis dalam memajukan penelitian dan pengembangan teknologi kecerdasan buatan (AI) di Sulawesi Barat.</p>
                 </div>
 
                 <div class="w-full px-4 lg:w-1/2 flex justify-center">
                     {{-- <img src="https://picsum.photos/350/400?random=1" alt="Gambar 1" class="h-auto rounded-lg" /> --}}
-                    <img src="{{ asset('img/Logo.png') }}" alt="Gambar 1" class="h-auto w-1/2 rounded-lg" />
+                    <img src="{{ asset('img/Logo3.png') }}" alt="Gambar 1" class="h-auto w-1/2 rounded-lg" />
                 </div>
             </div>
         </div>
@@ -58,9 +58,9 @@
         <div class="container">
             <div class="flex flex-wrap lg:flex-nowrap text-center">
                 <div class="w-full self-center px-4">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Event</h4>
+                    <h4 class="font-semibold text-3xl text-primary mb-2">Event</h4>
                     <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">
-                        <span class="text-dark">Mini Bootcamp Pusat Studi Artificial Intelligence</span>
+                        <span class="text-dark">Event yang diselenggarakan oleh Pusat Studi Artificial Intelligence</span>
                     </h2>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                         </h3>
                     </div>
                 @empty
-                    <p>Saat ini belum ada event.</p>
+                    <p>Belum ada</p>
                 @endforelse
             </div>
         </div>
@@ -88,35 +88,39 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Kenapa Pusat Studi Artificial Intelligence?</h4>
-                    <p class="font-medium text-md text-secondary md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
-                    </p>
+                    <h4 class="font-semibold text-3xl text-primary mb-2">Keunggulan Kami</h4>
+                    {{-- <p class="font-medium text-md text-secondary md:text-lg">
+                        
+                    </p> --}}
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Sekali-Bayar.png') }}" alt="Platform DATAU" width="w-full">
+                        <img src="{{ asset('img/5.png') }}" alt="Platform DATAU" class="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Materi didesain untuk Awam</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Quis quasi sit nihil. Necessitatibus deleniti omnis debitis ab.</p>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Riset Berorientasi Solusi Lokal</h3>
+                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar fokus pada penelitian yang memberikan dampak nyata, terutama untuk solusi yang relevan dengan
+                    kebutuhan masyarakat lokal. Contohnya termasuk optimasi jalur evakuasi bencana, deteksi cacat biji kopi, dan pemetaan
+                    hasil pertanian berbasis AI.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Mentoring.png') }}" alt="" width="w-full">
+                        <img src="{{ asset('img/4.png') }}" alt="" class="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Metode Mentoring</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Odit, sapiente?</p>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Kolaborasi dengan Industri dan Pemerintah</h3>
+                    <p class="font-medium text-base text-secondary">Pusat Studi AI Unsulbar aktif menjalin kemitraan dengan berbagai sektor industri dan pemerintah untuk menciptakan solusi
+                    berbasis AI yang inovatif. Kolaborasi ini bertujuan untuk menjawab tantangan nyata di masyarakat, seperti pengelolaan
+                    sumber daya, transportasi, dan edukasi.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/3">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
-                        <img src="{{ asset('img/Awam-IT.png') }}" alt="" width="w-full">
+                        <img src="{{ asset('img/6.png') }}" alt="" class="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Hands On Praktikum</h3>
-                    <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing.
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Akses ke Teknologi Terkini</h3>
+                    <p class="font-medium text-base text-secondary">Peserta memiliki kesempatan untuk menggunakan perangkat keras dan perangkat lunak AI terbaru, termasuk GPU canggih,
+                    framework deep learning mutakhir, dan alat visualisasi data, yang semuanya mendukung eksperimen dan inovasi berbasis
+                    kecerdasan buatan.
                     </p>
                 </div>
             </div>
@@ -128,7 +132,7 @@
     <section class="bg-slate-100">
         <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                Apa Kata Alumni Kami?
+                Apa Kata Mereka?
             </h2>
 
             <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
@@ -279,10 +283,10 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Kampus</h4>
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Partnert</h2>
+                    {{-- <h4 class="font-semibold text-lg text-primary mb-2">Kampus</h4> --}}
+                    <h4 class="font-semibold text-primary text-3xl mb-4">Partnert</h4>
                     <p class="font-medium text-md text-secondary md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+Kami telah bekerja sama dengan 
                     </p>
                 </div>
             </div>
@@ -306,11 +310,11 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Dipercaya Oleh</h4>
+                    <h4 class="font-semibold text-3xl text-primary mb-2">Dipercaya Oleh</h4>
                     {{-- <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Dipercaya Oleh</h2> --}}
-                    <p class="font-medium text-md text-secondary md:text-lg">
+                    {{-- <p class="font-medium text-md text-secondary md:text-lg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
@@ -333,10 +337,10 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Artikel</h4>
+                    {{-- <h4 class="font-semibold text-lg text-primary mb-2">Artikel</h4> --}}
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Terbaru</h2>
                     <p class="font-medium text-md text-secondary md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
+                        Baca artikel-artikel Kami!
                     </p>
                 </div>
             </div>
@@ -373,7 +377,7 @@
         });
 
         typewriter
-            .typeString('Artificial Intelligence')
+            .typeString('Research Center')
             .pauseFor(1000)
             .deleteAll()
             .start();

@@ -7,11 +7,11 @@
                 {{-- <a href="{{ route('beranda') }}" class="font-bold text-3xl text-primary block py-6">
                     Pusat<span class="text-primary">Studi AI</span>
                 </a> --}}
-                <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-6">
+                <a href="{{ route('beranda') }}" class="font-bold text-1xl text-center text-primary block py-2">
                     <center>
-                        <img src="{{ asset('img/Logo.png') }}" class="w-12 mb-2" alt="">
+                        <img src="{{ asset('img/Logo1.png') }}" class="w-14 mb-2" alt="">
                     </center>
-                    Pusat Studi AI
+                    {{-- Pusat Studi --}}
                 </a>
             </div>
 
@@ -180,11 +180,22 @@
                                 </li>
                                 <li>
                                     <a href="https://pusdata.pusatstudiaiunsulbar.com/"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
-                                        Pusat Data
-                                    </a>
-                                </li>
-                               
+                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    Pusat Data
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://bima.kemdikbud.go.id"
+                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    BIMA
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://brin.go.id/"
+                                    class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    BRIN
+                                </a>
+                            </li>
                             </ul>
                         </li>
                         @auth
@@ -221,7 +232,7 @@
 
                         @guest
                             <!-- Login Button (Desktop) -->
-                            <li class="group">
+                            {{-- <li class="group">
                                 <a href="{{ url('login') }}"
                                     class="text-base hidden lg:block rounded-full bg-primary px-8 text-white py-2 mx-5 group-hover:bg-blue-400">
                                     <i class="far fa-sign-in mr-1"></i>Masuk
@@ -231,7 +242,7 @@
                             <li class="group">
                                 <a href="{{ url('login') }}"
                                     class="lg:hidden block text-base text-dark py-2 mx-5 group-hover:text-primary">Masuk</a>
-                            </li>
+                            </li> --}}
                         @endguest
                     </ul>
                 </nav>

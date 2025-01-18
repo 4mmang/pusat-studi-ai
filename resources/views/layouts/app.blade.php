@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Pusat Studi Artificial Intelligence @yield('title')</title>
+    <link rel="icon" href="{{ asset('img/Logo.png') }}" type="image/png">
     @vite('resources/css/app.css')
     <!--Regular Datatables CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">

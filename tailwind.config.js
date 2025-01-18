@@ -13,6 +13,7 @@ export default {
     extend: {
       width: {
         '13': '4.5rem',
+        '14': '6rem',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -36,10 +37,11 @@ export default {
         },
       },
       colors: {
-        primary: '#3b82f6',
+        primary: '#01004E',
         dark: '#0f172a',
         secondary: '#64748b',
         default: '#810505'
+
       },
       screens: {
         '2xl': '1320px'
