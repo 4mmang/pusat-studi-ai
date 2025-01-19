@@ -153,34 +153,43 @@
             </h1>
             <div class="relative">
                 <!-- Vertical Line -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-500 h-full"></div>
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 bg-gray-500 h-full">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full" style="border-left: 2px dashed white;"></div>
+                </div>
+                <!-- Gambar di atas -->
+                <img src="{{ asset('img/101.jpeg') }}" alt="Top Image"
+                    class="absolute rounded-full -top-6 left-1/2 transform -translate-x-1/2 w-16 h-auto">
+                
+                <!-- Gambar di bawah -->
+                <img src="{{ asset('img/100.jpeg') }}" alt="Bottom Image"
+                    class="absolute rounded-full -bottom-14 left-1/2 transform -translate-x-1/2 w-16 h-auto">
 
                 <!-- Timeline Start -->
-                <div class="relative z-10 flex items-center mb-8">
-                    <div class="w-1/2 text-right pr-8">
-                        <p class="font-bold text-3xl mt-3">2023</p>
+                <div class="relative z-10 flex items-center mb-8 mr-16">
+                    <div class="w-1/2 text-right pr-4 mt-12">
+                        <p class="font-bold text-3xl">2023</p>
                         <p class="text-lg">
                             Pembentukan Artificial Intelligence Research Center atau Pusat Studi Artificial Intelligence Universitas Sulawesi Barat
                         </p>
                     </div>
-                    <div class="w-16 h-16 -mt-12 bg-green-500 rounded-full border-2 border-white mx-auto"></div>
+                    <div class="w-8 h-8 -mt-2 bg-green-500 rounded-full border-2 border-white mx-auto"></div>
                     <div class="w-1/2"></div>
                 </div>
 
                 <!-- Timeline Item 2 -->
-                <div class="relative z-10 flex items-center mb-8">
+                <div class="relative z-10 flex items-center mb-8 ml-16">
                     <div class="w-1/2"></div>
                     <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white mx-auto"></div>
-                    <div class="w-1/2 pl-8 mt-6">
+                    <div class="w-1/2 pl-4">
                         <p class="font-bold text-3xl">2024</p>
                         <p class="text-lg">Pengembangan Sistem Pertanian berbasis Digital</p>
                     </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
-                <div class="relative z-10 flex items-center mb-8 ">
-                    <div class="w-1/2 text-right pr-8">
-                        <p class="font-bold text-3xl mt-8">(New!) 2025</p>
+                <div class="relative z-10 flex items-center mb-8 mr-16">
+                    <div class="w-1/2 text-right pr-4">
+                        <p class="font-bold text-3xl">(New!) 2025</p>
                         <p class="text-lg">
                             Pengembangan Sistem Manajemen Sampah
                         </p>

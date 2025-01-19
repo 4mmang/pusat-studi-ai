@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownMenuInformasi = document.getElementById("dropdownMenuInformasi");
     const dropdownButtonProfil = document.getElementById("dropdownButtonProfil");
     const dropdownMenuProfil = document.getElementById("dropdownMenuProfil");
-    const dropdownButtonSumberDaya = document.getElementById("dropdownButtonSumberDaya");
-    const dropdownMenuSumberDaya = document.getElementById("dropdownMenuSumberDaya");
+    const dropdownButtonKelompokRiset = document.getElementById("dropdownButtonKelompokRiset");
+    const dropdownMenuKelompokRiset = document.getElementById("dropdownMenuKelompokRiset");
 
     if (dropdownButtonPusatStudi) {
         dropdownButtonPusatStudi.addEventListener("click", function () {
@@ -90,14 +90,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (dropdownButtonSumberDaya) {
-        dropdownButtonSumberDaya.addEventListener("click", function () {
-            dropdownMenuSumberDaya.classList.toggle("hidden");
+    if (dropdownButtonKelompokRiset) {
+        dropdownButtonKelompokRiset.addEventListener("click", function () {
+            dropdownMenuKelompokRiset.classList.toggle("hidden");
         });
 
         document.addEventListener("click", function (event) {
-            if (!dropdownButtonSumberDaya.contains(event.target) && !dropdownMenuSumberDaya.contains(event.target)) {
-                dropdownMenuSumberDaya.classList.add("hidden");
+            if (!dropdownButtonKelompokRiset.contains(event.target) && !dropdownMenuKelompokRiset.contains(event.target)) {
+                dropdownMenuKelompokRiset.classList.add("hidden");
             }
         });
     } 

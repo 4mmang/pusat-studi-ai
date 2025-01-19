@@ -153,10 +153,10 @@
                             </ul>
                         </li>
                         <li class="group relative">
-                            <button id="dropdownButtonRekamJejak"
+                            <button id="dropdownButtonKelompokRiset"
                                 class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
-                                Rekam Jejak
+                                Kelompok Riset
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
                                     fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -164,47 +164,47 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            <ul id="dropdownMenuRekamJejak"
+                            <ul id="dropdownMenuKelompokRiset"
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[280px]">
                                 <li>
-                                    <a href="{{ route('kinerja-anggota.index') }}"
+                                    <a href="{{ route('kebencanaan') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Kebencanaan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('kinerja-anggota.index') }}"
+                                    <a href="{{ route('kesehatan') }}"
                                         class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Kesehatan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('pertanianBerkelanjutan') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Pertanian Berkelanjutan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('transportasi') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Transportasi
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('kebudayaan') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Antropolinguistik & Kebudayaan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('smartSistem') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Smart Sistem
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('algoritmaKomputasi') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Algoritma & Komputasi
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                    <a href="{{ route('softwareDevelopment') }}" class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
                                         Software Development
                                     </a>
                                 </li>
