@@ -74,7 +74,9 @@ class AnggotaController extends Controller
             $anggota->email = $request->email;
             $anggota->nip = $request->nip;
             $anggota->jenis_kelamin = $request->jenis_kelamin;
-            $anggota->password = Hash::make($request->password);
+            if ($request->password) {
+                $anggota->password = Hash::make($request->password);
+            }
             if ($request->file('kartu_anggota')) {
                 Storage::delete('public/' . $anggota->kartu_anggota);
                 $anggota->kartu_anggota = $request->file('kartu_anggota')->store('kartu-anggota', 'public');
