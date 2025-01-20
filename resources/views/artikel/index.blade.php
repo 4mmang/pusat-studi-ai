@@ -4,7 +4,7 @@
     <section class="pt-32 pb-16">
         <div class="container">
             <div class="w-full px-4">
-                <div class="max-w-xl mx-auto text-center mb-16">
+                <div class="max-w-xl mx-auto text-center mb-12">
                     {{-- <h4 class="font-semibold text-lg text-primary mb-2">Daftar</h4> --}}
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Artikel</h2>
                     <p class="font-medium text-md text-secondary md:text-lg">

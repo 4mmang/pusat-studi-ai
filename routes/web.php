@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Informasi\KinerjaAnggotaController;
 use App\Http\Controllers\Informasi\StatistikDataController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\TentangKamiController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\AlgoritmaKomputasi;
@@ -162,6 +163,8 @@ Route::get('/unduh', function () {
     $unduh = Unduh::all();
     return view('unduh', compact('unduh'));
 })->name('unduh');
+
+Route::post('/buat-pesan', [KontakController::class, 'store'])->name('buat-pesan');
 
 Route::middleware([RoleMiddleware::class . ':superadmin'])->group(function () {
     Route::resource('admin/user', UserController::class);

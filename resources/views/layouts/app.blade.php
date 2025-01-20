@@ -130,7 +130,7 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@latest/dist/core.js"></script>
-    @yield('scripts')
+    @stack('scripts')
 </body>
 
 </html>

@@ -361,7 +361,7 @@
                                 <img src="{{ asset('storage/' . $item->sampul) }}" alt="" width="w-full">
                             </div>
                             <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
-                            <p class="font-medium text-base text-secondary">{{ Str::limit($item->deskripsi, 150, '...') }}
+                            <p class="font-medium text-base text-secondary">by. <span class="font-bold">{{ $item->penulis->nama }}</span> | {{ $item->created_at->format('d F Y') }}
                             </p>
                         </a>
                     </div>
