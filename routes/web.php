@@ -180,6 +180,9 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin'])->group(function ()
         Route::resource('upload-pdf', UploadPdfController::class);
         Route::resource('/event', EventController::class);
 
+        Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
+        Route::delete('/kontak/{id}', [KontakController::class, 'destroy'])->name('kontak.destroy');
+
         Route::prefix('/kelompok-riset')->group(function () {
             Route::resource('/kebencanaan', KebencanaanController::class);
             Route::resource('/kesehatan', KesehatanController::class);

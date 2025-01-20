@@ -9,7 +9,8 @@ class KontakController extends Controller
 {
     public function index()
     {
-        return view('admin.kontak.index');
+        $kontak = Kontak::all();
+        return view('admin.kontak.index', compact('kontak'));
     }
 
     public function store(Request $request)

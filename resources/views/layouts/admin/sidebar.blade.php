@@ -99,6 +99,11 @@
                 <i class="fas fa-fw fa-users"></i>
                 <span>Anggota</span></a>
         </li>
+        <li class="nav-item {{ Request::is('admin/kontak*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('kontak.index') }}">
+                <i class="fas fa-fw fa-phone"></i>
+                <span>Kontak</span></a>
+        </li>
         {{-- <li class="nav-item {{ Request::is('admin/parnert*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('parnert.index') }}">
                 <i class="fas fa-fw fa-handshake"></i>
