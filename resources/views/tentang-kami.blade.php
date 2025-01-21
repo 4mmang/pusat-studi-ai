@@ -484,7 +484,7 @@
         </div>
     </section> --}}
 @endsection
-@section('scripts')
+@push('scripts')
     <script>
         const typewriter = new Typewriter('#typewriter', {
             loop: true,
@@ -497,4 +497,4 @@
             .deleteAll()
             .start();
     </script>
-@endsection
+@endpush
