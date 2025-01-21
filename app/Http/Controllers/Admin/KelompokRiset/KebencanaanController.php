@@ -31,7 +31,7 @@ class KebencanaanController extends Controller
             'keterangan' => $request->keterangan,
         ]);
 
-        return back()->with([
+        return redirect()->route('kebencanaan.edit')->with([
             'message' => 'Rekam jejak riset baru berhasil ditambahkan',
         ]);
     }

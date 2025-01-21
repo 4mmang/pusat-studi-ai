@@ -48,7 +48,7 @@ class UploadPdfController extends Controller
         $unduh->file = $request->file('file')->store('unduh', 'public');
         $unduh->deskripsi = $request->deskripsi;
         $unduh->save();
-        return back()->with([
+        return redirect()->route('upload-pdf.index')->with([
             'message' => 'File unduhan berhasil ditambahkan',
         ]);
     }

@@ -72,9 +72,11 @@ class PengabdianController extends Controller
                 $newAuthor->save();
             }
             DB::commit();
-            return back()->with([
-                'message' => 'Data pengabdian berhasil ditambahkan',
-            ]);
+            return redirect()
+                ->route('pengabdian.index')
+                ->with([
+                    'message' => 'Data pengabdian berhasil ditambahkan',
+                ]);
         } catch (\Throwable $th) {
             DB::rollBack();
             return back()->withErrors([

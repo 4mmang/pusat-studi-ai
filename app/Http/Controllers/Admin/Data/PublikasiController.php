@@ -61,7 +61,7 @@ class PublikasiController extends Controller
                 $newAuthor->save();
             }
             DB::commit();
-            return back()->with([
+            return redirect()->route('publikasi.index')->with([
                 'message' => 'Data publikasi berhasil ditambahkan',
             ]);
         } catch (\Throwable $th) {

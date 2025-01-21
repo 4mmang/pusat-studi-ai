@@ -17,10 +17,12 @@ class StatistikDataController extends Controller
         $totalPublikasi = Publikasi::count();
 
         // level
-        $nasionalPublikasi = Publikasi::where('level', 'nasional')->count();
-        $internasionalPublikasi = Publikasi::where('level', 'internasional')->count();
-        $nasionalBereputasi = Publikasi::where('level', 'nasional bereputasi')->count();
-        $internasionalBereputasi = Publikasi::where('level', 'internasional bereputasi')->count();
+        $q1 = Publikasi::where('level', 'Quartile-1 (Q1)')->count();
+        $q2 = Publikasi::where('level', 'Quartile-2 (Q2)')->count();
+        $q3 = Publikasi::where('level', 'Quartile-3 (Q3)')->count();
+        $q4 = Publikasi::where('level', 'Quartile-4 (Q4)')->count();
+        $noQuartile = Publikasi::where('level', 'No-Quartile')->count();
+        $nasional = Publikasi::where('level', 'nasional')->count();
 
         $mandiriPengabdian = Pengabdian::where('level', 'mandiri')->count();
         $universitasPengabdian = Pengabdian::where('level', 'universitas')->count();
@@ -50,7 +52,7 @@ class StatistikDataController extends Controller
             $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)->count();
         }
 
-        return view('informasi.statistik-data', compact(['totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'mandiriPenelitian', 'penelitianLainnya', 'mandiriPengabdian', 'pengabdianLainnya', 'nasionalPenelitian', 'internasionalPenelitian', 'internasionalBereputasi', 'nasionalBereputasi', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'nasionalPublikasi', 'internasionalPublikasi']));
+        return view('informasi.statistik-data', compact(['totalPenelitian', 'totalPengabdian', 'totalPublikasi', 'totalPenelitianPerTahun', 'totalPengabdianPerTahun', 'totalPublikasiPerTahun', 'universitasPenelitian', 'mandiriPenelitian', 'penelitianLainnya', 'mandiriPengabdian', 'pengabdianLainnya', 'nasionalPenelitian', 'internasionalPenelitian', 'universitasPengabdian', 'nasionalPengabdian', 'internasionalPengabdian', 'q1', 'q2', 'q3', 'q4', 'noQuartile', 'nasional']));
     }
 
     public function filter($tahun)

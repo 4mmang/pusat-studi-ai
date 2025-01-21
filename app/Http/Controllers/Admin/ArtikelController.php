@@ -60,7 +60,7 @@ class ArtikelController extends Controller
             $artikel->sampul = $sampul;
             $artikel->konten = $konten;
             $artikel->save();
-            return back()->with([
+            return redirect()->route('artikel.index')->with([
                 'message' => 'Berhasil menambahkan artikel baru',
             ]);
         } catch (\Throwable $th) {

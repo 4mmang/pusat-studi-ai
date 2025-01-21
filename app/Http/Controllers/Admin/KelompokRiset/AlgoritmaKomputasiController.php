@@ -31,7 +31,7 @@ class AlgoritmaKomputasiController extends Controller
             'keterangan' => $request->keterangan,
         ]);
 
-        return back()->with([
+        return redirect()->route('algoritma.index')->with([
             'message' => 'Rekam jejak riset baru berhasil ditambahkan',
         ]);
     }

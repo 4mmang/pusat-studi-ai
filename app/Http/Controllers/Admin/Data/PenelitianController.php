@@ -72,7 +72,7 @@ class PenelitianController extends Controller
                 $newAuthor->save();
             }
             DB::commit();
-            return back()->with([
+            return redirect()->route('penelitian.index')->with([
                 'message' => 'Data penelitian berhasil ditambahkan',
             ]);
         } catch (\Throwable $th) {

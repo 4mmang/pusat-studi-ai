@@ -34,7 +34,7 @@ class EventController extends Controller
             $event->poster = $request->file('poster')->store('event', 'public');
             $event->link_pendaftaran = $request->link_pendaftaran;
             $event->save();
-            return back()->with([
+            return redirect()->route('event.index')->with([
                 'message' => 'Berhasil menambahkan event baru',
             ]);
         } catch (\Throwable $th) {

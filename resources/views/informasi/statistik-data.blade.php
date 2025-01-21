@@ -227,11 +227,11 @@
             });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $nasionalPublikasi }}",
-                    "{{ $internasionalPublikasi }}", "{{ $nasionalBereputasi }}",
-                    "{{ $internasionalBereputasi }}"
+            createChart(["{{ $q1 }}",
+                    "{{ $q2 }}", "{{ $q3 }}",
+                    "{{ $q4 }}", "{{ $noQuartile }}", "{{ $nasional }}"
                 ],
-                ['Nasional', 'Internasional', 'Nasional Bereputasi', 'Internasional Bereputasi'], type +
+                ['Quartile-1 (Q1)', 'Quartile-2 (Q2)', 'Quartile-3 (Q3)', 'Quartile-4 (Q4)', 'No-Quartile', 'Nasional'], type +
                 '-levelpublikasi',
                 type, {
                     responsive: true,

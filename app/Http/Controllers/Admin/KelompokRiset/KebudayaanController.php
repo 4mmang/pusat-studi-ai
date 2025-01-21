@@ -31,7 +31,7 @@ class KebudayaanController extends Controller
             'keterangan' => $request->keterangan,
         ]);
 
-        return back()->with([
+        return redirect()->route('kebudayaan.index')->with([
             'message' => 'Rekam jejak riset baru berhasil ditambahkan',
         ]);
     }
