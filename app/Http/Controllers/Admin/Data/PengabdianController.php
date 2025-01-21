@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
 use App\Models\AuthorPengabdian;
+use App\Models\LuaranPengabdian;
 use App\Models\Pengabdian;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,10 +45,21 @@ class PengabdianController extends Controller
             $pengabdian->user_id = Auth::user()->id;
             $pengabdian->judul = $request->judul;
             $pengabdian->penyelenggara = $request->penyelenggara;
+            $pengabdian->dana = $request->dana;
+
             $pengabdian->tanggal_pengabdian = $request->tanggal_pengabdian;
             $pengabdian->level = $request->level;
             $pengabdian->link_akses = $request->link_akses;
             $pengabdian->save();
+
+            if ($request->luaran) {
+                foreach ($request->luaran as $luaran) {
+                    $newLuaran = new LuaranPengabdian();
+                    $newLuaran->pengabdian_id = $pengabdian->id;
+                    $newLuaran->nama = $luaran;
+                    $newLuaran->save();
+                }
+            }
 
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
@@ -76,16 +88,12 @@ class PengabdianController extends Controller
     {
         $user = Auth::user();
 
-        $pengabdian = Pengabdian::where('id', $id) 
-            ->first();
+        $pengabdian = Pengabdian::where('id', $id)->first();
         $authors = json_decode($pengabdian->authors, true); // Decode JSON menjadi array
         $userIdToFind = $user->id;
 
         // Cek apakah user_id ada di dalam array
-        $isUserIdExists = collect($authors)->contains(
-            'user_id',
-            $userIdToFind,
-        );
+        $isUserIdExists = collect($authors)->contains('user_id', $userIdToFind);
         if ($user->role === 'admin') {
             $pengabdian = Pengabdian::findOrFail($id);
         }
@@ -114,6 +122,18 @@ class PengabdianController extends Controller
 
             foreach ($pengabdian->authors as $author) {
                 $author->delete();
+            }
+
+            if ($request->luaran) {
+                foreach ($pengabdian->luaran as $luaran) {
+                    $luaran->delete();
+                }
+                foreach ($request->luaran as $luaran) {
+                    $newLuaran = new LuaranPengabdian();
+                    $newLuaran->pengabdian_id = $pengabdian->id;
+                    $newLuaran->nama = $luaran;
+                    $newLuaran->save();
+                }
             }
 
             $authors = json_decode($request->authors, true);
@@ -146,6 +166,9 @@ class PengabdianController extends Controller
             $pengabdian = Pengabdian::with('authors')->findOrFail($id);
             foreach ($pengabdian->authors as $author) {
                 $author->delete();
+            }
+            foreach ($pengabdian->luaran as $luaran) {
+                $luaran->delete();
             }
             $pengabdian->delete();
             DB::commit();

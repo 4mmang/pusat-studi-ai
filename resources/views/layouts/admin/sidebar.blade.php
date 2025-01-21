@@ -59,14 +59,26 @@
                 <i class="fas fa-fw fa-newspaper"></i>
                 <span>Artikel</span></a>
         </li>
+    @endif
+    @if (Auth::check() && Auth::user()->role === 'admin')
+        <li class="nav-item {{ Request::is('admin/unduh-data*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('unduh-data.index') }}">
+                <i class="fas fa-fw fa-download"></i>
+                <span>Unduh Data</span></a>
+        </li>
+        <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('anggota.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Anggota</span></a>
+        </li>
         <li class="nav-item {{ Request::is('admin/kelompok-riset*') ? 'active' : '' }}">
-            <a class="nav-link {{ Request::is('admin/kelompok-riset*') ? 'active' : 'collapsed' }}" href="#" data-toggle="collapse"
-                data-target="#kelompok-riset" aria-expanded="true" aria-controls="sumber-daya">
+            <a class="nav-link {{ Request::is('admin/kelompok-riset*') ? 'active' : 'collapsed' }}" href="#"
+                data-toggle="collapse" data-target="#kelompok-riset" aria-expanded="true" aria-controls="sumber-daya">
                 <i class="fas fa-fw fa-road"></i>
                 <span>Kelompok Riset</span>
             </a>
-            <div id="kelompok-riset" class="collapse {{ Request::is('admin/kelompok-riset*') ? 'show' : '' }}" aria-labelledby="headingTwo"
-                data-parent="#accordionSidebar">
+            <div id="kelompok-riset" class="collapse {{ Request::is('admin/kelompok-riset*') ? 'show' : '' }}"
+                aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item {{ Request::is('admin/kelompok-riset/kebencanaan*') ? 'active' : '' }}"
                         href="{{ route('kebencanaan.index') }}">Kebencanaan</a>
@@ -86,18 +98,6 @@
                         href="{{ route('software.index') }}">Software Development</a>
                 </div>
             </div>
-        </li>
-    @endif
-    @if (Auth::check() && Auth::user()->role === 'admin')
-        <li class="nav-item {{ Request::is('admin/unduh-data*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('unduh-data.index') }}">
-                <i class="fas fa-fw fa-download"></i>
-                <span>Unduh Data</span></a>
-        </li>
-        <li class="nav-item {{ Request::is('admin/anggota*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('anggota.index') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Anggota</span></a>
         </li>
         <li class="nav-item {{ Request::is('admin/kontak*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('kontak.index') }}">

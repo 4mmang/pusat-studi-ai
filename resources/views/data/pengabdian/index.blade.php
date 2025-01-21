@@ -24,6 +24,8 @@
                             Penyelenggara</th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Level
                         </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Luaran
+                        </th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Tahun
                         </th>
                         {{-- <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Link
@@ -47,6 +49,13 @@
                         </td>
                         <td class="px-4 py-2 text-gray-700 border border-gray-300">{{ $item->penyelenggara }}</td>
                         <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">{{ $item->level }}</td>
+                        <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">
+                            @foreach ($item->luaran as $luaran)
+                            {{ $luaran->nama }}@if (!$loop->last)
+                            ,
+                            @endif
+                            @endforeach
+                        </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">{{
                             \Carbon\Carbon::parse($item->tanggal_pengabdian)->format('Y') }}</td>
                         {{-- <td class="px-4 py-2 text-gray-700 border border-gray-300"><a

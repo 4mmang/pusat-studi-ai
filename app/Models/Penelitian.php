@@ -13,4 +13,8 @@ class Penelitian extends Model
     {
         return $this->hasMany(AuthorPenelitian::class);
     }
+
+    public function luaran(){
+        return $this->hasMany(LuaranPenelitian::class);
+    }
 }

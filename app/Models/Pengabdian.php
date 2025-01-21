@@ -13,4 +13,9 @@ class Pengabdian extends Model
     {
         return $this->hasMany(AuthorPengabdian::class);
     }
+
+    public function luaran()
+    {
+        return $this->hasMany(LuaranPengabdian::class);
+    }
 }

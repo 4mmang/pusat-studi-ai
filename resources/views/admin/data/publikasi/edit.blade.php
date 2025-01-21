@@ -53,16 +53,18 @@
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
                                     required>
-                                    <option @if ($publikasi->level == 'nasional') selected @endif value="Nasional">Nasional
+                                    <option @if ($publikasi->level == 'Quartile-1 (Q1)') selected @endif value="Quartile-1 (Q1)">Quartile-1 (Q1)
                                     </option>
-                                    <option @if ($publikasi->level == 'internasional') selected @endif value="Internasional">
-                                        Internasional</option>
-                                    <option @if ($publikasi->level == 'nasional bereputasi') selected @endif value="Nasional Bereputasi">
-                                        Nasional Bereputasi
+                                    <option @if ($publikasi->level == 'Quartile-2 (Q2)') selected @endif value="Quartile-2 (Q2)">Quartile-2 (Q2)
                                     </option>
-                                    <option @if ($publikasi->level == 'internasional bereputasi') selected @endif
-                                        value="Internasional Bereputasi">
-                                        Internasional Bereputasi</option>
+                                    <option @if ($publikasi->level == 'Quartile-3 (Q3)') selected @endif value="Quartile-3 (Q3)">Quartile-3 (Q3)
+                                    </option>
+                                    <option @if ($publikasi->level == 'Quartile-4 (Q4)') selected @endif value="Quartile-4 (Q4)">Quartile-4 (Q4)
+                                    </option>
+                                    <option @if ($publikasi->level == 'No-Quartile') selected @endif value="No-Quartile">No-Quartile
+                                    </option>
+                                    <option @if ($publikasi->level == 'Nasional') selected @endif value="Nasional">Nasional
+                                    </option>
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3">

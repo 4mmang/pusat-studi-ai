@@ -68,7 +68,16 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="dana" class="">Dana yang Diperoleh (Rp)<sup
+                                        class="text-danger">*</sup></label>
+                                <input type="number" value="{{ $pengabdian->dana }}"
+                                    class="form-control @error('dana')
+                                                                                                                                                    is-invalid
+                                                                                                                                                @enderror"
+                                    name="dana" id="dana" placeholder="Rp. 0" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <label for="link_akses" class="">Link Akses Pengabdian <sup
                                         class="text-danger">*</sup></label>
                                 <input type="url" value="{{ $pengabdian->link_akses }}"
@@ -77,7 +86,7 @@
                                 @enderror"
                                     name="link_akses" id="link_akses" required>
                             </div>
-                            <div class="col-md-5 mb-12">
+                            <div class="col-md-6 mb-3">
                                 Authors <sup class="text-danger">*</sup>
                                 <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple
                                     size="5">
@@ -101,6 +110,46 @@
                                 @enderror
                                 <div id="authorList" class="mt-4">
                                     <!-- Daftar authors akan dirender di sini -->
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="">Jenis Luaran<sup class="text-danger">*</sup></p>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                        value="jurnal" @if ($pengabdian->luaran->pluck('nama')->contains('jurnal')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Jurnal</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="artikel" @if ($pengabdian->luaran->pluck('nama')->contains('artikel')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Artikel</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="haki" @if ($pengabdian->luaran->pluck('nama')->contains('haki')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">HaKI</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="berita" @if ($pengabdian->luaran->pluck('nama')->contains('berita')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Berita</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="alat" @if ($pengabdian->luaran->pluck('nama')->contains('alat')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Alat</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="lainnya"
+                                        @if ($pengabdian->luaran->pluck('nama')->contains('lainnya')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Lainnya</label>
                                 </div>
                             </div>
                         </div>

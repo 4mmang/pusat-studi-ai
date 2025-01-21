@@ -29,7 +29,7 @@
                                     is-invalid
                                 @enderror"
                                     name="penyelenggara" id="penyelenggara" required>
-                            </div> 
+                            </div>
                             <div class="col-md-6 mb-3">
                                 <label for="tanggal_penelitian" class="">Tanggal Penelitian <sup
                                         class="text-danger">*</sup></label>
@@ -39,6 +39,7 @@
                                 @enderror"
                                     name="tanggal_penelitian" id="tanggal_penelitian" required>
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
@@ -57,7 +58,16 @@
                                         Lainnya</option>
                                 </select>
                             </div>
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="dana" class="">Dana yang Diperoleh (Rp)<sup
+                                        class="text-danger">*</sup></label>
+                                <input type="number" value="{{ $penelitian->dana }}"
+                                    class="form-control @error('dana')
+                                                                                                                        is-invalid
+                                                                                                                    @enderror"
+                                    name="dana" id="dana" placeholder="Rp. 0" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <label for="link_akses" class="">Link Akses Penelitian <sup
                                         class="text-danger">*</sup></label>
                                 <input type="url" value="{{ $penelitian->link_akses }}"
@@ -66,7 +76,7 @@
                                 @enderror"
                                     name="link_akses" id="link_akses" required>
                             </div>
-                            <div class="col-md-5 mb-12">
+                            <div class="col-md-6 mb-3">
                                 Authors <sup class="text-danger">*</sup>
                                 <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple
                                     size="5">
@@ -91,8 +101,47 @@
                                 <div id="authorList" class="mt-4">
                                     <!-- Daftar authors akan dirender di sini -->
                                 </div>
+                                <input type="hidden" name="authors" id="authors">
                             </div>
-                            <input type="hidden" name="authors" id="authors">
+                            <div class="col-md-6 mb-3">
+                                <p class="">Jenis Luaran<sup class="text-danger">*</sup></p>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                        value="jurnal" @if ($penelitian->luaran->pluck('nama')->contains('jurnal')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Jurnal</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="artikel" @if ($penelitian->luaran->pluck('nama')->contains('artikel')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Artikel</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="haki" @if ($penelitian->luaran->pluck('nama')->contains('haki')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">HaKI</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="berita" @if ($penelitian->luaran->pluck('nama')->contains('berita')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Berita</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="alat" @if ($penelitian->luaran->pluck('nama')->contains('alat')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Alat</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]"
+                                        class="form-check-input border-1 border-dark ms-auto characteristic"
+                                        type="checkbox" value="lainnya" @if ($penelitian->luaran->pluck('nama')->contains('lainnya')) checked @endif>
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Lainnya</label>
+                                </div>
+                            </div>
                         </div>
                         {{-- <input type="hidden" name="authors" id="authors"> --}}
                         <a href="{{ route('penelitian.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>

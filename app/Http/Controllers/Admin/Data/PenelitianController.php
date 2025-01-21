@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Data;
 
 use App\Http\Controllers\Controller;
 use App\Models\AuthorPenelitian;
+use App\Models\LuaranPenelitian;
 use App\Models\Penelitian;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -36,6 +37,7 @@ class PenelitianController extends Controller
     {
         $request->validate([
             'authors' => 'required',
+            'luaran' => 'required',
         ]);
 
         DB::beginTransaction();
@@ -44,10 +46,20 @@ class PenelitianController extends Controller
             $penelitian->user_id = Auth::user()->id;
             $penelitian->judul = $request->judul;
             $penelitian->penyelenggara = $request->penyelenggara;
+            $penelitian->dana = $request->dana ?? 0;
             $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
             $penelitian->level = $request->level;
             $penelitian->link_akses = $request->link_akses;
             $penelitian->save();
+
+            if ($request->luaran) {
+                foreach ($request->luaran as $luaran) {
+                    $newLuaran = new LuaranPenelitian();
+                    $newLuaran->penelitian_id = $penelitian->id;
+                    $newLuaran->nama = $luaran;
+                    $newLuaran->save();
+                }
+            }
 
             $authors = json_decode($request->authors, true);
             foreach ($authors as $author) {
@@ -76,16 +88,12 @@ class PenelitianController extends Controller
     {
         $user = Auth::user();
 
-        $penelitian = Penelitian::where('id', $id) 
-            ->first();
+        $penelitian = Penelitian::where('id', $id)->first();
         $authors = json_decode($penelitian->authors, true); // Decode JSON menjadi array
         $userIdToFind = $user->id;
 
         // Cek apakah user_id ada di dalam array
-        $isUserIdExists = collect($authors)->contains(
-            'user_id',
-            $userIdToFind,
-        );
+        $isUserIdExists = collect($authors)->contains('user_id', $userIdToFind);
         if ($user->role === 'admin') {
             $penelitian = Penelitian::findOrFail($id);
         }
@@ -100,6 +108,7 @@ class PenelitianController extends Controller
     {
         $request->validate([
             'authors' => 'required',
+            'luaran' => 'required',
         ]);
 
         DB::beginTransaction();
@@ -107,13 +116,27 @@ class PenelitianController extends Controller
             $penelitian = Penelitian::findOrFail($id);
             $penelitian->judul = $request->judul;
             $penelitian->penyelenggara = $request->penyelenggara;
+            $penelitian->dana = $request->dana;
             $penelitian->tanggal_penelitian = $request->tanggal_penelitian;
+            $penelitian->dana = $request->dana;
             $penelitian->level = $request->level;
             $penelitian->link_akses = $request->link_akses;
             $penelitian->update();
 
             foreach ($penelitian->authors as $author) {
                 $author->delete();
+            }
+
+            if ($request->luaran) {
+                foreach ($penelitian->luaran as $luaran) {
+                    $luaran->delete();
+                }
+                foreach ($request->luaran as $luaran) {
+                    $newLuaran = new LuaranPenelitian();
+                    $newLuaran->penelitian_id = $penelitian->id;
+                    $newLuaran->nama = $luaran;
+                    $newLuaran->save();
+                }
             }
 
             $authors = json_decode($request->authors, true);
@@ -146,6 +169,9 @@ class PenelitianController extends Controller
             $penelitian = Penelitian::with('authors')->findOrFail($id);
             foreach ($penelitian->authors as $author) {
                 $author->delete();
+            }
+            foreach ($penelitian->luaran as $luaran) {
+                $luaran->delete();
             }
             $penelitian->delete();
             DB::commit();

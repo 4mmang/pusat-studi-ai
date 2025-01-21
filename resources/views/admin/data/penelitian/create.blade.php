@@ -49,7 +49,16 @@
                                     <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="dana" class="">Dana yang Diperoleh (Rp)<sup
+                                        class="text-danger">*</sup></label>
+                                <input type="number" value="{{ old('dana') }}"
+                                    class="form-control @error('dana')
+                                                                is-invalid
+                                                            @enderror"
+                                    name="dana" id="dana" placeholder="Rp. 0" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <label for="link_akses" class="">Link Akses Penelitian <sup
                                         class="text-danger">*</sup></label>
                                 <input type="url" value="{{ old('link_akses') }}"
@@ -58,7 +67,8 @@
                                 @enderror"
                                     name="link_akses" id="link_akses" required>
                             </div>
-                            <div class="col-md-5 mb-12">
+
+                            <div class="col-md-6 mb-3">
                                 <label for="anggota">Authors <sup class="text-danger">*</sup></label>
                                 <!-- Dropdown multi-select -->
                                 <select class="form-control mt-2 mb-3" name="anggota[]" id="anggota-select" multiple>
@@ -87,6 +97,39 @@
 
                                 <!-- Input hidden untuk menyimpan daftar author -->
                                 <input type="hidden" name="authors" id="authors" value="[]">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="">Jenis Luaran<sup class="text-danger">*</sup></p>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="jurnal">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Jurnal</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="artikel">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Artikel</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="haki">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">HaKI</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="berita">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Berita</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="alat">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Alat</label>
+                                </div>
+                                <div>
+                                    <input name="luaran[]" class="form-check-input border-1 border-dark ms-auto characteristic" type="checkbox"
+                                    value="lainnya">
+                                    <label class="form-check-label ms-4" for="flexCheckDefault">Lainnya</label>
+                                </div>
                             </div>
                         </div>
                         <a href="{{ route('penelitian.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>

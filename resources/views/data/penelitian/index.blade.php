@@ -7,7 +7,8 @@
                 <div class="w-full px-4 mb-10">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Data Penelitian</h4>
                     <p class="font-medium text-base text-secondary lg:text-lg">Data ini dapat diakses publik.
-                        Apabila dimanfaatkan untuk kebutuhan penelitian dan analisis, silahkan hubungi Pusat Studi Artificial Intelligence
+                        Apabila dimanfaatkan untuk kebutuhan penelitian dan analisis, silahkan hubungi Pusat Studi
+                        Artificial Intelligence
                         untuk mendapatkan informasi lebih lanjut.</p>
                 </div>
             </div>
@@ -23,6 +24,8 @@
                             <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Nama
                                 Penyelenggara</th>
                             <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Level
+                            </th>
+                            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Luaran
                             </th>
                             <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300">Tahun
                             </th>
@@ -48,6 +51,13 @@
                                 </td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300">{{ $item->penyelenggara }}</td>
                                 <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">{{ $item->level }}
+                                </td>
+                                <td class="px-4 py-2 text-gray-700 border border-gray-300 capitalize">
+                                    @foreach ($item->luaran as $luaran)
+                                        {{ $luaran->nama }}@if (!$loop->last)
+                                            ,
+                                        @endif
+                                    @endforeach
                                 </td>
                                 <td class="whitespace-nowrap px-4 py-2 text-gray-700 border border-gray-300">
                                     {{ \Carbon\Carbon::parse($item->tanggal_penelitian)->format('Y') }}</td>

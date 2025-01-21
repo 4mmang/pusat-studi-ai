@@ -52,10 +52,12 @@
                                 <label for="level" class="">Level <sup class="text-danger">*</sup></label>
                                 <select name="level" class="form-control" value="{{ old('level') }}" id="level"
                                     required>
+                                    <option value="Quartile-1 (Q1)">Quartile-1 (Q1)</option>
+                                    <option value="Quartile-2 (Q2)">Quartile-2 (Q2)</option>
+                                    <option value="Quartile-3 (Q3)">Quartile-3 (Q3)</option>
+                                    <option value="Quartile-4 (Q4)">Quartile-4 (Q4)</option>
+                                    <option value="No-Quartile">No-Quartile</option>
                                     <option value="Nasional">Nasional</option>
-                                    <option value="Internasional">Internasional</option>
-                                    <option value="Nasional Bereputasi">Nasional Bereputasi</option>
-                                    <option value="Internasional Bereputasi">Internasional Bereputasi</option>
                                 </select>
                             </div>
                             <div class="col-md-12 mb-3">
