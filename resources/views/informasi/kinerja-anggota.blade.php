@@ -274,7 +274,7 @@
     </section>
     <!-- About Section End -->
 @endsection
-@section('scripts')
+@push('scripts')
     <script>
         function setDefaultDates() {
             const today = new Date();
@@ -422,4 +422,4 @@
             }
         }
     </script>
-@endsection
+@endpush

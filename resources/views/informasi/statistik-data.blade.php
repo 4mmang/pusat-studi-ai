@@ -57,7 +57,7 @@
     </section>
     <!-- Our statistik Section End -->
 @endsection
-@section('scripts')
+@push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var bar = document.getElementById('myBarChart').getContext('2d');
@@ -289,4 +289,4 @@
                 });
         });
     </script>
-@endsection
+@endpush

@@ -67,4 +67,5 @@
         </div>
     </div>
 </section>
+@include('event.section')
 @endsection

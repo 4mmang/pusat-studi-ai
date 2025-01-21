@@ -71,43 +71,51 @@ Route::get('/artikel/{id}', function ($id) {
 
 Route::prefix('/kelompok-riset')->group(function () {
     Route::get('/kebencanaan', function () {
+        $events = Event::all();
         $kebencanaan = Kebencanaan::all();
-        return view('kelompok-riset.kebencanaan', compact('kebencanaan'));
+        return view('kelompok-riset.kebencanaan', compact('kebencanaan', 'events'));
     })->name('kebencanaan');
-
+    
     Route::get('/transportasi', function () {
+        $events = Event::all();
         $transportasi = Transportasi::all();
-        return view('kelompok-riset.transportasi', compact('transportasi'));
+        return view('kelompok-riset.transportasi', compact('transportasi', 'events'));
     })->name('transportasi');
-
+    
     Route::get('/kesehatan', function () {
+        $events = Event::all();
         $kesehatan = Kesehatan::all();
-        return view('kelompok-riset.kesehatan', compact('kesehatan'));
+        return view('kelompok-riset.kesehatan', compact('kesehatan', 'events'));
     })->name('kesehatan');
-
+    
     Route::get('/kebudayaan', function () {
+        $events = Event::all();
         $kebudayaan = Kebudayaan::all();
-        return view('kelompok-riset.kebudayaan', compact('kebudayaan'));
+        return view('kelompok-riset.kebudayaan', compact('kebudayaan', 'events'));
     })->name('kebudayaan');
-
+    
     Route::get('/smart-sistem', function () {
+        $events = Event::all();
         $smartSistem = SmartSistem::all();
-        return view('kelompok-riset.smart-sistem', compact('smartSistem'));
+        return view('kelompok-riset.smart-sistem', compact('smartSistem', 'events'));
     })->name('smartSistem');
     
     Route::get('/algoritma-komputasi', function () {
+        $events = Event::all();
         $algoritmaKomputasi = AlgoritmaKomputasi::all();
-        return view('kelompok-riset.algoritma', compact('algoritmaKomputasi'));
+        return view('kelompok-riset.algoritma', compact('algoritmaKomputasi', 'events'));
     })->name('algoritmaKomputasi');
-
+    
     Route::get('/software-development', function () {
+        $events = Event::all();
         $softwareDevelopment = SoftwareDevelopment::all();
-        return view('kelompok-riset.software', compact('softwareDevelopment'));
+        return view('kelompok-riset.software', compact('softwareDevelopment', 'events'));
     })->name('softwareDevelopment');
-
+    
     Route::get('/pertanian-berkelanjutan', function () {
+        $events = Event::all();
         $pertanianBerkelanjutan = PertanianBerkelanjutan::all();
-        return view('kelompok-riset.pertanian-berkelanjutan', compact('pertanianBerkelanjutan'));
+        return view('kelompok-riset.pertanian-berkelanjutan', compact('pertanianBerkelanjutan', 'events'));
     })->name('pertanianBerkelanjutan');
 
 
