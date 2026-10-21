@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+    <style>
+        #workshops .statistik-chart { position: relative; width: 100%; height: 250px; }
+        #workshops .statistik-empty { height: 100%; box-sizing: border-box; display: flex;
+            flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+            padding: 24px; text-align: center; background: #f8fafc;
+            border: 1px dashed #cbd5e1; border-radius: 12px; color: #64748b; }
+        #workshops .statistik-empty strong { color: #475569; font-size: 16px; }
+        #workshops .statistik-empty p { margin: 0; font-size: 14px; line-height: 1.6; }
+        #workshops .statistik-empty[hidden], #workshops canvas[hidden] { display: none !important; }
+    </style>
     <!-- Our statistik Section Start -->
     <section id="workshops" class="pt-36 pb-16">
         <div class="container">
@@ -21,52 +31,143 @@
                             class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <button onclick="filter()" class="bg-primary p-2 text-white rounded-xl px-5">Filter</button>
                     </div>
-                    <canvas id="myBarChart" class="mt-3" style="height: 250px; width: 100%"></canvas>
+                    <div class="statistik-chart mt-3">
+                        <canvas id="myBarChart" style="height: 250px; width: 100%"></canvas>
+                        <div id="myBarChart-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Persentase Total Penelitian, Pengabdian dan Publikasi</h1>
                     <div>
+                        <div class="statistik-chart">
                         <canvas id="doughnut-totaldata" style="height: 250px; width: 100%"></canvas>
+                        <div id="doughnut-totaldata-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Penelitian, Pengabdian dan Publikasi</h1>
                     <div>
+                        <div class="statistik-chart">
                         <canvas id="myLineChart" style="height: 250px; width: 100%"></canvas>
+                        <div id="myLineChart-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Persentase Berdasarkan Level Penelitian</h1>
                     <div>
+                        <div class="statistik-chart">
                         <canvas id="doughnut-levelpenelitian" style="height: 250px; width: 100%"></canvas>
+                        <div id="doughnut-levelpenelitian-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Persentase Berdasarkan Level Pengabdian</h1>
                     <div>
+                        <div class="statistik-chart">
                         <canvas id="doughnut-levelpengabdian" style="height: 250px; width: 100%"></canvas>
+                        <div id="doughnut-levelpengabdian-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="mb-12 p-4 md:w-1/2">
                     <h1 class="text-center mb-3">Persentase Berdasarkan Level Publikasi</h1>
                     <div>
+                        <div class="statistik-chart">
                         <canvas id="doughnut-levelpublikasi" style="height: 250px; width: 100%"></canvas>
+                        <div id="doughnut-levelpublikasi-empty" class="statistik-empty" role="status" aria-live="polite" hidden>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 4v16h16M8 16v-4m5 4V8m5 8v-6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <strong>Belum ada data</strong>
+                            <p>Data untuk grafik ini belum tersedia.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- Our statistik Section End -->
 @endsection
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var bar = document.getElementById('myBarChart').getContext('2d');
-        var line = document.getElementById('myLineChart').getContext('2d');
+        // Simpan konfigurasi dan konstruktor masing-masing chart (file ini memakai Chart.js 2 dan versi modern).
+        const statistikCharts = {};
+
+        function hasStatistikData(datasets) {
+            return datasets.some(dataset => Array.isArray(dataset.data) && dataset.data.some(value => {
+                const number = Number(value);
+                return Number.isFinite(number) && number > 0;
+            }));
+        }
+
+        function renderStatistikChart(id, config, emptyMessage) {
+            let entry = statistikCharts[id];
+            if (!entry) {
+                entry = statistikCharts[id] = { config: config, constructor: Chart, chart: null };
+            }
+            const canvas = document.getElementById(id);
+            const empty = document.getElementById(id + '-empty');
+            const hasData = hasStatistikData(entry.config.data.datasets);
+            empty.querySelector('p').textContent = emptyMessage || 'Data untuk grafik ini belum tersedia.';
+            empty.hidden = hasData;
+            canvas.hidden = !hasData;
+
+            // Jangan membuat chart kosong; buat kembali ketika data tersedia.
+            if (!hasData) {
+                if (entry.chart) {
+                    entry.chart.destroy();
+                    entry.chart = null;
+                }
+                return;
+            }
+            if (!entry.chart) {
+                entry.chart = new entry.constructor(canvas, entry.config);
+            } else {
+                entry.chart.data = entry.config.data;
+                entry.chart.update();
+            }
+        }
+
 
         // bar
-        let data = ["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"]
+        let data = ["{{ $totalPenelitian ?? 0 }}", "{{ $totalPengabdian ?? 0 }}", "{{ $totalPublikasi ?? 0 }}"]
 
-        let myBarChart = new Chart(bar, {
+        renderStatistikChart('myBarChart', {
             type: 'bar',
             data: {
                 labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
@@ -96,9 +197,11 @@
         });
 
         async function filter() {
-            let tahun = document.getElementById('tahun').value;
+            let tahun = document.getElementById('tahun').value.trim();
+            if (!tahun) return;
             try {
                 const response = await fetch('statistik/filter/' + tahun);
+                if (!response.ok) throw new Error('Gagal mengambil data statistik.');
                 const res = await response.json();
 
                 // Perbarui data
@@ -106,25 +209,31 @@
                     .totalPublikasi
                 ]; // Pastikan res.tahun adalah array dengan data baru
 
-                // Update chart
-                myBarChart.data.datasets[0].data = data;
-                myBarChart.data.datasets[0].label = 'Total Data Tahun ' + tahun;
-                myBarChart.update(); // Update chart dengan data baru
+                const chartData = statistikCharts.myBarChart.config.data;
+                chartData.datasets[0].data = data;
+                chartData.datasets[0].label = 'Total Data Tahun ' + tahun;
+                renderStatistikChart('myBarChart', null,
+                    'Belum ada data pada tahun ' + tahun + '.');
             } catch (e) {
                 console.error('Error:', e);
             }
         }
         // line
-        const totalPenelitianPerTahun = @json($totalPenelitianPerTahun);
-        const totalPengabdianPerTahun = @json($totalPengabdianPerTahun);
-        const totalPublikasiPerTahun = @json($totalPublikasiPerTahun);
-        var myLineChart = new Chart(line, {
+        const totalPenelitianPerTahun = @json($totalPenelitianPerTahun ?? []);
+        const totalPengabdianPerTahun = @json($totalPengabdianPerTahun ?? []);
+        const totalPublikasiPerTahun = @json($totalPublikasiPerTahun ?? []);
+        const statistikYears = [...new Set([
+            ...Object.keys(totalPenelitianPerTahun),
+            ...Object.keys(totalPengabdianPerTahun),
+            ...Object.keys(totalPublikasiPerTahun)
+        ])].sort((a, b) => Number(a) - Number(b));
+        renderStatistikChart('myLineChart', {
             type: 'line',
             data: {
-                labels: Object.keys(totalPenelitianPerTahun), // Gunakan label dinamis
+                labels: statistikYears, // Gabungan tahun dari ketiga kategori
                 datasets: [{
                         label: 'Penelitian',
-                        data: Object.values(totalPenelitianPerTahun),
+                        data: statistikYears.map(tahun => Number(totalPenelitianPerTahun[tahun]) || 0),
                         fill: false,
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 2,
@@ -132,7 +241,7 @@
                     },
                     {
                         label: 'Pengabdian',
-                        data: Object.values(totalPengabdianPerTahun) ?? [0, 0, 0, 0, 0],
+                        data: statistikYears.map(tahun => Number(totalPengabdianPerTahun[tahun]) || 0),
                         fill: false,
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
@@ -140,7 +249,7 @@
                     },
                     {
                         label: 'Publikasi',
-                        data: Object.values(totalPublikasiPerTahun) ?? [0, 0, 0, 0, 0],
+                        data: statistikYears.map(tahun => Number(totalPublikasiPerTahun[tahun]) || 0),
                         fill: false,
                         borderColor: 'rgba(255, 206, 86, 1)',
                         borderWidth: 2,
@@ -202,14 +311,14 @@
                 }]
             };
 
-            new Chart(document.getElementById(id), {
+            renderStatistikChart(id, {
                 type: type,
                 data: data,
                 options: options
             });
         }
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $totalPenelitian }}", "{{ $totalPengabdian }}", "{{ $totalPublikasi }}"], [
+            createChart(["{{ $totalPenelitian ?? 0 }}", "{{ $totalPengabdian ?? 0 }}", "{{ $totalPublikasi ?? 0 }}"], [
                 'Penelitian', 'Pengabdian', 'Publikasi'
             ], type + '-totaldata', type, {
                 responsive: true,
@@ -227,9 +336,9 @@
             });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $q1 }}",
-                    "{{ $q2 }}", "{{ $q3 }}",
-                    "{{ $q4 }}", "{{ $noQuartile }}", "{{ $nasional }}"
+            createChart(["{{ $q1 ?? 0 }}",
+                    "{{ $q2 ?? 0 }}", "{{ $q3 ?? 0 }}",
+                    "{{ $q4 ?? 0 }}", "{{ $noQuartile ?? 0 }}", "{{ $nasional ?? 0 }}"
                 ],
                 ['Quartile-1 (Q1)', 'Quartile-2 (Q2)', 'Quartile-3 (Q3)', 'Quartile-4 (Q4)', 'No-Quartile', 'Nasional'], type +
                 '-levelpublikasi',
@@ -249,8 +358,8 @@
                 });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $mandiriPengabdian }}", "{{ $universitasPengabdian }}", "{{ $nasionalPengabdian }}",
-                    "{{ $internasionalPengabdian }}", "{{ $pengabdianLainnya }}"
+            createChart(["{{ $mandiriPengabdian ?? 0 }}", "{{ $universitasPengabdian ?? 0 }}", "{{ $nasionalPengabdian ?? 0 }}",
+                    "{{ $internasionalPengabdian ?? 0 }}", "{{ $pengabdianLainnya ?? 0 }}"
                 ],
                 ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpengabdian',
                 type, {
@@ -269,8 +378,8 @@
                 });
         });
         ['doughnut'].forEach(function(type) {
-            createChart(["{{ $mandiriPenelitian }}", "{{ $universitasPenelitian }}", "{{ $nasionalPenelitian }}",
-                    "{{ $internasionalPenelitian }}", "{{ $penelitianLainnya }}"
+            createChart(["{{ $mandiriPenelitian ?? 0 }}", "{{ $universitasPenelitian ?? 0 }}", "{{ $nasionalPenelitian ?? 0 }}",
+                    "{{ $internasionalPenelitian ?? 0 }}", "{{ $penelitianLainnya ?? 0 }}"
                 ],
                 ['Mandiri', 'Universitas', 'Nasional', 'Internasional', 'Lainnya'], type + '-levelpenelitian',
                 type, {
