@@ -5,7 +5,7 @@
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-5">
-                    <h2 class="font-bold text-3xl sm:text-4xl lg:text-2xl mb-4">Laporan Kinerja Pusat Studi Artificial Intelligence</h2>
+                    <h2 class="font-bold text-3xl sm:text-4xl lg:text-2xl mb-4">Pusat Informasi dan Laporan Kegiatan Pusat Studi</h2>
                 </div>
             </div>
 
