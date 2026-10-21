@@ -75,7 +75,8 @@
                                 alt="Platform DATAU" width="w-full">
                         </div>
                         <h3 class="font-semibold text-md flex justify-center text-dark mt-2 mb-3">
-                            <a href="{{ $event->link_pendaftaran }}" target="_blank" class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
+                            <a href="{{ $event->link_pendaftaran }}" target="_blank"
+                                class="p-3 px-5 py-3 bg-primary text-white rounded-full">Daftar Sekarang</a>
                         </h3>
                     </div>
                 @empty
@@ -315,15 +316,13 @@
     <!-- Kampus partnert Section End -->
 
     <!-- Kepercayaan Section Start -->
+    @if ($dipercaya->isNotEmpty())
     <section id="kepercayaan" class="pt-24 pb-16">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-3xl text-primary mb-2">Dipercaya Oleh</h4>
                     {{-- <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Dipercaya Oleh</h2> --}}
-                    {{-- <p class="font-medium text-md text-secondary md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aut.
-                    </p> --}}
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
@@ -334,11 +333,12 @@
                         </div>
                     </div>
                 @empty
-                    <p>Tidak ada data</p>
+                    {{-- <p>Tidak ada data</p> --}}
                 @endforelse
             </div>
         </div>
     </section>
+    @endif
     <!-- Kepercayaan Section End -->
 
     <!-- Berita Section Start -->
@@ -347,10 +347,16 @@
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     {{-- <h4 class="font-semibold text-lg text-primary mb-2">Artikel</h4> --}}
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Terbaru</h2>
-                    <p class="font-medium text-md text-secondary md:text-lg">
-                        Baca artikel-artikel Kami!
-                    </p>
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Artikel Terbaru</h2>
+                    @if ($artikel->isEmpty())
+                        <p class="font-medium text-md text-secondary md:text-lg">
+                            Belum ada artikel yang ditambahkan.
+                        </p>
+                    @else
+                        <p class="font-medium text-md text-secondary md:text-lg">
+                            Baca artikel-artikel Kami!
+                        </p>
+                    @endif
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
@@ -361,12 +367,14 @@
                                 <img src="{{ asset('storage/' . $item->sampul) }}" alt="" width="w-full">
                             </div>
                             <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $item->judul }}</h3>
-                            <p class="font-medium text-base text-secondary">by. <span class="font-bold">{{ $item->penulis->nama }}</span> | {{ $item->created_at->format('d F Y') }}
+                            <p class="font-medium text-base text-secondary">by. <span
+                                    class="font-bold">{{ $item->penulis->nama }}</span> |
+                                {{ $item->created_at->format('d F Y') }}
                             </p>
                         </a>
                     </div>
                 @empty
-                    <p>Belum ada artikel yang ditambahkan.</p>
+                    {{-- <p>Belum ada artikel yang ditambahkan.</p> --}}
                 @endforelse
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">

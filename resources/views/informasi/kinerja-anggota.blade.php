@@ -6,46 +6,53 @@
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 ">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Kinerja Anggota</h4>
-                    <p class="font-medium text-base text-secondary lg:text-lg">Silahkan pilih nama anggota pusat studi pada form dibawah untuk melihat kinerja.</p>
+                    <p class="font-medium text-base text-secondary lg:text-lg">Silahkan pilih nama anggota pusat studi pada
+                        form dibawah untuk melihat kinerja.</p>
                 </div>
             </div>
             <div class="bg-white shadow-lg ml-4 mr-4 rounded-lg p-7 border border-gray-200">
-                <div class="flex flex-row flex-wrap">
-                    <div class="w-full md:w-1/4 px-4 mb-4">
-                        <div class="mb-2">
-                            <label for="password1" class="block text-gray-700 text-sm font-bold mb-2">Anggota:</label>
-                            <form class="max-w-sm mx-auto">
-                                <select id="user_id"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    @foreach ($anggota as $ang)
-                                        <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
-                                    @endforeach
-                                </select>
-                            </form>
+                @if ($anggota->isEmpty())
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Belum ada data anggota.
+                    </p>
+                @else
+                    <div class="flex flex-row flex-wrap">
+                        <div class="w-full md:w-1/4 px-4 mb-4">
+                            <div class="mb-2">
+                                <label for="password1" class="block text-gray-700 text-sm font-bold mb-2">Anggota:</label>
+                                <form class="max-w-sm mx-auto">
+                                    <select id="user_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        @foreach ($anggota as $ang)
+                                            <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/4 px-4 mb-4">
+                            <div class="mb-2">
+                                <label for="mulai" class="block text-gray-700 text-sm font-bold mb-2">Mulai:</label>
+                                <input type="date" id="mulai" name="mulai" placeholder="Enter your mulai"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/4 px-4 mb-4">
+                            <div class="mb-2">
+                                <label for="akhir" class="block text-gray-700 text-sm font-bold mb-2">Akhir:</label>
+                                <input type="date" id="akhir" name="akhir" placeholder="Enter your akhir"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/6 px-4 mb-4">
+                            <div class="mb-2">
+                                <button type="button" id="proses" onclick="proses()"
+                                    class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full"><i
+                                        class="fal fa-share-all"></i> Proses</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/4 px-4 mb-4">
-                        <div class="mb-2">
-                            <label for="mulai" class="block text-gray-700 text-sm font-bold mb-2">Mulai:</label>
-                            <input type="date" id="mulai" name="mulai" placeholder="Enter your mulai"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 px-4 mb-4">
-                        <div class="mb-2">
-                            <label for="akhir" class="block text-gray-700 text-sm font-bold mb-2">Akhir:</label>
-                            <input type="date" id="akhir" name="akhir" placeholder="Enter your akhir"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/6 px-4 mb-4">
-                        <div class="mb-2">
-                            <button type="button" id="proses" onclick="proses()"
-                                class="bg-blue-500 rounded-full text-white px-4 py-2 mt-7 hover:bg-blue-600 w-full"><i
-                                    class="fal fa-share-all"></i> Proses</button>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
             <div id="cetak"
                 class="bg-white @if (!$kinerja) hidden @endif  shadow-sm ml-4 mr-4 rounded-lg p-12 mt-4 border border-gray-200">

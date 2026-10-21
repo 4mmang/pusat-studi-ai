@@ -2,12 +2,21 @@
 @section('content')
     <section id="rekam-jejak" class="pt-36 pb-16 bg-slate-50">
         <div class="container">
+            @php
+                $adaAlgoritmaKomputasi = count($algoritmaKomputasi ?? []) > 0;
+            @endphp
             <div class="flex flex-wrap justify-center items-center">
-                <div class="w-2/5 flex flex-wrap items-center justify-center">
-                    <img src="{{ asset('img/13.png') }}" alt="" class="w-3/4 lg:-mt-16">
+                <div class="{{ $adaAlgoritmaKomputasi ? 'w-2/5' : 'w-full' }} flex flex-wrap items-center justify-center">
+                    <img src="{{ asset('img/13.png') }}" alt="" class="{{ $adaAlgoritmaKomputasi ? 'w-2/5' : 'w-2/5' }} lg:-mt-16">
                     <p class="font-semibold text-xl text-center lg:z-10 lg:-mt-20">Rekam Jejak Kelompok Riset <span
-                            class="text-red-500">Algoritma & Komputasi</span></p>
+                            class="text-red-500">Algoritma & Komputasi</span>
+                            @if ($adaAlgoritmaKomputasi <= 0)
+                            <br>
+                            <span class="font-medium text-md text-secondary md:text-lg">Belum ada rekam jejak</span>
+                            @endif
+                        </p>
                 </div>
+                @if ($adaAlgoritmaKomputasi)
                 <div class="md:w-3/5 mt-7">
                     <div class="max-w-6xl mx-auto p-6">
                         <div class="relative">
@@ -23,7 +32,7 @@
                                     style="border-left: 2px dashed white;">
                                 </div>
 
-                                <!-- Gambar di atas -->
+                                <!-- Gambar di atas -->D
                             </div>
                             @if (optional($algoritmaKomputasi)->count() > 0)
                             <!-- Gambar di atas -->
@@ -64,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </section>

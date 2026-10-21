@@ -152,7 +152,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="group relative">
+                        {{-- <li class="group relative">
                             <button id="dropdownButtonKelompokRiset"
                                 class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
@@ -209,7 +209,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="group">
                             <a href="{{ route('unduh') }}"
                                 class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">

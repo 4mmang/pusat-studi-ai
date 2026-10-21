@@ -26,12 +26,12 @@ class KebencanaanController extends Controller
             'keterangan' => 'required',
         ]);
 
-        Kebencanaan::create([
+        $kebencanaan = Kebencanaan::create([
             'tahun' => $request->tahun,
             'keterangan' => $request->keterangan,
         ]);
 
-        return redirect()->route('kebencanaan.edit')->with([
+        return redirect()->route('kebencanaan.edit', $kebencanaan->id)->with([
             'message' => 'Rekam jejak riset baru berhasil ditambahkan',
         ]);
     }

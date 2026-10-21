@@ -71,7 +71,7 @@
                 <i class="fas fa-fw fa-users"></i>
                 <span>Anggota</span></a>
         </li>
-        <li class="nav-item {{ Request::is('admin/kelompok-riset*') ? 'active' : '' }}">
+        {{-- <li class="nav-item {{ Request::is('admin/kelompok-riset*') ? 'active' : '' }}">
             <a class="nav-link {{ Request::is('admin/kelompok-riset*') ? 'active' : 'collapsed' }}" href="#"
                 data-toggle="collapse" data-target="#kelompok-riset" aria-expanded="true" aria-controls="sumber-daya">
                 <i class="fas fa-fw fa-road"></i>
@@ -98,7 +98,7 @@
                         href="{{ route('software.index') }}">Software Development</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
         <li class="nav-item {{ Request::is('admin/kontak*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('kontak.index') }}">
                 <i class="fas fa-fw fa-phone"></i>

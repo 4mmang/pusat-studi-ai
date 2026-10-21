@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Foto</th>
+                                    <th class="text-center">Kartu Anggota</th>
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Aksi</th>
@@ -30,8 +30,8 @@
                                     <tr>
                                         <td class="align-middle">{{ $loop->iteration }}</td>
                                         <td class="align-middle">
-                                            @if ($ang->foto)
-                                                <img src="{{ asset('storage/' . $ang->foto) }}" style="width: 100px"
+                                            @if ($ang->kartu_anggota)
+                                                <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" style="width: 50px"
                                                     alt="">
                                             @else
                                                 <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" style="width: 80px"

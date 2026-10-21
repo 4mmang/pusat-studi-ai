@@ -142,9 +142,9 @@
                     <div class="mb-12 md:w-1/6 border border-slate-300">
                         <a href="{{ route('kinerja-anggota.show', $ang->id) }}">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                {{-- <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full"> --}}
-                                @if ($ang->foto)
-                                    <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full">
+                                @if ($ang->kartu_anggota)
+                                <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full">
+                                    {{-- <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full"> --}}
                                 @else
                                     <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" alt=""
                                         width="w-full">
