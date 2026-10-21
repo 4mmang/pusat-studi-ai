@@ -147,7 +147,7 @@ Route::get('/data/publikasi', function () {
 
 Route::get('/login', function () {
     return view('auth.login');
-})->name('login');
+})->name('login')->middleware('guest');
 
 Route::post('/validation', [LoginController::class, 'validation'])->name('validation');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -7,9 +7,15 @@
                 <div class="max-w-xl mx-auto text-center mb-12">
                     {{-- <h4 class="font-semibold text-lg text-primary mb-2">Daftar</h4> --}}
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Artikel</h2>
+                    @if ($artikel->isNotEmpty())
                     <p class="font-medium text-md text-secondary md:text-lg">
                         Baca artikel-artikel Kami!
                     </p>
+                    @else
+                    <p class="font-medium text-md text-secondary md:text-lg">
+                        Belum ada artikel yang ditambahkan.
+                    </p>
+                    @endif
                 </div>
             </div>
 
@@ -26,7 +32,7 @@
                         </a>
                     </div>
                 @empty
-                    <p>Belum ada artikel yang ditambahkan.</p>
+                    {{-- <p>Belum ada artikel yang ditambahkan.</p> --}}
                 @endforelse
             </div>
         </div>

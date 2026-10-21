@@ -13,9 +13,12 @@
                         Pusat Studi <span id="typewriter" class="text-blue-600"></span>
                     </h4> --}}
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
-                        Artificial Intelligence Research Center Unsulbar adalah pusat inovasi dan penelitian di bidang kecerdasan buatan (AI) yang
-                        berada di bawah naungan Universitas Sulawesi Barat. Kami berkomitmen untuk mendukung pengembangan teknologi AI yang
-                        berbasis budaya lokal serta memberikan solusi untuk tantangan lokal, nasional, dan global di era Revolusi Industri 4.0
+                        Artificial Intelligence Research Center Unsulbar adalah pusat inovasi dan penelitian di bidang
+                        kecerdasan buatan (AI) yang
+                        berada di bawah naungan Universitas Sulawesi Barat. Kami berkomitmen untuk mendukung pengembangan
+                        teknologi AI yang
+                        berbasis budaya lokal serta memberikan solusi untuk tantangan lokal, nasional, dan global di era
+                        Revolusi Industri 4.0
                         dan Society 5.0.
                     </p>
                     <h4 class="font-bold uppercase text-lg mb-3 mt-5">
@@ -23,8 +26,10 @@
                     </h4>
                     <div class="px-0">
                         <li class="font-medium text-base text-secondary max-w-xl lg:text-lg" style="list-style-type: none;">
-                            Kami mengadakan pelatihan, penelitian, dan pengembangan solusi berbasis AI untuk mendukung kebutuhan
-                            lokal di berbagai sektor, serta menyediakan layanan konsultasi bagi pemerintah, industri, dan akademisi atau proyek
+                            Kami mengadakan pelatihan, penelitian, dan pengembangan solusi berbasis AI untuk mendukung
+                            kebutuhan
+                            lokal di berbagai sektor, serta menyediakan layanan konsultasi bagi pemerintah, industri, dan
+                            akademisi atau proyek
                             lainnya.
                         </li>
                         {{-- <li class="font-medium text-base text-secondary max-w-xl lg:text-lg">
@@ -72,7 +77,8 @@
                     <h4 class="font-bold uppercase text-primary text-lg mt-3">
                         Misi
                     </h4>
-                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg" style="list-style-type: none;">
+                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg"
+                        style="list-style-type: none;">
                         <p class="font-bold text-blue-500">
                             Pendidikan
                         </p>
@@ -80,7 +86,8 @@
                         sumber daya manusia
                         yang kompeten, kreatif, dan inovatif.
                     </li>
-                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg" style="list-style-type: none;">
+                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg"
+                        style="list-style-type: none;">
                         <p class="font-bold  text-blue-500">
                             Penelitian dan Inovasi
                         </p>
@@ -88,7 +95,8 @@
                         kebutuhan masyarakat lokal,
                         nasional, dan global, serta mendorong inovasi berbasis budaya di Sulawesi Barat.
                     </li>
-                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg" style="list-style-type: none;">
+                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg"
+                        style="list-style-type: none;">
                         <p class="font-bold  text-blue-500">
                             Pemanfaatan Teknologi
                         </p>
@@ -96,7 +104,8 @@
                         sektor ekonomi, dan
                         menjaga keberlanjutan lingkungan.
                     </li>
-                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg" style="list-style-type: none;">
+                    <li class="mt-2 font-medium text-base text-secondary max-w-xl lg:text-lg"
+                        style="list-style-type: none;">
                         <p class="font-bold  text-blue-500">
                             Kolaborasi dan Tata Kelola
                         </p>
@@ -116,9 +125,15 @@
                 <div class="max-w-xl mx-auto text-center mb-16">
                     {{-- <h4 class="font-semibold text-lg text-primary mb-2">Daftar</h4> --}}
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Anggota</h2>
-                    <p class="font-medium text-md text-secondary md:text-lg">
-                        Tim Kami merupakan ahli dari bidang masing-masing
-                     </p>
+                    @if ($anggota->isNotEmpty())
+                        <p class="font-medium text-md text-secondary md:text-lg">
+                            Tim kami merupakan ahli dari bidang masing-masing.
+                        </p>
+                    @else
+                        <p class="font-medium text-md text-secondary md:text-lg">
+                            Belum ada anggota yang terdaftar.
+                        </p>
+                    @endif
                 </div>
             </div>
 
@@ -127,19 +142,19 @@
                     <div class="mb-12 md:w-1/6 border border-slate-300">
                         <a href="{{ route('kinerja-anggota.show', $ang->id) }}">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full">
-                                {{-- @if ($ang->foto)
+                                {{-- <img src="{{ asset('storage/' . $ang->kartu_anggota) }}" alt="" class="w-full"> --}}
+                                @if ($ang->foto)
                                     <img src="{{ asset('storage/' . $ang->foto) }}" alt="" width="w-full">
                                 @else
                                     <img src="{{ asset('img/Avatar-Profile-PNG-Free-Image.png') }}" alt=""
                                         width="w-full">
-                                @endif --}}
+                                @endif
                             </div>
                             {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3 text-center">{{ $ang->nama }}</h3> --}}
                         </a>
                     </div>
                 @empty
-                    <p>Belum ada anggota yang terdaftar.</p>
+                    {{-- <p>Belum ada anggota yang terdaftar.</p> --}}
                 @endforelse
             </div>
         </div>
@@ -154,12 +169,13 @@
             <div class="relative">
                 <!-- Vertical Line -->
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 bg-gray-500 h-full">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full" style="border-left: 2px dashed white;"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full" style="border-left: 2px dashed white;">
+                    </div>
                 </div>
                 <!-- Gambar di atas -->
                 <img src="{{ asset('img/101.jpeg') }}" alt="Top Image"
                     class="absolute rounded-full -top-6 left-1/2 transform -translate-x-1/2 w-16 h-auto">
-                
+
                 <!-- Gambar di bawah -->
                 <img src="{{ asset('img/100.jpeg') }}" alt="Bottom Image"
                     class="absolute rounded-full -bottom-14 left-1/2 transform -translate-x-1/2 w-16 h-auto">
@@ -169,7 +185,8 @@
                     <div class="w-1/2 text-right pr-4 mt-12">
                         <p class="font-bold text-3xl">2023</p>
                         <p class="text-lg">
-                            Pembentukan Artificial Intelligence Research Center atau Pusat Studi Artificial Intelligence Universitas Sulawesi Barat
+                            Pembentukan Artificial Intelligence Research Center atau Pusat Studi Artificial Intelligence
+                            Universitas Sulawesi Barat
                         </p>
                     </div>
                     <div class="w-8 h-8 -mt-2 bg-green-500 rounded-full border-2 border-white mx-auto"></div>
@@ -238,16 +255,13 @@
                         <ul x-ref="logos"
                             class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll-right">
                             <li>
-                                <img src="{{ asset('img/1.png') }}" alt="Random Image from Lorem Picsum"
-                                    width="w-full">
+                                <img src="{{ asset('img/1.png') }}" alt="Random Image from Lorem Picsum" width="w-full">
                             </li>
                             <li>
-                                <img src="{{ asset('img/2.png') }}" alt="Random Image from Lorem Picsum"
-                                    width="w-full">
+                                <img src="{{ asset('img/2.png') }}" alt="Random Image from Lorem Picsum" width="w-full">
                             </li>
                             <li>
-                                <img src="{{ asset('img/3.png') }}" alt="Random Image from Lorem Picsum"
-                                    width="w-full">
+                                <img src="{{ asset('img/3.png') }}" alt="Random Image from Lorem Picsum" width="w-full">
                             </li>
                             {{-- <li>
                                 <img src="https://picsum.photos/300/200?random=4" alt="Random Image from Lorem Picsum"
@@ -298,8 +312,7 @@
                         <ul x-ref="logos"
                             class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll-left">
                             <li>
-                                <img src="{{ asset('img/41.png') }}" alt="Random Image from Lorem Picsum"
-                                    width="w-full">
+                                <img src="{{ asset('img/41.png') }}" alt="Random Image from Lorem Picsum" width="w-full">
                             </li>
                             <li>
                                 <img src="{{ asset('img/41.png') }}" alt="Random Image from Lorem Picsum"
@@ -338,7 +351,8 @@
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Riset Unggulan</h2>
                     <p class="font-medium text-md text-secondary md:text-lg">
-                        Pusat Studi Artificial Intelligence Unsulbar berfokus pada beberapa bidang, diantaranya sebagai berikut:
+                        Pusat Studi Artificial Intelligence Unsulbar berfokus pada beberapa bidang, diantaranya sebagai
+                        berikut:
                     </p>
                 </div>
             </div>
@@ -349,24 +363,27 @@
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Kebencanaan
                     </h3>
-                    <p class="font-medium text-base text-secondary">Bidang kajian yang bertujuan untuk menyelidiki manajemen bencana secara holistik, mulai dari tahap pra-bencana, selama
-                    bencana terjadi, hingga pasca bencana.</p>
+                    <p class="font-medium text-base text-secondary">Bidang kajian yang bertujuan untuk menyelidiki
+                        manajemen bencana secara holistik, mulai dari tahap pra-bencana, selama
+                        bencana terjadi, hingga pasca bencana.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/8.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Kesehatan</h3>
-                    <p class="font-medium text-base text-secondary">Kajian ini mencakup aspek kesehatan masyarakat secara menyeluruh, termasuk promosi kesehatan, pencegahan penyakit,
-                    pengendalian penyakit, dan manajemen kesehatan masyarakat.</p>
+                    <p class="font-medium text-base text-secondary">Kajian ini mencakup aspek kesehatan masyarakat secara
+                        menyeluruh, termasuk promosi kesehatan, pencegahan penyakit,
+                        pengendalian penyakit, dan manajemen kesehatan masyarakat.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/9.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Pertanian Berkelanjutan</h3>
-                    <p class="font-medium text-base text-secondary">Penelitian ini berkaitan dengan konsep pertanian berkelanjutan, dengan tujuan meningkatkan produktivitas hasil pertanian
-                    dan menjaga keberlanjutan lingkungan.
+                    <p class="font-medium text-base text-secondary">Penelitian ini berkaitan dengan konsep pertanian
+                        berkelanjutan, dengan tujuan meningkatkan produktivitas hasil pertanian
+                        dan menjaga keberlanjutan lingkungan.
                     </p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
@@ -374,7 +391,8 @@
                         <img src="{{ asset('img/10.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Transportasi</h3>
-                    <p class="font-medium text-base text-secondary">Bidang kajian ini memanfaatkan teknologi untuk pemantauan, manajemen, dan pengendalian sistem transportasi.
+                    <p class="font-medium text-base text-secondary">Bidang kajian ini memanfaatkan teknologi untuk
+                        pemantauan, manajemen, dan pengendalian sistem transportasi.
                     </p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
@@ -382,30 +400,34 @@
                         <img src="{{ asset('img/11.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Antropolinguistik & Kebudayaan</h3>
-                    <p class="font-medium text-base text-secondary">Kajian ini menggali hubungan antara bahasa, budaya, dan masyarakat dengan tujuan menghasilkan
-                    produk teknologi yang relevan.</p>
+                    <p class="font-medium text-base text-secondary">Kajian ini menggali hubungan antara bahasa, budaya, dan
+                        masyarakat dengan tujuan menghasilkan
+                        produk teknologi yang relevan.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/12.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Smart Sistem</h3>
-                    <p class="font-medium text-base text-secondary">Fokus pada pengembangan sistem-sistem cerdas yang dapat memberikan solusi inovatif dalam berbagai konteks.</p>
+                    <p class="font-medium text-base text-secondary">Fokus pada pengembangan sistem-sistem cerdas yang dapat
+                        memberikan solusi inovatif dalam berbagai konteks.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/13.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Algoritma & Komputasi</h3>
-                    <p class="font-medium text-base text-secondary">Penelitian ini mengeksplorasi pengembangan algoritma dan komputasi yang mendorong kemajuan dalam berbagai aplikasi
-                    kecerdasan buatan.</p>
+                    <p class="font-medium text-base text-secondary">Penelitian ini mengeksplorasi pengembangan algoritma
+                        dan komputasi yang mendorong kemajuan dalam berbagai aplikasi
+                        kecerdasan buatan.</p>
                 </div>
                 <div class="mb-12 p-4 md:w-1/4">
                     <div class="rounded-md shadow-md overflow-hidden flex justify-center items-center">
                         <img src="{{ asset('img/14.png') }}" alt="" width="w-full">
                     </div>
                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Software Development</h3>
-                    <p class="font-medium text-base text-secondary">Kajian ini berkaitan dengan pengembangan perangkat lunak yang mendukung berbagai aplikasi kecerdasan buatan</p>
+                    <p class="font-medium text-base text-secondary">Kajian ini berkaitan dengan pengembangan perangkat
+                        lunak yang mendukung berbagai aplikasi kecerdasan buatan</p>
                 </div>
             </div>
         </div>

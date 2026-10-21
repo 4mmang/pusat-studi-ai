@@ -138,7 +138,7 @@
     <!-- Keunggulan Section End -->
 
     <!-- Reviews Section Start -->
-    <section class="bg-slate-100">
+    {{-- <section class="bg-slate-100">
         <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Apa Kata Mereka?
@@ -284,7 +284,7 @@
                 </blockquote>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Reviews Section End -->
 
     <!-- Kampus partnert Section Start -->
@@ -334,7 +334,7 @@
                         </div>
                     </div>
                 @empty
-                    <p>Belum ada yang percaya.</p>
+                    <p>Tidak ada data</p>
                 @endforelse
             </div>
         </div>
