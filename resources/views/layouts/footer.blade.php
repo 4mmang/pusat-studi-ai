@@ -12,22 +12,22 @@
                 <h3 class="font-semibold text-xl text-white mb-5">Layanan Kami</h3>
                 <ul class="text-slate-300">
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Pelatihan & Workshop</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Pelatihan & Workshop</a>
                     </li>
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Kelas Riset AI</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Kelas Riset AI</a>
                     </li>
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Konsultasi</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Konsultasi</a>
                     </li>
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Software Development</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Software Development</a>
                     </li>
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Inkubasi Starup</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Inkubasi Startup</a>
                     </li>
                     <li>
-                        <a href="" class="inline-block text-base first:hover:text-primary mb-3">Layanan Riset & Pengembangan</a>
+                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Layanan Riset & Pengembangan</a>
                     </li>
                 </ul>
             </div>
@@ -35,17 +35,17 @@
                 <h3 class="font-semibold text-xl text-white mb-5">Tautan Terkait</h3>
                 <ul class="text-slate-300">
                     <li>
-                        <a href="#beranda" class="inline-block text-base first:hover:text-primary mb-3">Beranda</a>
+                        <a href="{{route('beranda')}}" class="inline-block text-base first:hover:text-white mb-3">Beranda</a>
                     </li>
                     <li>
-                        <a href="#statistik" class="inline-block text-base first:hover:text-primary mb-3">Statistik</a>
+                        <a href="{{route('statistik')}}" class="inline-block text-base first:hover:text-white mb-3">Statistik</a>
                     </li>
                     <li>
-                        <a href="#services" class="inline-block text-base first:hover:text-primary mb-3">Data
+                        <a href="#services" class="inline-block text-base first:hover:text-white mb-3">Data
                             Publikasi</a>
                     </li>
                     <li>
-                        <a href="#workshops" class="inline-block text-base first:hover:text-primary mb-3">Tentang
+                        <a href="#workshops" class="inline-block text-base first:hover:text-white mb-3">Tentang
                             Kami</a>
                     </li>
                 </ul>
