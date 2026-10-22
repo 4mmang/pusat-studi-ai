@@ -41,11 +41,11 @@
                         <a href="{{route('statistik')}}" class="inline-block text-base first:hover:text-white mb-3">Statistik</a>
                     </li>
                     <li>
-                        <a href="#services" class="inline-block text-base first:hover:text-white mb-3">Data
+                        <a href="{{route('publikasi.index')}}" class="inline-block text-base first:hover:text-white mb-3">Data
                             Publikasi</a>
                     </li>
                     <li>
-                        <a href="#workshops" class="inline-block text-base first:hover:text-white mb-3">Tentang
+                        <a href="{{route('tentang-kami')}}" class="inline-block text-base first:hover:text-white mb-3">Tentang
                             Kami</a>
                     </li>
                 </ul>
