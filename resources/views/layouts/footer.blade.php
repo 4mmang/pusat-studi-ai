@@ -41,7 +41,7 @@
                         <a href="{{route('statistik')}}" class="inline-block text-base first:hover:text-white mb-3">Statistik</a>
                     </li>
                     <li>
-                        <a href="{{ url('/data/publikasi') }}" class="inline-block text-base first:hover:text-white mb-3">Data
+                        <a href="{{ url('/publikasi') }}" class="inline-block text-base first:hover:text-white mb-3">Data
                             Publikasi</a>
                     </li>
                     <li>
