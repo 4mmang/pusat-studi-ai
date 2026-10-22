@@ -45,7 +45,7 @@
                             Publikasi</a>
                     </li>
                     <li>
-                        <a href="{{}}" class="inline-block text-base first:hover:text-white mb-3">Tentang
+                        <a href="{{route('tentang-kami')}}" class="inline-block text-base first:hover:text-white mb-3">Tentang
                             Kami</a>
                     </li>
                 </ul>
