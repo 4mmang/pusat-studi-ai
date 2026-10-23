@@ -36,7 +36,7 @@
     @endif
 
     @if ((Auth::check() && Auth::user()->role === 'admin') || Auth::user()->role === 'anggota')
-        <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
+        {{-- <li class="nav-item {{ Request::is('admin/data*') ? 'active' : '' }}">
             <a class="nav-link {{ Request::is('admin/data*') ? 'active' : 'collapsed' }}" href="#"
                 data-toggle="collapse" data-target="#data" aria-expanded="true" aria-controls="sumber-daya">
                 <i class="fas fa-fw fa-database"></i>
@@ -51,6 +51,41 @@
                         href="{{ route('penelitian.index') }}">Penelitian</a>
                     <a class="collapse-item {{ Request::is('admin/data/pengabdian*') ? 'active' : '' }}"
                         href="{{ route('pengabdian.index') }}">Pengabdian</a>
+                </div>
+            </div>
+        </li> --}}
+
+        @php
+            $dataActive = request()->routeIs('publikasi.*', 'penelitian.*', 'pengabdian.*');
+        @endphp
+
+        <li class="nav-item {{ $dataActive ? 'active' : '' }}">
+            <a class="nav-link {{ $dataActive ? '' : 'collapsed' }}" href="#" data-toggle="collapse"
+                data-target="#data" aria-expanded="{{ $dataActive ? 'true' : 'false' }}" aria-controls="data">
+
+                <i class="fas fa-fw fa-database"></i>
+                <span>Data</span>
+            </a>
+
+            <div id="data" class="collapse {{ $dataActive ? 'show' : '' }}" data-parent="#accordionSidebar">
+
+                <div class="bg-white py-2 collapse-inner rounded">
+
+                    <a class="collapse-item {{ request()->routeIs('publikasi.*') ? 'active' : '' }}"
+                        href="{{ route('publikasi.index') }}">
+                        Publikasi
+                    </a>
+
+                    <a class="collapse-item {{ request()->routeIs('penelitian.*') ? 'active' : '' }}"
+                        href="{{ route('penelitian.index') }}">
+                        Penelitian
+                    </a>
+
+                    <a class="collapse-item {{ request()->routeIs('pengabdian.*') ? 'active' : '' }}"
+                        href="{{ route('pengabdian.index') }}">
+                        Pengabdian
+                    </a>
+
                 </div>
             </div>
         </li>

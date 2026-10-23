@@ -31,7 +31,7 @@
                         <!-- Beranda -->
                         <li class="group">
                             <a href="{{ route('beranda') }}"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artificial-intelligance') ? 'text-primary' : '' }}">
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('beranda') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                 Beranda
                             </a>
                         </li>
@@ -39,7 +39,7 @@
                         <!-- Tentang Kami -->
                         <li class="group">
                             <a href="{{ route('tentang-kami') }}"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/tentang-kami') ? 'text-primary' : '' }}">
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('tentang-kami') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                 Tentang Kami
                             </a>
                         </li>
@@ -47,7 +47,7 @@
                         <!-- Sumber Daya Dropdown -->
                         {{-- <li class="group relative">
                             <button id="dropdownButtonSumberDaya"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Sumber Daya
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -76,7 +76,7 @@
                         <!-- Artikel -->
                         <li class="group">
                             <a href="{{ route('artikel') }}"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('artikel', 'artikel.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                 Artikel
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                         <!-- Data Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonData"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/data/publikasi') ? 'text-primary' : '' }}"
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('publikasi', 'publikasi.*', 'penelitian', 'penelitian.*', 'pengabdian', 'pengabdian.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Data
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -98,19 +98,19 @@
                                 class="relative lg:absolute lg:group-hover:block hidden bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
                                     <a href="{{ route('publikasi') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('publikasi', 'publikasi.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Publikasi
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('penelitian') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('penelitian', 'penelitian.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Penelitian
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('pengabdian') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('pengabdian', 'pengabdian.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Pengabdian
                                     </a>
                                 </li>
@@ -120,7 +120,7 @@
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
                             <button id="dropdownButtonInformasi"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('statistik', 'statistik.*', 'kinerja-anggota.*', 'kontak', 'kontak.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Informasi
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -134,19 +134,19 @@
                                 class="relative lg:absolute hidden lg:group-hover:block bg-white rounded-lg p-3 max-w-[250px]">
                                 <li>
                                     <a href="{{ route('statistik') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('statistik', 'statistik.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Statistik Data
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('kinerja-anggota.index') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('kinerja-anggota.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Kinerja Anggota
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('kontak') }}"
-                                        class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                        class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('kontak', 'kontak.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                         Kontak
                                     </a>
                                 </li>
@@ -154,7 +154,7 @@
                         </li>
                         {{-- <li class="group relative">
                             <button id="dropdownButtonKelompokRiset"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('statistik', 'statistik.*', 'kinerja-anggota.*', 'kontak', 'kontak.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Kelompok Riset
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -212,14 +212,14 @@
                         </li> --}}
                         <li class="group">
                             <a href="{{ route('unduh') }}"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/artikel') ? 'text-primary' : '' }}">
+                                class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('unduh', 'unduh.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                 Unduh
                             </a>
                         </li>
 
                         <li class="group relative">
                             <button id="dropdownButtonAksesCepat"
-                                class="text-base text-dark py-2 mx-5 flex group-hover:text-primary"
+                                class="text-base font-normal text-dark py-2 mx-5 flex group-hover:text-primary"
                                 aria-expanded="false">
                                 Akses Cepat
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -260,7 +260,7 @@
                         @auth
                             <li class="group relative">
                                 <button id="dropdownButtonProfil"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/kinerja-anggota') ? 'text-primary' : '' }}"
+                                    class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('dashboard', 'dashboard.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                     aria-expanded="false">
                                     {{ Auth::user()->nama }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-4 mt-1 mx-1" viewBox="0 0 20 20"
@@ -274,7 +274,7 @@
                                     class="relative lg:absolute hidden lg:group-hover:block bg-slate-100 rounded-lg p-3 max-w-[250px]">
                                     <li>
                                         <a href="{{ route('dashboard') }}"
-                                            class="text-base text-dark py-2 px-4 block hover:bg-gray-100">
+                                            class="text-base py-2 px-4 block hover:bg-gray-100 {{ request()->routeIs('dashboard', 'dashboard.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}">
                                             Dashboard
                                         </a>
                                     </li>
