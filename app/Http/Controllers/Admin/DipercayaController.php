@@ -24,7 +24,7 @@ class DipercayaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'logo' => ['required', 'mimes:png,jpg,jpeg'],
+            'logo' => ['required', 'mimes:png,jpg,jpeg,webp'],
         ]);
 
         $dipercaya = new Dipercaya();
