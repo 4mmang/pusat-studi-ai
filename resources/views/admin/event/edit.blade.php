@@ -23,7 +23,7 @@
                                     name="judul" id="judul" value="{{ $event->judul }}" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="poster" class="">Poster <sup class="text-danger">*</sup></label>
+                                <label for="poster" class="">Poster <sup class="text-danger"></sup></label>
                                 <input type="file"
                                     class="form-control @error('poster')
                                     is-invalid
