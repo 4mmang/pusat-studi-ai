@@ -24,7 +24,7 @@ class ParnertKampusController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'logo' => ['required', 'mimes:png,jpg,jpeg'],
+            'logo' => ['required', 'mimes:png,jpg,jpeg,webp'],
         ]);
 
         $parnert = new ParnertKampus();

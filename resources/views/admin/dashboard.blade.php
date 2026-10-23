@@ -46,11 +46,33 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var bar = document.getElementById('myBarChart').getContext('2d');
-        var line = document.getElementById('myLineChart').getContext('2d');
+        // Tampilkan pesan apabila seluruh data pada sebuah grafik bernilai nol.
+        function chartHasData(values) {
+            return values.some(value => Number(value) > 0);
+        }
+
+        function showChartOrMessage(canvasId, values) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return false;
+            if (chartHasData(values)) return true;
+
+            canvas.style.display = 'none';
+            const message = document.createElement('div');
+            message.className = 'd-flex flex-column align-items-center justify-content-center text-muted text-center';
+            message.style.minHeight = '250px';
+            message.innerHTML = '<div style="font-size: 32px; opacity: .55; margin-bottom: 8px;">&#128202;</div>' +
+                '<p class="mb-0">Data belum tersedia</p>';
+            canvas.parentNode.insertBefore(message, canvas.nextSibling);
+            return false;
+        }
+
+        const totalData = @json([$totalPenelitian, $totalPengabdian, $totalPublikasi]);
+        const showBar = showChartOrMessage('myBarChart', totalData);
+        const bar = showBar ? document.getElementById('myBarChart').getContext('2d') : null;
+
 
         // bar
-        var myBarChart = new Chart(bar, {
+        if (showBar) new Chart(bar, {
             type: 'bar',
             data: {
                 labels: ['Penelitian', 'Pengabdian', 'Publikasi'],
@@ -90,7 +112,14 @@
         const totalPenelitianPerTahun = @json($totalPenelitianPerTahun);
         const totalPengabdianPerTahun = @json($totalPengabdianPerTahun);
         const totalPublikasiPerTahun = @json($totalPublikasiPerTahun);
-        var myLineChart = new Chart(line, {
+        const lineData = [
+            ...Object.values(totalPenelitianPerTahun),
+            ...Object.values(totalPengabdianPerTahun),
+            ...Object.values(totalPublikasiPerTahun)
+        ];
+        const showLine = showChartOrMessage('myLineChart', lineData);
+        const line = showLine ? document.getElementById('myLineChart').getContext('2d') : null;
+        if (showLine) new Chart(line, {
             type: 'line',
             data: {
                 labels: Object.keys(totalPenelitianPerTahun), // Gunakan label dinamis
@@ -108,7 +137,7 @@
                         fill: false,
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
-                        tension: 0.1
+                        tension: 0.2
                     },
                     {
                         label: 'Publikasi',
@@ -116,7 +145,7 @@
                         fill: false,
                         borderColor: 'rgba(255, 206, 86, 1)',
                         borderWidth: 2,
-                        tension: 0.1
+                        tension: 0
                     }
                 ]
             },
@@ -130,8 +159,11 @@
                 animations: {
                     tension: {
                         duration: 2000,
-                        easing: 'linear',
-                        from: 1,
+                        easing: 'easeInOutQuad',
+                        from: function(context) {
+                            return context.datasetIndex === 0 ? 1 : context.datasetIndex === 1 ? 0.5 :
+                                1; // Sesuaikan arah berdasarkan dataset
+                        },
                         to: 0,
                         loop: true
                     }
@@ -156,6 +188,7 @@
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <script>
         function createChart(dataChart, labels, id, type, options) {
+            if (!showChartOrMessage(id, dataChart)) return;
             var data = {
                 labels: labels,
                 datasets: [{

@@ -24,7 +24,7 @@ class EventController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'poster' => ['required', 'mimes:png,jpg,jpeg'],
+            'poster' => ['required', 'mimes:png,jpg,jpeg,webp'],
             'link_pendaftaran' => 'required',
         ]);
 

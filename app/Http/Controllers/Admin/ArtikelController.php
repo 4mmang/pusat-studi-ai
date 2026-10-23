@@ -30,7 +30,7 @@ class ArtikelController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'sampul' => ['required', 'mimes:png,jpg,jpeg'],
+            'sampul' => ['required', 'mimes:png,jpg,jpeg,webp'],
             'konten' => 'required',
         ]);
 

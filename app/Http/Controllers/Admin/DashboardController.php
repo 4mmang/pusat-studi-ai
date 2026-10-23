@@ -51,16 +51,18 @@ class DashboardController extends Controller
             $totalPenelitianPerTahun[$year] = Penelitian::whereYear('tanggal_penelitian', $year)->count();
             $totalPengabdianPerTahun[$year] = Pengabdian::whereYear('tanggal_pengabdian', $year)->count();
             $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)->count();
-        }
+        } 
 
         $user = Auth::user();
 
         if ($user->role === 'anggota') {
+
             $totalPenelitian = Penelitian::where('user_id', $user->id)
                 ->orWhereHas('authors', function ($query) use ($user) {
                     $query->where('user_id', $user->id);
                 })
                 ->count();
+
             $totalPengabdian = Pengabdian::where('user_id', $user->id)
                 ->orWhereHas('authors', function ($query) use ($user) {
                     $query->where('user_id', $user->id);
@@ -188,6 +190,24 @@ class DashboardController extends Controller
                 ->where('level', 'lainnya')
                 ->count();
 
+            // $totalPenelitianPerTahun = [];
+            // $totalPengabdianPerTahun = [];
+            // $totalPublikasiPerTahun = [];
+
+            // // Loop untuk 5 tahun terakhir
+            // for ($i = 4; $i >= 0; $i--) {
+            //     $year = $currentYear - $i;
+            //     $totalPenelitianPerTahun[$year] = Penelitian::whereYear('tanggal_penelitian', $year)
+            //         ->where('user_id', $user->id)
+            //         ->count();
+            //     $totalPengabdianPerTahun[$year] = Pengabdian::whereYear('tanggal_pengabdian', $year)
+            //         ->where('user_id', $user->id)
+            //         ->count();
+            //     $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)
+            //         ->where('user_id', $user->id)
+            //         ->count();
+            // }
+
             $totalPenelitianPerTahun = [];
             $totalPengabdianPerTahun = [];
             $totalPublikasiPerTahun = [];
@@ -195,14 +215,32 @@ class DashboardController extends Controller
             // Loop untuk 5 tahun terakhir
             for ($i = 4; $i >= 0; $i--) {
                 $year = $currentYear - $i;
+
                 $totalPenelitianPerTahun[$year] = Penelitian::whereYear('tanggal_penelitian', $year)
-                    ->where('user_id', $user->id)
+                    ->where(function ($query) use ($user) {
+                        $query->where('user_id', $user->id)
+                            ->orWhereHas('authors', function ($q) use ($user) {
+                                $q->where('user_id', $user->id);
+                            });
+                    })
                     ->count();
+
                 $totalPengabdianPerTahun[$year] = Pengabdian::whereYear('tanggal_pengabdian', $year)
-                    ->where('user_id', $user->id)
+                    ->where(function ($query) use ($user) {
+                        $query->where('user_id', $user->id)
+                            ->orWhereHas('authors', function ($q) use ($user) {
+                                $q->where('user_id', $user->id);
+                            });
+                    })
                     ->count();
+
                 $totalPublikasiPerTahun[$year] = Publikasi::whereYear('tanggal_publikasi', $year)
-                    ->where('user_id', $user->id)
+                    ->where(function ($query) use ($user) {
+                        $query->where('user_id', $user->id)
+                            ->orWhereHas('authors', function ($q) use ($user) {
+                                $q->where('user_id', $user->id);
+                            });
+                    })
                     ->count();
             }
         }

@@ -21,6 +21,11 @@
                                     is-invalid
                                 @enderror"
                                     name="judul" id="judul" required>
+                                @error('judul')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="sampul" class="">Sampul <sup class="text-danger"></sup></label>
@@ -29,11 +34,21 @@
                                     is-invalid
                                 @enderror"
                                     name="sampul" id="sampul">
+                                @error('sampul')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <label for="konten" class="mt-3">Isi Artikel <sup class="text-danger">*</sup></label>
                         <textarea name="konten" class="form-control" id="konten" cols="30" rows="10" required>{{ $artikel->konten }}</textarea>
+                        @error('konten')
+                            <div class="text-danger small mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <a href="{{ route('artikel.index') }}" class="btn btn-danger float-end mt-3 ml-2">Kembali</a>
                         <button id="simpan" type="submit" style="background-color: #38527E"
                             class="btn text-white mt-3 float-end px-4"><i class="fas fa-save mr-1"></i>
