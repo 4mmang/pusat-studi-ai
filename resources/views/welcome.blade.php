@@ -327,7 +327,7 @@
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                 @forelse ($dipercaya as $percaya)
-                    <div class="mb-12 p-4 md:w-1/6">
+                    <div class="mb-12 p-4 md:w-1/3">
                         <div class="rounded-md overflow-hidden flex justify-center items-center">
                             <img src="{{ asset('storage/' . $percaya->logo) }}" alt="" width="w-full">
                         </div>
