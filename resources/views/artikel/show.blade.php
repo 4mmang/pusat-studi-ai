@@ -5,11 +5,17 @@
             <div class="w-full md:w-3/4 px-4 pb-16">
                 <div>
                     <h2 class="font-bold text-3xl mb-4">{{ $artikel->judul }}</h2>
-                    <p class="font-medium text-base text-secondary mb-4 mt-2">by. <span class="font-bold">{{ $artikel->penulis->nama }}</span> | {{ $artikel->created_at->format('d F Y') }}
-                        <a href="#" onclick="copyLink('{{ url('artikel/' . $artikel->id) }}')"
+                    <p class="font-medium text-base text-secondary mb-4 mt-2">by. <span
+                            class="font-bold">{{ $artikel->penulis->nama }}</span> |
+                        {{ $artikel->created_at->format('d F Y') }}
+                        <button type="button" onclick="copyLink(@js(route('artikel.view', $artikel->id)))"
                             class="font-base font-bold text-sm bg-primary px-4 p-1 py-2 text-white">
                             <i class="fas fa-link"></i> Salin Link
-                        </a>
+                        </button>
+                        {{-- <a href="#" onclick="copyLink('{{ url('artikel/' . $artikel->id) }}')"
+                            class="font-base font-bold text-sm bg-primary px-4 p-1 py-2 text-white">
+                            <i class="fas fa-link"></i> Salin Link
+                        </a> --}}
                     </p>
                     {{-- <img src="{{ asset('storage/' . $artikel->sampul) }}" class="md:w-1/2 w-full" alt=""> --}}
                 </div>
@@ -45,8 +51,8 @@
         </div>
     </section>
 @endsection
-@section('scripts')
-    <script>
+@push('scripts')
+    {{-- <script>
         function copyLink(link) {
             const fullLink = `${link}`; // Membuat URL lengkap
             navigator.clipboard.writeText(fullLink)
@@ -57,5 +63,36 @@
                     console.error('Gagal menyalin link: ', err);
                 });
         }
+    </script> --}}
+
+    <script>
+        async function copyLink(link) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(link);
+                } else {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = link;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+
+                    const berhasil = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+
+                    if (!berhasil) {
+                        throw new Error('Gagal menyalin link');
+                    }
+                }
+
+                alert('Link berhasil disalin!');
+            } catch (error) {
+                console.error('Gagal menyalin link:', error);
+                alert('Gagal menyalin link. Silakan coba lagi.');
+            }
+        }
     </script>
-@endsection
+@endpush

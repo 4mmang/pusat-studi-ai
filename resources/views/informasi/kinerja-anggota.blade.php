@@ -23,10 +23,21 @@
                                 <form class="max-w-sm mx-auto">
                                     <select id="user_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                                        @foreach ($anggota as $ang)
+                                            <option value="{{ $ang->id }}"
+                                                {{ isset($kinerja['anggota']) && $kinerja['anggota']->id == $ang->id ? 'selected' : '' }}>
+                                                {{ $ang->nama }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                    {{-- <select id="user_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         @foreach ($anggota as $ang)
                                             <option value="{{ $ang->id }}">{{ $ang->nama }}</option>
                                         @endforeach
-                                    </select>
+                                    </select> --}}
                                 </form>
                             </div>
                         </div>
@@ -63,7 +74,10 @@
                         <p class="font-medium text-secondary mt-3">Data Laporan Penelitian, Pengabdian kepada Masyarakat dan
                             Publikasi Ilmiah
                             Pusat Studi Artificial Intelligance Universitas Sulawesi Barat</p>
-                        <p class="text-secondary">Tanggal: 24 November 2024</p>
+                        {{-- <p class="text-secondary">Tanggal: 24 November 2024</p> --}}
+                        <p class="text-secondary">
+                            Periode: <span id="periodeTanggal">-</span>
+                        </p>
                     </div>
                     <div class="w-full lg:w-1/2 p-5">
                         <p class="mb-2 font-bold text-secondary">Data Diri</p>
@@ -283,6 +297,24 @@
 @endsection
 @push('scripts')
     <script>
+        function updatePeriode() {
+            const mulai = document.getElementById('mulai').value;
+            const akhir = document.getElementById('akhir').value;
+
+            const formatTanggal = (tanggal) => {
+                if (!tanggal) return '-';
+
+                return new Date(tanggal + 'T00:00:00').toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            };
+
+            document.getElementById('periodeTanggal').textContent =
+                `${formatTanggal(mulai)} - ${formatTanggal(akhir)}`;
+        }
+
         function setDefaultDates() {
             const today = new Date();
             const oneYearAgo = new Date();
@@ -297,7 +329,11 @@
         }
 
         // Panggil fungsi saat halaman selesai dimuat
-        window.onload = setDefaultDates;
+        // window.onload = setDefaultDates;
+        window.onload = function () {
+    setDefaultDates();
+    updatePeriode();
+};
 
         function proses() {
             let userId = document.getElementById('user_id')
@@ -329,6 +365,8 @@
                         return response.json()
                     })
                     .then(res => {
+
+                        updatePeriode();
 
                         // console.log(res);
                         btnProses.disabled = false

@@ -62,7 +62,9 @@ class UserController extends Controller
         $user->nama = $request->nama;
         $user->email = $request->email;
         $user->jenis_kelamin = $request->jenis_kelamin;
-        $user->password = Hash::make($request->password);
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
         $user->update();
         return back()->with([
             'message' => 'Berhasil mengupdate data admin',

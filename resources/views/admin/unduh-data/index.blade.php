@@ -24,7 +24,7 @@
                             <label for="orientasi">Orientasi</label>
                             <select name="orientasi" class="form-control" id="">
                                 <option value="potrait">Potrait</option>
-                                <option value="landscape">Lanscape</option>
+                                <option value="landscape">Landscape</option>
                             </select>
                         </div>
                     </div>

@@ -11,23 +11,23 @@
             <div class="w-full px-4 mb-12 md:w-1/3">
                 <h3 class="font-semibold text-xl text-white mb-5">Layanan Kami</h3>
                 <ul class="text-slate-300">
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Pelatihan & Workshop</a>
+                    <li class="mb-3">
+                        Pelatihan & Workshop
                     </li>
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Kelas Riset AI</a>
+                    <li class="mb-3">
+                        Kelas Riset AI
                     </li>
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Konsultasi</a>
+                    <li class="mb-3">
+                        Konsultasi
                     </li>
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Software Development</a>
+                    <li class="mb-3">
+                        Software Development
                     </li>
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Inkubasi Startup</a>
+                    <li class="mb-3">
+                        Inkubasi Startup
                     </li>
-                    <li>
-                        <a href="#" class="inline-block text-base first:hover:text-white mb-3">Layanan Riset & Pengembangan</a>
+                    <li class="mb-3">
+                        Layanan Riset & Pengembangan
                     </li>
                 </ul>
             </div>

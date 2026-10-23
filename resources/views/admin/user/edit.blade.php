@@ -36,7 +36,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="password">Ganti Password <sup class="text-danger">*</sup></label>
+                            <label for="password">Ganti Password <sup class="text-danger"></sup></label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
                                 name="password" id="password">
                         </div>
