@@ -65,6 +65,8 @@
                     </div>
                 @endif
             </div>
+            <p id="kinerja-error" role="alert" aria-live="assertive"
+                class="hidden text-red-600 ml-4 mr-4 mt-4"></p>
             <div id="cetak"
                 class="bg-white @if (!$kinerja) hidden @endif  shadow-sm ml-4 mr-4 rounded-lg p-12 mt-4 border border-gray-200">
                 {{-- <a href="#" class="p-2 text-white px-5 rounded-lg py-3 bg-primary">Download</a> --}}
@@ -331,16 +333,53 @@
         // Panggil fungsi saat halaman selesai dimuat
         // window.onload = setDefaultDates;
         window.onload = function () {
-    setDefaultDates();
-    updatePeriode();
+    if (document.getElementById('mulai') && document.getElementById('akhir')) {
+        setDefaultDates();
+        if (!document.getElementById('cetak').classList.contains('hidden')) {
+            document.getElementById('periodeTanggal').textContent = 'Seluruh periode';
+        }
+    }
 };
+
+        let versiFilter = 0;
+
+        function sembunyikanLaporan() {
+            document.getElementById('cetak').classList.add('hidden');
+        }
+
+        function tampilkanError(pesan) {
+            const error = document.getElementById('kinerja-error');
+            error.textContent = pesan;
+            error.classList.toggle('hidden', !pesan);
+        }
+
+        document.querySelectorAll('#user_id, #mulai, #akhir').forEach(input => {
+            input.addEventListener('input', () => {
+                versiFilter++;
+                sembunyikanLaporan();
+                tampilkanError('');
+            });
+        });
 
         function proses() {
             let userId = document.getElementById('user_id')
             let mulai = document.getElementById('mulai')
             let akhir = document.getElementById('akhir')
             let btnProses = document.getElementById('proses')
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            if (!userId || !mulai || !akhir || !btnProses || btnProses.disabled) return;
+            sembunyikanLaporan();
+            tampilkanError('');
+            if (!mulai.value || !akhir.value) {
+                tampilkanError('Tanggal mulai dan tanggal akhir wajib diisi.');
+                return;
+            }
+            if (mulai.value > akhir.value) {
+                tampilkanError('Tanggal akhir harus sama dengan atau setelah tanggal mulai.');
+                akhir.focus();
+                return;
+            }
+            const versiPermintaan = versiFilter;
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 
             if (mulai.value != '' && mulai.value != null && akhir.value != '' && akhir.value != null) {
                 const kinerja = {
@@ -353,25 +392,31 @@
                 fetch("{{ route('kinerja-anggota.store') }}", {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'apllication/json',
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
                             'X-CSRF-TOKEN': csrfToken
                         },
                         body: JSON.stringify(kinerja)
                     })
-                    .then(response => {
+                    .then(async response => {
+                        const body = await response.json().catch(() => ({}));
                         if (!response.ok) {
-                            throw new Error('Terjadi kesalahan')
+                            const pesan = response.status === 422
+                                ? Object.values(body.errors || {}).flat().join(' ')
+                                : 'Laporan gagal dimuat. Silakan coba lagi.';
+                            throw new Error(pesan || body.message || 'Data tidak valid. Periksa kembali isian.');
                         }
-                        return response.json()
+                        return body;
                     })
                     .then(res => {
-
+                        // Abaikan hasil untuk filter yang telah diubah selama request.
+                        if (versiPermintaan !== versiFilter) return;
                         updatePeriode();
 
                         // console.log(res);
                         btnProses.disabled = false
                         btnProses.innerHTML = '<i class="fal fa-share-all"></i> Proses';
-                        document.getElementById('cetak').classList.remove('hidden')
+
                         document.getElementById('nama').innerHTML = res.data.anggota.nama
                         document.getElementById('nip').innerHTML = res.data.anggota.nip ?? '-'
                         document.getElementById('email').innerHTML = res.data.anggota.email
@@ -456,9 +501,16 @@
 
                         // Menetapkan hasil loop ke elemen dengan ID 'data-publikasi'
                         document.getElementById('data-publikasi').innerHTML = tablePublikasi;
+                        document.getElementById('cetak').classList.remove('hidden');
 
                     })
                     .catch(e => {
+                        if (versiPermintaan === versiFilter) {
+                            sembunyikanLaporan();
+                            tampilkanError(e.message || 'Laporan gagal dimuat. Silakan coba lagi.');
+                        }
+                    })
+                    .finally(() => {
                         btnProses.disabled = false
                         btnProses.innerHTML = '<i class="fal fa-share-all"></i> Proses';
                     })

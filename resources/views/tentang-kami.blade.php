@@ -183,7 +183,7 @@
                 <!-- Timeline Start -->
                 <div class="relative z-10 flex items-center mb-8 mr-16">
                     <div class="w-1/2 text-right pr-4 mt-12">
-                        <p class="font-bold text-3xl">2023</p>
+                        <p class="font-bold text-3xl">2024</p>
                         <p class="text-lg">
                             Pembentukan Artificial Intelligence Research Center atau Pusat Studi Artificial Intelligence
                             Universitas Sulawesi Barat
