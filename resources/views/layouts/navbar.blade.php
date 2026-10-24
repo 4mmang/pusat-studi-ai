@@ -46,7 +46,7 @@
 
                         <!-- Sumber Daya Dropdown -->
                         {{-- <li class="group relative">
-                            <button id="dropdownButtonSumberDaya"
+                            <button id="dropdownButtonSumberDaya" type="button" aria-controls="dropdownMenuSumberDaya"
                                 class="text-base py-2 mx-5 flex group-hover:text-primary {{ Request::is('pusat-studi/anggota') ? 'text-primary' : '' }}"
                                 aria-expanded="false">
                                 Sumber Daya
@@ -83,7 +83,7 @@
 
                         <!-- Data Dropdown -->
                         <li class="group relative">
-                            <button id="dropdownButtonData"
+                            <button id="dropdownButtonData" type="button" aria-controls="dropdownMenuData"
                                 class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('publikasi', 'publikasi.*', 'penelitian', 'penelitian.*', 'pengabdian', 'pengabdian.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Data
@@ -119,7 +119,7 @@
 
                         <!-- Informasi Dropdown -->
                         <li class="group relative">
-                            <button id="dropdownButtonInformasi"
+                            <button id="dropdownButtonInformasi" type="button" aria-controls="dropdownMenuInformasi"
                                 class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('statistik', 'statistik.*', 'kinerja-anggota.*', 'kontak', 'kontak.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Informasi
@@ -153,7 +153,7 @@
                             </ul>
                         </li>
                         {{-- <li class="group relative">
-                            <button id="dropdownButtonKelompokRiset"
+                            <button id="dropdownButtonKelompokRiset" type="button" aria-controls="dropdownMenuKelompokRiset"
                                 class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('statistik', 'statistik.*', 'kinerja-anggota.*', 'kontak', 'kontak.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                 aria-expanded="false">
                                 Kelompok Riset
@@ -218,7 +218,7 @@
                         </li>
 
                         <li class="group relative">
-                            <button id="dropdownButtonAksesCepat"
+                            <button id="dropdownButtonAksesCepat" type="button" aria-controls="dropdownMenuAksesCepat"
                                 class="text-base font-normal text-dark py-2 mx-5 flex group-hover:text-primary"
                                 aria-expanded="false">
                                 Akses Cepat
@@ -259,7 +259,7 @@
                         </li>
                         @auth
                             <li class="group relative">
-                                <button id="dropdownButtonProfil"
+                                <button id="dropdownButtonProfil" type="button" aria-controls="dropdownMenuProfil"
                                     class="text-base py-2 mx-5 flex group-hover:text-primary {{ request()->routeIs('dashboard', 'dashboard.*') ? 'font-semibold text-primary' : 'font-normal text-dark' }}"
                                     aria-expanded="false">
                                     {{ Auth::user()->nama }}
@@ -310,3 +310,66 @@
     </div>
 </header>
 <!-- Header End -->
+
+
+<script>
+    (() => {
+        const initDropdownAccessibility = () => {
+            const nav = document.getElementById('nav-menu');
+            if (!nav || nav.dataset.dropdownAriaReady === 'true') return;
+            nav.dataset.dropdownAriaReady = 'true';
+
+            const dropdowns = Array.from(nav.querySelectorAll('button[aria-controls]'))
+                .map(button => ({
+                    button,
+                    menu: document.getElementById(button.getAttribute('aria-controls'))
+                }))
+                .filter(({ menu }) => menu);
+
+            // Read the actual rendered state: CSS hover and existing click handlers
+            // remain responsible for opening and closing the dropdowns.
+            const syncExpanded = () => {
+                dropdowns.forEach(({ button, menu }) => {
+                    const style = window.getComputedStyle(menu);
+                    const expanded = menu.getClientRects().length > 0 &&
+                        style.visibility !== 'hidden' && style.visibility !== 'collapse';
+                    const value = String(expanded);
+                    if (button.getAttribute('aria-expanded') !== value) {
+                        button.setAttribute('aria-expanded', value);
+                    }
+                });
+            };
+
+            let scheduled = false;
+            const scheduleSync = () => {
+                if (scheduled) return;
+                scheduled = true;
+                window.requestAnimationFrame(() => {
+                    scheduled = false;
+                    syncExpanded();
+                });
+            };
+
+            // CSS hover/focus changes do not produce DOM mutations.
+            ['pointerover', 'pointerout', 'focusin', 'focusout', 'click'].forEach(event => {
+                nav.addEventListener(event, scheduleSync);
+            });
+
+            // Track existing scripts that toggle classes, styles, or hidden.
+            new MutationObserver(scheduleSync).observe(nav, {
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['class', 'style', 'hidden']
+            });
+            window.addEventListener('resize', scheduleSync);
+            window.addEventListener('pageshow', scheduleSync);
+            syncExpanded();
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDropdownAccessibility, { once: true });
+        } else {
+            initDropdownAccessibility();
+        }
+    })();
+</script>
